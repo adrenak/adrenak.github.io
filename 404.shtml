@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Game development, plakc, firexit software, adtech, startups, unity3d, xpro rally, speed street">
+    <meta name="author" content="Vatsal Ambastha">
+    <meta name="description" content="Thinking about game dev, design and oranges.">
+    <meta name="google-site-verification" content="9UCBtBRg7D0bgeyjFWmZPQQVYCOc6FDR-5rm6oLICt0" />
+
+    <title>Vatsal Ambastha - [GameDev] [StartUps] [AdTech]</title>
+    <link rel="shortcut icon" href="img/ico.png" type="image/png">
+    
+    <!--
+    ================================================
+    DEPENDENCIES
+    ================================================
+    -->    
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- page generation -->    
+    <script src = "js/commons.js"></script>
+
+</head>
+
+
+<body onLoad = "init()">
+
+    <!-- NAVIGATION BAR -->
+    <div id="nav-bar"></div>
+    
+    <div id="header"></div>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="container">
+        <div id = "blog-entry-list"></div>
+    </div>
+
+    <script>
+        function init(){
+            initNavBar();
+            initHeader();
+            initFooter();
+            createContents();
+        }
+
+        function initNavBar(){
+            var aNavBarBuilder = new NavBarBuilder(
+                new NavBarTextBuilder('', '#111111', '#'),
+                new NavBarTextBuilder('HOME', '#111111', 'index.html'),
+                new NavBarTextBuilder('ABOUT', '#111111', 'about.html'),
+                new NavBarTextBuilder('HIRE ME', '#111111', 'hire-me.html')
+            );
+
+            document.getElementById("nav-bar").appendChild(createNavBar(aNavBarBuilder));
+        }
+
+        function initHeader(){
+            var aHeaderBuilder = new HeaderBuilder('img/lost-bg.png', '', '')
+                .setTitleColor('#eeeeee')
+                .setSubTitleColor('#cccccc')
+                .build();
+            
+            document.getElementById("header").appendChild(createHeader(aHeaderBuilder));
+        }
+
+        function initFooter(){
+            document.getElementById("page-footer").appendChild(createFooter());
+        }
+
+        function createContents(){
+            document.getElementById("contents").appendChild(
+                createFromHTML('' + 
+                    '<center>' +
+                        '<h1>ERROR 404 : MATRIX_GLITCH</h1>' +
+                        '<br><br>' +
+                        '<img src="img/are-you-lost.gif">' +
+                        '<br><br>' +
+                        '<a href="index.html"> <h1>BACK TO HOME PAGE</h1></a>' +
+                    '</center>' +
+                '')
+            );
+        }
+
+    </script>
+
+
+    <div id="contents"></div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div id="page-footer"></div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--
+    ================================================
+    META
+    ================================================
+    -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- for Google -->
+    <meta name="description" content="Thoughts about Unity3D, game development, design, monetization and other related things" />
+    <meta name="keywords" content="Unity3D, Vatsal Ambastha, Firexit Software, Game development, Game design, XPro Rally, Speed Street, Mobile Games, Mumbai, India" />
+
+    <meta name="author" content="Vatsal Ambastha" />
+    <meta name="copyright" content="Vatsal Ambastha 2017" />
+
+    <!-- for Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://www.vatsalambastha.com/index.html" />
+
+    <meta property="og:title" content="Vatsal Ambastha's Blog" />
+    <meta property="og:description" content="Thoughts on Unity3D, game development, design, monetization and other related things" />
+    <meta property="og:image" content="http://www.vatsalambastha.com/img/home-bg.jpg" />
+
+    <meta property="og:site_name" content="VatsalAmbastha.com"/>
+    <meta property="article:publisher" content="https://www.facebook.com/vatsalAmbastha" />
+    <meta property="article:author" content="https://www.facebook.com/vatsalAmbastha" />    
+    
+    <!-- for Twitter -->          
+    <meta name="twitter:card" content="summary" />
+
+    <meta name="twitter:title" content="Vatsal Ambastha's Blog" />
+    <meta name="twitter:description" content="Thoughts about Unity3D, game development, design, monetization and other related things" />
+    <meta name="twitter:image" content="http://www.vatsalambastha.com/img/home-bg.jpg" />
+    
+    <meta name="google-site-verification" content="9UCBtBRg7D0bgeyjFWmZPQQVYCOc6FDR-5rm6oLICt0" />
+
+    <title>Vatsal Ambastha. Designer. Programmer. Unity3D Specialist.</title>
+    <link rel="shortcut icon" href="img/ico.png" type="image/png">
+
+    <!--
+    ================================================
+    DEPENDENCIES
+    ================================================
+    -->
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">    
+
+    <!-- Custom CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- page generation -->    
+    <script src = "js/commons.js"></script>
+    <script src = "js/blogs.js"></script>
+
+</head>
+
+<body onLoad = "Init()">    
+    <!-- NAVIGATION BAR -->
+    <div id="nav-bar"></div>
+    
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container" style="sidebar">
+        <h1>Hi,</h1>
+        <p align="justify" style="font-family:Open Sans; font-size:1.05em" >
+            You've landed on my website. Great! I make <a href="about.html" target="about">games and related things.</a> 
+            If you do too, we can probably <a href="hire-me.html" target="hire">work together</a>!
+            <br>
+            <br>
+            Below is a list of my blog posts. At the bottom on my page, you'll find some of my work and ways to reach me online.
+        </p>
+        <div id = "blog-entry-list"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div id="page-footer"></div>
+    </footer>
+
+    <script>
+        function Init(){
+            initNavBar();
+            initHeader();
+            populateBlogEntries();
+            initFooter();
+        }
+
+        function initNavBar(){
+            var aNavBarBuilder = new NavBarBuilder(
+                new NavBarTextBuilder('', '#000000', '#'),
+                new NavBarTextBuilder('HOME', '#ff7700', '#'),
+                new NavBarTextBuilder('ABOUT', '#ff7700', 'about.html'),
+                new NavBarTextBuilder('HIRE ME', '#ff7700', 'hire-me.html')
+            );
+
+            document.getElementById("nav-bar").appendChild(createNavBar(aNavBarBuilder));
+        }
+
+        function initHeader(){
+            var aHeaderBuilder = new HeaderBuilder('img/home-bg.jpg', 'Vatsal Ambastha', 'Games | Code | Design')
+				.setTitleColor('#ff7700')
+				.setSubTitleColor('#ff9900')
+				.build();
+			
+            document.getElementById("header").appendChild(createHeader(aHeaderBuilder));
+        }
+
+        function populateBlogEntries(){
+            for(var i = blogPosts.length - 1; i != -1; i--)
+                document.getElementById("blog-entry-list").appendChild(createDescriptedBlogLink(blogPosts[i]));  
+        }
+
+        function initFooter(){
+            document.getElementById("page-footer").appendChild(createFooter());
+        }
+    </script>
+</body>
+
+</html>

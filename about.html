@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="9UCBtBRg7D0bgeyjFWmZPQQVYCOc6FDR-5rm6oLICt0" />
+
+    <meta name="keywords" content="Game development, plakc, firexit software, adtech, startups, unity3d, xpro rally, speed street">
+    <meta name="author" content="Vatsal Ambastha">
+    <meta name="description" content="A Unity3D specialist developing games for mobile and PC. Making products for game monetization and user engagement.">
+
+    <title>Vatsal Ambastha. Designer. Programmer. Unity3D Specialist.</title>
+    <link rel="shortcut icon" href="img/ico.png" type="image/png">
+
+    <!--
+    ================================================
+    DEPENDENCIES
+    ================================================
+    -->    
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- page generation -->    
+    <script src = "js/commons.js"></script>
+
+</head>
+
+
+    <body onLoad = "Init()">
+
+        <!-- NAVIGATION BAR -->
+        <div id="nav-bar"></div>
+        
+        <!-- HEADER -->
+        <div id="header"></div>
+
+        <script>
+            function Init(){
+                initNavBar();
+                initHeader();
+                initFooter();
+            }
+
+            function initNavBar(){
+                var aNavBarBuilder = new NavBarBuilder(
+                    new NavBarTextBuilder('', '#111111', '#'),
+                    new NavBarTextBuilder('HOME', '#111111', 'index.html'),
+                    new NavBarTextBuilder('ABOUT', '#111111', '#'),
+                    new NavBarTextBuilder('HIRE ME', '#111111', 'hire-me.html')
+                );
+
+                document.getElementById("nav-bar").appendChild(createNavBar(aNavBarBuilder));
+            }
+
+            function initHeader(){
+                var aHeaderBuilder = new HeaderBuilder('img/about-bg.jpg', 'ABOUT ME', '')
+                    .setTitleColor('#fafafa')
+                    .setSubTitleColor('#cccccc')
+                    .build();
+                
+                document.getElementById("header").appendChild(createHeader(aHeaderBuilder));
+            }
+
+            function initFooter(){
+                document.getElementById("page-footer").appendChild(createFooter());
+            }
+        </script>
+
+        <!-- TYPE PAGE HERE -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p align="justify">
+                        I began developing video games on the Unity3D platform for android and web in 2010. After a few years and early success, I founded Firexit Software in 2013.
+                        </br></br>
+                        At Firexit we succeeded in making games that were played millions of players worldwide. I worked on monetization based on <a href="http://www.hangoutt.com" target="hangoutt"> eCommerce coupons</a>, <a href="https://www.linkedin.com/pulse/video-ads-rise-watch-to-win-tanay-gaherwar" target="watch2win">video ad viewing prediction </a> and experimental ad formats.
+                    </p>
+
+                    <p align="justify">
+                        I now live in Mumbai and work at <a href = "http://www.Plakc.com" target="plakc">PLAKC</a>, one of the few Dynamic In Game advertising startups in the world. Having turned Firexit from a studio to mostly just me and a friend, I spend my weekends and time after office hours developing upcoming Firexit games such as <a href="http://www.indiedb.com/games/speed-street-2" target="ss2">Speed Street 2</a> and <a href="https://www.facebook.com/KarnageFPS" target="karnage">Karnage</a>.
+                    </p>
+
+                    <p align="justify">
+                        My current interests are monetization and engagement in games, streamlining / optimizing game development process and <a href="https://www.goodreads.com/review/list/44255580?shelf=good-code" target="goodcode">Good</a>  code. 
+                    </p>
+
+                    <p align="justify">
+                        Whenever possible, I love to meet people in games and startups and work with them. 
+                    <p>
+
+                    <p align="justify">
+                        You can contact me at vatsal_ambastha@gmail.com (remove the '_') or through any of the platform icons at the bottom of this page.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div id="page-footer"></div>
+        </footer>
+
+    </body>
+
+</html>

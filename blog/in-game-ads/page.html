@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="9UCBtBRg7D0bgeyjFWmZPQQVYCOc6FDR-5rm6oLICt0" />
+
+    <!-- for Google -->
+    <meta name="description" content="Cast No Shadow" />
+    <meta name="keywords" content="Unity3D, Shadows, Performance, Shadow Proxy, Shader" />
+
+    <meta name="author" content="Vatsal Ambastha" />
+    <meta name="copyright" content="Vatsal Ambastha" />
+
+    <!-- for Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://www.vatsalambastha.com/blog/shadow-proxy/page.html" />
+
+    <meta property="og:title" content="Cast No Shadow" />
+    <meta property="og:description" content="Shadows may be killing your game. Here's one way to fix it." />
+    <meta property="og:image" content="http://www.vatsalambastha.com/blog/shadow-proxy/img/header-bg.jpg" />
+    
+    <meta property="og:site_name" content="VatsalAmbastha.com"/>
+    <meta property="article:publisher" content="https://www.facebook.com/vatsalAmbastha" />
+    <meta property="article:author" content="https://www.facebook.com/vatsalAmbastha" />
+
+    <!-- for Twitter -->          
+    <meta name="twitter:card" content="summary" />
+
+    <meta name="twitter:title" content="Cast No Shadow" />
+    <meta name="twitter:description" content="Shadows may be killing your game. Here's one way to fix it" />
+    <meta name="twitter:image" content="http://www.vatsalambastha.com/blog/shadow-proxy/img/header-bg.jpg" />
+
+    <link rel="shortcut icon" href="../../img/ico.png" type="image/png">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- jQuery -->
+    <script src="../../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../../js/clean-blog.min.js"></script>      
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- page generation -->
+    <script src = "../../js/commons.js"></script>
+    <!-- <script src = "http://www.vatsalambastha.com/js/commons.js"></script> -->
+    <script src = "../../js/blogs.js"></script>
+
+</head>
+
+<body onLoad = "Init()">
+
+    <!-- NAVIGATION BAR -->
+    <div id="nav-bar"></div>
+    
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <div id="page-intro"></div>
+
+        <!-- MAIN CONTENT -->
+    <div class="container">
+        <div id = "blog-entry-list"></div>
+        <div id="contents"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div id="page-footer"></div>
+    </footer>
+
+    <script>
+
+        var BLOG_INDEX = 2;
+
+        function Init(){
+            initNavBar();
+            initHeader();   
+            initFooter();
+            initTitle();
+            createContents();
+        }
+
+        function initTitle(){
+            document.title = "";
+            document.title += blogPosts[BLOG_INDEX][0]; 
+            document.title += " | Vatsal Ambastha's Blog";
+        }
+
+        function initNavBar(){
+            var aNavBarBuilder = new NavBarBuilder(
+                new NavBarTextBuilder('', '#000000', '#'),
+                new NavBarTextBuilder('HOME', '#eeeeee', '../../index.html'),
+                new NavBarTextBuilder('ABOUT', '#eeeeee', '../../about.html'),
+                new NavBarTextBuilder('HIRE ME', '#eeeeee', '../../hire-me.html')
+            );
+
+            document.getElementById("nav-bar").appendChild(createNavBar(aNavBarBuilder));
+        }
+
+        function initHeader(){
+            var header = blogPosts[BLOG_INDEX][0];
+
+            // comment out for real blog
+            // header = "TEMPLATE HEADER";
+
+            var aHeaderBuilder = new HeaderBuilder('img/header-bg.jpg', header, '')
+                .setTitleColor('#eeeeee')
+                .setSubTitleColor('#eeeeee')
+                .build();
+            
+            document.getElementById("header").appendChild(createHeader(aHeaderBuilder));
+        }
+
+        function initFooter(){
+            document.getElementById("page-footer").appendChild(createFooter());
+        }
+
+        function createContents(){
+            document.getElementById("contents").appendChild(createFromHTML(`
+<p align="justify">
+While highly monetizing F2P games make almost all of their money from in app purchases, most of the small developers don't have the tools, skills and sometimes even the drive when it comes to convincing the user to pay with significant sums of real money for our virtual cars and cattle. If you're a one of the latter, ads are likely a vital, if not the major source of your game revenue. 
+ 
+ 
+    <h2>THEN</h2> 
+ 
+ 
+    When I published my first Android game on the Play Store in 2013, there were mostly banner ads.  
+     
+    <br><br> 
+     
+    Interstitial ads was growing fast with a lot of smaller networks offering them. Google Admob would seen go on to start an invite only beta programm for interstitial ads, which later became available to everyone. 
+     
+    <br><br> 
+     
+    Video ads were just about to make an explosive entry and start offering eCPMs over $10 to publishers! I used HeyZap and UnityAds. 
+     
+    <br><br> 
+     
+    Alternate (more intrusive) monetization networks also saw quick adoption among hobbyist developers but it pretty much died in their infancy or successfully adapted due to Google policies. More on this some other day. 
+     
+    <h2>NOW</h2> 
+ 
+ 
+    Today, banner ads are bad. Given how repulsive they are and how less they pay out, you probably lose more revenue by chasing users away. Although there are exceptions. 
+ 
+ 
+    <br><br> 
+ 
+ 
+    Interstitial ads are ok. Users have start to dislike them too when opened in large numbers, but most of them don't mind. As long as they don't take time to render and they can be closed easily, they are fine. 
+ 
+ 
+    <br><br> 
+ 
+ 
+    Video ads are great IMO. You give the user in game items and currently as reward for watching them.  
+     
+    <BR><BR> 
+     
+    Although showing one too many video ads without asking the user is just asking for a rage quit, poor rating or/and uninstall. You can't lock a user out of your game for 15 seconds just like that you know? 
+ 
+ 
+    <h2>NEXT?</h2> 
+    So what's next? People have tried a lot of other things to make the next major ad format.  
+    <br><br> 
+    For instance, incentivised surveys like those by Pollfish can really go well with incentivised videos. 
+ 
+ 
+    <br><br> 
+    Retail discounts and offers by Kiip are great in high retention scenarios, such as lifestyle apps like Any.do 
+ 
+ 
+    <br><br> 
+    Native ads that blend with your UI. If you do a good job integrating them, they can be very effective.  
+ 
+ 
+    <br><br> 
+    However, none of the above are specifically made for games. As a game developer, I often thought of in game ads and why there aren't many companies offering them. I had seen them in console and PC games now and then. And even mobile developers used spare billboards in their games to display posters of their other games. 
+ 
+ 
+    <h2>IN GAME ADS</h2> 
+    PLAKC, the startup I work at offers targeted and dynamic in game ads. Dynamic means, the ads are not hardcoded, instead they are fetched on the fly. Targeted means we show ads based on certain parameters such as individual taste, personality groups and demographics. 
+ 
+ 
+    <br><BR> 
+    Why are in game ads great? 
+    <br><br> 
+     
+    First, they don't stay on the UI layer like banners. 
+    <br><br> 
+    Second, they don't pop up out of nowhere like interstitial ads. 
+    <br><br> 
+    Third, they don't lock your user out of the game while a video plays. 
+    <br><br> 
+    Fourth, they do not replace any of the above! I can keep in game ads as well as all the banners, interstitials and video units. In game ads are completely supplementary revenue. Supplementary revenue that you are probably missing out on! 
+    <BR><BR> 
+ 
+ 
+    In other words, there is not much reason why you shouldn't have them! Of course, don't put advertisements everywhere or put ads where they shouldn't be.  
+     
+    <BR><BR> 
+    But the integration involves no lines of code to be typed. With just a few clicks, you're good to go. Given the ease of integration and the fact that it's only additional revenue, I think it's worth checking out! 
+ 
+ 
+    <BR><BR> 
+    If you are interested, here's the link : www.plakc.com 
+ 
+
+    
+
+    <br><br>
+
+
+
+
+
+    <br><br>
+
+
+
+</p>
+            `));
+        }
+
+    </script>
+
+</body>
+
+</html>
