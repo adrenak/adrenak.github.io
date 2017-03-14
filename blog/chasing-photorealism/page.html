@@ -79,8 +79,95 @@
 
     <!-- MAIN CONTENT -->
     <div class="container">
-        <div id = "blog-entry-list"></div>
-        <div id="contents"></div>
+        <p align="justify">
+            Much of my game development work since I started has been on mobile. While I\'ve certainly had fun doing that, I have realized that
+            it has kept me from pushing myself further as far as pursuing graphical realism goes.
+
+            <br><br>
+
+            When it was released, people told me that <a href="https://play.google.com/store/apps/details?id=com.firexit.speedstreettokyo">Speed Street: Tokyo</a> had pretty
+            good graphics for a mobile game in 2014. 
+
+
+            <br><br>
+
+            <center><img class="img-responsive" src="img/sst.jpg"></center>
+            <blockquote>Speed Street: Tokyo was okay.</blockquote>
+
+
+            <br>
+
+            But there's the problem right there.
+
+            <br><br>
+
+            It is only pretty good. For a mobile game. In 2014.
+
+            <br><br>
+
+            I recently thought of diversifying into architectural visualisations, especially because there is a lot of demand for them owing to the VR craze.
+            Now, these visualizations need to be realistic looking, so I looked up some tutorials and
+            found a nice timelapse video <a href="https://www.youtube.com/watch?v=MX1qRM-lTEU" target="tut"><u>here</u></a>. Below is the end result of the video.
+
+            <br><br>
+
+            <center><img class="img-responsive" src="img/youtube-tut-img.jpg"></center>
+            <blockquote>Such skills. Much wow.</blockquote>
+
+            <br>
+
+            I was impressed. The video creater managed to assemble that in less than half an hour, assuming the video is sped up 4x.
+            But then, I thought I also could do this. After all it is just a sequence of steps in a software I am already so familiar with.
+            By 4 am (yeah, I started after dinner) I had managed to make a pretty good replica of the tutorial and also an original layout of my own.
+            
+            <br><br>
+
+            I spent the week finding time whenever I could after work to make a few more. I got some models from <a href="http://www.archive3d.net" target="archive3d"><u>archive3d.net</u></a>.
+            Problem is, all the models there are high poly and I end up with, like half a million polygons on the screen. Add lighting and the polycount goes up quickly.
+
+            <br><br>
+
+            So, I take the pre-made models and try them in the scene one by one. Then I just make low poly replicas. After all I am not a furniture designer.
+            In a week, I managed to make 3 environments. I like the hotel room the most.
+
+            <br><br>
+
+            <center><img class="img-responsive" src="img/a3.jpg"></center>
+            <blockquote>A random apartment. Forgot to plan a kitchen and bathroom. So I call it an "apartment section".</blockquote>
+
+            <br>
+
+            <center><img class="img-responsive" src="img/g3.jpg"></center>
+            <blockquote>An art galery. Made this for a client.</blockquote>
+
+            <br>
+
+            <center><img class="img-responsive" src="img/h1.jpg"></center>
+            <blockquote>A hotel I stayed at last weekend in Bangalore. They had a full fledged mini kitchen. What economy budget hotel gives you that? So obviously I had to make this.</blockquote>
+
+            <br>
+
+            After the week ended today, I made <a href="https://www.behance.net/adrenak" target="behance"><u>my Behance account</u></a> and added these there. Check it out for more images of these environments.
+            If I get good enough at making more realistic environments, I might write a guide sometime.
+
+            <br><br>
+
+            I like the idea of chasing photorealism, mostly because I want to make more of these real estate visualization things.
+            However, when it comes to games, I remain indifferent. As far as my preference is concerned, I would rather see a good art style.
+
+            <br><br>
+
+            For instance, I played <a href="https://metkis.itch.io/indigo-child" target="indigo"><u>Indigo Child</u></a> yesterday.
+
+            <br><br>
+
+            Does it look realistic? No.
+
+            <br><br>
+
+            Did I love it? Yes. Very much.
+
+        </p>
     </div>
 
 
@@ -97,7 +184,6 @@
             generateNavBar();
             generateHeader();   
             generateFooter();
-            generateContent();
         }
 
         function generateTitle(){
@@ -131,116 +217,7 @@
         function generateFooter(){
             document.getElementById("page-footer").appendChild(createFooter());
         }
-
-        function generateContent(){
-            document.getElementById("contents").appendChild(createFromHTML(''+
-                '<p align="justify">' +
-                    // NOTE: WRITE FROM HERE
-                    ' Much of my game development work since I started has been on mobile. While I\'ve certainly had fun doing that, I have realized that' +
-                    ' it has kept me from pushing myself further as far as pursuing graphical realism goes.' +
-
-                    '<br>'+
-                    '<br>'+
-
-                    ' When it was released, people told me that <a href="https://play.google.com/store/apps/details?id=com.firexit.speedstreettokyo">Speed Street: Tokyo</a> had pretty' +
-                    ' good graphics for a mobile game in 2014. ' + 
-
-
-                    '<br>' + 
-                    '<br>' + 
-
-                    '<img class="img-responsive" src="img/sst.jpg">' + 
-                    '<blockquote>Speed Street: Tokyo was okay.</blockquote>' + 
-
-
-                    '<br>' + 
-
-                    ' But there\'s the problem right there.' + 
-
-                    '<br>'+
-                    '<br>'+
-
-                    'It is only pretty good. For a mobile game. In 2014.' + 
-
-                    '<br>' + 
-                    '<br>' + 
-
-                    ' I recently thought of diversifying into architectural visualisations, especially because there is a lot of demand for them owing to the VR craze.' +
-                    ' Now, these visualizations need to be realistic looking, so I looked up some tutorials and' +
-                    ' found a nice timelapse video <a href="https://www.youtube.com/watch?v=MX1qRM-lTEU" target="tut"><u>here</u></a>. Below is the end result of the video.' +
-
-                    '<br>' +
-                    '<br>' +
-
-                    '<img class="img-responsive" src="img/youtube-tut-img.jpg">' + 
-                    '<blockquote>Such skills. Much wow.</blockquote>' + 
-
-                    '<br>' + 
-
-                    ' I was impressed. The video creater managed to assemble that in less than half an hour, assuming the video is sped up 4x.' + 
-                    ' But then, I thought I also could do this. After all it is just a sequence of steps in a software I am already so familiar with.' +
-                    ' By 4 am (yeah, I started after dinner) I had managed to make a pretty good replica of the tutorial and also an original layout of my own.' +
-                    
-                    '<br>' + 
-                    '<br>' + 
-
-                    ' I spent the week finding time whenever I could after work to make a few more. I got some models from <a href="http://www.archive3d.net" target="archive3d"><u>archive3d.net</u></a>.' + 
-                    ' Problem is, all the models there are high poly and I end up with, like half a million polygons on the screen. Add lighting and the polycount goes up quickly.' + 
-
-                    '<br>'+
-                    '<br>'+
-
-                    ' So, I take the pre-made models and try them in the scene one by one. Then I just make low poly replicas. After all I am not a furniture designer.' + 
-                    ' In a week, I managed to make 3 environments. I like the hotel room the most.' +
-
-                    '<br>' + 
-                    '<br>' + 
-
-                    '<img class="img-responsive" src="img/a3.jpg">' + 
-                    '<blockquote>A random apartment. Forgot to plan a kitchen and bathroom. So I call it an "apartment section".</blockquote>' + 
-
-                    '<br>' + 
-
-                    '<img class="img-responsive" src="img/g3.jpg">' + 
-                    '<blockquote>An art galery. Made this for a client.</blockquote>' + 
-
-                    '<br>' + 
-
-                    '<img class="img-responsive" src="img/h1.jpg">' + 
-                    '<blockquote>A hotel I stayed at last weekend in Bangalore. They had a full fledged mini kitchen. What economy budget hotel gives you that? So obviously I had to make this.</blockquote>' +                   
-
-                    '<br>' + 
-
-                    ' After the week ended today, I made <a href="https://www.behance.net/adrenak" target="behance"><u>my Behance account</u></a> and added these there. Check it out for more images of these environments.' +
-                    ' If I get good enough at making more realistic environments, I might write a guide sometime.' +
-
-                    '<br>' + 
-                    '<br>' + 
-
-                    ' I like the idea of chasing photorealism, mostly because I want to make more of these real estate visualization things.'+
-                    ' However, when it comes to games, I remain indifferent. As far as my preference is concerned, I would rather see a good art style.' +
-
-                    '<br>' +
-                    '<br>' +
-
-                    ' For instance, I played <a href="https://metkis.itch.io/indigo-child" target="indigo"><u>Indigo Child</u></a> yesterday.' +
-
-                    '<br>' +
-                    '<br>'+
-
-                    ' Does it look realistic? No.' +
-
-                    '<br>'+
-                    '<br>'+
-
-                    ' Did I love it? Yes. Very much.' +
-
-                '</p>' +
-            ''));
-        }
-
     </script>
-
 </body>
 
 </html>
