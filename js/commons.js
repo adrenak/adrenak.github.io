@@ -1,5 +1,5 @@
-//var root = "http://www.vatsalAmbastha.com/"
-var root = "file:///E:/Adrenak/adrenak.github.io/"
+var root = "http://www.vatsalAmbastha.com/"
+//var root = "file:///E:/Adrenak/adrenak.github.io/"
 
 // ================================================
 // NAV BAR
