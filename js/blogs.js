@@ -20,5 +20,11 @@ var blogPosts = [
 		"blog/shadow-proxy/page.html",
 		"Shadows may be killing your game's performance. Here's a way how to fix it.",
 		"5 February 2016"
+	],
+	[
+		"In Game Advertising",
+		"blog/IGA/page.html",
+		"There's virtual real estate in your mobile games. Monetize it!",
+		"14 March 2016"
 	]
 ];

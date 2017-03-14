@@ -159,20 +159,16 @@
                     <br>
                     There are some good shadow products in the Unity asset store for this, but they have their limitations. Hence, often you find yourself back at the original problem.
 
-                    <BR>
-                    <BR>
+                    <img class="img-responsive" src="img/dsp.jpg"> 
+                    <blockquote><a href = "https://www.assetstore.unity3d.com/en/#!/content/35558" target = "store"><u>Dynamic shadow projector</u></a> has been among my favourite, must have assets for a while. But it's only good enough for important meshes, like your protagonist or player's car mesh in a racing game. So yeah, not for the herd of goats I want to simulate.</blockquote>
 
+                    
                     So default shadows of high poly models can be computationally expensive and the ones available on the store may not be perfect or even good enough. If you're trying to make a light game or are developing for mobile, might you as well forget real-time shadows and settle for archaic shadow projectors? 
 
                     <br>
                     <br>
                     Shadow projectors have their good uses though. But no! Enough of them, right?
 
-                    <br>
-                    <br>
-
-                    <img class="img-responsive" src="img/dsp.jpg"> 
-                    <blockquote><a href = "https://www.assetstore.unity3d.com/en/#!/content/35558" target = "store"><u>Dynamic shadow projector</u></a> has been among my favourite, must have assets for a while. But it's only good enough for important meshes, like your protagonist or player's car mesh in a racing game. So yeah, not for the herd of goats I want to simulate.</blockquote>
 
                     <h2>A Solution</h2>
                     Here's one approach that I take for actual, realtime shadows : Do not let a high poly mesh (such as a well detailed building) case any shadows. Instead, have an equally sized but very low poly mesh with a plain diffuse shader inside the building that casts the shadow instead. 
@@ -218,7 +214,7 @@ Shader "Transparent/InvisibleShadowCaster"
                     <BR>
                     
                     <img class="img-responsive" src="img/comparision.jpg"> 
-                    <blockquote>Step your shadow game up, tree!</blockquote>
+                    <blockquote>Can you tell which one is the real shadow?</blockquote>
 
                     <BR>
                     
