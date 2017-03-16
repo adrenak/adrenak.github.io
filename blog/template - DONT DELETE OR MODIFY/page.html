@@ -67,6 +67,9 @@
     <script src = "../../js/commons.js"></script>
     <script src = "../../js/blogs.js"></script>
 
+    <!-- MD to HTML -->
+    <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+
 </head>
 
 <body onLoad = "Init()">
@@ -79,10 +82,8 @@
 
     <!-- MAIN CONTENT -->
     <div class="container">
-        <div id = "blog-entry-list"></div>
-        <div id="contents"></div>
+        <!-- TODO: Write content -->
     </div>
-
 
     <!-- FOOTER -->
     <footer>
@@ -90,6 +91,7 @@
     </footer>
 
     <script>
+    // TODO: Set index
     var BLOG_INDEX = 0;
 
         function Init(){
@@ -97,12 +99,12 @@
             initHeader();   
             initFooter();
             initTitle();
-            createContents();
         }
 
         function initTitle(){
             document.title = "";
-            // document.title += blogPosts[BLOG_INDEX][0]; 
+            // TODO: Comment out
+            //document.title += blogPosts[BLOG_INDEX][0]; 
             document.title += " | Vatsal Ambastha's Blog";
         }
 
@@ -120,7 +122,7 @@
         function initHeader(){
             var header = blogPosts[BLOG_INDEX][0];
 
-            // comment out for real blog
+            // TODO: comment out for real blog
             header = "TEMPLATE HEADER";
 
             var aHeaderBuilder = new HeaderBuilder('img/header-bg.jpg', header, '')
@@ -133,14 +135,6 @@
 
         function initFooter(){
             document.getElementById("page-footer").appendChild(createFooter());
-        }
-
-        function createContents(){
-            document.getElementById("contents").appendChild(createFromHTML(''+
-                '<p align="justify">' +
-                    // NOTE: WRITE FROM HERE
-                '</p>' +
-            ''));
         }
 
     </script>
