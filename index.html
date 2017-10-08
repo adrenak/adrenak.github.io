@@ -118,9 +118,9 @@
         function initNavBar(){
             var aNavBarBuilder = new NavBarBuilder(
                 new NavBarTextBuilder('', '#000000', '#'),
-                new NavBarTextBuilder('HOME', '#ff7700', '#'),
-                new NavBarTextBuilder('ABOUT', '#ff7700', 'about.html'),
-                new NavBarTextBuilder('HIRE ME', '#ff7700', 'hire-me.html')
+                new NavBarTextBuilder('HOME', '#eeeeee', '#'),
+                new NavBarTextBuilder('ABOUT', '#eeeeee', 'about.html'),
+                new NavBarTextBuilder('HIRE ME', '#eeeeee', 'hire-me.html')
             );
 
             document.getElementById("nav-bar").appendChild(createNavBar(aNavBarBuilder));
@@ -128,8 +128,8 @@
 
         function initHeader(){
             var aHeaderBuilder = new HeaderBuilder('img/home-bg.jpg', 'Vatsal Ambastha', 'Games | Code | Design')
-				.setTitleColor('#ff7700')
-				.setSubTitleColor('#ff9900')
+				.setTitleColor('#ffffff')
+				.setSubTitleColor('#ffffff')
 				.build();
 			
             document.getElementById("header").appendChild(createHeader(aHeaderBuilder));
