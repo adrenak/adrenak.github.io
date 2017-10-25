@@ -32,5 +32,11 @@ var blogPosts = [
 		"blog/post-apocalyptic-level-design/page.html",
 		"Filling a level with meaningful detail",
 		"23 August 2017"
-	]
+	],
+    [
+        "Kalaa - VR Art Project",
+        "blog/kalaa/page.html",
+        "Using Perlin Noise, Boids and Mesh manipulation to create an abstract VR experience.",
+        "25 October 2017"
+    ]
 ];
