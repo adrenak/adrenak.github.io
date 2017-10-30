@@ -9,19 +9,19 @@
     <meta name="google-site-verification" content="9UCBtBRg7D0bgeyjFWmZPQQVYCOc6FDR-5rm6oLICt0" />
     
     <!-- for Google -->
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="Open Source Pack 1" />
+    <meta name="keywords" content="Open Source, Software, Unity3D, Github, Microphone, VR Video, SerialiazbleDictionary" />
 
     <meta name="author" content="Vatsal Ambastha" />
     <meta name="copyright" content="Vatsal Ambastha" />
 
     <!-- for Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="" />
+    <meta property="og:url" content="http://www.vatsalambastha.com/blog/open-source-pack-1/page.html" />
 
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="" />
+    <meta property="og:title" content="Open Source Pack 1" />
+    <meta property="og:description" content="Open Source, Software, Unity3D, Github, Microphone, VR Video, SerialiazbleDictionary" />
+    <meta property="og:image" content="http://www.vatsalambastha.com/blog/open-source-pack-1/img/header-bg.jpg" />
     
     <meta property="og:site_name" content="VatsalAmbastha.com"/>
     <meta property="article:publisher" content="https://www.facebook.com/vatsalAmbastha" />
@@ -30,9 +30,9 @@
     <!-- for Twitter -->          
     <meta name="twitter:card" content="summary" />
 
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:description" content="" />
-    <meta name="twitter:image" content="" />
+    <meta name="twitter:title" content="Open Source Pack 1" />
+    <meta name="twitter:description" content="Open Source, Software, Unity3D, Github, Microphone, VR Video, SerialiazbleDictionary" />
+    <meta name="twitter:image" content="http://www.vatsalambastha.com/blog/open-source-pack-1/img/header-bg.jpg" />
 
     <link rel="shortcut icon" href="../../img/ico.png" type="image/png">
 
@@ -82,8 +82,22 @@
 
     <!-- MAIN CONTENT -->
     <div class="container">
-        It's Diwali season here in India. Like every year firecrackers are the favourite theme of politics and social awareness activities. I've stopped watching the news for a while so I don't really know much of what's going on. But like every year a lot of companies have come forward with CSR initiatives and a client recently approached me for a Unity project.
+        I've got quite interested in making some open tools recently. Much of them as actually just modules I require from time to time, but it's a great idea to have them available to all. Code sharing and collaboration is something I want to do more of, as I have mostly  worked alone for the last 7 years or so. 
         <BR><BR>
+        Of late, I have changed my development methodology and no longer try to develop and design everything from scratch. The Unity Asset Store and Github are now an essential part of my daily routine. Thus, both the quality of my results and pace of learning by seeing other peoples work has gone up.
+        <BR><BR>
+        Currently, I have 3 repositories on Github that I have released over the last 2 weeks. They are mini projects, tools that help with productivity and code reuse. I have a list of about 10 more projects I want to release, probably over the next 3 months and more are being added every now and then.
+        <BR><BR>
+        <h1><a hred="https://github.com/adrenak/UniMic"><u>UniMic</u></a></h1>
+        A simple abstraction over the Microphone class for Unity. Good for microphone input, or recording voice. I used this for a fund raiser sort of event where firecrackers were activated on screen using voice. I have a couple of more interesting applications where I can use this.
+        <BR><BR>
+        <h1><a href="https://github.com/adrenak/BeneDict"><u>BeneDict</u></a></h1>
+        If I had to wish for something for my birthday this year, it would probably be support for seriaziation for Dictionary in the Unity editor. Until then the Unify Community's SerializableDictionary project should suffice. However, declaring dictionary classes so they are serialized by it is still a pain. BeneDict automates the code generation.
+        <BR><BR>
+        <h1><a href="https://github.com/adrenak/Uni360Video"><u>Uni360Video</u></a></h1>
+        Official Unity blog has a guide on how to show 360 VR videos using RenderTexture and what seems like a Skybox shader. I'm not sure, but that sounds expensive for mobile devices. Another way is to have a headtracked camera in the center of a sphere with normals facing inwards. Such a setup requires manual work, Uni360Video automates this.
+        <BR><BR>
+        More stuff soon.
     </div>
 
     <!-- FOOTER -->
@@ -92,8 +106,7 @@
     </footer>
 
     <script>
-    // TODO: Set index
-    var BLOG_INDEX = 0;
+    var BLOG_INDEX = 6;
 
         function Init(){
             initNavBar();
@@ -104,17 +117,16 @@
 
         function initTitle(){
             document.title = "";
-            // TODO: Comment out
-            //document.title += blogPosts[BLOG_INDEX][0]; 
+            document.title += blogPosts[BLOG_INDEX][0]; 
             document.title += " | Vatsal Ambastha's Blog";
         }
 
         function initNavBar(){
             var aNavBarBuilder = new NavBarBuilder(
                 new NavBarTextBuilder('', '#000000', '#'),
-                new NavBarTextBuilder('HOME', '#ff9900', '../../index.html'),
-                new NavBarTextBuilder('ABOUT', '#ff9900', '../../about.html'),
-                new NavBarTextBuilder('HIRE ME', '#ff9900', '../../hire-me.html')
+                new NavBarTextBuilder('HOME', '#eeeeee', '../../index.html'),
+                new NavBarTextBuilder('ABOUT', '#eeeeee', '../../about.html'),
+                new NavBarTextBuilder('HIRE ME', '#eeeeee', '../../hire-me.html')
             );
 
             document.getElementById("nav-bar").appendChild(createNavBar(aNavBarBuilder));
@@ -123,11 +135,8 @@
         function initHeader(){
             var header = blogPosts[BLOG_INDEX][0];
 
-            // TODO: comment out for real blog
-            header = "TEMPLATE HEADER";
-
             var aHeaderBuilder = new HeaderBuilder('img/header-bg.jpg', header, '')
-                .setTitleColor('#ff9900')
+                .setTitleColor('#eeeeee')
                 .setSubTitleColor('#fafafa')
                 .build();
             

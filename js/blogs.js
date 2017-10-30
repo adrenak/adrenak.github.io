@@ -34,9 +34,15 @@ var blogPosts = [
 		"23 August 2017"
 	],
     [
-        "Kalaa - VR Art Project",
+        "Kalaa : VR Art Project",
         "blog/kalaa/page.html",
         "Using Perlin Noise, Boids and Mesh manipulation to create an abstract VR experience.",
         "25 October 2017"
+    ],
+    [
+        "Open Source Set 1",
+        "blog/open-source-pack-1/page.html",
+        "3 open source tools now available on my Github",
+        "20 Octber 2017"
     ]
 ];
