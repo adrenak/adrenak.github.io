@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="9UCBtBRg7D0bgeyjFWmZPQQVYCOc6FDR-5rm6oLICt0" />
+    
+    <!-- for Google -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <meta name="author" content="Vatsal Ambastha" />
+    <meta name="copyright" content="Vatsal Ambastha" />
+
+    <!-- for Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="" />
+
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    
+    <meta property="og:site_name" content="VatsalAmbastha.com"/>
+    <meta property="article:publisher" content="https://www.facebook.com/vatsalAmbastha" />
+    <meta property="article:author" content="https://www.facebook.com/vatsalAmbastha" />
+
+    <!-- for Twitter -->          
+    <meta name="twitter:card" content="summary" />
+
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="" />
+
+    <link rel="shortcut icon" href="../../img/ico.png" type="image/png">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- jQuery -->
+    <script src="../../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../../js/clean-blog.min.js"></script>      
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- page generation --> 
+    <script src = "../../js/commons.js"></script>
+    <script src = "../../js/blogs.js"></script>
+
+    <!-- MD to HTML -->
+    <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+
+</head>
+
+<body onLoad = "Init()">
+
+    <!-- NAVIGATION BAR -->
+    <div id="nav-bar"></div>
+    
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        Just moved to Bangalore this month. I’ve only been to Bangalore a few times when I didn’t like it so much, but after moving here I find it a lot better. The traffic Is truly as bad as I have heard and in the last two weeks I have been in four (very) minor road accidents. The ‘U’ in Bengaluru probably stands for U-turns. And ‘B’ is definitely beer.
+        
+        <BR><BR>
+
+        Not much of the city’s problems should bother me as most days of the week I am going to stay at home all day and work from a small home office that I have set up. Yes I am now almost, as a couple of my friends call me, a "digital nomad".
+
+        <BR><BR>
+
+        Work wise, the last two months have been great. I have been making a lot of open source tools that I will polish and release properly with documentation. Presently doing a lot of contract work. At least half of my work is on Virtual Reality right now and I recently got an Oculus Rift. My laptop is quite old (ASUS ROG G750JX) so a PC is the need of the hour.
+
+        <BR><BR>
+
+        At PLAKC, we are likely going to find a replacement for me to work on the day to day development, maintenance and support work of the SDK. There are some great feature additions coming up but I really want to automate our build process that involves platform/architecture dependent compiling, obfuscation and packaging which if done manually is very error prone, slow and menial.
+
+        <BR><BR>
+
+        Independent work being a completely new way to me I need to come up with some new time management principles. I have been billing hourly for a while and that has completely changed the way I think about time and money as they are almost interchangeable things now. “Time is money” is now literally true and that mindset prevents me from wasting time. I’ll blog about this soon.
+
+        <BR><BR>
+
+        So, talking about my plans for the next on year or so, there are a bunch of things I would like to do:
+        <ul>
+        <li>Continue making open source projects. With time I expect to make bigger ones.</li>
+        <li>Work on VR games and art experiences. I have so many ideas written down right now.</li>
+        <li>Make some commercial VR products. I’m quite excited about them, what they are will be revealed soon.</li>
+        <li>Learn some low level game programming. Maybe do a few of those “Doom/Minecraft in a week” with OpenGL and C++ when I get some time off.</li>
+        <li>Participate in some game jams. </li>
+        <li>Learn some shader programming and also the processing.org library.</li>
+        <li> Continue with contract and consulting work that I have already been busy with.</li>
+        </ul>
+
+        So that’s it. Bangalore has actually been great so far. This can be a big year and there are so many things I am looking forward to ever since I moved here.
+
+        <BR>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div id="page-footer"></div>
+    </footer>
+
+    <script>
+    // TODO: Set index
+    var BLOG_INDEX = 0;
+
+        function Init(){
+            initNavBar();
+            initHeader();   
+            initFooter();
+            initTitle();
+        }
+
+        function initTitle(){
+            document.title = "";
+            // TODO: Comment out
+            //document.title += blogPosts[BLOG_INDEX][0]; 
+            document.title += " | Vatsal Ambastha's Blog";
+        }
+
+        function initNavBar(){
+            var aNavBarBuilder = new NavBarBuilder(
+                new NavBarTextBuilder('', '#000000', '#'),
+                new NavBarTextBuilder('HOME', '#ff9900', '../../index.html'),
+                new NavBarTextBuilder('ABOUT', '#ff9900', '../../about.html'),
+                new NavBarTextBuilder('HIRE ME', '#ff9900', '../../hire-me.html')
+            );
+
+            document.getElementById("nav-bar").appendChild(createNavBar(aNavBarBuilder));
+        }
+
+        function initHeader(){
+            var header = blogPosts[BLOG_INDEX][0];
+
+            // TODO: comment out for real blog
+            header = "TEMPLATE HEADER";
+
+            var aHeaderBuilder = new HeaderBuilder('img/header-bg.jpg', header, '')
+                .setTitleColor('#ff9900')
+                .setSubTitleColor('#fafafa')
+                .build();
+            
+            document.getElementById("header").appendChild(createHeader(aHeaderBuilder));
+        }
+
+        function initFooter(){
+            document.getElementById("page-footer").appendChild(createFooter());
+        }
+
+    </script>
+
+</body>
+
+</html>
