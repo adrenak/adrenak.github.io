@@ -9,19 +9,19 @@
     <meta name="google-site-verification" content="9UCBtBRg7D0bgeyjFWmZPQQVYCOc6FDR-5rm6oLICt0" />
     
     <!-- for Google -->
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="Bangalore And Other Plans" />
+    <meta name="keywords" content="Unity3D, Game Development, Virtual Reality, Bangalore, Vatsal Ambastha, Firexit Software" />
 
     <meta name="author" content="Vatsal Ambastha" />
     <meta name="copyright" content="Vatsal Ambastha" />
 
     <!-- for Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="" />
+    <meta property="og:url" content="http://www.vatsalambastha.com/blog/bangalore-and-other-plans/page.html" />
 
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="" />
+    <meta property="og:title" content="Bangalore, And Other Plans" />
+    <meta property="og:description" content="The ‘U’ in Bengaluru probably stands for U-turns. And ‘B’ is definitely beer." />
+    <meta property="og:image" content="http://www.vatsalambastha.com/blog/bangalore-and-other-plans/img/header-bg.jpg" />
     
     <meta property="og:site_name" content="VatsalAmbastha.com"/>
     <meta property="article:publisher" content="https://www.facebook.com/vatsalAmbastha" />
@@ -30,9 +30,9 @@
     <!-- for Twitter -->          
     <meta name="twitter:card" content="summary" />
 
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:description" content="" />
-    <meta name="twitter:image" content="" />
+    <meta name="twitter:title" content="Bangalore And Other Plans" />
+    <meta name="twitter:description" content="The ‘U’ in Bengaluru probably stands for U-turns. And ‘B’ is definitely beer." />
+    <meta name="twitter:image" content="http://www.vatsalambastha.com/blog/bangalore-and-other-plans/img/header-bg.jpg" />
 
     <link rel="shortcut icon" href="../../img/ico.png" type="image/png">
 
@@ -82,23 +82,28 @@
 
     <!-- MAIN CONTENT -->
     <div class="container">
-        Just moved to Bangalore this month. I’ve only been to Bangalore a few times when I didn’t like it so much, but after moving here I find it a lot better. The traffic Is truly as bad as I have heard and in the last two weeks I have been in four (very) minor road accidents. The ‘U’ in Bengaluru probably stands for U-turns. And ‘B’ is definitely beer.
+        Just moved to Bangalore this month. I’ve only been here a few times over the last couple of years when I didn’t like it *so* much, but after moving here I find it a lot better. The traffic Is truly as bad as I have heard and in the last two weeks I have been in four (very) minor road accidents. The ‘U’ in Bengaluru probably stands for U-turns. And ‘B’ is definitely beer.
         
         <BR><BR>
 
-        Not much of the city’s problems should bother me as most days of the week I am going to stay at home all day and work from a small home office that I have set up. Yes I am now almost, as a couple of my friends call me, a "digital nomad".
+        Traffic should not really bother me as most days of the week I am going to stay at home all day and work from a small home office that I have set up. Yes I am now almost, as a couple of my friends call me, a "digital nomad".
 
-        <BR><BR>
+        <br><br>
+        <center><img class="img-responsive" src="img/setup.jpg"></center>
+        <blockquote>Setting up a small office at home. Missing right now : The Rift and a new PC. Also that book is amazing.</blockquote>
 
         Work wise, the last two months have been great. I have been making a lot of open source tools that I will polish and release properly with documentation. Presently doing a lot of contract work. At least half of my work is on Virtual Reality right now and I recently got an Oculus Rift. My laptop is quite old (ASUS ROG G750JX) so a PC is the need of the hour.
 
         <BR><BR>
 
+        <center><img class="img-responsive" src="img/rift.jpg"></center>
+        <blockquote>A bit late to the party, but hopefully last mover advantage?</blockquote>
+
         At PLAKC, we are likely going to find a replacement for me to work on the day to day development, maintenance and support work of the SDK. There are some great feature additions coming up but I really want to automate our build process that involves platform/architecture dependent compiling, obfuscation and packaging which if done manually is very error prone, slow and menial.
 
         <BR><BR>
 
-        Independent work being a completely new way to me I need to come up with some new time management principles. I have been billing hourly for a while and that has completely changed the way I think about time and money as they are almost interchangeable things now. “Time is money” is now literally true and that mindset prevents me from wasting time. I’ll blog about this soon.
+        Independent development being a really new way to work to me, I need to come up with some new time management principles. I have been billing hourly for a while and that has completely changed the way I think about time and money as they are almost interchangeable things now. “Time is money” is now literally true and that mindset prevents me from wasting time. I’ll blog about this soon.
 
         <BR><BR>
 
@@ -113,7 +118,7 @@
         <li> Continue with contract and consulting work that I have already been busy with.</li>
         </ul>
 
-        So that’s it. Bangalore has actually been great so far. This can be a big year and there are so many things I am looking forward to ever since I moved here.
+        So that’s it. Bangalore has actually been great so far and there are so many things I am looking forward to ever since I moved here.
 
         <BR>
     </div>
@@ -125,7 +130,7 @@
 
     <script>
     // TODO: Set index
-    var BLOG_INDEX = 0;
+    var BLOG_INDEX = 7;
 
         function Init(){
             initNavBar();
@@ -136,17 +141,16 @@
 
         function initTitle(){
             document.title = "";
-            // TODO: Comment out
-            //document.title += blogPosts[BLOG_INDEX][0]; 
+            document.title += blogPosts[BLOG_INDEX][0]; 
             document.title += " | Vatsal Ambastha's Blog";
         }
 
         function initNavBar(){
             var aNavBarBuilder = new NavBarBuilder(
                 new NavBarTextBuilder('', '#000000', '#'),
-                new NavBarTextBuilder('HOME', '#ff9900', '../../index.html'),
-                new NavBarTextBuilder('ABOUT', '#ff9900', '../../about.html'),
-                new NavBarTextBuilder('HIRE ME', '#ff9900', '../../hire-me.html')
+                new NavBarTextBuilder('HOME', '#222222', '../../index.html'),
+                new NavBarTextBuilder('ABOUT', '#222222', '../../about.html'),
+                new NavBarTextBuilder('HIRE ME', '#222222', '../../hire-me.html')
             );
 
             document.getElementById("nav-bar").appendChild(createNavBar(aNavBarBuilder));
@@ -155,11 +159,8 @@
         function initHeader(){
             var header = blogPosts[BLOG_INDEX][0];
 
-            // TODO: comment out for real blog
-            header = "TEMPLATE HEADER";
-
-            var aHeaderBuilder = new HeaderBuilder('img/header-bg.jpg', header, '')
-                .setTitleColor('#ff9900')
+            var aHeaderBuilder = new HeaderBuilder('img/header-bg.png', header, '')
+                .setTitleColor('#dddddd')
                 .setSubTitleColor('#fafafa')
                 .build();
             

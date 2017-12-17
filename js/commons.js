@@ -1,5 +1,6 @@
 var root = "http://www.vatsalAmbastha.com/"
 //var root = "file:///E:/Adrenak/adrenak.github.io/"
+//var root = "file:///Users/mac/Documents/Work/Personal/adrenak.github.io/";
 
 // ================================================
 // NAV BAR
