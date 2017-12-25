@@ -58,5 +58,12 @@ var blogPosts = [
 		"blog/bangalore-and-other-plans/page.html",
 		"Moving to a new city, working in a new way.",
 		"17 December 2017"
-	]
+	],
+    // 8
+    [
+        "UniCV",
+        "blog/unicv/page.html",
+        "OpenCV image processing in Unity",
+        "25 December 2017"
+    ]
 ];
