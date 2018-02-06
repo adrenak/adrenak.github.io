@@ -1,11 +1,15 @@
+// Production Root
 var root = "http://www.vatsalAmbastha.com/"
+
+// ASUS Laptop Dev Root
 //var root = "file:///E:/Adrenak/adrenak.github.io/"
+
+// MBP Dev Root
 //var root = "file:///Users/mac/Documents/Work/Personal/adrenak.github.io/";
 
 // ================================================
 // NAV BAR
 // ================================================
-// TODO: For god's sake, remove so many params and replace with an internal List
 var NavBarBuilder = function(salutation, firstLink, secondLink, thirdLink){
 	var _salutation = salutation;
 	var _firstLink = firstLink;
@@ -131,7 +135,7 @@ function createFooter(){
                             '</a>' +
                         '</li>' +
                     '</ul>' +
-                    '<p class="copyright text-muted">Copyright &copy; Vatsal Ambastha 2017</p>' +
+                    '<p class="copyright text-muted">Copyright &copy; Vatsal Ambastha 2018</p>' +
                 '</div>' +
             '</div>' +
         '</div>' +

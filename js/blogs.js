@@ -65,5 +65,12 @@ var blogPosts = [
         "blog/unicv/page.html",
         "OpenCV image processing in Unity",
         "25 December 2017"
-    ]
+	],
+	// 9
+	[
+		"Open Source Set 2",
+		"blog/open-source-pack-2/page.html",
+		"3 Open source tools released",
+		"6 February 2018"
+	]
 ];
