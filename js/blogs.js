@@ -70,7 +70,7 @@ var blogPosts = [
 	[
 		"Open Source Set 2",
 		"blog/open-source-pack-2/page.html",
-		"3 Open source tools released",
+		"4 Open source tools released",
 		"6 February 2018"
 	]
 ];
