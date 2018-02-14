@@ -36,135 +36,120 @@
     
 
     <link rel="shortcut icon" href="../../img/ico.png" type="image/png">
+    
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../../css/clean-blog.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- jQuery -->
-    <script src="../../js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../../js/bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../../js/clean-blog.min.js"></script>      
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- page generation --> 
     <script src = "../../js/commons.js"></script>
     <script src = "../../js/blogs.js"></script>
+    <script src="../../js/marked.js"></script>
+    <script src="../../js/require.js"></script>
 
-    <!-- MD to HTML -->
-    <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+    <style>
+        @font-face {
+            font-family: MainFont;
+            src: url('fonts/typewcond_regular.otf');
+        }
+        
+        * {
+            font-family: MainFont
+        }
+
+        img{
+            width:auto;
+            max-width: 100%;
+        }
+
+        .global{
+            width:90%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
 
 </head>
 
-<body onLoad = "Init()">
-
-    <!-- NAVIGATION BAR -->
+<body onLoad = "Init()" a link="#000000" vlink="#000000" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
     <div id="nav-bar"></div>
-    
-    <!-- HEADER -->
     <div id="header"></div>
-
-    <!-- MAIN CONTENT -->
-    <div class="container">
-        Some more of my new open source code is out, although not all of them are complete, they are in a pretty functioning state. Almost all of them are things I need for my client or independent work.
-        <h1><a href="https://github.com/adrenak/UniPrep" target="prep"><u>UniPrep</u></a></h1>
-        The most important library I have made till date. This is the first one I import as soon as I start a new project. It offers a growing number of C# extensions, UnityEditor key bindings and a lot of utility scripts.
-        <br><br>
-        This thing is awesome and always under development. Check it out now.
-
-        <br><br>
-        <h1><a href="https://github.com/adrenak/UniGOAP" target="goap"><u>UniGOAP</u></a></h1>
-        A library for Goal Oriented Action Plainning AI I have been working. I started making FSM based AI from the book Programming Game AI by Example but that soon started to fall short on the amount of features I wanted my agents to have. I need to simulate tribe members for a Live Simulation I am making for a client.
-        <br><br>
-        The GOAP approach was popularised by its award winning implementation in F.E.A.R. a game which I played for almost 2 years and was obsessed with it. I actually got pretty good at it. I'm playing Fortnite now with my flatmate and am really struggling <a href="https://ih0.redbubble.net/image.423046293.4575/flat,800x800,075,f.u2.jpg" target="fbm">....</a>
-        <br><br>
-        There is some thoery linked in UniGOAPS README and I highly recommend reading it.
-
-        <h1>Generic VR stuff</a></h1>
-        There is quite a lot of things out there for the Oculus Rift, HTV Vive and even GearVR. But one of my clients works with low cost VR and needs his applications for for Google Cardboard devices.
-        <br><br>
-        I looked around and could not find much that promises as much as NewtonVR and VRTK offer. Ofcourse Generic VR is quite primitive with no motion controllers or 6DOF but I require atleast some simple tools to quickly make gaze and joystick input based interactions.
-        <br><br>
-        The VRSamples project from Unity is brilliant but it does not work with Gaze based VR. GoogleVR SDK is quite feature rich but it has a lot of Daydream related code and I don't like the API or the way the prefabs have been structured. It does have an amazing InstantPreview tool though.
-        <br><br>
-        So I Made <a href="https://www.github.com/UniGenVR" target="ugvr"><u>UniGenVR (Unity Generic VR)</u></a>. It has the best of both VRSamples and GoogleVR. VRSamples is modified to work with both gaze based and keyboard inputs. I also added new features to VRSamples to make it easier to work with. The InstantPreview from GoogleVR finally makes it easy to run things out of the editor itself. It's like the Unity Remote of VR.
-        <br><br>
-        I also <a href="https://github.com/adrenak/Unity.GVR.InstantPreview" target="ip"><u>separated out InstantPreview</u></a> from GoogleVR although I'm not sure how useful that would be. 
-        <br><br>
-        With UniGenVR I can finally not procastinate the development of generic VR applications like before just because of the sheer lack of good tools out there.
-        <br><br>
-        PS: VRSamples has some AMAZING use of coroutines. If only Unity's Coroutine API was any good. Well there is a Coroutine manager in UniPrep and one of the things I am writing soon is how to unleash the power of Coroutines in Unity.
-
-        <h1><a href="https://github.com/adrenak/UniCV" target="cv"><u>UniCV</u></a></h1>
-        A small side project for doing OpenCV manipulations on Unity textures. One of the reasons I did this was to see how much I could improve the performance over some other OpenCVSharp wrappers using a ThreadPool class and provide a good API.
-        <br><br>
-        It runs at ~20FPS on my i7-4770/GTX 770M and at ~80FPS on my new i5-7500/GTX 1080 so it is almost realtime for high end desktops. Not sure how much CV can be done using shaders but this is a decent way for me to "ease into" OpenCV as I have always found setup a daunting task.
-        <br><br>
-        A blog post dedicated to it is <a href="../unicv/page.html"><u>here</u></a>.
-
-        <h1>So...</h1>
-        That's it. There's actually more stuff that are not yet ready to be talked about. A lot of VR specific things for which I got a new PC as well. Also Microsoft sent me a free Acer Mixed Reality headset which I am yet to try out. That should be fun.
-
+    <div id="content">
+        <p align="left">
+            <font size="6">
+                    Some more of my new open source code is out, although not all of them are complete, they are in a pretty functioning state. Almost all of them are things I need for my client or independent work.
+                    <h1><a href="" target="goap"><u></u></a></h1>
+                    <h1><a href="https://github.com/adrenak/UniPrep" target="prep"><u>UniPrep</u></a></h1>
+                    The most important library I have made till date. This is the first one I import as soon as I start a new project. It offers a growing number of C# extensions, UnityEditor key bindings and a lot of utility scripts.
+                    <br><br>
+                    This thing is awesome and always under development. Check it out now.
+            
+                    <br><br>
+                    <h1><a href="https://github.com/adrenak/UniGOAP" target="goap"><u>UniGOAP</u></a></h1>
+                    A library for Goal Oriented Action Plainning AI I have been working. I started making FSM based AI from the book Programming Game AI by Example but that soon started to fall short on the amount of features I wanted my agents to have. I need to simulate tribe members for a Live Simulation I am making for a client.
+                    <br><br>
+                    The GOAP approach was popularised by its award winning implementation in F.E.A.R. a game which I played for almost 2 years and was obsessed with it. I actually got pretty good at it. I'm playing Fortnite now with my flatmate and am really struggling <a href="https://ih0.redbubble.net/image.423046293.4575/flat,800x800,075,f.u2.jpg" target="fbm">....</a>
+                    <br><br>
+                    There is some thoery linked in UniGOAPS README and I highly recommend reading it.
+            
+                    <h1>Generic VR stuff</a></h1>
+                    There is quite a lot of things out there for the Oculus Rift, HTV Vive and even GearVR. But one of my clients works with low cost VR and needs his applications for for Google Cardboard devices.
+                    <br><br>
+                    I looked around and could not find much that promises as much as NewtonVR and VRTK offer. Ofcourse Generic VR is quite primitive with no motion controllers or 6DOF but I require atleast some simple tools to quickly make gaze and joystick input based interactions.
+                    <br><br>
+                    The VRSamples project from Unity is brilliant but it does not work with Gaze based VR. GoogleVR SDK is quite feature rich but it has a lot of Daydream related code and I don't like the API or the way the prefabs have been structured. It does have an amazing InstantPreview tool though.
+                    <br><br>
+                    So I Made <a href="https://www.github.com/UniGenVR" target="ugvr"><u>UniGenVR (Unity Generic VR)</u></a>. It has the best of both VRSamples and GoogleVR. VRSamples is modified to work with both gaze based and keyboard inputs. I also added new features to VRSamples to make it easier to work with. The InstantPreview from GoogleVR finally makes it easy to run things out of the editor itself. It's like the Unity Remote of VR.
+                    <br><br>
+                    I also <a href="https://github.com/adrenak/Unity.GVR.InstantPreview" target="ip"><u>separated out InstantPreview</u></a> from GoogleVR although I'm not sure how useful that would be. 
+                    <br><br>
+                    With UniGenVR I can finally not procastinate the development of generic VR applications like before just because of the sheer lack of good tools out there.
+                    <br><br>
+                    PS: VRSamples has some AMAZING use of coroutines. If only Unity's Coroutine API was any good. Well there is a Coroutine manager in UniPrep and one of the things I am writing soon is how to unleash the power of Coroutines in Unity.
+            
+                    <h1><a href="https://github.com/adrenak/UniCV" target="cv"><u>UniCV</u></a></h1>
+                    A small side project for doing OpenCV manipulations on Unity textures. One of the reasons I did this was to see how much I could improve the performance over some other OpenCVSharp wrappers using a ThreadPool class and provide a good API.
+                    <br><br>
+                    It runs at ~20FPS on my i7-4770/GTX 770M and at ~80FPS on my new i5-7500/GTX 1080 so it is almost realtime for high end desktops. Not sure how much CV can be done using shaders but this is a decent way for me to "ease into" OpenCV as I have always found setup a daunting task.
+                    <br><br>
+                    A blog post dedicated to it is <a href="../unicv/page.html"><u>here</u></a>.
+            
+                    <h1>So...</h1>
+                    That's it. There's actually more stuff that are not yet ready to be talked about. A lot of VR specific things for which I got a new PC as well. Also Microsoft sent me a free Acer Mixed Reality headset which I am yet to try out. That should be fun.
+            
+            </font>
+        </p>
     </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <div id="page-footer"></div>
-    </footer>
-
+    <div id="page-footer"></div>
+    
     <script>
-    var BLOG_INDEX = 9;
+        // TODO: Set index
+        var BLOG_INDEX = 9;
 
         function Init(){
+            initTitle();
             initNavBar();
             initHeader();   
             initFooter();
-            initTitle();
         }
-
+        
         function initTitle(){
-            document.title = "";
-            document.title += blogPosts[BLOG_INDEX][0]; 
-            document.title += " | Vatsal Ambastha's Blog";
+            document.title = blogPosts[BLOG_INDEX][0] + " | Vatsal Ambastha's Blog";
         }
 
         function initNavBar(){
-            var aNavBarBuilder = new NavBarBuilder(
-                new NavBarTextBuilder('', '#000000', '#'),
-                new NavBarTextBuilder('HOME', '#eeeeee', '../../index.html'),
-                new NavBarTextBuilder('ABOUT', '#eeeeee', '../../about.html'),
-                new NavBarTextBuilder('HIRE ME', '#eeeeee', '../../hire-me.html')
-            );
-
-            document.getElementById("nav-bar").appendChild(createNavBar(aNavBarBuilder));
+            document.getElementById("nav-bar").appendChild(createNavBar());
         }
 
         function initHeader(){
-            var header = blogPosts[BLOG_INDEX][0];
-
-            var aHeaderBuilder = new HeaderBuilder('img/header-bg.jpg', header, '')
-                .setTitleColor('#eeeeee')
-                .setSubTitleColor('#fafafa')
-                .build();
-            
-            document.getElementById("header").appendChild(createHeader(aHeaderBuilder));
+            var header = blogPosts[BLOG_INDEX][0];          
+            document.getElementById("header").appendChild(createBlogHeader(header, blogPosts[BLOG_INDEX][2]));
+            document.getElementById("header").appendChild(createFromHTML(`<br><br>`));
+            /*
+            document.getElementById("header").appendChild(createFromHTML(`
+                <center>
+                    <div class="crop">
+                        <img src="img/header-bg.jpg"></img>
+                    </div
+                </center>
+            `));
+            */
         }
 
         function initFooter(){

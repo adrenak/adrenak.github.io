@@ -48,59 +48,68 @@
     DEPENDENCIES
     ================================================
     -->
-    
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">    
-
-    <!-- Custom CSS -->
-    <link href="css/clean-blog.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="js/clean-blog.min.js"></script>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
     <!-- page generation -->    
     <script src = "js/commons.js"></script>
     <script src = "js/blogs.js"></script>
+    <script src = "js/asciipic.js"></script>
+
+    <style>
+    @font-face {
+        font-family: MainFont;
+        src: url(fonts/typewcond_regular.otf);
+    }
+    
+    * {
+        font-family: MainFont
+    }
+
+    .global{
+            width:90%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
 
 </head>
 
-<body onLoad = "Init()">    
-    <!-- NAVIGATION BAR -->
-    <div id="nav-bar"></div>
+<body onLoad = "Init()" a link="#000000" vlink="#000000" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
     
     <!-- HEADER -->
     <div id="header"></div>
+    <br>
 
     <!-- MAIN CONTENT -->
-    <div class="container" style="sidebar">
-        <h1>Hi,</h1>
-        <p align="justify" style="font-family:Open Sans; font-size:1.05em" >
-            You've landed on my website. Great! I make <a href="about.html" target="about">games and related things.</a> 
-            If you do too, we can probably <a href="hire-me.html" target="hire">work together</a>!
+    <font size="7" color="black">
+        Hi,
+    </font>
+    <br>
+
+    <p align="justify">
+        <font size="6">
+            I'm Vatsal Ambastha. I work on 3D software such as games, simulations, visualizations and virtual reality. 
+            <hr>
+            I founded <a href="http://www.firexitsoftware.com" target="firexit">Firexit Software</a>, previously a gamedev studio, now a business name for my independent work.
             <br>
+            I've also worked in adtech while I was at <a href="http://www.plakc.com" target="plakc">PLAKC</a> where I am still involved in limited capacity.
+            <hr>
+            I use Unity3D, Blender, Photoshop and write code in C#.
             <br>
-            Below is a list of my blog posts. At the bottom on my page, you'll find some of my work and ways to reach me online.
-        </p>
-        <div id = "blog-entry-list"></div>
-    </div>
+            My game development experience spans web, mobile, desktop and lately VR platforms. 
+            <hr>
+            Along with my commercial and client projects, I often work on <a href="http://www.firexit.itch.io" target="itch">experimental and art games</a>.
+            <br>
+            I like interesting client work. For an idea on quote and expertise please refer to <a href="https://www.upwork.com/freelancers/~013bc15aa780db478a" target="upworkref">my Upwork</a> or contact me.
+            <br>
+            I stay in Bangalore. My mail is vatsal@firexitsoftware.com. Some other links are at the bottom or this page.
+            <br>
+            My open sourced code is <a href="http://www.github.com/adrenak" target="oss">here</a>.
+            <hr>
+        </font>
+    </p>
+    <font size="7" color="black">
+        Blogs
+    </font>
+    <div id = "blog-entry-list"></div>
 
     <!-- FOOTER -->
     <footer>
@@ -109,35 +118,24 @@
 
     <script>
         function Init(){
-            initNavBar();
             initHeader();
             populateBlogEntries();
             initFooter();
         }
 
         function initNavBar(){
-            var aNavBarBuilder = new NavBarBuilder(
-                new NavBarTextBuilder('', '#000000', '#'),
-                new NavBarTextBuilder('HOME', '#eeeeee', '#'),
-                new NavBarTextBuilder('ABOUT', '#eeeeee', 'about.html'),
-                new NavBarTextBuilder('HIRE ME', '#eeeeee', 'hire-me.html')
-            );
-
-            document.getElementById("nav-bar").appendChild(createNavBar(aNavBarBuilder));
+            document.getElementById("nav-bar").appendChild(createNavBar());
         }
 
         function initHeader(){
-            var aHeaderBuilder = new HeaderBuilder('img/home-bg.jpg', 'Vatsal Ambastha', 'Games | Code | Design')
-				.setTitleColor('#ffffff')
-				.setSubTitleColor('#ffffff')
-				.build();
-			
-            document.getElementById("header").appendChild(createHeader(aHeaderBuilder));
+            document.getElementById("header").appendChild(getAsciiPhoto());
         }
 
         function populateBlogEntries(){
-            for(var i = blogPosts.length - 1; i != -1; i--)
+            for(var i = blogPosts.length - 1; i != -1; i--){
                 document.getElementById("blog-entry-list").appendChild(createDescriptedBlogLink(blogPosts[i]));  
+                document.getElementById("blog-entry-list").appendChild(createFromHTML(`<hr>`));
+            }
         }
 
         function initFooter(){

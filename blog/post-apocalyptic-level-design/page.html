@@ -36,128 +36,102 @@
 
     <link rel="shortcut icon" href="../../img/ico.png" type="image/png">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../../css/clean-blog.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- jQuery -->
-    <script src="../../js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../../js/bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../../js/clean-blog.min.js"></script>      
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- page generation --> 
     <script src = "../../js/commons.js"></script>
     <script src = "../../js/blogs.js"></script>
+    <script src="../../js/marked.js"></script>
+    <script src="../../js/require.js"></script>
 
-    <!-- MD to HTML -->
-    <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+    <style>
+        @font-face {
+            font-family: MainFont;
+            src: url('fonts/typewcond_regular.otf');
+        }
+        
+        * {
+            font-family: MainFont
+        }
+
+        img{
+            width:auto;
+            max-width: 100%;
+        }
+
+        .global{
+            width:90%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
 
 </head>
 
-<body onLoad = "Init()">
-
-    <!-- NAVIGATION BAR -->
+<body onLoad = "Init()" a link="#000000" vlink="#000000" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
     <div id="nav-bar"></div>
-    
-    <!-- HEADER -->
     <div id="header"></div>
-
-    <!-- MAIN CONTENT -->
-    <div class="container">
-        <!-- TODO: Write content -->
-        <p align="justify">
-            I’ve been on a break for medical reasons for a little more than a couple of months. While my recovery has been slow and annoying I did just finish a project that was just a great way to recuperate. Great because it was a grim post-apocalyptic map. And who doesn't like making that?!
-            <br><br>
-            I didn't spend much time on this because of limited budget and scope. Additionally, the assets I had to work with and the general look to be achieved were already given by the client. I was quite happy with the results in the end. This short post is about that.
-            <center><img class="img-responsive" src="img/img-1.jpg"></center>
-            <blockquote>Can't really think of anything to write here.</blockquote>
+    <div id="content">
+        <p align="left">
+            <font size="6">
+                I’ve been on a break for medical reasons for a little more than a couple of months. While my recovery has been slow and annoying I did just finish a project that was just a great way to recuperate. Great because it was a grim post-apocalyptic map. And who doesn't like making that?!
+                <br><br>
+                I didn't spend much time on this because of limited budget and scope. Additionally, the assets I had to work with and the general look to be achieved were already given by the client. I was quite happy with the results in the end. This short post is about that.
+                <img src="img/img-1.jpg">
+                
+                The major aspect of it that makes a post-apocalyptic map very interesting in my opinion is that its environment shows a past. An abandoned town hasn’t changed much in months or years and several events that took place are still quite apparent. Military bases and city environments for example don’t do that much because they are supposed to be maintained.
+                <br><br>
+                This gives room for creating a narrative experience through level design and environment art. The remains of the chaos that would ensue if an apocalypse were to come becomes an integral part of the environment design. Such as:
+                <br><br>
+                - Boarded up windows and doors, furniture used to secure doors when people tried to hide indoors
+                <br><br>
+                - Crashed cars and tire marks when people tried to run
+                <br><br>
+                - Military barricades that show signs of governments action
+                <br><br>
+                - Hate graffiti painted with human blood for the inevitable political bedlam and civil fallout?
             
-            The major aspect of it that makes a post-apocalyptic map very interesting in my opinion is that its environment shows a past. An abandoned town hasn’t changed much in months or years and several events that took place are still quite apparent. Military bases and city environments for example don’t do that much because they are supposed to be maintained.
-            <br><br>
-            This gives room for creating a narrative experience through level design and environment art. The remains of the chaos that would ensue if an apocalypse were to come becomes an integral part of the environment design. Such as:
-            <br><br>
-            - Boarded up windows and doors, furniture used to secure doors when people tried to hide indoors
-            <br><br>
-            - Crashed cars and tire marks when people tried to run
-            <br><br>
-            - Military barricades that show signs of governments action
-            <br><br>
-            - Hate graffiti painted with human blood for the inevitable political bedlam and civil fallout?
-        
-            <center><img class="img-responsive" src="img/img-2.jpg"></center>
-            <blockquote>TL: boarding up windows, TR: smashed cars indicating roits, BL: robbed stores, BR: houses turned upside down</blockquote>
-        
-            All these are not just good to have details, they are essential for creating an authentic mood. Without this the environment is… lifeless (see what I did there?)
-            On the other hand there is no real end to ideas so it can get overdone. In either case the level would look unrealistic, and even though the player may not be able to tell what is wrong, their brain tells that isn’t how an apocalypse will play out in real life.
-            <br><br>
-            I want to write more about somethings but don't have enough material yet. After I make more such scenes in the future hopefully there will be a part 2.
+                <img src="img/img-2.jpg">
+                <i><blockquote>TL: boarding up windows, TR: smashed cars indicating roits, BL: robbed stores, BR: houses turned upside down</blockquote></i>
+            
+                All these are not just good to have details, they are essential for creating an authentic mood. Without this the environment is… lifeless (see what I did there?)
+                On the other hand there is no real end to ideas so it can get overdone. In either case the level would look unrealistic, and even though the player may not be able to tell what is wrong, their brain tells that isn’t how an apocalypse will play out in real life.
+                <br><br>
+                I want to write more about somethings but don't have enough material yet. After I make more such scenes in the future hopefully there will be a part 2.
+            </font>
         </p>
     </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <div id="page-footer"></div>
-    </footer>
-
+    <div id="page-footer"></div>
+    
     <script>
-    // TODO: Set index
-    var BLOG_INDEX = 4;
+        // TODO: Set index
+        var BLOG_INDEX = 4;
 
         function Init(){
+            initTitle();
             initNavBar();
             initHeader();   
             initFooter();
-            initTitle();
         }
-
+        
         function initTitle(){
-            document.title = "";
-            // TODO: Comment out
-            document.title += blogPosts[BLOG_INDEX][0]; 
-            document.title += " | Vatsal Ambastha's Blog";
+            document.title = blogPosts[BLOG_INDEX][0] + " | Vatsal Ambastha's Blog";
         }
 
         function initNavBar(){
-            var aNavBarBuilder = new NavBarBuilder(
-                new NavBarTextBuilder('', '#000000', '#'),
-                new NavBarTextBuilder('HOME', '#ff9900', '../../index.html'),
-                new NavBarTextBuilder('ABOUT', '#ff9900', '../../about.html'),
-                new NavBarTextBuilder('HIRE ME', '#ff9900', '../../hire-me.html')
-            );
-
-            document.getElementById("nav-bar").appendChild(createNavBar(aNavBarBuilder));
+            document.getElementById("nav-bar").appendChild(createNavBar());
         }
 
         function initHeader(){
-            var header = blogPosts[BLOG_INDEX][0];
-
-            // TODO: comment out for real blog
-            header = "POST APOCALYPTIC LEVEL DESIGN";
-
-            var aHeaderBuilder = new HeaderBuilder('img/header-bg.jpg', header, '')
-                .setTitleColor('#ff9900')
-                .setSubTitleColor('#fafafa')
-                .build();
-            
-            document.getElementById("header").appendChild(createHeader(aHeaderBuilder));
+            var header = blogPosts[BLOG_INDEX][0];          
+            document.getElementById("header").appendChild(createBlogHeader(header, blogPosts[BLOG_INDEX][2]));
+            document.getElementById("header").appendChild(createFromHTML(`<br><br>`));
+            /*
+            document.getElementById("header").appendChild(createFromHTML(`
+                <center>
+                    <div class="crop">
+                        <img src="img/header-bg.jpg"></img>
+                    </div
+                </center>
+            `));
+            */
         }
 
         function initFooter(){

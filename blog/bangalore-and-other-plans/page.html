@@ -36,135 +36,112 @@
 
     <link rel="shortcut icon" href="../../img/ico.png" type="image/png">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../../css/clean-blog.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- jQuery -->
-    <script src="../../js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../../js/bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../../js/clean-blog.min.js"></script>      
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- page generation --> 
     <script src = "../../js/commons.js"></script>
     <script src = "../../js/blogs.js"></script>
+    <script src="../../js/marked.js"></script>
+    <script src="../../js/require.js"></script>
 
-    <!-- MD to HTML -->
-    <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+    <style>
+        @font-face {
+            font-family: MainFont;
+            src: url('fonts/typewcond_regular.otf');
+        }
+        
+        * {
+            font-family: MainFont
+        }
+
+        .global{
+            width:90%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
 
 </head>
 
-<body onLoad = "Init()">
-
-    <!-- NAVIGATION BAR -->
+<body onLoad = "Init()" a link="#000000" vlink="#000000" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
     <div id="nav-bar"></div>
-    
-    <!-- HEADER -->
     <div id="header"></div>
-
-    <!-- MAIN CONTENT -->
-    <div class="container">
-        Just moved to Bangalore this month. I’ve only been here a few times over the last couple of years when I didn’t like it *so* much, but after moving here I find it a lot better. The traffic Is truly as bad as I have heard and in the last two weeks I have been in four (very) minor road accidents. The ‘U’ in Bengaluru probably stands for U-turns. And ‘B’ is definitely beer.
-        
-        <BR><BR>
-
-        Traffic should not really bother me as most days of the week I am going to stay at home all day and work from a small home office that I have set up. Yes I am now almost, as a couple of my friends call me, a "digital nomad".
-
-        <br><br>
-        <center><img class="img-responsive" src="img/setup.jpg"></center>
-        <blockquote>Setting up a small office at home. Missing right now : The Rift and a new PC. Also that book is amazing.</blockquote>
-
-        Work wise, the last two months have been great. I have been making a lot of open source tools that I will polish and release properly with documentation. Presently doing a lot of contract work. At least half of my work is on Virtual Reality right now and I recently got an Oculus Rift. My laptop is quite old (ASUS ROG G750JX) so a PC is the need of the hour.
-
-        <BR><BR>
-
-        <center><img class="img-responsive" src="img/rift.jpg"></center>
-        <blockquote>A bit late to the party, but hopefully last mover advantage?</blockquote>
-
-        At PLAKC, we are likely going to find a replacement for me to work on the day to day development, maintenance and support work of the SDK. There are some great feature additions coming up but I really want to automate our build process that involves platform/architecture dependent compiling, obfuscation and packaging which if done manually is very error prone, slow and menial.
-
-        <BR><BR>
-
-        Independent development being a really new way to work to me, I need to come up with some new time management principles. I have been billing hourly for a while and that has completely changed the way I think about time and money as they are almost interchangeable things now. “Time is money” is now literally true and that mindset prevents me from wasting time. I’ll blog about this soon.
-
-        <BR><BR>
-
-        So, talking about my plans for the next on year or so, there are a bunch of things I would like to do:
-        <ul>
-        <li>Continue making open source projects. With time I expect to make bigger ones.</li>
-        <li>Work on VR games and art experiences. I have so many ideas written down right now.</li>
-        <li>Make some commercial VR products. I’m quite excited about them, what they are will be revealed soon.</li>
-        <li>Learn some low level game programming. Maybe do a few of those “Doom/Minecraft in a week” with OpenGL and C++ when I get some time off.</li>
-        <li>Participate in some game jams. </li>
-        <li>Learn some shader programming and also the processing.org library.</li>
-        <li> Continue with contract and consulting work that I have already been busy with.</li>
-        </ul>
-
-        So that’s it. Bangalore has actually been great so far and there are so many things I am looking forward to ever since I moved here.
-
-        <BR>
+    <div id="content">
+        <p align="left">
+            <font size="6">
+                    Just moved to Bangalore this month. I’ve only been here a few times over the last couple of years when I didn’t like it *so* much, but after moving here I find it a lot better. The traffic Is truly as bad as I have heard and in the last two weeks I have been in four (very) minor road accidents. The ‘U’ in Bengaluru probably stands for U-turns. And ‘B’ is definitely beer.
+    
+                    <BR><BR>
+            
+                    Traffic should not really bother me as most days of the week I am going to stay at home all day and work from a small home office that I have set up. Yes I am now almost, as a couple of my friends call me, a "digital nomad".
+            
+                    <br><br>
+                    <img src="img/setup.jpg">
+                    <i><blockquote>Setting up a small office at home. Missing right now : The Rift and a new PC. Also that book is amazing.</blockquote></i>
+            
+                    Work wise, the last two months have been great. I have been making a lot of open source tools that I will polish and release properly with documentation. Presently doing a lot of contract work. At least half of my work is on Virtual Reality right now and I recently got an Oculus Rift. My laptop is quite old (ASUS ROG G750JX) so a PC is the need of the hour.
+            
+                    <BR><BR>
+            
+                    <img src="img/rift.jpg">
+                    <blockquote><i>A bit late to the party, but hopefully last mover advantage?</i></blockquote>
+            
+                    At PLAKC, we are likely going to find a replacement for me to work on the day to day development, maintenance and support work of the SDK. There are some great feature additions coming up but I really want to automate our build process that involves platform/architecture dependent compiling, obfuscation and packaging which if done manually is very error prone, slow and menial.
+            
+                    <BR><BR>
+            
+                    Independent development being a really new way to work to me, I need to come up with some new time management principles. I have been billing hourly for a while and that has completely changed the way I think about time and money as they are almost interchangeable things now. “Time is money” is now literally true and that mindset prevents me from wasting time. I’ll blog about this soon.
+            
+                    <BR><BR>
+            
+                    So, talking about my plans for the next on year or so, there are a bunch of things I would like to do:
+                    <ul>
+                    <li>Continue making open source projects. With time I expect to make bigger ones.</li>
+                    <li>Work on VR games and art experiences. I have so many ideas written down right now.</li>
+                    <li>Make some commercial VR products. I’m quite excited about them, what they are will be revealed soon.</li>
+                    <li>Learn some low level game programming. Maybe do a few of those “Doom/Minecraft in a week” with OpenGL and C++ when I get some time off.</li>
+                    <li>Participate in some game jams. </li>
+                    <li>Learn some shader programming and also the processing.org library.</li>
+                    <li> Continue with contract and consulting work that I have already been busy with.</li>
+                    </ul>
+            
+                    So that’s it. Bangalore has actually been great so far and there are so many things I am looking forward to ever since I moved here.
+            
+                    <BR>
+            </font>
+        </p>
     </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <div id="page-footer"></div>
-    </footer>
-
+    <div id="page-footer"></div>
+    
     <script>
-    // TODO: Set index
-    var BLOG_INDEX = 7;
+        // TODO: Set index
+        var BLOG_INDEX = 7;
 
         function Init(){
+            initTitle();
             initNavBar();
             initHeader();   
             initFooter();
-            initTitle();
         }
-
+        
         function initTitle(){
-            document.title = "";
-            document.title += blogPosts[BLOG_INDEX][0]; 
-            document.title += " | Vatsal Ambastha's Blog";
+            document.title = blogPosts[BLOG_INDEX][0] + " | Vatsal Ambastha's Blog";
         }
 
         function initNavBar(){
-            var aNavBarBuilder = new NavBarBuilder(
-                new NavBarTextBuilder('', '#000000', '#'),
-                new NavBarTextBuilder('HOME', '#222222', '../../index.html'),
-                new NavBarTextBuilder('ABOUT', '#222222', '../../about.html'),
-                new NavBarTextBuilder('HIRE ME', '#222222', '../../hire-me.html')
-            );
-
-            document.getElementById("nav-bar").appendChild(createNavBar(aNavBarBuilder));
+            document.getElementById("nav-bar").appendChild(createNavBar());
         }
 
         function initHeader(){
-            var header = blogPosts[BLOG_INDEX][0];
-
-            var aHeaderBuilder = new HeaderBuilder('img/header-bg.png', header, '')
-                .setTitleColor('#dddddd')
-                .setSubTitleColor('#fafafa')
-                .build();
-            
-            document.getElementById("header").appendChild(createHeader(aHeaderBuilder));
+            var header = blogPosts[BLOG_INDEX][0];          
+            document.getElementById("header").appendChild(createBlogHeader(header, blogPosts[BLOG_INDEX][2]));
+            document.getElementById("header").appendChild(createFromHTML(`<br><br>`));
+            /*
+            document.getElementById("header").appendChild(createFromHTML(`
+                <center>
+                    <div class="crop">
+                        <img src="img/header-bg.jpg"></img>
+                    </div
+                </center>
+            `));
+            */
         }
 
         function initFooter(){

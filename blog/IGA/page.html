@@ -36,193 +36,165 @@
 
     <link rel="shortcut icon" href="../../img/ico.png" type="image/png">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Clean Blog  CSS -->
-    <link href="../../css/clean-blog.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href = "../../css/custom.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- jQuery -->
-    <script src="../../js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../../js/bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../../js/clean-blog.min.js"></script>      
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- page generation -->
     <script src = "../../js/commons.js"></script>
     <script src = "../../js/blogs.js"></script>
+    <script src="../../js/marked.js"></script>
+    <script src="../../js/require.js"></script>
+
+    <style>
+        @font-face {
+            font-family: MainFont;
+            src: url('fonts/typewcond_regular.otf');
+        }
+        
+        * {
+            font-family: MainFont
+        }
+
+        img{
+            width:auto
+        }
+
+        .global{
+            width:90%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
 
 </head>
 
-<body onLoad = "Init()">
-
-    <!-- NAVIGATION BAR -->
+<body onLoad = "Init()" a link="#000000" vlink="#000000" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
     <div id="nav-bar"></div>
-    
-    <!-- HEADER -->
     <div id="header"></div>
-
-    <!-- MAIN CONTENT -->
-    <div class="container">
-        <p align="justify">
-        While highly monetizing F2P games make almost all of their money from in app purchases, most of the small developers don't have the tools, skills and sometimes even the drive when it comes to convincing the user to pay with significant sums of real money for our virtual cars and cattle. If you're one of the latter, ads are likely a vital, if not the major source of your game revenue. 
-
-            <center><img class="img-responsive" src="img/iap.jpg"></center>
-            <blockquote>High IAP monetization is usually about having a fraction of players spending. And a fraction of that fraction spending tons of money.</blockquote>
-
-            <br>
-            <h2>THEN</h2> 
-        
-            When I published my first Android game on the Play Store in 2013, there were mostly banner ads.  
+    <div id="content">
+        <p align="left">
+            <font size="6">
+                While highly monetizing F2P games make almost all of their money from in app purchases, most of the small developers don't have the tools, skills and sometimes even the drive when it comes to convincing the user to pay with significant sums of real money for our virtual cars and cattle. If you're one of the latter, ads are likely a vital, if not the major source of your game revenue. 
+                <br>
+                <img src="img/iap.jpg">
+                <i><blockquote>High IAP monetization is usually about having a fraction of players spending. And a fraction of that fraction spending tons of money.</blockquote></i>
+    
+                <br>
+                <h2>THEN</h2> 
             
-            <br><br> 
-            
-            Interstitial ads was growing fast with a lot of smaller networks offering them. Google Admob would soon go on to start an invite only beta program for interstitial ads, which later became available to everyone. 
-            
-            <br><br> 
-            
-            Video ads were just about to make an explosive entry and start offering eCPMs over $10 to publishers! I used HeyZap and UnityAds. 
-
-            <center><img class="img-responsive" src="img/heyzap.jpg"></center>
-            <blockquote>Integrating HeyZap was the best thing I did for our game revenues. I think they're the best video ad mediator around.</blockquote>
+                When I published my first Android game on the Play Store in 2013, there were mostly banner ads.  
                 
-            Alternate (more intrusive) monetization networks also saw quick adoption among hobbyist developers but it pretty much died in their infancy or successfully adapted due to Google policies. More on this some other day. 
+                <br><br> 
+                
+                Interstitial ads was growing fast with a lot of smaller networks offering them. Google Admob would soon go on to start an invite only beta program for interstitial ads, which later became available to everyone. 
+                
+                <br><br> 
+                
+                Video ads were just about to make an explosive entry and start offering eCPMs over $10 to publishers! I used HeyZap and UnityAds. 
+                
+                <br>
+                <img src="img/heyzap.jpg">
+                <i><blockquote>Integrating HeyZap was the best thing I did for our game revenues. I think they're the best video ad mediator around.</blockquote></i>
+                    
+                Alternate (more intrusive) monetization networks also saw quick adoption among hobbyist developers but it pretty much died in their infancy or successfully adapted due to Google policies. More on this some other day. 
+                
+                <br><br>
+                <h2>NOW</h2> 
             
-            <br><br>
-            <h2>NOW</h2> 
-        
-            Today, banner ads are bad. Given how unattractive they are, how less they pay out, and how flashy and distracting they have to be to get any attention, you probably lose more revenue by chasing users away. (Although there are exceptions where banner ads fit well) 
-        
-            <br><br> 
-
-            <center><img class="img-responsive" src="img/banner.jpg"></center>
-            <blockquote>Banner ad days are pretty much gone.</blockquote>
-        
-            Interstitial ads are ok. Users have start to dislike them too when opened in large numbers, but most of them don't mind. As long as they don't take time to render and they can be closed easily, they are fine. 
-        
-            <br><br> 
-        
-            Video ads are great in my opinion. You give the user in game items and currency as reward for watching them.  
+                Today, banner ads are bad. Given how unattractive they are, how less they pay out, and how flashy and distracting they have to be to get any attention, you probably lose more revenue by chasing users away. (Although there are exceptions where banner ads fit well) 
             
-            <BR><BR> 
+                <br><br> 
+    
+                <img src="img/banner.jpg">
+                <i><blockquote>Banner ad days are pretty much gone.</blockquote></i>
             
-            Although showing one too many video ads without asking the user is just asking for a rage quit. You can't lock a user out of your game for 15 seconds just like that you know? 
-        
-            <br><br>
-            <h2>NEXT?</h2> 
-            So what's next? People have tried a lot of other things to make the next major ad format.  
-            <br><br> 
-            For instance, incentivised surveys like those by Pollfish can really go well with incentivised videos. 
-        
-        
-            <br><br> 
-            Retail discounts and offers by Kiip are great in high retention scenarios, such as lifestyle apps like Any.do 
-        
-        
-            <br><br> 
-            Native ads that blend with your UI. If you do a good job integrating them, they can be very effective.  
-
-            <center><img class="img-responsive" src="img/alternatives.jpg"></center>
-            <blockquote>Left to right: Pollfish, Kiip, Appnext Native Ads</blockquote>
-        
-
-            However, none of the above specifically stand out as "made for games". As a game developer, I often thought of in game ads and why there aren't many companies offering them. I had seen them in console and PC games now and then.  
-        
-            <br><br>
-            <h2>IN GAME ADS</h2> 
-            <a href="http://www.plakc.com"><u>PLAKC</u></a> , the startup I work at offers targeted and dynamic in game ads. Dynamic means, the ads are not hardcoded, instead they are fetched on the fly. Targeted means we show ads based on certain parameters such as individual taste, personality groups and demographics. 
-        
-        
-            <br><BR> 
-            Why are in game ads great? 
-            <br><br> 
+                Interstitial ads are ok. Users have start to dislike them too when opened in large numbers, but most of them don't mind. As long as they don't take time to render and they can be closed easily, they are fine. 
             
-            First, they don't stay on the UI layer like banners. 
-            <br><br> 
-            Second, they don't pop up out of nowhere like interstitial ads. 
-            <br><br> 
-            Third, they don't lock your user out of the game while a video plays. 
-            <br><br> 
-            Fourth, they do not replace any of the above! I can keep in game ads as well as all the banners, interstitials and video units. In game ads are completely supplementary revenue. Supplementary revenue that you are probably missing out on! 
-            <BR><BR> 
-        
-            <center><img class="img-responsive" src="img/iga.jpg"></center>
-            <blockquote class="image-label">PLAKC In Game Ads in action! Source : Playizzon </blockquote>
-
-            In other words, there is not much reason why you shouldn't have them! Of course, don't put advertisements everywhere or put ads where they shouldn't be.  
+                <br><br> 
             
-            <BR><BR> 
-            With <a href="http://www.plakc.com"><u>PLAKC</u></a> you can integrate in game ads without a single line of code. Given the ease of integration and the fact that it's only additional revenue, I think it's worth checking out! 
-        
-            <BR><BR> 
-            So, that's my take on In Game ads. I hope to see this being adopted as a mainstream advertising channel for mobile games. 
-        
+                Video ads are great in my opinion. You give the user in game items and currency as reward for watching them.  
+                
+                <BR><BR> 
+                
+                Although showing one too many video ads without asking the user is just asking for a rage quit. You can't lock a user out of your game for 15 seconds just like that you know? 
+            
+                <br><br>
+                <h2>NEXT?</h2> 
+                So what's next? People have tried a lot of other things to make the next major ad format.  
+                <br>
+                For instance, incentivised surveys like those by Pollfish can really go well with incentivised videos. 
+                <br>
+                Retail discounts and offers by Kiip are great in high retention scenarios, such as lifestyle apps like Any.do 
+                <br>
+                Native ads that blend with your UI. If you do a good job integrating them, they can be very effective.  
+    
+                <img  src="img/alternatives.jpg">
+                <i><blockquote>Left to right: Pollfish, Kiip, Appnext Native Ads</blockquote></i>
+            
+    
+                However, none of the above specifically stand out as "made for games". As a game developer, I often thought of in game ads and why there aren't many companies offering them. I had seen them in console and PC games now and then.  
+            
+                <br><br>
+                <h2>IN GAME ADS</h2> 
+                <a href="http://www.plakc.com"><u>PLAKC</u></a> , the startup I work at offers targeted and dynamic in game ads. Dynamic means, the ads are not hardcoded, instead they are fetched on the fly. Targeted means we show ads based on certain parameters such as individual taste, personality groups and demographics. 
+            
+            
+                <br><BR> 
+                Why are in game ads great? 
+                <br>
+                
+                First, they don't stay on the UI layer like banners. 
+                <br>
+                Second, they don't pop up out of nowhere like interstitial ads. 
+                <br>
+                Third, they don't lock your user out of the game while a video plays. 
+                <br>
+                Fourth, they do not replace any of the above! I can keep in game ads as well as all the banners, interstitials and video units. In game ads are completely supplementary revenue. Supplementary revenue that you are probably missing out on! 
+                <BR>
+            
+                <img  src="img/iga.jpg">
+                <i><blockquote class="image-label">PLAKC In Game Ads in action! Source : Playizzon </blockquote></i>
+    
+                In other words, there is not much reason why you shouldn't have them! Of course, don't put advertisements everywhere or put ads where they shouldn't be.  
+                
+                <BR><BR> 
+                With <a href="http://www.plakc.com"><u>PLAKC</u></a> you can integrate in game ads without a single line of code. Given the ease of integration and the fact that it's only additional revenue, I think it's worth checking out! 
+            
+                <BR><BR> 
+                So, that's my take on In Game ads. I hope to see this being adopted as a mainstream advertising channel for mobile games. 
+            </font>
         </p>
     </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <div id="page-footer"></div>
-    </footer>
-
+    <div id="page-footer"></div>
+    
     <script>
-
+        // TODO: Set index
         var BLOG_INDEX = 3;
 
         function Init(){
+            initTitle();
             initNavBar();
             initHeader();   
             initFooter();
-            initTitle();
         }
-
+        
         function initTitle(){
-            document.title = "";
-            document.title += blogPosts[BLOG_INDEX][0]; 
-            document.title += " | Vatsal Ambastha's Blog";
+            document.title = blogPosts[BLOG_INDEX][0] + " | Vatsal Ambastha's Blog";
         }
 
         function initNavBar(){
-            var aNavBarBuilder = new NavBarBuilder(
-                new NavBarTextBuilder('', '#000000', '#'),
-                new NavBarTextBuilder('HOME', '#efefef', '../../index.html'),
-                new NavBarTextBuilder('ABOUT', '#efefef', '../../about.html'),
-                new NavBarTextBuilder('HIRE ME', '#efefef', '../../hire-me.html')
-            );
-
-            document.getElementById("nav-bar").appendChild(createNavBar(aNavBarBuilder));
+            document.getElementById("nav-bar").appendChild(createNavBar());
         }
 
         function initHeader(){
-            var header = blogPosts[BLOG_INDEX][0];
-
-            // comment out for real blog
-            // header = "TEMPLATE HEADER";
-
-            var aHeaderBuilder = new HeaderBuilder('img/header-bg.jpg', header, '')
-                .setTitleColor('#efefef')
-                .setSubTitleColor('#efefef')
-                .build();
-            
-            document.getElementById("header").appendChild(createHeader(aHeaderBuilder));
+            var header = blogPosts[BLOG_INDEX][0];          
+            document.getElementById("header").appendChild(createBlogHeader(header, blogPosts[BLOG_INDEX][2]));
+            document.getElementById("header").appendChild(createFromHTML(`<br><br>`));
+            /*
+            document.getElementById("header").appendChild(createFromHTML(`
+                <center>
+                    <div class="crop">
+                        <img src="img/header-bg.jpg"></img>
+                    </div
+                </center>
+            `));
+            */
         }
 
         function initFooter(){
