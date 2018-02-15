@@ -56,6 +56,11 @@
             max-width: 100%;
         }
 
+        .vid{
+            max-width: 90%;
+            width:auto;
+        }
+
         .global{
             width:90%;
             margin-left:auto;
@@ -122,12 +127,12 @@
                 <i><blockquote>2D Perlin Noise</blockquote></i>
                 Where z1, y1 and z1 are constant. R is calculated with Perlin noise over uniform time scale, which leads to smooth and continious animation. To make things erratic, each vertice choses a random deltaR value to begin with. The animation is created by incrementing the value fed to the Perlin function uniformly with time, the result is that the sphere animates erraticaly but seems to have some regularity. Video below.
                     
-                <p align="left">
-                    <video width="640" height="480" controls>
+                <div>
+                    <video class="vid" class="vid">
                         <source src="vid/vertex-animation.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                </p>
+                </div>
                     
                 To do away with the regularity, the per frame increment can be determined by Perlin noise itself. Two degrees of noise result in a much more erratic animation, but I chose not to do that.
                     
