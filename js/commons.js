@@ -1,8 +1,9 @@
 function createNavBar(){
 	var result = createFromHTML(`
 		<p align="left">
-			<font size="7">
-				<a href="../../index.html" target="home">HOME</a>
+			<font size="6">
+				<a href="index.html" target="home">HOME</a>
+				<a href="works.html" target="home">WORKS</a>
 			</font>
 		</p>
 	`);

@@ -74,7 +74,8 @@
 </head>
 
 <body onLoad = "Init()" a link="#000000" vlink="#000000" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
-    
+    <div id="nav-bar"></div>
+
     <!-- HEADER -->
     <span id="header" class="pic"></span>
     <br>
@@ -119,6 +120,7 @@
 
     <script>
         function Init(){
+            initNavBar();
             initHeader();
             populateBlogEntries();
             initFooter();

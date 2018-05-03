@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--
+    ================================================
+    META
+    ================================================
+    -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- for Google -->
+    <meta name="description" content="Thoughts about Unity3D, game development, virtual reality and other related things" />
+    <meta name="keywords" content="Unity3D, Vatsal Ambastha, Firexit Software, Game development, Game design, XPro Rally, Speed Street, Mobile Games, Mumbai, India" />
+
+    <meta name="author" content="Vatsal Ambastha" />
+    <meta name="copyright" content="Vatsal Ambastha 2018" />
+
+    <!-- for Facebook -->
+    <meta property="og:type" content="portfolio" />
+    <meta property="og:url" content="http://www.vatsalambastha.com/works.html" />
+
+    <meta property="og:title" content="Vatsal Ambastha's Works" />
+    <meta property="og:description" content="Works on Unity3D, game development, virtual reality and other related things" />
+    <meta property="og:image" content="img/me.jpg" />
+
+    <meta property="og:site_name" content="VatsalAmbastha.com"/>
+    <meta property="article:publisher" content="https://www.facebook.com/vatsalAmbastha" />
+    <meta property="article:author" content="https://www.facebook.com/vatsalAmbastha" />    
+    
+    <!-- for Twitter -->          
+    <meta name="twitter:card" content="summary" />
+
+    <meta name="twitter:title" content="Vatsal Ambastha's Works" />
+    <meta name="twitter:description" content="Works on Unity3D, game development, design, monetization and other related things" />
+    <meta name="twitter:image" content="img/me.jpg" />
+    
+    <meta name="google-site-verification" content="9UCBtBRg7D0bgeyjFWmZPQQVYCOc6FDR-5rm6oLICt0" />
+
+    <title>Vatsal Ambastha. Designer. Programmer. Unity3D Specialist.</title>
+    <link rel="shortcut icon" href="img/ico.png" type="image/png">
+
+    <!--
+    ================================================
+    DEPENDENCIES
+    ================================================
+    -->
+    <!-- page generation -->    
+    <script src = "js/commons.js"></script>
+    <script src = "js/blogs.js"></script>
+    <script src = "js/asciipic.js"></script>
+
+    <style>
+    @font-face {
+        font-family: MainFont;
+        src: url(fonts/typewcond_regular.otf);
+    }
+    
+    * {
+        font-family: MainFont
+    }
+
+    .global{
+        width:90%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    </style>
+
+</head>
+
+<body onLoad = "Init()" a link="#000000" vlink="#000000" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
+    <!-- NAV BAR -->
+    <div id="nav-bar"></div>
+
+    <!-- HEADER -->
+    <span id="header" class="pic"></span>
+    <br>
+
+    <!-- MAIN CONTENT -->
+    <br>
+    <font size="5" color="black">
+        <i>Click on an entry to expand it.</i>
+    </font>
+    <br>
+
+    <p align="justify">
+        <font size="6">            
+            <!-- EMPLOYMENT -->
+            <b>EMPLOYMENT</b>
+            <br>
+            Companies I have been emplyed at full time and what I did there.
+            <br>
+
+            <div onclick="ToggleDiv('plakc-desc')" style="cursor:pointer">
+                <u>Unity SDK Lead (At Plakc - The Zero Games Pvt. Ltd.)</u>
+            </div>
+            <div id="plakc-desc" style="display:none">
+                Joined in early 2016 and started a redevelopment of the SDK, taking it from a prototype stage to a market ready one. Helped with development of ad formats and worked with the backend server team of as part of the day to day work.
+                <br><br>
+                Later developed processes for automating deployment, obfuscation and packaging. Assisted several game studios, big and small, in tintegrating our product and monetise their games with our ad formats. 
+            </div>
+
+            <br>
+            <hr>
+            <!-- FIREXIT -->
+            <br>
+            <b>AT FIREXIT SOFTWARE</b>
+            <br>
+            Things me and my team worked on while I was running <a href="http://www.firexitsoftware.com" target="firexit">my studio</a>
+            <br><br>
+
+            <div onclick="ToggleDiv('xpro')" style="cursor:pointer">
+                <u>XPro Rally</u>
+            </div>
+            <div id='xpro' style="display:none">
+                A rally racing game. Released on the web in 2012 and on Android in 2013 with downloads upto 10,000/day. Over 500,000 downloads till date. Published independently under Firexit.
+                <a href="https://play.google.com/store/apps/details?id=com.firexitinteractive.xprorallylite1p1" target="xpro">Link</a>
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('blockalypse')" style="cursor:pointer">
+                <u>Blockalypse Now</u>
+            </div>
+            <div id='blockalypse' style="display:none">
+                A toon styled zombie shooter arcade game for Android released in 2014. Failed to take off but got Firexit to take analytics seriously from that time onwards.
+                <a href="https://play.google.com/store/apps/details?id=com.firexitinteractive.blockalypsenow" target="block">Link</a>
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('tokyo')" style="cursor:pointer">
+                <u>Speed Street : Tokyo</u>
+            </div>
+            <div id='tokyo' style="display:none">
+                A street racing game. Released on the web and Android in 2014. Precursor to Speed Street 2. Over 500,000 downloads till date. Published independently under Firexit. 
+                <a href="https://play.google.com/store/apps/details?id=com.firexit.speedstreettokyo" target="tokyo">Link</a>
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('ignition')" style="cursor:pointer">
+                <u>Speed Street 2 : Ignition (Shelved)</u>
+            </div>
+            <div id='ignition' style="display:none">
+                Successor to Speed Street : Tokyo. We developed a high optimised game world, with about 9 sq. km. of high detail world in less than 10 MB. The scope of the game quickly grew our capacities and the project was stopped. 
+                <a href="http://www.indiedb.com/games/speed-street-2" target="ignition">Link</a>
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('pong')" style="cursor:pointer">
+                <u>Circle Pong : Play2Win</u>
+            </div>
+            <div id='pong' style="display:none">
+                A casual game where players that top the leaderboard are given real world prizes. Found to be drive high retention, but had low user count due to it's experimental nature. 
+                <a href="https://play.google.com/store/apps/details?id=com.firexit.circlepong" target="pong">Link</a>
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('king')" style="cursor:pointer">
+                <u>King's Orders</u>
+            </div>
+            <div id='king' style="display:none">
+                A short aestheric VR walking simulator. Made using UniGenVR and acts somewhat like it's official demo. 
+                <a href="https://play.google.com/store/apps/details?id=com.firexit.kingsorders&hl=en" target="king">Link</a>
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('unsdk')" style="cursor:pointer">
+                <u>unSDK</u>
+            </div>
+            <div id='unsdk' style="display:none">
+                An inhouse analytics and monetization tool made at Firexit. UnSDK combined several ad network SDKs into one, exposed them with a single API and collects data about rewarded ad viewership. The backend then profiles individual users based on their likelyhood to watch video ads and ranks them. This data can also be made between applications so an app leveraging this data can identify a high video ad viewer as soon as he/she uses the app for the first time.
+                <br><br>
+                The project had a successful pilot, profiling about 100,000 users of Speed Street : Tokyo but could ot be continued due to our lack of backend infrastructure and skills. Two years after this project was closed it seems more significant than ever. Futureplay's games monetize almost exclusively through video ads and they also use such tools. 
+                <br><br>
+                An article about our findings was publihed <a href="https://medium.com/@tanaygaherwar/video-ads-rise-of-watch-to-win-dbfa8a71c89a" target="unsdk">here</a>. Got invited to a NASSCOM GDC Panel discussion about monetization.
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('firerewards')" style="cursor:pointer">
+                    <u>FireRewards (Working Title)</u>
+                </div>
+                <div id='firerewards' style="display:none">
+                    The reward module of Circle Pong : Pay2Win was very successful for user retention and engagement. FireREwards is the same idea made into a separate service that other developers can sign up to. 
+                </div>
+            <br>
+
+            <div onclick="ToggleDiv('newmorning')" style="cursor:pointer">
+                <u>New Morning</u>
+            </div>
+            <div id='newmorning' style="display:none">
+                An open source VR game that uses only unity 3D primitives for its graphics. Objective is to clean your room, and sort out your life. Uses Newton VR as the framework for supporting all the different headsets.
+                <a href="https://github.com/adrenak/NewMorning" target="newmorning">Link</a>
+            </div>
+
+            <br>
+            <hr>
+            <!-- CLIENTS -->
+            <br>
+            <b>FOR CLIENTS</b>
+            <br>
+            Things I have worked on for my clients.
+            <br><br>
+
+            <div onclick="ToggleDiv('encadenor')" style="cursor:pointer">
+                <u>Encadenor (For Mathew Galindo)</u>
+            </div>
+            <div id="encadenor" style="display:none">
+                Waste Isolation Pilot Plant (WIPP) was started in the 90s for managing nuclear waste. The site was meant to be designed in a way that its warning signs will last for tens of thousands of years but symbols are often repurposed and their meanings change with time. Michael Brill designed concepts for landscapes that serve as a warning through their very  structure. 
+                Encadenor is a VR experience where the user is a member of a future civilisation and visits the WIPP to record observations.
+                <a target="wipp" href="https://www.ft.com/content/db87c16c-4947-11e6-b387-64ab0a67014c" target="wipp">Here</a> is an excellent article on the WIPP.
+            </div>
+            
+            <br>
+            
+            <div onclick="ToggleDiv('hhi')" style="cursor:pointer">
+                <u>Optimized VR Video Streaming (For Cornelius Hellge, Heinrich Hertz Institute, Berlin)</u>
+            </div>
+            <div id="hhi" style="display:none">
+                A big issue with VR videos is their network cost of streaming as well as the hardware load of decoding due to very high resolution. With researchers from HHI, I worked on developing a Unity3D video player that supports their video packing algorithm. In the end the code was able to help
+                achieve optimization without the use of any shaders of ffmpeg, instead operating in vertex and UV space over complicated 8 dimensional data structures, resulting in playback of the equivalent of 6k resolution videos on a mobile device.
+            </div>
+            
+            <br>
+            
+            <div onclick="ToggleDiv('allseated')" style="cursor:pointer">
+                <u>Real Time Scene Generation in WebGL (For AllSeated, Inc)</u>
+            </div>
+            <div id="allseated" style="display:none">
+                AllSeated is an Isreal based startup that is working on combining video game technology and real world events. My work involved making a robust framework that can work with a backend server to create environments of the events. This required working heavily with asset inventories and interpreting user created data. I also worked on optimising and improving the visual quality of the experience.
+            </div>
+            
+            <br>
+            
+            <div onclick="ToggleDiv('entangled')" style="cursor:pointer">
+                <u>Entangled (For Luis Enrique Zela-Koort)</u>
+            </div>
+            <div id='entangled' style="display:none">
+                A VR visual arts project based on the concepts of quantum foam and conciousness. The user is enclosed in an erratic spheerical cage with flocks of floating eyeballs that stare back if stared at. The project was quite mathematical in its foundation. Perlin noise, runtime mesh manipulation, Boid algorithms and some 3D math were used to bring this to fruitation. Made for the HTC Vive. Exhibited in an instalation in Peru.
+            </div>
+            
+            <br>
+            
+            <div onclick="ToggleDiv('kahaani')" style="cursor:pointer">
+                <u>Project Kahaani (For Luis Enrique Zela-Koort)</u>
+            </div>
+            <div id='kahaani' style="display:none">
+                A VR visual arts project inspired from Live Simulations by Ian Cheng. Uses State based, Utility and Behaviour Tree AI to create tribes and simulates a cultural conflict while demonstrating the scene with cinematic angles. In short, it is a movie that plays itself and it different everytime. To be exhibited in an installation in Peru.
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('plusone')" style="cursor:pointer">
+                <u>Speech To Text Library (For PlusOne, Inc)</u>
+            </div>
+            <div id="plusone" style="display:none">
+                PlusOne is a working on making learning and education products in using AI and VR technology. My work was to create a C# library with an easy to use API for converting speech to text as it is spoken into the microphone. The Bing Speech API was developed with a websocket approach using BestHTTP and UniMic, my open source project for microphone input in Unity. Windows 10 (Cortana) API was implemented using Unity's inbuild speech API.
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('easton')" style="cursor:pointer">
+                <u>Virtual Art Gallery (For Easton Art Gallery)</u>
+            </div>
+            <div id='easton' style="display:none">
+                A 3D art gallery for Android using Unity3D. The app allows the user to walk around an art gallery inside which the paintings are dynamically populated using a server responss. Details such as the price, articst and the piece title are shown as well. Also included was an integration with a native app for the art gallery. The communication was done using deeplinks and url parameters.
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('juspay')" style="cursor:pointer">
+                <u>VR Visualizer (For Juspay Technologies)</u>
+            </div>
+            <div id='juspay' style="display:none">
+                Developed a prototype for a visualizer for examining source for written as Juspay as well as bring their browser based creation tool into VR.
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('armando')" style="cursor:pointer">
+                <u>Training Simulators (For Murphy Bevelacqua Consultants)</u>
+            </div>
+            <div id='armando' style="display:none">
+                Developed training simulators for the purpose of safety practices in hazardous scenarios such as cyanide leaks. The project runs on mobile, desktop and WebGL platform. Developed using Unity3D.
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('skillbee')" style="cursor:pointer">
+                <u>Training Simulators (For Skillbee)</u>
+            </div>
+            <div id='skillbee' style="display:none">
+                Skillbee is a startup that is working on making training for dangerous job safe using VR. Developed VR solutions running on Google Cardboard devices for jobs like working at great height, confined spaces etc. Project developed using UniGenVR, my open source framework for making mobile VR experiences with minimal code.
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('psych')" style="cursor:pointer">
+                <u>VR for Psychology Research (For Jan Crusius)</u>
+            </div>
+            <div id='psych' style="display:none">
+                A VR application that helps researchers study how subjects arrange things spatially.
+            </div>
+            
+            <br>
+
+            <div onclick="ToggleDiv('voice')" style="cursor:pointer">
+                <u>The Voice inspired theatre (For Sean Wu)</u>
+            </div>
+            <div id='voice' style="display:none">
+                A VR scene for an Oculus Rift game. I worked on the lighting, composition and effects while keeping it well optimised to be able to run at 90+ FPS.
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('kevin')" style="cursor:pointer">
+                <u>Post Apocalyptic World (For Kevin Chachagua)</u>
+            </div>
+            <div id='kevin' style="display:none">
+                Level creation for an HTC Vive horror action game. I did the level and environment design as well as doing the lighting and effects. The result was a high quality VR scene that could run smoothly at over 90 FPS.
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('schio')" style="cursor:pointer">
+                <u>Schiophobia (For John Krawczyk)</u>
+            </div>
+            <div id='schio' style="display:none">
+                A VR adaptation of a surrealist painting. Used mathematical devices like splines to generate gigantic snakes with colorful patterns that surround the user.
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('invidious')" style="cursor:pointer">
+                <u>Military Training Environment (For Invidious Studios)</u>
+
+            </div>
+            <div id='invidious' style="display:none">
+                A VR environment for military training.
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('vasaco')" style="cursor:pointer">
+                <u>Art Oursourcing contractor (For Vasco Games)</u>
+            </div>
+            <div id='vasaco' style="display:none">
+                Designed art and levels for several mobile titles by Vasco Games and their sister company MobilePlus.
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('g2w')" style="cursor:pointer">
+                <u>Consultant for Prototype Development and Code Quality (For Games2Win India)</u>
+            </div>
+            <div id='g2w' style="display:none">
+                Worked as a weekly consultant at Games2Win for helping them keep their code in better shape and for developing robust prototypes for their upcoming mobile games.
+            </div>
+            
+            <br>
+
+            <div onclick="ToggleDiv('stealth')" style="cursor:pointer">
+                <u>Consultant for Product Development and Code Quality (For undisclosed startup)</u>
+            </div>
+            <div id='stealth' style="display:none">
+                Client is an early stage startup that aims to blend AI and video game technology in the lifestyle industry. Supervising a small team on refactoring their existing codebase and moving their product to market faster.
+            </div>
+
+            <br>
+            <hr>
+            <!-- OPEN SOURCE -->
+            <br>
+            <b>OPEN SOURCE</b>
+            <br>
+            Some of the more significant open source projects I have worked on.<br>
+
+            <br>
+            <div onclick="ToggleDiv('uniprep')" style="cursor:pointer">
+                <u>UniPrep</u>
+            </div>
+            <div id='uniprep' style="display:none">
+                The first thing I import in any project. Includes several additional keyboard shortcuts to the Unity Editor along with many C# extensions methods. Also includes utilities for object pooling, threading, coroutine management and others.
+                <a href="https://github.com/adrenak/UniPrep/" target="prep">Link</a>
+            </div>
+           
+            <br>
+
+            <div onclick="ToggleDiv('unigenvr')" style="cursor:pointer">
+                <u>UniGenVR</u>
+            </div>
+            <div id='unigenvr' style="display:none">
+                A framework for Unity based mobile VR applications such as Cardboard and daydream. Helps create standard interactions such as walking, teleporting, triggering events, gaze based UI with no code. Completely modular in nature and very Unity inspectro driven.
+                <a href="https://github.com/adrenak/UniGenVR" target="ugvr">Link</a>
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('uniface')" style="cursor:pointer">
+                <u>UniFace</u>
+            </div>
+            <div id='uniface' style="display:none">
+                A C# library with a convenient API for manipulating UV triangles in real time. Forms the basis on my work with the Heinrich Hertz Institute for optimised VR video streaming.
+                <a href="https://github.com/adrenak/UniFace" target="face">Link</a>
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('unimic')" style="cursor:pointer">
+                <u>UniMic</u>
+            </div>
+            <div id='unimic' style="display:none">
+                Fuses Unity's AudioSource and Microphone classes to create a far better microphone. Used in almost all voice related project I have worked on.
+                <a href="https://github.com/adrenak/UniMic" target="mic">Link</a>
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('uni360media')" style="cursor:pointer">
+                <u>Uni360Media</u>
+            </div>
+            <div id='uni360media' style="display:none">
+                A completely code driven library for showing VR videos and images in Unity. The usual approach requires working with the editor and assembling things together by hand. Forms the boiler plate for almost all VR video related project I do.
+                <a href="https://github.com/adrenak/Uni360Media" target="media">Link</a>
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('unicull')" style="cursor:pointer">
+                <u>UniCull</u>
+            </div>
+            <div id='unicull' style="display:none">
+                An important tool for my Unity optimizations, especially on mobile. Offers per mesh culling distance, which is a lot more flexible than a layer based distance culling technique. Also offers Screen Space Occlusion Culling, but that's really heavy right now. Once done, it would be great for procedurally generated worlds.
+                <a href="https://github.com/adrenak/UniCull" target="cull">Link</a>
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('unigoap')" style="cursor:pointer">
+                <u>UniGOAP</u>
+            </div>
+            <div id='unigoap' style="display:none">
+                A goal oriented action planning AI library for Unity. Not used this much as it is not complete enough to be a tool in itself, but it is almost there.
+                <a href="https://github.com/adrenak/UniGOAP" target="goap">Link</a>
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('airpeer')" style="cursor:pointer">
+                <u>AirPeer</u>
+            </div>
+            <div id='airpeer' style="display:none">
+                A WebRTC based Unity multiplayer SDK. WebRTC is amazing, but by itself it does not offer an API that can be used in a Unity app beyond sending text messages. AirPeer, currently under development will have Unity specific components and serialization as well as some other additional features like host migration that allow a Server/Client game in a P2P network to not get disrupted when the host disconnects.
+                <a href="https://github.com/adrenak/AirPeer" target="ap">Link</a>
+            </div>
+
+            <br>
+
+            <div onclick="ToggleDiv('dotme')" style="cursor:pointer">
+                <u>dotMe</u>
+            </div>
+            <div id='dotme' style="display:none">
+                A service that analysis your diaries (we can them safe) using AI based sentiment and language analysis to calculate a graph for your mental health. Uses the Big 5 traits as the fundamental assessment tool. *Not* fully open source.
+                <a href="https://github.com/dotMeApp" target="dotme">Link</a>
+            </div>
+
+            <hr><br>
+            There's more but are either undisclosable, incomplete or just trivial. Please contact me if you want to know more.
+        </font>
+
+    </p>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div id="page-footer"></div>
+    </footer>
+
+</body>
+<script>
+    function Init(){
+        initNavBar();
+        initHeader();
+        initFooter();
+    }
+
+    function ToggleDiv(divname){
+        var divRef = document.getElementById(divname);
+        console.log(divRef);
+
+        if(divRef.style.display === 'none')
+            divRef.style.display =  'block';
+        else
+            divRef.style.display =  'none';
+    }
+
+    function initNavBar(){
+        document.getElementById("nav-bar").appendChild(createNavBar());
+    }
+
+    function initHeader(){
+        document.getElementById("header").appendChild(getAsciiPhoto());
+    }
+
+    function initFooter(){
+        document.getElementById("page-footer").appendChild(createFooter());
+    }
+</script>
+
+</html>
