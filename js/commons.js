@@ -1,5 +1,5 @@
-var ROOT = "file:///D://Work/Adrenak/adrenak.github.io";
-//var ROOT = "http://www.vatsalambastha.com";
+//var ROOT = "file:///D://Work/Adrenak/adrenak.github.io";
+var ROOT = "http://www.vatsalambastha.com";
 
 function createNavBar(){
 	var result = createFromHTML(`
