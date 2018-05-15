@@ -54,26 +54,24 @@
     <script src = "js/asciipic.js"></script>
 
     <style>
-    @font-face {
-        font-family: MainFont;
-        src: url(fonts/typewcond_regular.otf);
-    }
-    
-    * {
-        font-family: MainFont
-    }
+        * {
+            font-size: 18px
+        }
 
-    .global{
-        width:90%;
-        margin-left:auto;
-        margin-right:auto;
-    }
+        .global{
+            width:50%;
+            margin-left:auto;
+            margin-right:auto;
+        }
 
+        img{
+            width:50%
+        }
     </style>
 
 </head>
 
-<body onLoad = "Init()" a link="#000000" vlink="#000000" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
+<body onLoad = "Init()" a link="#000000" vlink="#663300" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
     <div id="nav-bar"></div>
 
     <!-- HEADER -->
@@ -81,52 +79,34 @@
     <br>
 
     <!-- MAIN CONTENT -->
-    <font size="7" color="black">
-        Hi,
-    </font>
+    <b>Hi,</b>
     <br>
 
-    <p align="justify">
-        <font size="6">
-            I'm Vatsal Ambastha. I work on 3D software such as games, simulations, visualizations and virtual reality. 
-            
-            <hr>
-            
-            I founded <a href="http://www.firexitsoftware.com" target="firexit">Firexit Software</a>, previously a gamedev studio, now a business name for my independent work.
-            <br>
-            I've also worked in adtech while I was at <a href="http://www.plakc.com" target="plakc">PLAKC</a> where I am still involved in limited capacity.
-            
-            <hr>
-            
-            I use Unity3D, Blender, Photoshop and write code in C#.
-            <br>
-            My game development experience spans web, mobile, desktop and lately VR platforms. 
+    <p align="left">
+        I'm Vatsal Ambastha. I work on 3D software such as games, simulations, visualizations and virtual reality. 
+        <br><br>
+        I founded <a href="http://www.firexitsoftware.com" target="firexit">Firexit Software</a>, previously a gamedev studio, now a business name for my independent work.
+        I've also worked in adtech while I was at <a href="http://www.plakc.com" target="plakc">PLAKC</a> where I am still involved in limited capacity.
 
-            <hr>
-            
-            Along with my commercial and client projects, I often work on <a href="https://firexit.itch.io" target="itch">experimental and art games</a>.
-            <br>
-            My open sourced code is <a href="http://www.github.com/adrenak" target="oss">here</a>.
+        <br><br>
 
-            <hr>
+        Along with my commercial and client projects, I like to work on <a href="https://firexit.itch.io" target="itch">experimental projects</a>. My open sourced code is <a href="http://www.github.com/adrenak" target="oss">here</a>.
+        
+        <br><br>
 
-            I am always open to some interesting client work. For an idea on quote and expertise please refer to <a href="https://www.upwork.com/freelancers/~013bc15aa780db478a" target="upworkref">my Upwork</a> or contact me.
-            <br>
-            I stay in Bangalore. My mail is vatsal@firexitsoftware.com.
-            <br>
-            A short one page resume of mine is <a href="resume.pdf" target="resume">here</a>. For a long, detailed view of my work experience, head over to <a href="works.html" target="works">my works page</a>.
-            <hr>
-        </font>
+        I am always open to some interesting challenge. For an idea on quote and expertise please refer to <a href="https://www.upwork.com/freelancers/~013bc15aa780db478a" target="upworkref">my Upwork</a> or contact me.
+        A short one page resume of mine is <a href="resume.pdf" target="resume">here</a>. For a long, detailed view of my work experience, head over to <a href="works.html" target="works">my works page</a>.
+        <br><br>
+        I stay in Bangalore and visit Mumbai often. My mail is vatsal@firexitsoftware.com.
+        <br>
     </p>
-    <font size="7" color="black">
-        Blogs
-    </font>
+    <br>
+    <b>Blogs</b>
+    <br><br>
     <div id = "blog-entry-list"></div>
 
     <!-- FOOTER -->
-    <footer>
-        <div id="page-footer"></div>
-    </footer>
+    <div id="page-footer" class="footer"></div>
 
     <script>
         function Init(){
@@ -141,7 +121,7 @@
         }
 
         function initHeader(){
-            document.getElementById("header").appendChild(getAsciiPhoto());
+            //document.getElementById("header").appendChild(getAsciiPhoto());
         }
 
         function populateBlogEntries(){

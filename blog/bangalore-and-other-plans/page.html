@@ -42,25 +42,28 @@
     <script src="../../js/require.js"></script>
 
     <style>
-        @font-face {
-            font-family: MainFont;
-            src: url('fonts/typewcond_regular.otf');
-        }
-        
         * {
-            font-family: MainFont
+            font-size: 20px
         }
 
         .global{
-            width:90%;
+            width:50%;
             margin-left:auto;
             margin-right:auto;
+        }
+
+        img{
+            max-width:100%;
+        }
+
+        video{
+            max-width:100%;
         }
     </style>
 
 </head>
 
-<body onLoad = "Init()" a link="#000000" vlink="#000000" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
+<body onLoad = "Init()" a link="#000000" vlink="#663300" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
     <div id="nav-bar"></div>
     <div id="header"></div>
     <div id="content">
@@ -73,14 +76,14 @@
                     Traffic should not really bother me as most days of the week I am going to stay at home all day and work from a small home office that I have set up. Yes I am now almost, as a couple of my friends call me, a "digital nomad".
             
                     <br><br>
-                    <img src="img/setup.jpg">
+                    <img src="img/setup.jpg" >
                     <i><blockquote>Setting up a small office at home. Missing right now : The Rift and a new PC. Also that book is amazing.</blockquote></i>
             
                     Work wise, the last two months have been great. I have been making a lot of open source tools that I will polish and release properly with documentation. Presently doing a lot of contract work. At least half of my work is on Virtual Reality right now and I recently got an Oculus Rift. My laptop is quite old (ASUS ROG G750JX) so a PC is the need of the hour.
             
                     <BR><BR>
             
-                    <img src="img/rift.jpg">
+                    <img src="img/rift.jpg" >
                     <blockquote><i>A bit late to the party, but hopefully last mover advantage?</i></blockquote>
             
                     At PLAKC, we are likely going to find a replacement for me to work on the day to day development, maintenance and support work of the SDK. There are some great feature additions coming up but I really want to automate our build process that involves platform/architecture dependent compiling, obfuscation and packaging which if done manually is very error prone, slow and menial.
