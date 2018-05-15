@@ -1,13 +1,13 @@
-//var ROOT = "file:///D://Work/Adrenak/adrenak.github.io";
-var ROOT = "http://www.vatsalambastha.com";
+var ROOT = "file:///D://Work/Adrenak/adrenak.github.io";
+//var ROOT = "http://www.vatsalambastha.com";
 
 function createNavBar(){
 	var result = createFromHTML(`
 		<b><p align="left">
-			<font size="6">
-				<a href="` + ROOT + `/index.html" target="home">HOME</a> | 
-				<a href="` + ROOT + `/works.html" target="home">WORKS</a> | 
-				<a href="` + ROOT + `/hire.html" target="hire">HIRE</a>
+			<font size="6" class="navbarentry">
+				<a href="` + ROOT + `/index.html" target="home">Home</a> | 
+				<a href="` + ROOT + `/works.html" target="home">Works</a> | 
+				<a href="` + ROOT + `/hire.html" target="hire">Hire</a>
 			</font>
 		</p></b>
 	`);
@@ -29,15 +29,12 @@ function createFooter(){
 	var footer = createFromHTML(`
 		<br><br><br>
 		<center>
-			<font size="4">
-				<a href="https://www.github.com/adrenak" target="git">GITHUB</a>   |   
-				<a href="https://www.twitter.com/adrenak" target="twitter">TWITTER</a>   |   
-				<a href="https://www.upwork.com/freelancers/~013bc15aa780db478a" target="uw">UPWORK</a>   |   
-				<a href="https://reddit.com/user/adrenak" target="reddit">REDDIT</a>   |   
-				<a href="https://www.linkedin.com/in/vatsalAmbastha/" target="linkedin">LINKEDIN</a>   |   
-				<a href="https://www.facebook.com/vatsalAmbastha" target="personalfb">PERSONAL FB</a>    |    
-				<a href="https://www.facebook.com/FirexitSoftware" target="firexitfb">FIREXIT FB</a>   |   
-				<a href="http://www.FirexitSoftware.com" target="firexitweb">FIREXIT WEB</a>
+			<font class=footer">
+			© Vatsal Ambastha, 2018. 
+			<a href="http://www.FirexitSoftware.com" target="firexitweb">Firexit Software</a>	|	
+				<a href="https://www.github.com/adrenak" target="git">Github</a>   |   
+				<a href="https://www.upwork.com/freelancers/~013bc15aa780db478a" target="uw">Upwork</a>   |   
+				<a href="https://www.linkedin.com/in/vatsalAmbastha/" target="linkedin">LinkedIn</a>
 			</font>
 		</center>
     `);
@@ -48,12 +45,12 @@ function createDescriptedBlogLink(blogDetails){
 	var descriptedBlogLink = createFromHTML(`
 		<div>
 			<a href=` + blogDetails[1] + ` target=` + blogDetails[0] + `>
-				<font size="5">` + blogDetails[0] + `</font>
+				<font class="blogtitle">` + blogDetails[0] + `</font>
 			</a>
 			<br>
-			<font size="4">` + blogDetails[2] + `</font>
+			<font class="blogsubtitle">` + blogDetails[2] + `</font>
 			<br>
-			<font size="3">` + blogDetails[3] + `</font>
+			<font class="blogdate">` + blogDetails[3] + `</font>
 		</div>
 	`);
 

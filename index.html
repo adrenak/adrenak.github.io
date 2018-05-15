@@ -53,22 +53,7 @@
     <script src = "js/blogs.js"></script>
     <script src = "js/asciipic.js"></script>
 
-    <style>
-        * {
-            font-size: 18px
-        }
-
-        .global{
-            width:50%;
-            margin-left:auto;
-            margin-right:auto;
-        }
-
-        img{
-            width:50%
-        }
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body onLoad = "Init()" a link="#000000" vlink="#663300" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
@@ -79,29 +64,32 @@
     <br>
 
     <!-- MAIN CONTENT -->
-    <b>Hi,</b>
+    <font class="normalheading">Hi,</font>
     <br>
+
 
     <p align="left">
-        I'm Vatsal Ambastha. I work on 3D software such as games, simulations, visualizations and virtual reality. 
-        <br><br>
-        I founded <a href="http://www.firexitsoftware.com" target="firexit">Firexit Software</a>, previously a gamedev studio, now a business name for my independent work.
-        I've also worked in adtech while I was at <a href="http://www.plakc.com" target="plakc">PLAKC</a> where I am still involved in limited capacity.
-
-        <br><br>
-
-        Along with my commercial and client projects, I like to work on <a href="https://firexit.itch.io" target="itch">experimental projects</a>. My open sourced code is <a href="http://www.github.com/adrenak" target="oss">here</a>.
-        
-        <br><br>
-
-        I am always open to some interesting challenge. For an idea on quote and expertise please refer to <a href="https://www.upwork.com/freelancers/~013bc15aa780db478a" target="upworkref">my Upwork</a> or contact me.
-        A short one page resume of mine is <a href="resume.pdf" target="resume">here</a>. For a long, detailed view of my work experience, head over to <a href="works.html" target="works">my works page</a>.
-        <br><br>
-        I stay in Bangalore and visit Mumbai often. My mail is vatsal@firexitsoftware.com.
-        <br>
+        <font class="normaltext">
+            I'm Vatsal Ambastha. I work on 3D software such as games, simulations, visualizations and virtual reality. 
+            <br><br>
+            I founded <a href="http://www.firexitsoftware.com" target="firexit">Firexit Software</a>.
+            I've also worked in adtech while I was at <a href="http://www.plakc.com" target="plakc">PLAKC</a> where I am still involved in limited capacity.
+    
+            <br><br>
+       
+            I am presently not interesting in a full-time job (unless it is very, very compelling). 
+            If you want to hire me as a consultant or developer on contract, please refer to <a href="https://www.upwork.com/freelancers/~013bc15aa780db478a" target="upworkref">my Upwork</a> or contact me via email. You can refer to <a href="https://www.github.com/adrenak">my Github</a> as well.
+            
+            <br><br>
+            
+            A short one page resume of mine is <a href="resume.pdf" target="resume">here</a>. For a long, detailed view of my work experience, head over to <a href="works.html" target="works">my works page</a>.
+            <br><br>
+            I stay in Bengaluru, visit Mumbai often and travel around to work with my local clients. My mail is vatsal@firexitsoftware.com
+            <br>
+        </font>
     </p>
     <br>
-    <b>Blogs</b>
+    <font class="normalheading">Blogs</font>
     <br><br>
     <div id = "blog-entry-list"></div>
 
@@ -127,7 +115,9 @@
         function populateBlogEntries(){
             for(var i = blogPosts.length - 1; i != -1; i--){
                 document.getElementById("blog-entry-list").appendChild(createDescriptedBlogLink(blogPosts[i]));  
+                document.getElementById("blog-entry-list").appendChild(createFromHTML(`<br>`));
                 document.getElementById("blog-entry-list").appendChild(createFromHTML(`<hr>`));
+                document.getElementById("blog-entry-list").appendChild(createFromHTML(`<br>`));
             }
         }
 

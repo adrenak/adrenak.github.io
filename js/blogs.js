@@ -21,7 +21,7 @@ var blogPosts = [
 	[
 		"Cast No Shadow",
 		"blog/shadow-proxy/page.html",
-		"Shadows may be killing your game's performance. Here's a way how to fix it.",
+		"Shadows may be killing your games' performance. Here's a way to fix it.",
 		"5 February 2017"
 	],
 	// 3
@@ -35,7 +35,7 @@ var blogPosts = [
     [
 		"Post Apocalyptic Level Design",
 		"blog/post-apocalyptic-level-design/page.html",
-		"Filling a level with meaningful detail",
+		"Filling a level with meaningful detail.",
 		"23 August 2017"
 	],
 	// 5
@@ -49,7 +49,7 @@ var blogPosts = [
     [
         "Open Source Set 1",
         "blog/open-source-pack-1/page.html",
-        "3 open source tools now available on my Github",
+        "3 open source tools now available on my Github.",
         "20 Octber 2017"
 	],
 	// 7
@@ -63,14 +63,14 @@ var blogPosts = [
     [
         "UniCV",
         "blog/unicv/page.html",
-        "OpenCV image processing in Unity",
+        "OpenCV image processing in Unity.",
         "25 December 2017"
 	],
 	// 9
 	[
 		"Open Source Set 2",
 		"blog/open-source-pack-2/page.html",
-		"4 Open source tools released",
+		"4 Open source tools released.",
 		"6 February 2018"
 	]
 ];

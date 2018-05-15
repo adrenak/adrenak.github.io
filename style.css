@@ -1,0 +1,54 @@
+@font-face {
+    font-family: globalFont;
+    src: url(Caslon-Libre.ttf);
+}
+
+.navbarentry {
+    font-size:25px;
+}
+
+.normalheading {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.normaltext {
+    font-size: 19px;
+}
+
+.workheading {
+    font-size: 22px;
+    text-decoration: underline;
+}
+
+.worktext {
+    font-size: 19px;
+}
+
+.blogtitle {
+    font-size:22px;
+}
+
+.blogsubtitle{
+    font-size:19px;
+}
+
+.blogdate {
+    font-size: 15px;
+}
+
+.footer{
+    font-size: 15px;
+}
+
+.global {
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+    font-family: globalFont;
+    line-height: 30px;   
+}
+
+img{
+    width:50%
+}
