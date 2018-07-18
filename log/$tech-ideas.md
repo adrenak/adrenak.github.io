@@ -1,5 +1,7 @@
 _Ideas for code products and projects I want to work on_
 
+- WebCamExtended : Easier and more web camera related API in Unity
+
 - UnityXpire : Don't run a build if it is expired
 
 - UniPrep:
