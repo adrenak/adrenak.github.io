@@ -1,6 +1,6 @@
 @font-face {
     font-family: globalFont;
-    src: url(Caslon-Libre.ttf);
+    src: url(OpenSans-Regular.ttf);
 }
 
 .navbarentry {
@@ -13,28 +13,32 @@
 }
 
 .normaltext {
-    font-size: 19px;
+    font-size: 25px;
 }
 
 .workheading {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.worktitle{
+    font-size: 23px;
+    color:#333333
+}
+
+.worktag{
+    font-size: 18px;
+    color:#006688;
+    font-weight:bold;
+}
+
+.workdetails{
     font-size: 22px;
-    text-decoration: underline;
+    color:#666666
 }
 
 .worktext {
     font-size: 19px;
-}
-
-.blogtitle {
-    font-size:22px;
-}
-
-.blogsubtitle{
-    font-size:19px;
-}
-
-.blogdate {
-    font-size: 15px;
 }
 
 .footer{
@@ -42,11 +46,15 @@
 }
 
 .global {
-    width:50%;
+    width:80%;
     margin-left:auto;
     margin-right:auto;
     font-family: globalFont;
-    line-height: 30px;   
+    line-height: 30px;
+}
+
+.a{
+    color: #006688
 }
 
 img{

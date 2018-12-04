@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- for Google -->
-    <meta name="description" content="Thoughts about Unity3D, game development, virtual reality and other related things" />
+    <meta name="description" content="Unity3D, game development, virtual reality and other related things" />
     <meta name="keywords" content="Unity3D, Vatsal Ambastha, Firexit Software, Game development, Game design, XPro Rally, Speed Street, Mobile Games, Mumbai, India" />
 
     <meta name="author" content="Vatsal Ambastha" />
@@ -24,7 +24,7 @@
     <meta property="og:url" content="http://www.vatsalambastha.com/index.html" />
 
     <meta property="og:title" content="Vatsal Ambastha's Blog" />
-    <meta property="og:description" content="Thoughts on Unity3D, game development, virtual reality and other related things" />
+    <meta property="og:description" content="Unity3D, game development, virtual reality and other related things" />
     <meta property="og:image" content="img/me.jpg" />
 
     <meta property="og:site_name" content="VatsalAmbastha.com"/>
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary" />
 
     <meta name="twitter:title" content="Vatsal Ambastha's Blog" />
-    <meta name="twitter:description" content="Thoughts about Unity3D, game development, design, monetization and other related things" />
+    <meta name="twitter:description" content="Unity3D, game development, design, monetization and other related things" />
     <meta name="twitter:image" content="img/me.jpg" />
     
     <meta name="google-site-verification" content="9UCBtBRg7D0bgeyjFWmZPQQVYCOc6FDR-5rm6oLICt0" />
@@ -50,13 +50,10 @@
     -->
     <!-- page generation -->    
     <script src = "js/commons.js"></script>
-    <script src = "js/blogs.js"></script>
-    <script src = "js/asciipic.js"></script>
-
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body onLoad = "Init()" a link="#000000" vlink="#663300" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
+<body onLoad = "Init()" a link="#006688" vlink="#006688" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
     <div id="nav-bar"></div>
 
     <!-- HEADER -->
@@ -64,34 +61,29 @@
     <br>
 
     <!-- MAIN CONTENT -->
-    <font class="normalheading">Hi,</font>
-    <br>
-
-
     <p align="left">
         <font class="normaltext">
+            <div>
+                <img src="img/me.jpg" align="left" style="padding-right:2%; padding-bottom:100%; width:16%">
+            </div>
+
             I'm Vatsal Ambastha. I work on 3D software such as games, simulations, visualizations and virtual reality. 
             <br><br>
             I founded <a href="http://www.firexitsoftware.com" target="firexit">Firexit Software</a>.
             I've also worked in adtech while I was at <a href="http://www.plakc.com" target="plakc">PLAKC</a> where I am still involved in limited capacity.
     
             <br><br>
-       
+        
             I am presently not interested in a full-time job (unless it is quite compelling). 
-            If you want to hire me as a consultant or developer on contract, please refer to <a href="https://www.upwork.com/freelancers/~013bc15aa780db478a" target="upworkref">my Upwork</a> or contact me via email. You can refer to <a href="https://www.github.com/adrenak">my Github</a> as well.
+            If you want to hire me as a consultant or developer on contract, please refer to <a href="https://www.upwork.com/freelancers/~013bc15aa780db478a" target="upworkref">my Upwork page</a> or contact me via email. You can check out <a href="https://www.github.com/adrenak">my Github</a> as well.
             
             <br><br>
             
             My resume is <a href="resume.pdf" target="resume">here</a>. For a long, detailed view of my work experience, head over to <a href="works.html" target="works">my works page</a>.
             <br><br>
-            I stay in Bengaluru, visit Mumbai often and travel around to work with my local clients. My mail is vatsal@firexitsoftware.com
-            <br>
+            I stay in Hyderabad, India. My mail is vatsal@firexitsoftware.com
         </font>
     </p>
-    <br>
-    <font class="normalheading">Blogs</font>
-    <br><br>
-    <div id = "blog-entry-list"></div>
 
     <!-- FOOTER -->
     <div id="page-footer" class="footer"></div>
@@ -99,26 +91,11 @@
     <script>
         function Init(){
             initNavBar();
-            initHeader();
-            populateBlogEntries();
             initFooter();
         }
 
         function initNavBar(){
             document.getElementById("nav-bar").appendChild(createNavBar());
-        }
-
-        function initHeader(){
-            //document.getElementById("header").appendChild(getAsciiPhoto());
-        }
-
-        function populateBlogEntries(){
-            for(var i = blogPosts.length - 1; i != -1; i--){
-                document.getElementById("blog-entry-list").appendChild(createDescriptedBlogLink(blogPosts[i]));  
-                document.getElementById("blog-entry-list").appendChild(createFromHTML(`<br>`));
-                document.getElementById("blog-entry-list").appendChild(createFromHTML(`<hr>`));
-                document.getElementById("blog-entry-list").appendChild(createFromHTML(`<br>`));
-            }
         }
 
         function initFooter(){
