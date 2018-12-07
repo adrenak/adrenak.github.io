@@ -1,30 +1,39 @@
-//var ROOT = "file:///D://Work/Adrenak/adrenak.github.io";
-var ROOT = "http://www.vatsalambastha.com";
-
 function createNavBar(){
 	var result = createFromHTML(`
-		<b><p align="left">
+		<b><p align="center">
 			<font size="6" class="navbarentry">
-				<a href="` + ROOT + `/index.html" target="home">Home</a> | 
-				<a href="` + ROOT + `/works.html" target="works">Works</a> | 
-				<a href="` + ROOT + `/hire.html" target="hire">Hire</a> |
-				<a href="https://www.medium.com/@adrenak" target="blog">Blog</a> |
-				<a href="https://www.behance.net/adrenak" target="portfolio">Portfolio</a> |
-				<a href="resume.pdf" target="resume">Resume</a> 
+				<a href="index.html">Home</a> | 
+				<a href="projects.html">Projects</a> | 
+				<a href="hire.html">Hire</a> |
+				<a href="https://www.medium.com/@adrenak">Blog</a> |
+				<a href="https://www.behance.net/adrenak">Portfolio</a> |
+				<a href="Vatsal-Ambastha-Resume-Dec18.pdf">Resume</a> 
 			</font>
-		</p></b>
+		</p>
+		</b>
 	`);
 	return result;
 }
 
-function createWorkTile(title, tag, details){
-	var tile = createFromHTML(`
+function createWorkTile(title, tag, details, link){
+	if(link == undefined){
+		var tile = createFromHTML(`
 <font class="worktitle">` + title + `</font><font class="worktag"><sup>___` + tag + `</sup></font>
+<br>
+<font class="workdetails">` + details + `</font>
+<br><br>
+		`);
+		return tile;
+	}
+	else{
+		tile = createFromHTML(`
+<font class="worktitle"><a href="` + link + `">` + title + `</a></font><font class="worktag"><sup>___` + tag + `</sup></font>
 <br>
 <font class="workdetails">` + details + `</font>
 <br><br>
 	`);
 	return tile;
+	}
 }
 
 function createFooter(){
@@ -33,11 +42,11 @@ function createFooter(){
 		<center>
 			<font class=footer">
 			© Vatsal Ambastha, 2018. 
-			<a href="http://www.FirexitSoftware.com" target="firexitweb">Firexit Software</a>	|	
-				<a href="https://www.github.com/adrenak" target="git">Github</a>   |   
-				<a href="https://www.upwork.com/freelancers/~013bc15aa780db478a" target="uw">Upwork</a>   |   
-				<a href="https://www.linkedin.com/in/vatsalAmbastha/" target="linkedin">LinkedIn</a> | 
-				<a href="https://www.behance.net/adrenak" target="behance">Behance</a>
+			<a href="http://www.FirexitSoftware.com">Firexit Software</a>	|	
+				<a href="https://www.github.com/adrenak">Github</a>   |   
+				<a href="https://www.upwork.com/freelancers/~013bc15aa780db478a">Upwork</a>   |   
+				<a href="https://www.linkedin.com/in/vatsalAmbastha/">LinkedIn</a> | 
+				<a href="https://www.behance.net/adrenak">Behance</a>
 			</font>
 		</center>
     `);
