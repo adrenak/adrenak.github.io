@@ -41,7 +41,7 @@ function createFooter(){
 		<br><br><br>
 		<center>
 			<font class=footer">
-			© Vatsal Ambastha, 2018. 
+			© Vatsal Ambastha 2019. 
 			<a href="http://www.FirexitSoftware.com">Firexit Software</a>	|	
 				<a href="https://www.github.com/adrenak">Github</a>   |   
 				<a href="https://www.upwork.com/freelancers/~013bc15aa780db478a">Upwork</a>   |   
