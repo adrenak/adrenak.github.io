@@ -5,7 +5,7 @@ function createNavBar(){
 				<a href="index.html">Home</a> | 
 				<a href="projects.html">Projects</a> | 
 				<a href="hire.html">Hire</a> |
-				<a href="https://www.medium.com/@adrenak">Blog</a> |
+				<a href="https://vatsalambastha.blogspot.com">Blog</a> |
 				<a href="https://www.behance.net/adrenak">Portfolio</a> |
 				<a href="Vatsal-Ambastha-Resume-Dec18.pdf">Resume</a> 
 			</font>
