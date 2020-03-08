@@ -2,12 +2,16 @@ function createNavBar(){
 	var result = createFromHTML(`
 		<b><p align="center">
 			<font size="6" class="navbarentry">
+				|
 				<a href="index.html">Home</a> | 
-				<a href="projects.html">Projects</a> | 
-				<a href="hire.html">Hire</a> |
 				<a href="https://vatsalambastha.blogspot.com">Blog</a> |
+				<a href="Vatsal-Ambastha-Resume.pdf">Resume</a> |
+				<a href="https://www.upwork.com/freelancers/~013bc15aa780db478a">Hire</a>|
+				    
+				| |
+				<a href="projects.html">Projects</a>| 
 				<a href="https://www.behance.net/adrenak">Portfolio</a> |
-				<a href="Vatsal-Ambastha-Resume-Dec18.pdf">Resume</a> 
+				<a href="https://www.github.com/adrenak">Open Source</a> |
 			</font>
 		</p>
 		</b>
@@ -41,7 +45,7 @@ function createFooter(){
 		<br><br><br>
 		<center>
 			<font class=footer">
-			© Vatsal Ambastha 2019. 
+			© Vatsal Ambastha 2020. 
 			<a href="http://www.FirexitSoftware.com">Firexit Software</a>	|	
 				<a href="https://www.github.com/adrenak">Github</a>   |   
 				<a href="https://www.upwork.com/freelancers/~013bc15aa780db478a">Upwork</a>   |   
