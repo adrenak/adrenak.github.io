@@ -1,107 +1,509 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<title>Vatsal Ambastha</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="description" content="Vatsal Ambastha" />
+	<meta name="keywords" content="Vatsal Ambastha, adrenak, csharp, c#, github, open source, consulting, consultant, contracting, contracter, freelancing, freelancer Unity, Unity Developer, India, Indian, Game Development, Upwork, Angellist, Toptal, Virtual Reality, VR vcard, responsive, resume, personal, card, cv, cards, portfolio" />
+	<meta name="author" content="Vatsal Ambastha" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	
+	<link rel="stylesheet" href="css/basic.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="css/blogs.css" />
+	<link rel="stylesheet" href="css/ionicons.css" />
+	<link rel="stylesheet" href="css/magnific-popup.css" />
+	<link rel="stylesheet" href="css/animate.css" />
+	<link rel="stylesheet" href="css/owl.carousel.css" />
+	<link rel="stylesheet" href="css/gradient.css" />
+	<link rel="stylesheet" href="css/new-skin/new-skin.css" />
+	<link rel="stylesheet" href="css/demos/demo-2-colors.css" />
 
-    <!--
-    ================================================
-    META
-    ================================================
-    -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--
+		Template Dark
+	-->
+	<link rel="stylesheet" href="css/new-skin/classic-skin.css" />
+	<link rel="stylesheet" href="css/template-dark/dark.css" />
+	
 
-    <!-- for Google -->
-    <meta name="description" content="Unity3D, game development, virtual reality and other related things" />
-    <meta name="keywords" content="Unity3D, Vatsal Ambastha, Firexit Software, Game development, Game design, XPro Rally, Speed Street, Mobile Games, Mumbai, India" />
+	<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 
-    <meta name="author" content="Vatsal Ambastha" />
-    <meta name="copyright" content="Vatsal Ambastha 2018" />
-
-    <!-- for Facebook -->
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://www.vatsalambastha.com/index.html" />
-
-    <meta property="og:title" content="Vatsal Ambastha's Blog" />
-    <meta property="og:description" content="Unity3D, game development, virtual reality and other related things" />
-    <meta property="og:image" content="img/me.jpg" />
-
-    <meta property="og:site_name" content="VatsalAmbastha.com"/>
-    <meta property="article:publisher" content="https://www.facebook.com/vatsalAmbastha" />
-    <meta property="article:author" content="https://www.facebook.com/vatsalAmbastha" />    
-    
-    <!-- for Twitter -->          
-    <meta name="twitter:card" content="summary" />
-
-    <meta name="twitter:title" content="Vatsal Ambastha's Blog" />
-    <meta name="twitter:description" content="Unity3D, game development, design, monetization and other related things" />
-    <meta name="twitter:image" content="img/me.jpg" />
-    
-    <meta name="google-site-verification" content="9UCBtBRg7D0bgeyjFWmZPQQVYCOc6FDR-5rm6oLICt0" />
-
-    <title>Vatsal Ambastha. Designer. Programmer. Unity3D Specialist.</title>
-    <link rel="shortcut icon" href="img/ico.png" type="image/png">
-
-    <!--
-    ================================================
-    DEPENDENCIES
-    ================================================
-    -->
-    <!-- page generation -->    
-    <script src = "js/commons.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" href="images/favicons/ico.png">
 </head>
 
-<body onLoad = "Init()" a link="#006688" vlink="#006688" style="background-color:rgb(255, 255, 255)" text="#3f3f3f" class="global">
-    <div id="nav-bar"></div>
+<script>
+    function Init(){
+        initWorkTiles();
+    }
 
-    <!-- HEADER -->
-    <span id="header" class="pic"></span>
-    <br>
+    function initWorkTiles(){
+		addWorkTile(2020, "Retro Reel", "App", "An app (and community) for classic Hollywood movies", "https://www.behance.net/gallery/101101829/Retro-Reel");
+		addWorkTile(2020, "Packaged Video Player", "Contract", "Packaging videos like setup files that can be played in a custom video player. Meant for offline video distribution. Ongoing.", "https://www.behance.net/gallery/101101829/Retro-Reel");
+		addWorkTile(2020, "Spatial", "Open Source", "Headset independent raycast based VR interactions when you're tired of competing SDKs", "https://www.github.com/adrenak/spatial");
+		addWorkTile(2020, "vboard", "Open Source", "World Canvas keyboard for VR applications.", "https://www.github.com/adrenak/vboard");
+		addWorkTile(2020, "upm-template", "Open Source", "Github project template for Unity UPM projects. Bunch of cool features here.", "https://www.github.com/adrenak/upm-template");
+		addWorkTile(2020, "XPro Rally 2", "Game", "A rally racing game currently under development", "https://www.behance.net/gallery/101101619/XPro-Rally-2-%28In-Development%29");
+		addWorkTile(2020, "Mediaplayer", "Open Source", "A standardized media player interface for video playback in Unity. Used in Retro Reel.", "https://github.com/adrenak/mediaplayer");
+		addWorkTile(2020, "Physiotherapy VR", "VR", "A rally racing game currently under development", "https://twitter.com/VatsalAmbastha/status/1326094777159352321");
+        addWorkTile(2020, "UGX", "Open Source", "UI framework for Unity", "https://github.com/adrenak/ugx");
+        addWorkTile(2020, "Amora Mavis", "CGI", "A CGI human to learn the production behind them.", "https://www.instagram.com/amora.mavis/");
+        addWorkTile(2020, "Educational Games", "Contract", "A set of educational mini games made for DronStudy.", "https://www.behance.net/gallery/108910883/Collection-of-educational-games");
+        addWorkTile(2020, "Unnamed Game Jam game", "Game Jam", "Originally meant for the GIthub Game Off 2020 jam. Not finished on time and likely to stay that way now :/", "https://twitter.com/VatsalAmbastha/status/1325901527408545793");
+		
+        addWorkTile(2019, "Scuti", "Contractor", "Contracted by MindTrust Labs to work on an eCommerce Unity SDK that combines in game purchases and real world items.", "https://www.scuti.store/");
+        addWorkTile(2019, "Digibeings", "Cofounder", "AI powered Virtual Beings. Early stage venture.", "#");
+        addWorkTile(2019, "UniCDN", "Open Source", "A quickly made CDN file manager for Unity", "https://github.com/adrenak/unicdn");
+        addWorkTile(2019, "Tork", "Open Source", "Vehicle physics system for Unity <a href='https://youtu.be/gso45Zg_Z_Q'>Video</a>", "https://github.com/adrenak/Tork");
+        addWorkTile(2019, "Trill", "Open Source", "Library to transmit and receive data over sound waves.", "https://github.com/adrenak/Trill");
+        addWorkTile(2019, "UniVoice", "Open Source", "A P2P VoIP solution for Unity. Uses AirPeer and UniMic by me.", "https://www.github.com/adrenak/univoice");
+        addWorkTile(2019, "Xavier", "Open Source", "A TCP library for networked event systems and RPC like method invocations", "https://www.github.com/adrenak/xavier");
 
-    <!-- MAIN CONTENT -->
-    <p align="left">
-        <font class="normaltext">
-            <div>
-                <img src="img/me.jpg" align="left" style="padding-right:2%; width:16%">
-            </div>
+        addWorkTile(2018, "AirPeer", "Open Source", "A WebRTC based networking plugin for Unity", "https://www.github.com/adrenak/airpeer");
+        addWorkTile(2018, "GPUVideoPlayer", "Open Source", "HEVC decoded video player for Windows systems", "https://www.github.com/adrenak/gpuvideoplayer");
+        addWorkTile(2018, "UniGenVR", "Open Source", "A Unity framework for creating simple VR applications in Unity without code", "https://www.github.com/adrenak/unigenvr");
+        addWorkTile(2018, "SpAM-cubed-VR", "Contract", "VR application for psychology experiment. Subjects arrange controlled objects in virtual space.");
+        addWorkTile(2018, "Farmer VR", "Project", "Talk to a plant in VR. Positive speech makes them grow. Based on a popular notion that plants grow faster with voice and music.", "https://www.behance.net/gallery/79867477/Small-VR-Experience");
+        addWorkTile(2018, "UniMap", "Open Source", "Google Maps plugin developed on top of the official REST APIs", "https://www.github.com/adrenak/unimap");
+        addWorkTile(2018, "King's Orders", "Product", "A walking simulator game made in Unity. Uses UniGenVR for mobile VR", "https://play.google.com/store/apps/details?id=com.firexit.kingsorders");
+        addWorkTile(2018, "UniFace", "Open Source", "Tool for realtime UV space face and vertex manipulation", "https://www.github.com/adrenak/uniface");
+        addWorkTile(2018, "Jism (Working title)", "Contract", "Digital art project about sexuality and intimacy.");
+        addWorkTile(2018, "UniCull", "Open Source", "Tool for easier culling. Aimed towards games with procedural world generation", "https://www.github.com/adrenak/unicull");
+        addWorkTile(2018, "Together (Working title)", "Contract", "A VR voice chat application with positional audio. Uses AirPeer");
+        addWorkTile(2018, "Journeys", "Contract", "A VR tourism application. Uses Google Maps APIs. Has a companion remote app that communiates over the local network.", "https://www.behance.net/gallery/78107135/Journeys-VR");
+        addWorkTile(2018, "UniDLL", "Open Source", "A Unity tool to create DLL from C# source files", "https://www.github.com/adrenak/unidll");
+        addWorkTile(2018, "NetVid", "Contract", "A VR+desktop application for playback of VR in Oculus Go Headsets controlled by an admin application on the PC. Used for educational VR videos.", "https://4dsci.com/");
+        addWorkTile(2018, "DavitVR", "Contract", "A VR simulator for heavy industry. Uses LeapMotion with Oculus Rift to let users control machinery.", "https://www.behance.net/gallery/77683225/VR-Leap-Motion-Industrial-Simulator");
+        addWorkTile(2018, "LoomX", "Contract", "A sample game built on the LoomX Blockchain platform based on Ethereum", "https://loomx.io/");
+        addWorkTile(2018, "PlusOne, Inc", "Contract", "A Speech To Text plugin for voice input in VR applications", "https://www.plusone.space");
+        addWorkTile(2018, "Military Environment", "Contract", "Terrain design for a VR military simulator", "https://www.behance.net/gallery/73361859/Military-Terrain");
+        addWorkTile(2018, "UniSpeech", "Open Source", "A simple to use Speech Recognition library for Unity based on the Microsoft Cognitive Services ", "https://www.github.com/adrenak/unispeech");
+        addWorkTile(2018, "Lyflike", "Contract & Consulting", "Complete development of an app for virtual fashion in Unity for Bighthinx.", "https://yourstory.com/2019/04/ai-startup-bigthinx-ecommerce-fashion");
+        addWorkTile(2018, "CsvUtility", "Open Source", "Utility for reading and writing CSV sheets in C#. Probably useless.", "https://www.github.com/adrenak/csvutility");
 
-            I'm Vatsal Ambastha. I work on video games, simulations, visualizations, virtual reality (and other such stuff).
-
-            <br><br>
-            I founded <a href="http://www.firexitsoftware.com">Firexit Software</a>.<br>
-            Made 3D in-game ads at <a href="http://www.plakc.com">PLAKC</a><br>
-            Developed novel retail-via-games technologies at <a href="https://www.mindtrustlabs.com/">MindTrust Labs</a>
-            <br><br>
+        addWorkTile(2017, "Encadenor", "Contract", "VR art project about the Waste Isolation Pilot Project in a fictional future. Uses UniGenVR", "https://www.behance.net/gallery/73361295/Encadenor");
+        addWorkTile(2017, "Kahaani", "Contract", "A artistic simulation inspired from Ian Cheng's Live Simulations. Uses UniGOAP", "https://www.behance.net/gallery/73361449/Project-Kahaani");
+        addWorkTile(2017, "Entangled", "Contract", "A artistic VR application that explores consciousness.", "https://www.behance.net/gallery/73361499/Entangled");
+        addWorkTile(2017, "UniMic", "Open Source", "A wrapper for Unity's Microphone class.", "https://github.com/adrenak/unimic");
+        addWorkTile(2017, "Work At Height", "Contract", "A training simulator that helps the user learn about safety measures while working on high rise buildilngs.", "https://www.behance.net/gallery/73361583/Project-Khatra");
+        addWorkTile(2017, "VR Gym", "Contract", "A small VR experience for physiotherapy purposes");
+        addWorkTile(2017, "VR Video Packing", "Contract", "R&D project for playing packed CMP and ERP videos of 6K resolution in Unity. Uses UniFace");
+        addWorkTile(2017, "AllSeated, Inc", "Contract", "Refactoring and optimization of a Unity based WebGL application", "https://www.allseated.com/");
+        addWorkTile(2017, "Kiophobia", "Contract", "A VR adaptation of a surrealist painting");
+        addWorkTile(2017, "VR Apocalypse", "Contract", "Post apocalyptic level and environment design for an HTC Vive game.", "https://www.behance.net/gallery/73361707/VR-Apocalypse");
+        addWorkTile(2017, "The Voice Stage Replica VR", "Contract", "Environment design of a \"The Voice\" inspired stage for a VR singing game", "https://www.behance.net/gallery/73361793/The-Voice-Stage-Replica-VR");
+        addWorkTile(2017, "UniGOAP", "Open Source", "A library for Goal Orientated Action Planning AI in Unity", "https://www.github.com/adrenak/unigoap");
+        addWorkTile(2017, "UniPrep", "Open Source", "Set of open source tools and extensions for Unity", "https://www.github.com/adrenak/uniprep");
         
-            I am presently not looking for a job but feel free to reach out.
-            <br>
-            For consulting, contracts please contact via email or the "Hire" tab.
+        addWorkTile(2016, "Virtual Art Gallery", "Contract", "A mobile and web 3D space for an art gallery that integrates with the clients' e-commerce goals", "https://www.behance.net/gallery/42933135/Art-Gallery-Interactive-Unity3D-Tour");
+        addWorkTile(2016, "Cyanide Leak Sim 1", "Contract", "A mobile and PC simulator for training agents in situations of cyanide leak in a house ", "https://www.behance.net/gallery/73361159/Cyanide-Leak-Sim");
+        addWorkTile(2016, "Cyanide Leak Sim 2", "Contract", "A mobile and PC simulator for training agents in situations of cyanide leak in a public place", "https://www.behance.net/gallery/73361329/Cyanide-Leak-Sim");
+        addWorkTile(2016, "FireRewards (Shut down)", "Product", "A user engagement platform that offers players real world gifts. Similar to Amazon's GameOn. Product development discontinued.");
+        addWorkTile(2016, "Circle Pong: Play To Win", "Product", "A super casual game made to test FireRewards", "https://play.google.com/store/apps/details?id=com.firexit.circlepong");
+        addWorkTile(2016, "PLAKC (The Zero Games Pvt. Ltd)", "Employement", "Worked as the Unity Lead. Developed the SDK and shaped the product.", "http://www.plakc.com");
 
-            <br><br><br>
+        addWorkTile(2015, "UnSDK (Shut down)", "Product", "An analytics platform for recognizing users that monetize highly with video ads. The platform was tested on an in-house game but not released.", "https://medium.com/@tanaygaherwar/video-ads-rise-of-watch-to-win-dbfa8a71c89a");
+        addWorkTile(2014, "Speed Street 2 (Cancelled)", "Product", "Open world android racing game.", "https://www.indiedb.com/games/speed-street-2");
 
-            I stay in Hyderabad, India. My mail is vatsal@firexitsoftware.com
-        </font>
-    </p>
+        addWorkTile(2015, "Speed Street Escape", "Product", "Infinite runner mode for our popular Speed Street: Tokyo web game");
+        addWorkTile(2014, "Speed Street: Tokyo", "Product", "Android street racing game. 500,000+ downloads", "https://play.google.com/store/apps/details?id=com.firexit.speedstreettokyo");
+        addWorkTile(2014, "Blockalypse Now!", "Product", "Casual zombie shooting game for Android", "https://play.google.com/store/apps/details?id=com.firexitinteractive.blockalypsenow");
+        
+        addWorkTile(2013, "Outsourcing Partner", "Contract", "Provided game art for several projects in development at Vasco Games B.V.");
+        addWorkTile(2013, "XPro Rally Mobile", "Product", "Android rally racing game. Ranked on the top free games in about 50 countries.", "https://play.google.com/store/apps/details?id=com.firexitinteractive.xprorallylite1p1");
 
-    <!-- FOOTER -->
-    <div id="page-footer" class="footer"></div>
+        addWorkTile(2012, "Untitled FPS", "Product", "Zombie FPS game. Cancelled.");
+        addWorkTile(2012, "Crashers", "Product", "Vehicular combat game developed for a contest by Square Enix.");
+        addWorkTile(2012, "XPro Rally", "Product", "First version of XPro Rally, released on web platforms");
+        
+    }
 
-    <script>
-        function Init(){
-            initNavBar();
-            initFooter();
-        }
+    function addWorkTile(year, title, tag, detail, link){
+        document.getElementById(year).appendChild(createWorkTile(title, tag, detail, link));
+    }
+</script>
 
-        function initNavBar(){
-            document.getElementById("nav-bar").appendChild(createNavBar());
-        }
+<body onLoad="Init()">
+	<div class="page new-skin">
+		
+		<!-- preloader -->
+		<div class="preloader">
+			<div class="centrize full-width">
+				<div class="vertical-center">
+					<div class="spinner">
+						<div class="double-bounce1"></div>
+						<div class="double-bounce2"></div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        function initFooter(){
-            document.getElementById("page-footer").appendChild(createFooter());
-        }
-    </script>
+		<!-- background -->
+		<div class="background gradient">
+			<ul class="bg-bubbles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+		</div>
+
+		<!--
+			Container
+		-->
+		<div class="container opened" data-animation-in="fadeInLeft" data-animation-out="fadeOutLeft">
+
+			<!--
+				Header
+			-->
+			<header class="header">
+
+				<!-- header profile -->
+				<div class="profile">						
+					<div class="image">
+						<a href="#">
+							<img src="images/profile.png" alt="Vatsal Ambastha">
+						</a>
+					</div>
+					<div class="title">Vatsal Ambastha</div>
+					<div class="subtitle subtitle-typed">
+						<div class="typing-title">
+							<p>Game Development</p>
+							<p>Virtual Reality</p>
+							<p>Unity Specialist</p>
+							<p>Consultant & Contractor</p>
+							<p>Open Source</p>
+							<p>Startups</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- menu btn -->
+				<!--<a href="#" class="menu-btn"><span></span></a>-->
+
+				<!-- menu -->
+				<div class="top-menu">
+					<ul>
+						<li class="active">
+							<a href="#about-card">
+								<span class="icon ion-person"></span>
+								<span class="link">About</span>
+							</a>
+						</li>
+						<li>
+							<a href="#resume-card">
+								<span class="icon ion-android-list"></span>
+								<span class="link">Resume</span>
+							</a>
+						</li>
+						<li>
+							<a href="#projects-card">
+								<span class="icon ion-briefcase"></span>
+								<span class="link">Projects</span>
+							</a>
+						</li>
+						<li>
+							<a href="#contacts-card">
+								<span class="icon ion-at"></span>
+								<span class="link">Contact</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</header>
+
+			<!--
+				Card - Started
+			-->
+			<div class="card-started" id="home-card">
+				<div class="profile">
+					<!-- profile image -->
+					<div class="slide" style="background-image: url(images/icandy.jpeg);"></div>
+
+					<!-- profile photo -->
+					<div class="image">
+						<img src="images/profile.png" alt="" />
+					</div>
+
+					<!-- profile titles -->
+					<div class="title">Vatsal Ambastha</div>
+					<!--<div class="subtitle">Web Designer</div>-->
+					<div class="subtitle subtitle-typed">
+						<div class="typing-title">
+							<p>Game Development</p>
+							<p>Virtual Reality</p>
+							<p>Unity Specialist</p>
+							<p>Consultant & Contractor</p>
+							<p>Open Source</p>
+							<p>Startups</p>
+						</div>
+					</div>
+
+					<!-- profile socials -->
+					<div class="social">
+						<a target="_blank" href="https://twitter.com/vatsalAmbastha"><span class="fa fa-twitter"></span></a>
+						<a target="_blank" href="https://github.com/adrenak"><span class="fa fa-github"></span></a>
+						<a target="_blank" href="https://behance.net/adrenak"><span class="fa fa-behance"></span></a>
+						<a target="_blank" href="https://linkedin.com/in/vatsalambastha"><span class="fa fa-linkedin"></span></a>
+					</div>
+					
+					<!-- profile buttons -->
+					<div class="lnks" >
+						<!-- 
+							<a href="cv.pdf" class="lnk">
+								<span class="text">Download CV</span>
+							</a>
+						-->
+						<a href="#" class="lnk discover">
+							<span class="text">Contact Me</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- 
+				Card - About
+			-->
+			<div class="card-inner animated active" id="about-card">
+				<div class="card-wrap">
+
+					<!-- 
+						About 
+					-->
+					<div class="content about">
+
+						<!-- title -->
+						<div class="title">Intro</div>
+
+						<!-- content -->
+						<div class="row">
+							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
+								<div class="text-box">
+									<p>
+										I'm Vatsal. I make games, simulators, art, apps, utilities and more using the Unity engine.
+										<br><br>
+										See <b><u><a href="https://www.github.com/adrenak">my Github</a></u></b> for my open source work.
+										<br>
+										For some visuals, check out <b><u><a href="https://www.behance.net/adrenak">my Behance</a></u></b>.
+										<br>
+										A full list of my work till date is under the 'Projects' tab.
+										<br><br>
+										<div class="title">Bio</div>
+										Over the years I've run my game studio, worked in adtech/monetization, worked as a freelance consultant and contractor and more.
+										<br><br>
+										I have created software for over a dozen different industries ranging from military to arts & humanities. From video streaming R&D to Cynanide crisis simulators. 
+										<br><br>
+										I've been working using Unity since 2011. My open source features popular Unity repositories for physics, AI, networking, audio/video, utilities.
+										<br><br>
+										In constant, practical pursuit of software craftsmanship.
+									</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<!--
+				Card - Resume
+			-->
+			<div class="card-inner" id="resume-card">
+				<div class="card-wrap">
+					<div class="content resume">
+						<div class="title">Resume</div>
+						<div class="row">
+
+							<!-- experience -->
+							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
+								<div class="resume-title border-line-h">
+									<div class="icon"><i class="fa fa-briefcase"></i></div>
+									<div class="name">Experience</div>
+								</div>
+								<div class="resume-items">
+									<div class="resume-item border-line-h active">
+										<div class="date">2017 - Present</div>
+										<div class="name">Independent</div>
+										<p>
+											I work with teams looking to leverage Unity for different purposes for games and beyond.
+											<br><br>
+											Working extensively on non-game applications in industries such as blockchain, military, R&D, entertainment, tourism, psychology, arts and humanities, edtech, training, fashion, eCommerce and more.
+										</p>
+									</div>
+									<div class="resume-item border-line-h active">
+										<div class="date">2019 - Present</div>
+										<div class="name">Cofounder</div>
+										<div class="company">Digibeings Media</div>
+										<p>
+											Digibeings is an early stage startup making AI powered virtual humans. If that's unclear, I would describe it as 'a completely customzable Siri with a body'.
+										</p>
+									</div>
+									<div class="resume-item border-line-h">
+										<div class="date">2016 - 2017</div>
+										<div class="name">Unity Lead</div>
+										<div class="company">The Zero Games (PLAKC)</div>
+										<p>
+											PLAKC was a dynamic in-game advertising tech. I handled all things related to the SDK and integrations. Our technology was used in some of the largest celebrity and sports IP based games in India.
+										</p>
+									</div>
+									<div class="resume-item">
+										<div class="date">2013 - 2016</div>
+										<div class="name">Founder</div>
+										<div class="company">Firexit Software</div>
+										<p>
+											A game development studio started in Manipal. We developed games that reached over 5 million users on Android and Web. We handled work outsourced from larger studios. 
+											<br><br>
+											Pivoted to analytics and monetization tools in 2015, which was my segue to PLAKC when the studio was shut later that year.
+										</p>
+									</div>
+									<div class="resume-item">
+										<div class="date">2011 - 2013</div>
+										<div class="name">Indie Game Dev</div>
+										<p>
+											My earliest years in commercial game development. Unity WebPlayer was very popular and Android was yet to make a dent in the universe. 
+											<br><br>
+											I made XPro Rally and a few of its variants that did about a million hits. Got some sponsorship deals. Ported XPro Rally to Android in 2013 which got 10k+ downloads daily for some weeks.
+											<br><br>
+											My hobby started to transition into a profession during this phase.
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- education -->
+							<div class="col col-d-6 col-t-6 col-m-12 border-line-v" >
+								<div class="resume-title border-line-h">
+									<div class="icon"><i class="fa fa-university"></i></div>
+									<div class="name">Education</div>
+								</div>
+								<div class="resume-items">
+									<div class="resume-item border-line-h">
+										<div class="date">2012 - 2016</div>
+										<div class="name">MIT - Manipal University</div>
+										<div class="company">Udupi</div>
+										<p>
+											B.Tech. (Computer Science and Engineering)
+											<br><br>
+											Much of my time went into running my game studio Firexit Software. I was active in student entrepreneurship and programming community, often invited to speak at or hold related events.
+											<br><br>
+											I interned at an early stage startup named 135 TechLabs working on a product called Hangoutt that rewarded game players with eCommerce coupons. My experience here set me on the path to work in the monetization and adtech space later on.
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="clear"></div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="card-inner" id="projects-card">
+				<div class="card-wrap">
+					<div class="content about">
+
+						<!-- title -->
+						<div class="title">Projects</div>
+
+						<!-- content -->
+						<div class="row">
+							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
+								<div class="text-box">
+									An almost exhaustive list of my projects in the form of a boring (and admittedly not very helpful) list. 
+									<br><br>
+									I haven't bothered adding some archived stuff... Grouped by calender years.
+									<br><br>
+									<p align="justify" id="work-content">
+										<font class="title">2020</font>
+										<div id="2020"></div>
+										<br>
+								
+										<font class="title">2019</font>
+										<div id="2019"></div>
+										<br>
+								
+										<font class="title">2018</font>
+										<div id="2018"></div>
+										<br>
+								
+										<font class="title">2017</font>
+										<div id="2017"></div>
+										<br>
+								
+										<font class="title">2016</font>
+										<div id="2016"></div>
+										<br>
+								
+										<font class="title">2015</font>
+										<div id="2015"></div>
+										<br>
+								
+										<font class="title">2014</font>
+										<div id="2014"></div>
+										<br>
+								
+										<font class="title">2013</font>
+										<div id="2013"></div>
+										<br>
+								
+										<font class="title">2012</font>
+										<div id="2012"></div>
+										<br>
+									</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="card-inner contacts" id="contacts-card">
+				<div class="card-wrap">
+					<div class="content contacts">
+						<!-- title -->
+						<div class="title">Get in Touch</div>
+	
+						<div class="text-box">
+							<p>
+								Please contact me using <a href="mailto:ambastha.vatsal@gmail.com" style="color:hsl(24, 100%, 50%);">ambastha.vatsal@gmail.com</a>
+								<br><br>
+								For simplicity, I have abandoned almost all my emails scattered on the internet and rarely check them.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--
+		jQuery Scripts
+	-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.validate.js"></script>
+	<script src="js/jquery.magnific-popup.js"></script>
+	<script src="js/imagesloaded.pkgd.js"></script>
+	<script src="js/isotope.pkgd.js"></script>
+	<script src="js/jquery.slimscroll.js"></script>
+	<script src="js/owl.carousel.js"></script>
+	<script src="js/typed.js"></script>
+	<script src="https://use.fontawesome.com/8da76d029b.js"></script>
+
+	<script src="js/scripts.js"></script>
+	<script src="js/commons.js"></script>
+	
 </body>
-
 </html>
