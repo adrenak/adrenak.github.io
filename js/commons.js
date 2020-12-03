@@ -1,7 +1,7 @@
 function createWorkTile(title, tag, details, link){
 	if(link == undefined){
 		var tile = createFromHTML(
-title + `<sup>....` + tag + `</sup>
+`<b>` + title + `</b><sup>. . . .` + tag + `</sup>
 <br>`
 + details + 
 `<br><br>`
@@ -10,7 +10,7 @@ title + `<sup>....` + tag + `</sup>
 	}
 	else{
 		tile = createFromHTML(`
-<u><a href="` + link + `">` + title + `</u></a><sup>....` + tag + `</sup>
+<a href="` + link + `"><u><b>` + title + `</b></u></a><sup>. . . .` + tag + `</sup>
 <br>`
 + details + 
 `<br><br>`);
