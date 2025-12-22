@@ -1,0 +1,363 @@
+/* ============================================
+   RESPONSIVE.CSS
+   
+   This file contains all media queries for responsive design based on
+   aspect ratio (screen width/height ratio):
+   
+   - Ultra-wide screens (> 16/9): Large desktop monitors
+   - Standard widescreen (4/3 to 16/9): Normal desktop/laptop screens
+   - Landscape narrow (1 to 4/3): Tablets in landscape, small laptops
+   - Portrait wide (3/4 to 1): Tablets in portrait, large phones
+   - Portrait narrow (< 3/4): Phones in portrait mode
+   
+   Adjusts: Layout spacing, font sizes, sidebar visibility/behavior,
+   mobile menu activation, content padding, thumbnail sizes
+   
+   Influences: How the site adapts to different screen sizes and orientations
+   ============================================ */
+
+/* Ultra-wide screens: ratio > 16/9 */
+@media (min-aspect-ratio: 16/9) {
+    .main-content {
+        padding-top: 6rem;
+        padding-right: 20%;
+        padding-left: 20%;
+    }
+    
+    #markdown-content {
+        max-width: 1152px;
+        margin: 0 auto;
+    }
+    
+    #markdown-content h1 {
+        font-size: 2rem;
+    }
+    
+    #markdown-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Standard widescreen: 4/3 <= ratio <= 16/9 */
+@media (min-aspect-ratio: 4/3) and (max-aspect-ratio: 16/9) {
+    .main-content {
+        padding-top: 5rem;
+        padding-right: 20%;
+        padding-left: 20%;
+    }
+    
+    .sidebar {
+        width: 250px;
+    }
+    
+    #markdown-content h1 {
+        font-size: 2rem;
+    }
+    
+    #markdown-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Landscape narrow: 1 <= ratio < 4/3 */
+@media (min-aspect-ratio: 1) and (max-aspect-ratio: 4/3) {
+    .main-content {
+        padding-top: 3rem;
+        padding-right: 10%;
+        padding-left: 10%;
+    }
+    
+    .sidebar {
+        width: 200px;
+    }
+    
+    .sidebar-header h1 {
+        font-size: 1.1rem;
+    }
+    
+    .nav-link {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.4rem;
+    }
+    
+    #markdown-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    #markdown-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    #markdown-content h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Portrait wide: 3/4 <= ratio < 1 */
+@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1) {
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 1000;
+        transform: translateX(-100%);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .sidebar-overlay {
+        display: block;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding-top: 4rem;
+        padding-right: 5%;
+        padding-left: 5%;
+        padding-bottom: 2rem;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .sidebar {
+        padding: 3rem 0 0 0;
+    }
+    
+    .sidebar-header {
+        padding-top: 3.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    .sidebar-header h1 {
+        font-size: 2rem;
+    }
+    
+    .sidebar-main-nav {
+        padding: 0 2rem;
+        gap: 0.5rem;
+    }
+    
+    .sidebar-nav {
+        padding: 0 2rem;
+        gap: 0.5rem;
+    }
+    
+    .nav-link {
+        font-size: 1.2rem;
+        padding: 1rem 1rem;
+        gap: 0.75rem;
+    }
+    
+    .nav-icon {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section-list {
+        gap: 0.5rem;
+    }
+    
+    .external-icon {
+        font-size: 1.2rem;
+    }
+    
+    .sidebar-footer {
+        padding: 2rem 2rem 2rem 2rem;
+        gap: 0.75rem;
+    }
+    
+    .footer-text,
+    .footer-link {
+        font-size: 1.2rem;
+    }
+    
+    #markdown-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    #markdown-content h2 {
+        font-size: 1.25rem;
+    }
+    
+    #markdown-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    #markdown-content pre {
+        padding: 0.75rem;
+        font-size: 0.85em;
+        overflow-x: auto;
+    }
+    
+    #markdown-content img {
+        max-width: 100%;
+        margin: 0.75rem 0;
+    }
+    
+    .post-entry {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    .post-thumbnail {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        flex-shrink: 0;
+    }
+}
+
+/* Portrait narrow: ratio < 3/4 */
+@media (max-aspect-ratio: 3/4) {
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 1000;
+        transform: translateX(-100%);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .sidebar-overlay {
+        display: block;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding-top: 4rem;
+        padding-right: 4%;
+        padding-left: 4%;
+        padding-bottom: 2rem;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .sidebar {
+        padding: 3rem 0 0 0;
+    }
+    
+    .sidebar-header {
+        padding-top: 3.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    .sidebar-header h1 {
+        font-size: 2rem;
+    }
+    
+    .sidebar-main-nav {
+        padding: 0 2rem;
+        gap: 0.5rem;
+    }
+    
+    .sidebar-nav {
+        padding: 0 2rem;
+        gap: 0.5rem;
+    }
+    
+    .nav-link {
+        font-size: 1.2rem;
+        padding: 1rem 1rem;
+        gap: 0.75rem;
+    }
+    
+    .nav-icon {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section-list {
+        gap: 0.5rem;
+    }
+    
+    .external-icon {
+        font-size: 1.2rem;
+    }
+    
+    .sidebar-footer {
+        padding: 2rem 2rem 2rem 2rem;
+        gap: 0.75rem;
+    }
+    
+    .footer-text,
+    .footer-link {
+        font-size: 1.2rem;
+    }
+    
+    #markdown-content h1 {
+        font-size: 1.4rem;
+    }
+    
+    #markdown-content h2 {
+        font-size: 1.15rem;
+    }
+    
+    #markdown-content h3 {
+        font-size: 1.05rem;
+    }
+    
+    #markdown-content pre {
+        padding: 0.75rem;
+        font-size: 0.85em;
+        overflow-x: auto;
+    }
+    
+    #markdown-content img {
+        max-width: 100%;
+        margin: 0.75rem 0;
+    }
+    
+    .post-entry {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    .post-thumbnail {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        flex-shrink: 0;
+    }
+}
+

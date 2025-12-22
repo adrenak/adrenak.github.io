@@ -1,0 +1,12 @@
+{
+  "name": "my-gorky-site",
+  "version": "1.0.0",
+  "description": "My site built with Gorky",
+  "scripts": {
+    "build": "gorky build"
+  },
+  "devDependencies": {
+    "gorky": "^1.0.0"
+  }
+}
+

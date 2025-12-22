@@ -1,0 +1,119 @@
+/* ============================================
+   THEME.CSS
+   
+   This file contains all theme-related CSS properties for easy customization:
+   
+   - Sidebar background and text colors (idle, hovered, selected states)
+   - Content background color and text color
+   - Content link colors and weights
+   - Content line spacing
+   - Fonts (for all types of text)
+   
+   To customize the theme, simply modify the values below.
+   ============================================ */
+
+/* ============================================
+   FONTS
+   ============================================ */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+#markdown-content code,
+#markdown-content pre {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* ============================================
+   SIDEBAR THEME
+   ============================================ */
+
+/* Sidebar background color */
+.sidebar {
+    background-color: #1a1a1a;
+}
+
+/* Sidebar text colors - idle state */
+.sidebar-header h1 {
+    color: rgb(240, 240, 240);
+}
+
+.nav-link {
+    color: rgba(240, 240, 240, 1);
+}
+
+.external-icon {
+    color: rgb(255, 255, 255);
+}
+
+.section-title {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.sidebar-footer {
+    background-color: #0b0b0b;
+}
+
+.footer-text,
+.footer-link {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Sidebar text colors - hovered state */
+.nav-link:hover {
+    background-color: rgb(188, 188, 188);
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.footer-link:hover {
+    color: rgba(184, 184, 184, 0.8);
+}
+
+/* Sidebar text colors - selected/active state */
+.nav-link.active {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.nav-link.active:hover {
+    color: rgb(0, 0, 0, 0.6);
+}
+
+/* ============================================
+   CONTENT THEME
+   ============================================ */
+
+/* Content background color, line spacing, and width */
+.main-content {
+    background-color: #ffffff;
+    line-height: 1.7;
+}
+
+/* Content text color (defaults to browser default if not specified) */
+#markdown-content {
+    color: inherit;
+}
+
+/* Content link color (all links in content area use the same color and weight) */
+#markdown-content a,
+#tag-posts-list h2 a,
+.post-link,
+.post-tags .tag-link {
+    color: #0066cc;
+    font-weight: 600;
+}
+
+/* Blockquote color and border */
+#markdown-content blockquote {
+    border-left: 4px solid #0066cc;
+    color: #666;
+}
+
+#markdown-content a:hover,
+#tag-posts-list h2 a:hover,
+.post-link:hover,
+.post-tags .tag-link:hover {
+    color: #0052a3;
+}
+

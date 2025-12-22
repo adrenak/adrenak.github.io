@@ -1,0 +1,66 @@
+/* ============================================
+   NAVIGATION.CSS
+   
+   This file styles all navigation-related elements:
+   
+   - Navigation links: All clickable nav items in the sidebar
+     (hover states, active states, colors, padding, icons)
+   - Navigation icons: Emoji/icons displayed next to nav links
+   - External link indicators: Arrow icons for external links
+   - Sidebar footer: The footer section at the bottom of the sidebar
+   - Footer text and links: Text and links within the sidebar footer
+   
+   Influences: Sidebar navigation links, footer, link hover/active states
+   ============================================ */
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    font-size: .9rem;
+    gap: 0.5rem;
+    padding: 0.5rem .5rem;
+    text-decoration: none;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.nav-link.active {
+    font-weight: 500;
+}
+
+.nav-icon {
+    font-size: 1.1rem;
+}
+
+.external-icon {
+    margin-left: auto;
+    font-size: 1rem;
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   SIDEBAR FOOTER
+   ============================================ */
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 1.5rem 1rem 1rem 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.footer-text,
+.footer-link {
+    font-size: 0.75rem;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
