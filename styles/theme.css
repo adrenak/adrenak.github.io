@@ -31,28 +31,28 @@ body {
 
 /* Sidebar background color */
 .sidebar {
-    background-color: #1a1a1a;
+    background-color: #f5f5f5;
 }
 
 /* Sidebar text colors - idle state */
 .sidebar-header h1 {
-    color: rgb(240, 240, 240);
+    color: rgb(0, 0, 0);
 }
 
 .nav-link {
-    color: rgba(240, 240, 240, 1);
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .external-icon {
-    color: rgb(255, 255, 255);
+    color: rgba(0, 0, 0, 1);
 }
 
 .section-title {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(0, 0, 0, 0.75);
 }
 
 .sidebar-footer {
-    background-color: #0b0b0b;
+    background-color: #000000;
 }
 
 .footer-text,
@@ -72,12 +72,12 @@ body {
 
 /* Sidebar text colors - selected/active state */
 .nav-link.active {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    background-color: #000000;
+    color: rgb(255, 255, 255);
 }
 
 .nav-link.active:hover {
-    color: rgb(0, 0, 0, 0.6);
+    background-color: #000000;
 }
 
 /* ============================================
