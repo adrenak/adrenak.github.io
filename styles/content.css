@@ -1,0 +1,359 @@
+/* ============================================
+   CONTENT.CSS
+   
+   This file styles all content displayed in the main content area:
+   
+   - Markdown content: All markdown-rendered content (headings, paragraphs,
+     lists, code blocks, images, links, etc.)
+   - Post metadata: Title, date, and tags displayed above individual posts
+   - Post entries: The listing format for posts on the posts page
+     (includes thumbnail images, post descriptions, post links)
+   - Tag filtering: Styles for tag links and filtered post lists
+   
+   Influences: All markdown content, blog posts, post listings, typography
+   ============================================ */
+
+#markdown-content {
+    max-width: 100%;
+}
+
+#markdown-content h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-weight: 600;
+}
+
+#markdown-content h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+#markdown-content h2 + p {
+    margin-top: -0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+#markdown-content p + h2 {
+    margin-top: 1rem;
+}
+
+#markdown-content h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+#markdown-content p {
+    margin-bottom: 1rem;
+}
+
+#markdown-content ul,
+#markdown-content ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+#markdown-content li {
+    margin-bottom: 0.5rem;
+}
+
+#markdown-content strong {
+    font-weight: 600;
+}
+
+#markdown-content em {
+    font-style: italic;
+}
+
+#markdown-content blockquote {
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#markdown-content code {
+    background-color: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+#markdown-content pre {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}
+
+#markdown-content pre code {
+    background-color: transparent;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+#markdown-content pre[class*="language-"] {
+    background-color: #f4f4f4;
+}
+
+#markdown-content code[class*="language-"] {
+    background-color: transparent;
+}
+
+#markdown-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem 0;
+}
+
+#markdown-content a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#markdown-content a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   COLLAPSIBLE SECTIONS (ACCORDION)
+   ============================================ */
+
+#markdown-content details {
+    margin: 1rem 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+#markdown-content details:hover {
+    border-color: #c0c0c0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#markdown-content details[open] {
+    border-color: #0066cc;
+    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.1);
+}
+
+#markdown-content summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.875rem 1rem;
+    background-color: #f8f9fa;
+    user-select: none;
+    list-style: none;
+    position: relative;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#markdown-content summary::-webkit-details-marker {
+    display: none;
+}
+
+#markdown-content summary::marker {
+    display: none;
+}
+
+#markdown-content summary::after {
+    content: '▶';
+    font-size: 0.75rem;
+    color: #666;
+    transition: transform 0.2s ease, color 0.2s ease;
+    margin-left: 0.5rem;
+    flex-shrink: 0;
+}
+
+#markdown-content details[open] summary::after {
+    transform: rotate(90deg);
+    color: #0066cc;
+}
+
+#markdown-content summary:hover {
+    background-color: #f0f0f0;
+    color: #0066cc;
+}
+
+#markdown-content details[open] summary {
+    background-color: #f0f4ff;
+    color: #0066cc;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#markdown-content details[open] summary:hover {
+    background-color: #e6f0ff;
+}
+
+#markdown-content details > *:not(summary) {
+    margin: 0;
+}
+
+#markdown-content details > p,
+#markdown-content details > blockquote,
+#markdown-content details > pre {
+    padding: 0 1rem;
+}
+
+#markdown-content details > p:first-of-type {
+    margin-top: 0;
+    padding-top: 1rem;
+}
+
+#markdown-content details > p:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+}
+
+#markdown-content details > ul,
+#markdown-content details > ol {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 3rem; /* 2rem base list indent + 1rem for accordion padding */
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+#markdown-content details > ul:first-child,
+#markdown-content details > ol:first-child {
+    margin-top: 0;
+    padding-top: 1rem;
+}
+
+#markdown-content details > ul:last-child,
+#markdown-content details > ol:last-child {
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+}
+
+#markdown-content details > h1,
+#markdown-content details > h2,
+#markdown-content details > h3,
+#markdown-content details > h4,
+#markdown-content details > h5,
+#markdown-content details > h6 {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    padding: 0 1rem;
+}
+
+#markdown-content details > h1:first-of-type,
+#markdown-content details > h2:first-of-type,
+#markdown-content details > h3:first-of-type,
+#markdown-content details > h4:first-of-type,
+#markdown-content details > h5:first-of-type,
+#markdown-content details > h6:first-of-type {
+    margin-top: 0;
+}
+
+/* Nested accordions */
+#markdown-content details details {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-color: #d0d0d0;
+}
+
+#markdown-content details details summary {
+    background-color: #fafafa;
+    font-size: 0.95em;
+}
+
+#markdown-content details details[open] {
+    border-color: #0066cc;
+}
+
+/* ============================================
+   POST METADATA
+   ============================================ */
+
+.post-metadata {
+    margin-bottom: 1.5rem;
+}
+
+.post-title {
+    margin-bottom: 0.5rem;
+}
+
+.post-date {
+    color: #666;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.post-tags {
+    font-style: italic;
+}
+
+.post-tags .tag-link {
+    text-decoration: none;
+    margin-left: 0.25rem;
+    transition: text-decoration 0.2s ease;
+}
+
+.post-tags .tag-link:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   POST ENTRIES (for posts.md)
+   ============================================ */
+
+.post-entry {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+}
+
+.post-thumbnail {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    border: 1px solid #e0e0e0;
+    margin: 0 !important;
+}
+
+.post-content {
+    flex: 1;
+    min-width: 0;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+#markdown-content .post-entry h2 {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem;
+}
+
+#markdown-content .post-entry p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#tag-posts-list h2 a,
+.post-link {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#tag-posts-list h2 a:hover,
+.post-link:hover {
+    text-decoration: underline;
+}
+

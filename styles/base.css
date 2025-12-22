@@ -1,0 +1,29 @@
+/* ============================================
+   BASE.CSS
+   
+   This file contains the fundamental CSS reset and base styles
+   that affect the entire website. It sets up:
+   
+   - Global CSS reset (removes default margins, padding, box-sizing)
+   - Body font family and basic layout constraints
+   - Container flexbox layout for the entire page structure
+   
+   Influences: Every element on the page
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+

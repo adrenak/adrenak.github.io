@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" id="meta-description">
+    <meta name="keywords" content="" id="meta-keywords">
+    <link rel="canonical" href="" id="canonical-link">
+    <title id="page-title"></title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" id="favicon-link">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" id="apple-touch-icon-link">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/navigation.css">
+    <link rel="stylesheet" href="styles/mobile.css">
+    <link rel="stylesheet" href="styles/content.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Hamburger Menu Button (mobile/portrait only) -->
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <!-- Left Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                {{SIDEBAR_HEADER}}
+            </div>
+            <nav class="sidebar-main-nav">
+                {{MAIN_NAV}}
+            </nav>
+            <nav class="sidebar-nav">
+                {{SIDEBAR_NAV}}
+            </nav>
+            {{SIDEBAR_FOOTER}}
+        </aside>
+        
+        <!-- Overlay for mobile (closes sidebar when clicked) -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div id="markdown-content">
+                {{MARKDOWN_CONTENT}}
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // ============================================================================
+        // SITE CONFIGURATION - Loaded from site-config.js
+        // ============================================================================
+        const SITE_CONFIG = {{SITE_CONFIG}};
+        
+        // ============================================================================
+        // CONSTANTS
+        // ============================================================================
+        
+        const BASE_URL = SITE_CONFIG.baseUrl;
+        const SITE_NAME = SITE_CONFIG.siteName;
+        const AUTHOR_NAME = SITE_CONFIG.authorName;
+        const DEFAULT_PAGE = 'content/home.md';
+        const CONTENT_ID_PREFIX = 'content-';
+        const TAG_LIST_ID = 'tag-posts-list';
+        
+        // ============================================================================
+        // UTILITY FUNCTIONS
+        // ============================================================================
+        
+        /**
+         * Gets a URL parameter value
+         * @param {string} name - Parameter name
+         * @returns {string|null} Parameter value or null
+         */
+        function getURLParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+        
+        /**
+         * Generates a content section ID from a file path
+         * @param {string} filePath - File path (e.g., 'content/home.md')
+         * @returns {string} Content ID (e.g., 'content-content-home-md')
+         */
+        function getContentId(filePath) {
+            return CONTENT_ID_PREFIX + filePath.replace(/\./g, '-');
+        }
+        
+        /**
+         * Hides all content sections
+         */
+        function hideAllContentSections() {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+        }
+        
+        /**
+         * Removes active class from all navigation links
+         */
+        function clearActiveNavLinks() {
+            document.querySelectorAll('.nav-link').forEach(nav => {
+                nav.classList.remove('active');
+            });
+        }
+        
+        /**
+         * Highlights syntax in code blocks using Prism.js
+         * @param {Element} container - Container element to search for code blocks
+         */
+        function highlightSyntax(container) {
+            if (!window.Prism) return;
+            
+            const codeBlocks = container.querySelectorAll('pre code[class*="language-"]');
+            codeBlocks.forEach(block => {
+                Prism.highlightElement(block);
+            });
+        }
+        
+        /**
+         * Hides the tag posts list container if it exists
+         */
+        function hideTagListContainer() {
+            const tagListContainer = document.getElementById(TAG_LIST_ID);
+            if (tagListContainer) {
+                tagListContainer.style.display = 'none';
+            }
+        }
+        
+        /**
+         * Parses a formatted date string to a Date object
+         * @param {string} dateStr - Date string in format "25 Sep 2025"
+         * @returns {Date} Parsed date object
+         */
+        function parseFormattedDate(dateStr) {
+            const MONTHS = {
+                'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+                'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+            };
+            
+            const parts = dateStr.split(' ');
+            if (parts.length !== 3) {
+                return new Date(0);
+            }
+            
+            const day = parseInt(parts[0], 10);
+            const month = MONTHS[parts[1]];
+            const year = parseInt(parts[2], 10);
+            
+            if (isNaN(day) || month === undefined || isNaN(year)) {
+                return new Date(0);
+            }
+            
+            return new Date(year, month, day);
+        }
+        
+        /**
+         * Sets the active navigation link based on current page
+         * @param {string} expectedURL - Expected URL to match (e.g., '?page=home')
+         */
+        function setActiveNavLink(expectedURL) {
+            // Check data-url attributes (for internal navigation)
+            document.querySelectorAll('.nav-link[data-url]').forEach(link => {
+                const targetURL = link.getAttribute('data-url');
+                if (targetURL === expectedURL) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Also check href attributes (for links that open in new tab)
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === expectedURL) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        /**
+         * Creates a clickable tag link element
+         * @param {string} tag - Tag name
+         * @returns {HTMLAnchorElement} Tag link element
+         */
+        function createTagLink(tag) {
+            const tagLink = document.createElement('a');
+            tagLink.href = `?tag=${encodeURIComponent(tag)}`;
+            tagLink.textContent = tag;
+            tagLink.className = 'tag-link';
+            
+            tagLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                showPostsByTag(tag);
+                window.history.pushState({}, '', `?tag=${encodeURIComponent(tag)}`);
+                updateCanonicalURL();
+            });
+            
+            return tagLink;
+        }
+        
+        /**
+         * Updates the canonical URL based on current page
+         */
+        function updateCanonicalURL() {
+            const tagParam = getURLParameter('tag');
+            const pageParam = getURLParameter('page');
+            const postSlug = getURLParameter('post');
+            
+            let canonicalURL = BASE_URL;
+            
+            if (postSlug) {
+                canonicalURL += `?post=${postSlug}`;
+            } else if (tagParam) {
+                canonicalURL += `?tag=${encodeURIComponent(tagParam)}`;
+            } else if (pageParam === 'posts') {
+                canonicalURL += '?page=posts';
+            } else {
+                canonicalURL += '?page=home';
+            }
+            
+            let canonicalLink = document.querySelector('link[rel="canonical"]');
+            if (!canonicalLink) {
+                canonicalLink = document.createElement('link');
+                canonicalLink.setAttribute('rel', 'canonical');
+                document.head.appendChild(canonicalLink);
+            }
+            canonicalLink.setAttribute('href', canonicalURL);
+        }
+        
+        /**
+         * Helper function to get or create a meta tag
+         */
+        function getOrCreateMetaTag(attribute, value, property = false) {
+            const selector = property ? `meta[property="${attribute}"]` : `meta[name="${attribute}"]`;
+            let meta = document.querySelector(selector);
+            if (!meta) {
+                meta = document.createElement('meta');
+                if (property) {
+                    meta.setAttribute('property', attribute);
+                } else {
+                    meta.setAttribute('name', attribute);
+                }
+                document.head.appendChild(meta);
+            }
+            meta.setAttribute('content', value);
+        }
+        
+        /**
+         * Removes a meta tag if it exists
+         */
+        function removeMetaTag(attribute, property = false) {
+            const selector = property ? `meta[property="${attribute}"]` : `meta[name="${attribute}"]`;
+            const meta = document.querySelector(selector);
+            if (meta) {
+                meta.remove();
+            }
+        }
+        
+        /**
+         * Converts a relative URL to absolute URL
+         */
+        function getAbsoluteUrl(relativeUrl) {
+            if (!relativeUrl) return null;
+            if (relativeUrl.startsWith('http://') || relativeUrl.startsWith('https://')) {
+                return relativeUrl;
+            }
+            // Remove leading slash if present, BASE_URL should handle it
+            const cleanUrl = relativeUrl.startsWith('/') ? relativeUrl.slice(1) : relativeUrl;
+            return `${BASE_URL}/${cleanUrl}`;
+        }
+        
+        /**
+         * Updates meta tags (title, description, keywords, Open Graph, Twitter Cards) and structured data based on current content
+         */
+        function updateMetaTags() {
+            const tagParam = getURLParameter('tag');
+            const postSlug = getURLParameter('post');
+            const pageParam = getURLParameter('page');
+            
+            let title = SITE_CONFIG.siteName;
+            let description = SITE_CONFIG.defaultDescription;
+            let keywords = SITE_CONFIG.defaultKeywords;
+            let image = null;
+            let url = BASE_URL;
+            let datePublished = null;
+            let tags = null;
+            let author = null;
+            let isPost = false;
+            
+            // Get meta tags from current visible content section
+            const visibleSection = document.querySelector('.content-section[style*="block"]') || 
+                                  document.querySelector('.content-section:not([style*="none"])');
+            
+            if (visibleSection) {
+                const sectionTitle = visibleSection.getAttribute('data-title');
+                const sectionDescription = visibleSection.getAttribute('data-description');
+                const sectionKeywords = visibleSection.getAttribute('data-keywords');
+                const sectionThumbnail = visibleSection.getAttribute('data-thumbnail');
+                const sectionDate = visibleSection.getAttribute('data-date');
+                const sectionTags = visibleSection.getAttribute('data-tags');
+                const sectionSlug = visibleSection.getAttribute('data-slug');
+                const sectionAuthor = visibleSection.getAttribute('data-author');
+                
+                if (sectionTitle) {
+                    title = sectionTitle;
+                }
+                
+                if (sectionDescription) {
+                    description = sectionDescription;
+                }
+                
+                if (sectionKeywords) {
+                    keywords = sectionKeywords;
+                } else if (tagParam) {
+                    keywords = tagParam;
+                }
+                
+                if (sectionThumbnail) {
+                    image = getAbsoluteUrl(sectionThumbnail);
+                }
+                
+                if (sectionDate) {
+                    datePublished = sectionDate;
+                }
+                
+                if (sectionTags) {
+                    tags = sectionTags.split(',').map(t => t.trim());
+                }
+                
+                if (sectionAuthor) {
+                    author = sectionAuthor;
+                }
+                
+                if (sectionSlug) {
+                    url = `${BASE_URL}?post=${sectionSlug}`;
+                    isPost = true;
+                }
+            } else if (tagParam) {
+                // Tag filtering page
+                title = `Posts tagged ${tagParam} - ${SITE_NAME}`;
+                keywords = tagParam;
+                url = `${BASE_URL}?tag=${encodeURIComponent(tagParam)}`;
+            } else if (postSlug) {
+                // Fallback: try to find post by slug
+                const postSection = document.querySelector(`.content-section[data-slug="${postSlug}"]`);
+                if (postSection) {
+                    const postTitle = postSection.getAttribute('data-title');
+                    const postDescription = postSection.getAttribute('data-description');
+                    const postKeywords = postSection.getAttribute('data-keywords');
+                    const postThumbnail = postSection.getAttribute('data-thumbnail');
+                    const postDate = postSection.getAttribute('data-date');
+                    const postTags = postSection.getAttribute('data-tags');
+                    const postAuthor = postSection.getAttribute('data-author');
+                    
+                    if (postTitle) title = postTitle;
+                    if (postDescription) description = postDescription;
+                    if (postKeywords) keywords = postKeywords;
+                    if (postThumbnail) image = getAbsoluteUrl(postThumbnail);
+                    if (postDate) datePublished = postDate;
+                    if (postTags) tags = postTags.split(',').map(t => t.trim());
+                    if (postAuthor) author = postAuthor;
+                    
+                    url = `${BASE_URL}?post=${postSlug}`;
+                    isPost = true;
+                }
+            } else if (pageParam) {
+                url = `${BASE_URL}?page=${pageParam}`;
+            } else {
+                url = `${BASE_URL}?page=home`;
+            }
+            
+            // Update title
+            document.title = title;
+            
+            // Update basic meta tags
+            getOrCreateMetaTag('description', description);
+            getOrCreateMetaTag('keywords', keywords);
+            
+            // Update Open Graph tags
+            getOrCreateMetaTag('og:title', title, true);
+            getOrCreateMetaTag('og:description', description, true);
+            getOrCreateMetaTag('og:url', url, true);
+            getOrCreateMetaTag('og:type', isPost ? 'article' : 'website', true);
+            getOrCreateMetaTag('og:site_name', SITE_NAME, true);
+            if (image) {
+                getOrCreateMetaTag('og:image', image, true);
+            } else {
+                removeMetaTag('og:image', true);
+            }
+            
+            // Update Twitter Card tags
+            getOrCreateMetaTag('twitter:card', image ? 'summary_large_image' : 'summary');
+            getOrCreateMetaTag('twitter:title', title);
+            getOrCreateMetaTag('twitter:description', description);
+            if (image) {
+                getOrCreateMetaTag('twitter:image', image);
+            } else {
+                removeMetaTag('twitter:image');
+            }
+            
+            // Update structured data (JSON-LD)
+            updateStructuredData(title, description, image, url, datePublished, tags, author, isPost);
+        }
+        
+        /**
+         * Converts formatted date (e.g., "9 Dec 2025") to ISO 8601 format (e.g., "2025-12-09")
+         */
+        function convertDateToISO(dateStr) {
+            if (!dateStr) return null;
+            
+            const MONTHS = {
+                'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06',
+                'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
+            };
+            
+            const parts = dateStr.split(' ');
+            if (parts.length !== 3) return null;
+            
+            const day = parts[0].padStart(2, '0');
+            const month = MONTHS[parts[1]];
+            const year = parts[2];
+            
+            if (!month) return null;
+            
+            return `${year}-${month}-${day}`;
+        }
+        
+        /**
+         * Updates JSON-LD structured data for SEO
+         */
+        function updateStructuredData(title, description, image, url, datePublished, tags, author, isPost) {
+            // Remove existing structured data
+            const existingScript = document.querySelector('script[type="application/ld+json"]');
+            if (existingScript) {
+                existingScript.remove();
+            }
+            
+            if (isPost && datePublished) {
+                // Convert date to ISO format for schema.org
+                const isoDate = convertDateToISO(datePublished);
+                
+                // Article schema for blog posts
+                const articleSchema = {
+                    '@context': 'https://schema.org',
+                    '@type': 'BlogPosting',
+                    'headline': title,
+                    'description': description,
+                    'url': url
+                };
+                
+                if (isoDate) {
+                    articleSchema.datePublished = isoDate;
+                }
+                
+                if (image) {
+                    articleSchema.image = image;
+                }
+                
+                if (tags && tags.length > 0) {
+                    articleSchema.keywords = tags.join(', ');
+                }
+                
+                // Add author - use frontmatter author if available, otherwise fallback to AUTHOR_NAME
+                const authorName = author || AUTHOR_NAME;
+                if (authorName) {
+                    articleSchema.author = {
+                        '@type': 'Person',
+                        'name': authorName
+                    };
+                }
+                
+                const script = document.createElement('script');
+                script.type = 'application/ld+json';
+                script.textContent = JSON.stringify(articleSchema);
+                document.head.appendChild(script);
+            } else {
+                // WebPage schema for other pages
+                const webpageSchema = {
+                    '@context': 'https://schema.org',
+                    '@type': 'WebPage',
+                    'name': title,
+                    'description': description,
+                    'url': url
+                };
+                
+                if (image) {
+                    webpageSchema.image = image;
+                }
+                
+                const script = document.createElement('script');
+                script.type = 'application/ld+json';
+                script.textContent = JSON.stringify(webpageSchema);
+                document.head.appendChild(script);
+            }
+        }
+        
+        /**
+         * Shows post metadata (title, date, tags) for a content section
+         * @param {Element} contentSection - Content section element
+         */
+        function showPostMetadata(contentSection) {
+            const date = contentSection.getAttribute('data-date');
+            const tags = contentSection.getAttribute('data-tags');
+            const title = contentSection.getAttribute('data-title');
+            
+            if (!title && !date && !tags) return;
+            
+            let metadataContainer = contentSection.querySelector('.post-metadata');
+            if (!metadataContainer) {
+                metadataContainer = document.createElement('div');
+                metadataContainer.className = 'post-metadata';
+                contentSection.insertBefore(metadataContainer, contentSection.firstChild);
+            }
+            
+            metadataContainer.innerHTML = '';
+            
+            if (title) {
+                const titleElement = document.createElement('h1');
+                titleElement.className = 'post-title';
+                titleElement.textContent = title;
+                metadataContainer.appendChild(titleElement);
+            }
+            
+            if (date) {
+                const dateElement = document.createElement('div');
+                dateElement.className = 'post-date';
+                dateElement.textContent = date;
+                metadataContainer.appendChild(dateElement);
+            }
+            
+            if (tags) {
+                const tagsElement = document.createElement('div');
+                tagsElement.className = 'post-tags';
+                
+                const tagText = document.createTextNode('Tagged: ');
+                tagsElement.appendChild(tagText);
+                
+                const tagList = tags.split(',').map(t => t.trim());
+                tagList.forEach((tag, index) => {
+                    const tagLink = createTagLink(tag);
+                    tagsElement.appendChild(tagLink);
+                    
+                    if (index < tagList.length - 1) {
+                        const comma = document.createTextNode(', ');
+                        tagsElement.appendChild(comma);
+                    }
+                });
+                
+                metadataContainer.appendChild(tagsElement);
+            }
+        }
+        
+        /**
+         * Shows content section by post slug
+         * @param {string} slug - Post slug
+         * @returns {boolean} True if content was found and shown
+         */
+        function showContentBySlug(slug) {
+            if (!slug) return false;
+            
+            hideTagListContainer();
+            
+            const contentSection = document.querySelector(`.content-section[data-slug="${slug}"]`);
+            if (!contentSection) return false;
+            
+            hideAllContentSections();
+            contentSection.style.display = 'block';
+            showPostMetadata(contentSection);
+            highlightSyntax(contentSection);
+            clearActiveNavLinks();
+            updateMetaTags();
+            
+            return true;
+        }
+        
+        /**
+         * Shows content section by file path
+         * @param {string} filePath - File path (e.g., 'content/home.md')
+         * @returns {boolean} True if content was found and shown
+         */
+        function showContentByFile(filePath) {
+            hideTagListContainer();
+            
+            const contentId = getContentId(filePath);
+            const contentSection = document.getElementById(contentId);
+            
+            if (!contentSection) return false;
+            
+            hideAllContentSections();
+            contentSection.style.display = 'block';
+            highlightSyntax(contentSection);
+            clearActiveNavLinks();
+            updateMetaTags();
+            
+            const currentPage = getURLParameter('page');
+            if (currentPage) {
+                setActiveNavLink(`?page=${currentPage}`);
+            }
+            
+            return true;
+        }
+        
+        /**
+         * Shows posts filtered by tag
+         * @param {string} tag - Tag to filter by
+         * @returns {boolean} True if posts were found and shown
+         */
+        function showPostsByTag(tag) {
+            if (!tag) return false;
+            
+            // Hide all content sections except tag list container
+            document.querySelectorAll('.content-section').forEach(section => {
+                if (section.id !== TAG_LIST_ID) {
+                    section.style.display = 'none';
+                }
+            });
+            
+            // Find all posts with matching tag
+            const allPosts = document.querySelectorAll('.content-section[data-tags]');
+            const matchingPosts = [];
+            
+            allPosts.forEach(post => {
+                const tags = post.getAttribute('data-tags');
+                if (!tags) return;
+                
+                const tagList = tags.split(',').map(t => t.trim().toLowerCase());
+                if (tagList.includes(tag.toLowerCase())) {
+                    const slug = post.getAttribute('data-slug');
+                    const title = post.getAttribute('data-title');
+                    const date = post.getAttribute('data-date');
+                    const description = post.getAttribute('data-description');
+                    const thumbnail = post.getAttribute('data-thumbnail');
+                    
+                    if (slug && title) {
+                        matchingPosts.push({ slug, title, date, description, thumbnail });
+                    }
+                }
+            });
+            
+            if (matchingPosts.length === 0) return false;
+            
+            // Get or create tag list container
+            let tagListContainer = document.getElementById(TAG_LIST_ID);
+            if (!tagListContainer) {
+                tagListContainer = document.createElement('div');
+                tagListContainer.id = TAG_LIST_ID;
+                tagListContainer.className = 'content-section';
+                document.getElementById('markdown-content').appendChild(tagListContainer);
+            }
+            
+            tagListContainer.style.display = 'block';
+            tagListContainer.innerHTML = '';
+            
+            // Add header
+            const header = document.createElement('h1');
+            header.textContent = `Posts tagged ${tag}`;
+            tagListContainer.appendChild(header);
+            
+            // Sort posts by date (newest first)
+            matchingPosts.sort((a, b) => {
+                if (!a.date || !b.date) return 0;
+                return parseFormattedDate(b.date) - parseFormattedDate(a.date);
+            });
+            
+            // Add post entries (matching posts.md format)
+            matchingPosts.forEach(({ slug, title, description, thumbnail }) => {
+                // Create post entry container
+                const postEntry = document.createElement('div');
+                postEntry.className = 'post-entry';
+                
+                // Add thumbnail if available
+                if (thumbnail) {
+                    const img = document.createElement('img');
+                    img.src = thumbnail;
+                    img.alt = title;
+                    img.className = 'post-thumbnail';
+                    postEntry.appendChild(img);
+                }
+                
+                // Create content container
+                const postContent = document.createElement('div');
+                postContent.className = 'post-content';
+                
+                // Add title
+                const titleHeading = document.createElement('h2');
+                const titleLink = document.createElement('a');
+                titleLink.href = `?post=${slug}`;
+                titleLink.textContent = title;
+                titleLink.className = 'post-link';
+                
+                titleLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showContentBySlug(slug);
+                    window.history.pushState({}, '', `?post=${slug}`);
+                    updateCanonicalURL();
+                    updateMetaTags();
+                });
+                
+                titleHeading.appendChild(titleLink);
+                postContent.appendChild(titleHeading);
+                
+                // Add description if available
+                if (description) {
+                    const descriptionPara = document.createElement('p');
+                    descriptionPara.textContent = description;
+                    postContent.appendChild(descriptionPara);
+                }
+                
+                postEntry.appendChild(postContent);
+                tagListContainer.appendChild(postEntry);
+            });
+            
+            clearActiveNavLinks();
+            updateMetaTags();
+            return true;
+        }
+        
+        /**
+         * Handles URL changes and updates content accordingly
+         */
+        function handleURLChange() {
+            const tagParam = getURLParameter('tag');
+            const pageParam = getURLParameter('page');
+            const postSlug = getURLParameter('post');
+            
+            let contentShown = false;
+            
+            if (tagParam && showPostsByTag(tagParam)) {
+                contentShown = true;
+            } else if (postSlug && showContentBySlug(postSlug)) {
+                contentShown = true;
+            } else if (pageParam) {
+                const targetFile = `content/${pageParam}.md`;
+                contentShown = showContentByFile(targetFile);
+            }
+            
+            if (!contentShown) {
+                // Show default page (home) and set Home nav link as active
+                showContentByFile(DEFAULT_PAGE);
+                clearActiveNavLinks();
+                setActiveNavLink('?page=home');
+                updateMetaTags();
+            }
+            
+            updateCanonicalURL();
+            
+            // Track pageview with GoatCounter for client-side routing
+            if (SITE_CONFIG.goatCounterEnabled && typeof goatcounter !== 'undefined') {
+                goatcounter.count({
+                    path: location.pathname + location.search
+                });
+            }
+        }
+        
+        // ============================================================================
+        // INITIALIZATION
+        // ============================================================================
+        
+        // Content switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize default meta tags from SITE_CONFIG
+            document.getElementById('meta-description').setAttribute('content', SITE_CONFIG.defaultDescription);
+            document.getElementById('meta-keywords').setAttribute('content', SITE_CONFIG.defaultKeywords);
+            document.getElementById('canonical-link').setAttribute('href', `${SITE_CONFIG.baseUrl}?page=home`);
+            document.getElementById('page-title').textContent = SITE_CONFIG.siteName;
+            
+            // Set favicon if configured
+            if (SITE_CONFIG.favicon) {
+                const faviconLink = document.getElementById('favicon-link');
+                if (faviconLink) {
+                    faviconLink.setAttribute('href', SITE_CONFIG.favicon);
+                }
+            }
+            if (SITE_CONFIG.appleTouchIcon) {
+                const appleIconLink = document.getElementById('apple-touch-icon-link');
+                if (appleIconLink) {
+                    appleIconLink.setAttribute('href', SITE_CONFIG.appleTouchIcon);
+                }
+            }
+            
+            // Set up nav link click handlers
+            // Handle navigation links with data-url (URL parameters)
+            const navLinksWithURL = document.querySelectorAll('.nav-link[data-url]');
+            navLinksWithURL.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetURL = this.getAttribute('data-url');
+                    if (targetURL) {
+                        window.history.pushState({}, '', targetURL);
+                        handleURLChange();
+                    }
+                });
+            });
+            
+            // Handle browser back/forward navigation
+            window.addEventListener('popstate', function(event) {
+                handleURLChange();
+            });
+            
+            // Initial load - handle URL parameters
+            handleURLChange();
+            
+            // Highlight syntax in initially visible content
+            if (window.Prism) {
+                Prism.highlightAll();
+            }
+            
+            // Hamburger menu toggle functionality
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            
+            function toggleSidebar() {
+                sidebar.classList.toggle('active');
+                overlay.classList.toggle('active');
+                hamburgerMenu.classList.toggle('active');
+            }
+            
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                hamburgerMenu.classList.remove('active');
+            }
+            
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', toggleSidebar);
+            }
+            
+            if (overlay) {
+                overlay.addEventListener('click', closeSidebar);
+            }
+            
+            // Close sidebar when clicking on a nav link (mobile)
+            const mobileNavLinks = document.querySelectorAll('.nav-link');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Check if we're in mobile/portrait mode
+                    if (window.matchMedia('(max-aspect-ratio: 1/1)').matches) {
+                        closeSidebar();
+                    }
+                });
+            });
+
+            // ============================================================================
+            // GOATCOUNTER ANALYTICS
+            // ============================================================================
+            
+            if (SITE_CONFIG.goatCounterEnabled && SITE_CONFIG.goatCounterCode) {
+                const goatCounterScript = document.createElement('script');
+                goatCounterScript.async = true;
+                goatCounterScript.setAttribute('data-goatcounter', `https://${SITE_CONFIG.goatCounterCode}.goatcounter.com/count`);
+                goatCounterScript.src = '//gc.zgo.at/count.js';
+                
+                // Add optional data attributes
+                if (SITE_CONFIG.allowLocal) {
+                    goatCounterScript.setAttribute('data-goatcounter-allow-local', 'true');
+                }
+                if (SITE_CONFIG.allowFrame) {
+                    goatCounterScript.setAttribute('data-goatcounter-allow-frame', 'true');
+                }
+                if (SITE_CONFIG.noOnload) {
+                    goatCounterScript.setAttribute('data-goatcounter-no-onload', 'true');
+                }
+                
+                document.body.appendChild(goatCounterScript);
+            }
+        });
+    </script>
+</body>
+</html>
+

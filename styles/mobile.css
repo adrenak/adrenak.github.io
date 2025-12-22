@@ -1,0 +1,75 @@
+/* ============================================
+   MOBILE.CSS
+   
+   This file contains styles for mobile/tablet responsive elements:
+   
+   - Hamburger menu button: The three-line menu button for mobile devices
+     (position, size, animation when clicked/active)
+   - Sidebar overlay: The dark overlay that appears behind the sidebar on mobile
+     (used to close sidebar when clicked, dims background)
+   - Sidebar animations: Transform and transition effects for mobile sidebar
+   
+   Note: These styles are hidden by default and shown via media queries
+   in responsive.css for smaller screens.
+   
+   Influences: Mobile menu button, sidebar overlay, mobile interactions
+   ============================================ */
+
+.hamburger-menu {
+    display: none;
+    position: fixed;
+    top: .5rem;
+    left: .5rem;
+    z-index: 1001;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.75rem;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    width: 56px;
+    height: 56px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 32px;
+    height: 3px;
+    background-color: #000;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
