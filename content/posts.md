@@ -2,9 +2,13 @@
 
 ## Tags
 
-[opensource (13)](?tag=opensource) • [univoice (13)](?tag=univoice) • [film (2)](?tag=film) • [gamedev (2)](?tag=gamedev) • [life (2)](?tag=life) • [travel (1)](?tag=travel) • [unimic (1)](?tag=unimic)
+[opensource (14)](?tag=opensource) • [univoice (13)](?tag=univoice) • [film (2)](?tag=film) • [gamedev (2)](?tag=gamedev) • [life (2)](?tag=life) • [travel (1)](?tag=travel) • [unimic (1)](?tag=unimic)
 
 ---
+
+## [Some Github workflows for UPM repositories](?post=github-workflows-for-upm)
+
+Making life a little easier.
 
 <div class="post-entry">
 <img src="content/images/oasis-australia.jpg" alt="Oasis reunion and a year with (almost) no social media" class="post-thumbnail" />

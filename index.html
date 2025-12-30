@@ -1271,11 +1271,348 @@ I picked up and completed a short game project I had briefly worked on in 2021 a
 <p>And while we really cut it close, my wife and I got the visa just in time to book a last minute flight to Sydney and watch Oasis live on 8th November with 80000 other people.</p>
 <p>An amazing night and a dream come true to watch them live!</p>
 </div>
+<div id="content-content/posts/2025-12-31-new-website-md" class="content-section" data-slug="github-workflows-for-upm" data-date="31 Dec 2025" data-tags="opensource" data-title="Some Github workflows for UPM repositories" data-description="Making life a little easier." style="display: none;">
+<p>I recently made some changes to <a href="https://github.com/adrenak/brw">BRW</a> and added some Github workflows to make life easier maintaining UPM repositories.</p>
+<p>They&#39;re all currently standalone. I haven&#39;t figured out how I can &quot;invoke&quot; other workflows from a main workflow. So except for one, all others are manually triggered. Of course, you can merge them all into a single workflow file. Or introduce some ways to ensure they run in the order you want.</p>
+<p>You can find the workflows <a href="https://github.com/adrenak/brw/tree/master/.github/workflows">here</a>. In case they change in the future, here they are.</p>
+<details>
+<summary>npm-publish.yaml</summary>
+
+<p>I added this file because currently I publish <em>locally</em> from my desktop. This requires me to checkout the <code>upm-latest</code> branch, do a <code>git clean -df</code> so I only have the package contents, and then invoke <code>npm publish</code>.</p>
+<pre><code class="language-yaml"># Github action that can be triggered to make an npm release
+# You need a secret on Github called NPM_PUBLISH_TOKEN
+# Configure RELEASE_BRANCH to match the name of the branch that has package.json as the root
+
+name: Publish to NPM
+
+on:
+  workflow_dispatch:
+
+env:
+  RELEASE_BRANCH: upm-latest
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    
+    steps:
+      - name: Checkout upm-latest branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.RELEASE_BRANCH }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: &#39;20&#39;
+          registry-url: &#39;https://registry.npmjs.org&#39;
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+
+      - name: Configure npm authentication
+        run: |
+          npm whoami
+      - name: Publish to npm
+        run: npm publish
+</code></pre>
+</details>
+
+<details>
+<summary>update-version.yaml</summary>
+
+<p>Sometimes I just forget to update package.json</p>
+<p>This is very annoying.</p>
+<p>So this file allows me to trigger a version update.</p>
+<pre><code class="language-yaml"># Github action that can be triggered to update the version in package.json
+# Allows you to define values like major.minor.patch and if that should be set as the new version of incremented
+# Set PACKAGE_JSON_PATH based on your repo 
+
+name: Update Package Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      major:
+        description: &#39;Major version number&#39;
+        required: true
+        type: number
+        default: 0
+      minor:
+        description: &#39;Minor version number&#39;
+        required: true
+        type: number
+        default: 0
+      patch:
+        description: &#39;Patch version number&#39;
+        required: true
+        type: number
+        default: 0
+      update_method:
+        description: &#39;Update method&#39;
+        required: true
+        type: choice
+        options:
+          - increment
+          - set
+        default: &#39;set&#39;
+
+env:
+  PACKAGE_JSON_PATH: Assets/Adrenak.BRW/package.json
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name &quot;github-actions[bot]&quot;
+          git config user.email &quot;github-actions[bot]@users.noreply.github.com&quot;
+      - name: Read current version
+        id: current-version
+        run: |
+          if [ ! -f &quot;${{ env.PACKAGE_JSON_PATH }}&quot; ]; then
+            echo &quot;Error: package.json not found at ${{ env.PACKAGE_JSON_PATH }}&quot;
+            exit 1
+          fi
+          
+          CURRENT_VERSION=$(node -p &quot;require(&#39;./${{ env.PACKAGE_JSON_PATH }}&#39;).version&quot;)
+          echo &quot;current_version=$CURRENT_VERSION&quot; &gt;&gt; $GITHUB_OUTPUT
+          echo &quot;Current version: $CURRENT_VERSION&quot;
+          
+          # Parse version components
+          IFS=&#39;.&#39; read -r CURRENT_MAJOR CURRENT_MINOR CURRENT_PATCH &lt;&lt;&lt; &quot;$CURRENT_VERSION&quot;
+          echo &quot;current_major=$CURRENT_MAJOR&quot; &gt;&gt; $GITHUB_OUTPUT
+          echo &quot;current_minor=$CURRENT_MINOR&quot; &gt;&gt; $GITHUB_OUTPUT
+          echo &quot;current_patch=$CURRENT_PATCH&quot; &gt;&gt; $GITHUB_OUTPUT
+      - name: Calculate new version
+        id: new-version
+        run: |
+          CURRENT_MAJOR=${{ steps.current-version.outputs.current_major }}
+          CURRENT_MINOR=${{ steps.current-version.outputs.current_minor }}
+          CURRENT_PATCH=${{ steps.current-version.outputs.current_patch }}
+          
+          INPUT_MAJOR=${{ inputs.major }}
+          INPUT_MINOR=${{ inputs.minor }}
+          INPUT_PATCH=${{ inputs.patch }}
+          UPDATE_METHOD=&quot;${{ inputs.update_method }}&quot;
+          
+          if [ &quot;$UPDATE_METHOD&quot; = &quot;increment&quot; ]; then
+            # Increment mode: add values to current version
+            NEW_MAJOR=$((CURRENT_MAJOR + INPUT_MAJOR))
+            NEW_MINOR=$((CURRENT_MINOR + INPUT_MINOR))
+            NEW_PATCH=$((CURRENT_PATCH + INPUT_PATCH))
+            
+            # Validate no negative values
+            if [ $NEW_MAJOR -lt 0 ] || [ $NEW_MINOR -lt 0 ] || [ $NEW_PATCH -lt 0 ]; then
+              echo &quot;Error: Version cannot be negative. Result would be: $NEW_MAJOR.$NEW_MINOR.$NEW_PATCH&quot;
+              exit 1
+            fi
+          else
+            # Set mode: use input values directly
+            NEW_MAJOR=$INPUT_MAJOR
+            NEW_MINOR=$INPUT_MINOR
+            NEW_PATCH=$INPUT_PATCH
+            
+            # Validate no negative values
+            if [ $NEW_MAJOR -lt 0 ] || [ $NEW_MINOR -lt 0 ] || [ $NEW_PATCH -lt 0 ]; then
+              echo &quot;Error: Version cannot be negative. Input: $NEW_MAJOR.$NEW_MINOR.$NEW_PATCH&quot;
+              exit 1
+            fi
+          fi
+          
+          NEW_VERSION=&quot;$NEW_MAJOR.$NEW_MINOR.$NEW_PATCH&quot;
+          echo &quot;new_version=$NEW_VERSION&quot; &gt;&gt; $GITHUB_OUTPUT
+          echo &quot;New version: $NEW_VERSION&quot;
+      - name: Update package.json
+        run: |
+          NEW_VERSION=&quot;${{ steps.new-version.outputs.new_version }}&quot;
+          node -e &quot;
+            const fs = require(&#39;fs&#39;);
+            const path = &#39;${{ env.PACKAGE_JSON_PATH }}&#39;;
+            const pkg = JSON.parse(fs.readFileSync(path, &#39;utf8&#39;));
+            pkg.version = &#39;$NEW_VERSION&#39;;
+            fs.writeFileSync(path, JSON.stringify(pkg, null, &#39;\t&#39;) + &#39;\n&#39;);
+          &quot;
+          echo &quot;Updated ${{ env.PACKAGE_JSON_PATH }} to version $NEW_VERSION&quot;
+      - name: Commit and push changes
+        run: |
+          git add &quot;${{ env.PACKAGE_JSON_PATH }}&quot;
+          
+          if git diff --staged --quiet; then
+            echo &quot;No changes to commit.&quot;
+          else
+            CURRENT_VERSION=&quot;${{ steps.current-version.outputs.current_version }}&quot;
+            NEW_VERSION=&quot;${{ steps.new-version.outputs.new_version }}&quot;
+            git commit -m &quot;chore: bump version from $CURRENT_VERSION to $NEW_VERSION&quot;
+            git push origin master
+            echo &quot;Committed and pushed version bump: $CURRENT_VERSION -&gt; $NEW_VERSION&quot;
+          fi
+</code></pre>
+</details>
+
+<details>
+<summary>sync-readme-and-update-upm-branch.yaml</summary>
+
+<p>I configure this to also run on <code>push</code> because this ensures my README files and upm-branch contents are always up to date.</p>
+<pre><code class="language-yaml"># Used for Unity UPM repositories where the main/master branch has the Unity project root and the actual UPM package directory is somewhere inside Assets/
+# This file updates Assets/../README.md based on the latest root README.md
+# Then updates a dedicated UPM branch
+# Configure env variables based on your needs
+
+name: Sync README and Update UPM Branch
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+env:
+  SUBDIRECTORY_PATH: Assets/Adrenak.BRW
+  UPM_BRANCH: upm-latest
+
+jobs:
+  sync-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name &quot;github-actions[bot]&quot;
+          git config user.email &quot;github-actions[bot]@users.noreply.github.com&quot;
+      - name: Check if README needs update
+        id: check-readme
+        run: |
+          ROOT_README=&quot;README.md&quot;
+          SUB_README=&quot;${{ env.SUBDIRECTORY_PATH }}/README.md&quot;
+          
+          if [ ! -f &quot;$ROOT_README&quot; ]; then
+            echo &quot;Root README.md not found. Exiting.&quot;
+            exit 1
+          fi
+          
+          if [ ! -f &quot;$SUB_README&quot; ]; then
+            echo &quot;needs_update=true&quot; &gt;&gt; $GITHUB_OUTPUT
+            echo &quot;Subdirectory README.md does not exist. Will create it.&quot;
+          elif ! cmp -s &quot;$ROOT_README&quot; &quot;$SUB_README&quot;; then
+            echo &quot;needs_update=true&quot; &gt;&gt; $GITHUB_OUTPUT
+            echo &quot;README.md files differ. Will update subdirectory README.&quot;
+          else
+            echo &quot;needs_update=false&quot; &gt;&gt; $GITHUB_OUTPUT
+            echo &quot;README.md files are identical. No update needed.&quot;
+          fi
+      - name: Copy README to subdirectory
+        if: steps.check-readme.outputs.needs_update == &#39;true&#39;
+        run: |
+          mkdir -p &quot;${{ env.SUBDIRECTORY_PATH }}&quot;
+          cp README.md &quot;${{ env.SUBDIRECTORY_PATH }}/README.md&quot;
+          echo &quot;Copied README.md to ${{ env.SUBDIRECTORY_PATH }}/&quot;
+      - name: Commit and push changes
+        if: steps.check-readme.outputs.needs_update == &#39;true&#39;
+        run: |
+          git add &quot;${{ env.SUBDIRECTORY_PATH }}/README.md&quot;
+          
+          if git diff --staged --quiet; then
+            echo &quot;No changes to commit.&quot;
+          else
+            git commit -m &quot;chore: sync README.md to ${{ env.SUBDIRECTORY_PATH }}/&quot;
+            git push origin master
+            echo &quot;Committed and pushed README.md update.&quot;
+          fi
+  update-upm-branch:
+    needs: sync-readme
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+          ref: master
+
+      - name: Configure Git
+        run: |
+          git config user.name &quot;github-actions[bot]&quot;
+          git config user.email &quot;github-actions[bot]@users.noreply.github.com&quot;
+      - name: Check if subdirectory exists
+        id: check-subdir
+        run: |
+          if [ ! -d &quot;${{ env.SUBDIRECTORY_PATH }}&quot; ]; then
+            echo &quot;Subdirectory ${{ env.SUBDIRECTORY_PATH }} not found. Exiting.&quot;
+            exit 1
+          fi
+          echo &quot;Subdirectory found: ${{ env.SUBDIRECTORY_PATH }}&quot;
+      - name: Copy subdirectory to temporary location
+        run: |
+          # Copy subdirectory contents to a temp location before switching branches
+          mkdir -p /tmp/package-contents
+          cp -r &quot;${{ env.SUBDIRECTORY_PATH }}&quot;/* /tmp/package-contents/ 2&gt;/dev/null || true
+          cp -r &quot;${{ env.SUBDIRECTORY_PATH }}&quot;/.[!.]* /tmp/package-contents/ 2&gt;/dev/null || true
+          echo &quot;Copied contents to temporary location&quot;
+      - name: Create or checkout upm-latest branch
+        run: |
+          # Check if branch exists
+          if git ls-remote --heads origin ${{ env.UPM_BRANCH }} | grep -q &quot;${{ env.UPM_BRANCH }}&quot;; then
+            echo &quot;Branch ${{ env.UPM_BRANCH }} exists. Checking out...&quot;
+            git fetch origin ${{ env.UPM_BRANCH }}:${{ env.UPM_BRANCH }}
+            git checkout ${{ env.UPM_BRANCH }}
+          else
+            echo &quot;Branch ${{ env.UPM_BRANCH }} does not exist. Creating...&quot;
+            git checkout --orphan ${{ env.UPM_BRANCH }}
+            git rm -rf --cached . || true
+          fi
+      - name: Clear branch contents
+        run: |
+          # Remove all files except .git
+          find . -mindepth 1 -maxdepth 1 ! -name &#39;.git&#39; -exec rm -rf {} +
+      - name: Copy subdirectory contents to branch root
+        run: |
+          # Copy from temporary location to branch root
+          cp -r /tmp/package-contents/* .
+          echo &quot;Copied contents from temporary location to branch root&quot;
+      - name: Commit and push changes
+        run: |
+          git add -A
+          
+          if git diff --staged --quiet &amp;&amp; git diff --quiet; then
+            echo &quot;No changes to commit.&quot;
+          else
+            git commit -m &quot;chore: update upm-latest branch with latest package contents&quot;
+            git push origin ${{ env.UPM_BRANCH }}
+            echo &quot;Committed and pushed to ${{ env.UPM_BRANCH }} branch.&quot;
+          fi
+</code></pre>
+</details></div>
 <div id="content-content/posts-md" class="content-section" style="display: none;">
 <h1>Posts</h1>
 <h2>Tags</h2>
-<p><a href="?tag=opensource">opensource (13)</a> • <a href="?tag=univoice">univoice (13)</a> • <a href="?tag=film">film (2)</a> • <a href="?tag=gamedev">gamedev (2)</a> • <a href="?tag=life">life (2)</a> • <a href="?tag=travel">travel (1)</a> • <a href="?tag=unimic">unimic (1)</a></p>
+<p><a href="?tag=opensource">opensource (14)</a> • <a href="?tag=univoice">univoice (13)</a> • <a href="?tag=film">film (2)</a> • <a href="?tag=gamedev">gamedev (2)</a> • <a href="?tag=life">life (2)</a> • <a href="?tag=travel">travel (1)</a> • <a href="?tag=unimic">unimic (1)</a></p>
 <hr>
+<h2><a href="?post=github-workflows-for-upm">Some Github workflows for UPM repositories</a></h2>
+<p>Making life a little easier.</p>
 <div class="post-entry">
 <img src="content/images/oasis-australia.jpg" alt="Oasis reunion and a year with (almost) no social media" class="post-thumbnail" />
 <div class="post-content">
