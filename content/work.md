@@ -116,6 +116,11 @@ A mobile and web 3D space for an art gallery.
 **Art Outsourcing Partner**  
 Provided game art for several mobile game projects in development at Vasco Games B.V. and MobilePlus.
 
+**Firexit Software**
+After the success of XPro Rally Web and Android which introduced me to some great people to work with, I incorporated a gamedev company in my second undergrad year. 
+By 2015 we made some ad and analytics stuff too. Shut down operations in early 2016 when I got my first job as The Zero Games. By late 2017 I had become a full-time
+freelancer and Firexit Software had a couple more years of activity as I operated through it. 
+
 </details>
 
 ## 🛠️ Own Projects
@@ -124,6 +129,9 @@ Things I have built by myself or with a team I've put together
 ### 2025
 **[Detour](https://adrenak.itch.io/detour)**  
 A short (15 minute) game inspired by Fargo and Twin Peaks. It's a paranormal but wholesome mystery experience.
+
+**[DemoDuck](https://adrenak.itch.io/demoduck)**  
+A little browser game. Initially it was a roll-a-ball game made at a ManageXR hackathon. Later I made a 3D model and animations of a plush toy and replaced the ball with a charactor.
   
 ### 2021
 **[Retro Reel](https://www.retroreel.app/)**  
@@ -143,7 +151,7 @@ A rally racing game currently on hold, but I'll pick it up the first chance I ge
 **[UnSDK](https://medium.com/@tanaygaherwar/video-ads-rise-of-watch-to-win-dbfa8a71c89a)**  
 An analytics platform for recognizing users that monetize highly with video ads. The platform was tested on an in-house game but not released. All that remains now is a blogpost we wrote.
 <br>
-This was also the end of Firexit Software's operations, the game studio I founded in 2021 while in university.
+This was also the end of Firexit Software's operations, the game studio I founded in 2013 while in university.
 <br><br>
 
 **[Speed Street 2](https://www.indiedb.com/games/speed-street-2)**  
