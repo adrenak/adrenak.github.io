@@ -115,8 +115,8 @@ A mobile and web 3D space for an art gallery.
 ### 2013
 **Art Outsourcing Partner**  
 Provided game art for several mobile game projects in development at Vasco Games B.V. and MobilePlus.
-
-**Firexit Software**
+  
+**Firexit Software**  
 After the success of XPro Rally Web and Android which introduced me to some great people to work with, I incorporated a gamedev company in my second undergrad year. 
 By 2015 we made some ad and analytics stuff too. Shut down operations in early 2016 when I got my first job as The Zero Games. By late 2017 I had become a full-time
 freelancer and Firexit Software had a couple more years of activity as I operated through it. 
