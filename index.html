@@ -985,7 +985,7 @@ static IResampler resampler;
 </div>
 <div id="content-content/posts/2025-08-11-client-tags-md" class="content-section" data-slug="univoice-client-tags" data-date="11 Aug 2025" data-tags="univoice,opensource" data-title="UniVoice 4.7.0  Client Tags" data-description="Create chat groups within a chatroom easily. E.g. team voice chat in a 5v5 game" data-keywords="univoice, unity, voice, voip, vivox, dissonance, open source" style="display: none;">
 <blockquote>
-<p>⚠️ A bug was discovered with Client Tags, this feature is not stable and using it is not recommended. Once identified and fixed, this article will be updated.</p>
+<p>⚠️ A bug was discovered in the initial release of Client Tags. It was fixed in 4.11.0</p>
 </blockquote>
 <p>UniVoice 4.7.0 has been released and has a major new feature: Client Tags</p>
 <h2>Overview</h2>
@@ -1012,7 +1012,7 @@ static IResampler resampler;
 <li><code>mutedTags : List&lt;string&gt;</code></li>
 <li><code>deafenedTags : List&lt;string&gt;</code></li>
 </ul>
-<p>Each client gets to add a <code>List&lt;string&gt;</code> tags that it wants to be associated with.\ <code>.mutedTags</code> and <code>.deafenedTags</code> allow you to define the tags you don&#39;t want send you audio or receiving your audio.</p>
+<p>Each client gets to add a <code>List&lt;string&gt;</code> tags that it wants to be associated with <code>.mutedTags</code> and <code>.deafenedTags</code> allow you to define the tags you don&#39;t want send you audio or receiving your audio.</p>
 <p>For the 3 scene unity app example, let&#39;s say the scenes are &quot;Lobby&quot;, &quot;Waiting Room&quot; and &quot;Match&quot;.</p>
 <p>Using the tags feature, you can program your client code such that when you enter the Lobby, you set <code>myTags = {&quot;lobby&quot;}</code> and <code>mutedTags = deafenedTags = {&quot;waiting-room&quot;, &quot;match&quot;}</code></p>
 <p>Similarly, when you enter the Waiting Room, myTags = {&quot;waiting-room&quot;} and mutedTags = deafenedTags = {&quot;lobby&quot;, &quot;match&quot;}</p>
@@ -1023,6 +1023,11 @@ static IResampler resampler;
 <p>Suppose ClientA and ClientB are IDs 1 and 2 respectively and have separate tags &quot;abc&quot; and &quot;xyz&quot;. ClientB needs to have 1 in deafenedPeers or/and &quot;abc&quot; in deafenedTags for ClientA to not receive ClientB audio.</p>
 <p>My advice would be to use either IDs or tags, not both, unless you really need it.</p>
 <p>As always, if you have questions feel free to reach me via email, Discord (my ID is adrenak).</p>
+<br>
+
+<p><a href="https://discord.com/invite/Tnf9KG93MC"><img src="https://img.shields.io/badge/Join%20UniVoice%20Discord-7289DA?logoColor=white&style=for-the-badge" alt="Join UniVoice Discord"></a>
+<a href="https://www.github.com/adrenak/univoice"><img src="https://img.shields.io/badge/UniVoice%20On%20Github-ffc400?logoColor=white&style=for-the-badge" alt="UniVoice on Github"></a>
+<a href="mailto:ambastha.vatsal@gmail.com"><img src="https://img.shields.io/badge/Contact%20Via%20Email-ad3723?logoColor=white&style=for-the-badge" alt="Contact via email"></a></p>
 </div>
 <div id="content-content/posts/2025-09-04-fishnet-support-md" class="content-section" data-slug="univoice-fishnet-support" data-date="4 Sep 2025" data-tags="univoice,opensource" data-title="UniVoice 4.8.0  FishNet support" data-description="UniVoice has early FishNet support, consider it in beta. Thanks to Frantisek Holubec for the contribution!" data-keywords="univoice, unity, voice, voip, vivox, dissonance, open source" style="display: none;">
 <p>UniVoice 4.8.0 is out!</p>
@@ -1271,7 +1276,7 @@ I picked up and completed a short game project I had briefly worked on in 2021 a
 <p>And while we really cut it close, my wife and I got the visa just in time to book a last minute flight to Sydney and watch Oasis live on 8th November with 80000 other people.</p>
 <p>An amazing night and a dream come true to watch them live!</p>
 </div>
-<div id="content-content/posts/2025-12-31-new-website-md" class="content-section" data-slug="github-workflows-for-upm" data-date="31 Dec 2025" data-tags="opensource" data-title="Some Github workflows for UPM repositories" data-description="Making life a little easier." style="display: none;">
+<div id="content-content/posts/2025-12-31-github-workflows-for-upm-md" class="content-section" data-slug="github-workflows-for-upm" data-date="31 Dec 2025" data-tags="opensource" data-title="Some Github workflows for UPM repositories" data-description="Making life a little easier." style="display: none;">
 <p>I recently made some changes to <a href="https://github.com/adrenak/brw">BRW</a> and added some Github workflows to make life easier maintaining UPM repositories.</p>
 <p>They&#39;re all currently standalone. I haven&#39;t figured out how I can &quot;invoke&quot; other workflows from a main workflow. So except for one, all others are manually triggered. Of course, you can merge them all into a single workflow file. Or introduce some ways to ensure they run in the order you want.</p>
 <p>You can find the workflows <a href="https://github.com/adrenak/brw/tree/master/.github/workflows">here</a>. In case they change in the future, here they are.</p>
@@ -1606,11 +1611,42 @@ jobs:
           fi
 </code></pre>
 </details></div>
+<div id="content-content/posts/2026-01-15-client-tags-2-md" class="content-section" data-slug="univoice-client-tags-2" data-date="15 Jan 2026" data-tags="opensource,univoice" data-title="UniVoice 4.11.0. Client tags fixes and samples" data-description="I released something broken which I have now fixed. And created a sample to further make up for it." style="display: none;">
+<h2>Summary</h2>
+<ul>
+<li>UniVoice 4.11.0 is out</li>
+<li>Tags are now sent as <code>string[]</code> which was added to <a href="https://github.com/adrenak/brw/commit/cbce88b61aca69c0c9025cc6301973204612ded9">com.adrenak.brw@1.2.0</a></li>
+<li><a href="https://vatsalambastha.com/univoice/api/Adrenak.UniVoice.IAudioClient-1.html#Adrenak_UniVoice_IAudioClient_1_UpdateVoiceSettings_System_Action_Adrenak_UniVoice_VoiceSettings__"><code>IAudioClient&lt;T&gt;.UpdateVoiceSettings</code></a> method added to easily update voice settings.</li>
+<li>Convenience methods added to <code>VoiceSettings</code> to easily add, remove and set my tags, muted tags and deafened tags</li>
+<li>Tags sample added to demonstrate a team vs team voice chat scenario</li>
+</ul>
+<h2>Description</h2>
+<p>The commit can be found <a href="https://github.com/adrenak/univoice/commit/5db765929722f2e34bb464bcba48a459278de432#diff-dccef66643acdd469f44cf6de3acc82e7a509b707f47a4f4853ef28347d0420a">here</a></p>
+<p><code>FishNetClient</code>, <code>FishNetServer</code>, <code>MirrorClient</code> and <code>MirrorServer</code> changed the way clients send and server reads the tags. I had tried something previously, and a developer later reported to me that tags were not being exchanged correctly. While I don&#39;t remember the issue exactly, I decided to add string array reading and writing to BRW and use that instead.</p>
+<p><code>IAudioClient&lt;T&gt;.UpdateVoiceSettings</code> has been added because it&#39;s just really annoying to have to remember calling <code>SubmitVoiceSettings</code> after every modification. It also makes things more verbose than they need to in many circumstances. Consider <a href="https://github.com/adrenak/univoice/blob/5db765929722f2e34bb464bcba48a459278de432/Assets/Adrenak.UniVoice/Samples/Tags%20Sample/FishnetTagsSample.cs#L15">the tags sample</a> script. Each of those listeners would look something like this:</p>
+<pre><code class="language-csharp">x =&gt; {
+  UniVoiceFishNetSetupSample.ClientSession.Client.YourVoiceSettings.SetMyTag(&quot;red&quot;, x);
+  UniVoiceFishNetSetupSample.ClientSession.Client.SubmitVoiceSettings();
+}
+</code></pre>
+<p>As far as convenience methods go, I had written in <a href="?post=univoice-client-tags">the client tags annoucement post</a> that I will add some API enhancements to <code>VoiceSettings</code>, and 4.11.0 adds methods that allow you to set, add and remove tags instead of modifying the tag list directly. </p>
+<p>And finally, I&#39;ve added tags samples. It creates a barebones team vs team voice chat environment. Run on two clients, on one set My Tags to Red and on the other set it to Blue.
+On the Red client, mute and deafen Blue. And on Blue client, mute and deafen Red. This ensures that members of the red team can neither hear nor speak to blue team, and vice versa.</p>
+<h2>Closing thoughts</h2>
+<p>I have a feeling tags is done for now. I don&#39;t see myself many any big changes or improvements at least in the 4.x cycle. But let me know if you face any issues. </p>
+<br>
+
+<p><a href="https://discord.com/invite/Tnf9KG93MC"><img src="https://img.shields.io/badge/Join%20UniVoice%20Discord-7289DA?logoColor=white&style=for-the-badge" alt="Join UniVoice Discord"></a>
+<a href="https://www.github.com/adrenak/univoice"><img src="https://img.shields.io/badge/UniVoice%20On%20Github-ffc400?logoColor=white&style=for-the-badge" alt="UniVoice on Github"></a>
+<a href="mailto:ambastha.vatsal@gmail.com"><img src="https://img.shields.io/badge/Contact%20Via%20Email-ad3723?logoColor=white&style=for-the-badge" alt="Contact via email"></a></p>
+</div>
 <div id="content-content/posts-md" class="content-section" style="display: none;">
 <h1>Posts</h1>
 <h2>Tags</h2>
-<p><a href="?tag=opensource">opensource (14)</a> • <a href="?tag=univoice">univoice (13)</a> • <a href="?tag=film">film (2)</a> • <a href="?tag=gamedev">gamedev (2)</a> • <a href="?tag=life">life (2)</a> • <a href="?tag=travel">travel (1)</a> • <a href="?tag=unimic">unimic (1)</a></p>
+<p><a href="?tag=opensource">opensource (15)</a> • <a href="?tag=univoice">univoice (14)</a> • <a href="?tag=film">film (2)</a> • <a href="?tag=gamedev">gamedev (2)</a> • <a href="?tag=life">life (2)</a> • <a href="?tag=travel">travel (1)</a> • <a href="?tag=unimic">unimic (1)</a></p>
 <hr>
+<h2><a href="?post=univoice-client-tags-2">UniVoice 4.11.0. Client tags fixes and samples</a></h2>
+<p>I released something broken which I have now fixed. And created a sample to further make up for it.</p>
 <h2><a href="?post=github-workflows-for-upm">Some Github workflows for UPM repositories</a></h2>
 <p>Making life a little easier.</p>
 <div class="post-entry">

@@ -2,9 +2,13 @@
 
 ## Tags
 
-[opensource (14)](?tag=opensource) • [univoice (13)](?tag=univoice) • [film (2)](?tag=film) • [gamedev (2)](?tag=gamedev) • [life (2)](?tag=life) • [travel (1)](?tag=travel) • [unimic (1)](?tag=unimic)
+[opensource (15)](?tag=opensource) • [univoice (14)](?tag=univoice) • [film (2)](?tag=film) • [gamedev (2)](?tag=gamedev) • [life (2)](?tag=life) • [travel (1)](?tag=travel) • [unimic (1)](?tag=unimic)
 
 ---
+
+## [UniVoice 4.11.0. Client tags fixes and samples](?post=univoice-client-tags-2)
+
+I released something broken which I have now fixed. And created a sample to further make up for it.
 
 ## [Some Github workflows for UPM repositories](?post=github-workflows-for-upm)
 

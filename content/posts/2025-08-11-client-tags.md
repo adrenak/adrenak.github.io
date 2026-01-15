@@ -8,7 +8,7 @@ keywords: univoice, unity, voice, voip, vivox, dissonance, open source
 published: yes
 ---
 
-> ⚠️ A bug was discovered with Client Tags, this feature is not stable and using it is not recommended. Once identified and fixed, this article will be updated.
+> ⚠️ A bug was discovered in the initial release of Client Tags. It was fixed in 4.11.0
 
 UniVoice 4.7.0 has been released and has a major new feature: Client Tags
 
@@ -44,7 +44,7 @@ In [version 4.7.0](https://github.com/adrenak/univoice/blob/05f04805be09362b2d56
 * `mutedTags : List<string>`
 * `deafenedTags : List<string>`
 
-Each client gets to add a `List<string>` tags that it wants to be associated with.\ `.mutedTags` and `.deafenedTags` allow you to define the tags you don't want send you audio or receiving your audio.
+Each client gets to add a `List<string>` tags that it wants to be associated with `.mutedTags` and `.deafenedTags` allow you to define the tags you don't want send you audio or receiving your audio.
 
 For the 3 scene unity app example, let's say the scenes are "Lobby", "Waiting Room" and "Match".
 
@@ -64,3 +64,9 @@ Suppose ClientA and ClientB are IDs 1 and 2 respectively and have separate tags 
 My advice would be to use either IDs or tags, not both, unless you really need it.
 
 As always, if you have questions feel free to reach me via email, Discord (my ID is adrenak).
+
+<br>
+
+[![Join UniVoice Discord](https://img.shields.io/badge/Join%20UniVoice%20Discord-7289DA?logoColor=white&style=for-the-badge)](https://discord.com/invite/Tnf9KG93MC)
+[![UniVoice on Github](https://img.shields.io/badge/UniVoice%20On%20Github-ffc400?logoColor=white&style=for-the-badge)](https://www.github.com/adrenak/univoice)
+[![Contact via email](https://img.shields.io/badge/Contact%20Via%20Email-ad3723?logoColor=white&style=for-the-badge)](mailto:ambastha.vatsal@gmail.com)
