@@ -3,7 +3,7 @@ slug: small-dumb-games
 title: Small dumb games
 date: 2026-03-20
 tags: gamedev, film
-description: I want to play smaller, dumber games.
+description: I want to play and make smaller, dumber games.
 published: yes
 ---
 
