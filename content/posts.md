@@ -2,9 +2,13 @@
 
 ## Tags
 
-[opensource (15)](?tag=opensource) • [univoice (14)](?tag=univoice) • [film (2)](?tag=film) • [gamedev (2)](?tag=gamedev) • [life (2)](?tag=life) • [travel (1)](?tag=travel) • [unimic (1)](?tag=unimic)
+[opensource (15)](?tag=opensource) • [univoice (14)](?tag=univoice) • [film (3)](?tag=film) • [gamedev (3)](?tag=gamedev) • [life (2)](?tag=life) • [travel (1)](?tag=travel) • [unimic (1)](?tag=unimic)
 
 ---
+
+## [Small dumb games](?post=small-dumb-games)
+
+I want to play smaller, dumber games.
 
 ## [UniVoice 4.11.0. Client tags fixes and samples](?post=univoice-client-tags-2)
 
