@@ -770,7 +770,7 @@ session.Client.SubmitVoiceSettings();
 </ul>
 <p>So it only made sense to add support for it. I marked this as an enhancement I want to make in April, but recently there was a lot of activity on the <a href="https://github.com/adrenak/univoice/issues/44?ref=vatsalambastha.com">Github issue</a> so I got to work on it.</p>
 <h2>How it works</h2>
-<p>The changes are pretty simple. See the commit here </p>
+<p>The changes are pretty simple. See the commit <a href="https://github.com/adrenak/univoice/commit/81a6841be9ffde90a1173e768d495b28d97f7cfa">here</a> </p>
 <p>When in Host mode, the server needs to register local client with ID 0 immediately after starting up. This happens in <code>MirrorServer.cs</code> on line 85</p>
 <p>When the server stops, or goes from Host to <code>ServerOnly</code> mode, the local client should disconnect. This happens on lines 99 and 90 respectively.</p>
 <p><code>MirrorClient.cs</code> needs a minor change. It needs to Unregister the <code>MirrorMessage</code> handler only when it goes from <code>ClientOnly</code> to <code>Offline</code> more. This happens on line 59</p>
