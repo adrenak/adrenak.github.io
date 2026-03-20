@@ -6,9 +6,13 @@
 
 ---
 
-## [Small dumb games](?post=small-dumb-games)
-
-I want to play smaller, dumber games.
+<div class="post-entry">
+<img src="content/images/dumb-games/thumb.jpg" alt="Small dumb games" class="post-thumbnail" />
+<div class="post-content">
+<h2><a href="?post=small-dumb-games">Small dumb games</a></h2>
+<p>I want to play and make smaller, dumber games.</p>
+</div>
+</div>
 
 ## [UniVoice 4.11.0. Client tags fixes and samples](?post=univoice-client-tags-2)
 

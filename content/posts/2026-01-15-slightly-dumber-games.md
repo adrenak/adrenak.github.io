@@ -4,6 +4,7 @@ title: Small dumb games
 date: 2026-03-20
 tags: gamedev, film
 description: I want to play and make smaller, dumber games.
+thumbnail: content/images/dumb-games/thumb.jpg
 published: yes
 ---
 
@@ -11,13 +12,23 @@ A couple days ago my wife and I played [The Night of the Scissors](https://store
 
 By the time we were done playing, I said "I want to make something like this too." and my wife immediately said how exciting that would be. A lot of how [Detour](https://adrenak.itch.io/detour) panned out is because of her feedback, I imagine it wouldn't be different this time.
 
+<figure style="width:50%; float:left; padding-right:25px;">
+  <img src="content/images/dumb-games/scissors.jpg" alt="The Night of the Scissors game" style="width:100%;" />
+  <figcaption><i>The itch to make a game like this...</i></figcaption>
+</figure>
+
 The Night of the Scissors itself is pretty basic. It's sort of dumb, but in a good way. It's dumb like movies like Doctor Doolittle, Liar Liar or Grown Ups. Or since this game is a slasher game, maybe a better list would be Scream, I Know What You Did Last Summer and Child's Play. 
 
 Notice what's common? They're all from the 90s. Somehow over the last 30 years, horror has been intellectualized. I love Get Out and Weapons too. But the movies I watched when growing up, and the ones I saw when I started creating things on my computer feel so different.
 
 There was a certain lack of self-awareness and innocence in the 80s and 90s. The underlying message from the film makers wasn't social commentary, sometimes it was just "We are somewhat ignorant and just want you to have fun." 
 
-### Horror, but elevated
+### Horror, elevated
+
+<figure style="width:50%; float:right; padding-left:25px;">
+  <img src="content/images/dumb-games/weapons.webp" alt="Weapons movie" style="width:100%;" />
+  <figcaption><i>Weapons will likely be remembered for a long time to come</i></figcaption>
+</figure>
 
 You can imagine Zach Cregger talk about his 2025 film Weapons like "So dozens of parents wake up to see that their middleschooler kids have disappeared at night. There's footage of them running out. And turns out they're in the basement of a house occupied by this witch-like lady." 
 
@@ -30,7 +41,12 @@ Every year a couple of movies like this come out. They push the boundaries of th
 
 That... sounds the same kind of plot simplicity that The Night of the Scissors has. If you play the games by Puppet Combo, the vibe is quite similar.
 
-In 2025 and 2026, I have gone to the theatre to watch some truly campy movies: Sequels to Final Destination, Anaconda and Scream. They might feel more polished now and there's more VFX, but they were all fun to watch. Also, this anaconda growls in the movie which is absolutely hilarious.
+<figure style="width:50%; float:left; padding-right:25px;">
+  <img src="content/images/dumb-games/anaconda.jpg" alt="Anaconda 2025 screenshot" style="width:100%;" />
+  <figcaption><i>It's no masterpiece, but Anaconda 2025 was a worthy reboot</i></figcaption>
+</figure>
+
+In 2025 and 2026, I have gone to the theatre to see some truly campy movies: Sequels to Final Destination, Anaconda and Scream. They might feel more polished now and there's more VFX, but they were all fun to watch. Also, this anaconda growls in the movie which is absolutely hilarious.
 
 ### Enjoying Campy
 
