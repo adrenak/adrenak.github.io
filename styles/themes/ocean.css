@@ -1,0 +1,55 @@
+/* Ocean — open water, bright sky-wash, deep-teal rail */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700&family=Nunito+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --font-weight-body: 400;
+    --font-weight-nav-active: 500;
+    --font-weight-heading: 600;
+    --font-weight-section-label: 750;
+    /* Typography */
+    --font-family-body: 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-heading: 'Lora', Georgia, serif;
+    --font-family-mono: 'JetBrains Mono', 'Courier New', Consolas, monospace;
+    --font-size-body: 1rem;
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+    --font-size-sidebar-title: 1.25rem;
+    --font-size-nav: 0.9rem;
+    --font-size-nav-icon: 1.1rem;
+    --font-size-section-label: 0.7rem;
+    --font-size-theme-select: 0.85rem;
+    --font-size-footer: 0.75rem;
+    --font-size-code: 0.9em;
+    --line-height-body: 1.7;
+
+    --color-content-bg: #e0f2fe;
+    --color-text: #0c4a6e;
+
+    --color-accent: #0284c7;
+    --color-accent-hover: #0369a1;
+    --color-muted: #497a94;
+
+    --color-border: #7dd3fc;
+    --color-code-bg: #dbeafe;
+    --color-carousel-bg: #cffafe;
+
+    --color-carousel-arrow-bg: rgba(255, 255, 255, 0.92);
+    --color-carousel-arrow-bg-hover: #ffffff;
+    --color-carousel-arrow-icon: rgba(20, 20, 20, 0.9);
+    --color-carousel-arrow-shadow: rgba(0, 0, 0, 0.2);
+    --color-carousel-pagination-dot: rgba(0, 0, 0, 0.35);
+
+    --color-sidebar-bg: #075985;
+    --color-sidebar-title: #f0f9ff;
+    --color-sidebar-active: #0ea5e9;
+    --color-nav-active-text: #030712;
+    --color-nav-idle: rgba(240, 249, 255, 0.82);
+    --color-nav-hover-bg: #0c4a6e;
+    --color-nav-hover-text: #ffffff;
+    --color-section-title: rgba(224, 242, 254, 0.62);
+
+    --color-footer-text: rgba(15, 23, 42, 0.88);
+    --color-footer-hover: #ecfeff;
+}

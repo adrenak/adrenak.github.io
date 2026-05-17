@@ -1,0 +1,63 @@
+/* Underwater — abyss blue-black, cyan bloom, low light */
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Fredoka:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --font-weight-body: 400;
+    --font-weight-nav-active: 500;
+    --font-weight-heading: 600;
+    --font-weight-section-label: 750;
+    /* Typography */
+    --font-family-body: 'Comfortaa', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-heading: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-mono: 'JetBrains Mono', 'Courier New', Consolas, monospace;
+    --font-size-body: 1.05rem;
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+    --font-size-sidebar-title: 1.25rem;
+    --font-size-nav: 0.9rem;
+    --font-size-nav-icon: 1.1rem;
+    --font-size-section-label: 0.7rem;
+    --font-size-theme-select: 0.85rem;
+    --font-size-footer: 0.75rem;
+    --font-size-code: 0.9em;
+    --line-height-body: 1.7;
+
+    --color-content-bg: #041c2c;
+    --color-text: #c8eaf8;
+
+    --color-accent: #22d3ee;
+    --color-accent-hover: #a5f3fc;
+    --color-muted: #7eb8cc;
+
+    --color-border: #155e75;
+    --color-code-bg: #061e30;
+    --color-code-comment: #94a3b8;
+    --color-code-punctuation: #cbd5e1;
+    --color-code-property: #f87171;
+    --color-code-string: #86efac;
+    --color-code-operator: #facc15;
+    --color-code-keyword: #7dd3fc;
+    --color-code-function: #e879f9;
+    --color-code-variable: #fde047;
+
+    --color-carousel-bg: #05283a;
+
+    --color-carousel-arrow-bg: rgba(255, 255, 255, 0.26);
+    --color-carousel-arrow-bg-hover: rgba(255, 255, 255, 0.42);
+    --color-carousel-arrow-icon: #ffffff;
+    --color-carousel-arrow-shadow: rgba(0, 0, 0, 0.5);
+    --color-carousel-pagination-dot: rgba(255, 255, 255, 0.45);
+
+    --color-sidebar-bg: #020c14;
+    --color-sidebar-active: #0891b2;
+    --color-nav-active-text: #030712;
+    --color-nav-idle: rgba(200, 234, 248, 0.85);
+    --color-nav-hover-bg: #0a1f2e;
+    --color-nav-hover-text: #ecfeff;
+    --color-section-title: rgba(165, 243, 252, 0.6);
+
+    --color-footer-text: rgba(236, 254, 255, 0.88);
+    --color-footer-hover: #cffafe;
+}

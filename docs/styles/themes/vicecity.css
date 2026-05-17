@@ -1,0 +1,63 @@
+/* Vice City — 80s neon dusk: magenta, cyan, tropical purple */
+
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Righteous&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --font-weight-body: 400;
+    --font-weight-nav-active: 500;
+    --font-weight-heading: 600;
+    --font-weight-section-label: 750;
+    /* Typography */
+    --font-family-body: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-heading: 'Righteous', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-mono: 'JetBrains Mono', 'Courier New', Consolas, monospace;
+    --font-size-body: 1rem;
+    --font-size-h1: 2.2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+    --font-size-sidebar-title: 1.25rem;
+    --font-size-nav: 0.9rem;
+    --font-size-nav-icon: 1.1rem;
+    --font-size-section-label: 0.7rem;
+    --font-size-theme-select: 0.85rem;
+    --font-size-footer: 0.75rem;
+    --font-size-code: 0.9em;
+    --line-height-body: 1.7;
+
+    --color-content-bg: #231842;
+    --color-text: #fde7f4;
+
+    --color-accent: #ff2e8a;
+    --color-accent-hover: #54f3f7;
+    --color-muted: #c4a8e0;
+
+    --color-border: #5b21a6;
+    --color-code-bg: #1a0f30;
+    --color-code-comment: #94a3b8;
+    --color-code-punctuation: #cbd5e1;
+    --color-code-property: #f87171;
+    --color-code-string: #86efac;
+    --color-code-operator: #facc15;
+    --color-code-keyword: #7dd3fc;
+    --color-code-function: #e879f9;
+    --color-code-variable: #fde047;
+
+    --color-carousel-bg: #2a1a4f;
+
+    --color-carousel-arrow-bg: rgba(255, 255, 255, 0.26);
+    --color-carousel-arrow-bg-hover: rgba(255, 255, 255, 0.42);
+    --color-carousel-arrow-icon: #ffffff;
+    --color-carousel-arrow-shadow: rgba(0, 0, 0, 0.5);
+    --color-carousel-pagination-dot: rgba(255, 255, 255, 0.45);
+
+    --color-sidebar-bg: #150a28;
+    --color-sidebar-active: #0e7490;
+    --color-nav-active-text: #fffafd;
+    --color-nav-idle: rgba(253, 231, 244, 0.82);
+    --color-nav-hover-bg: #2d1b52;
+    --color-nav-hover-text: #ffffff;
+    --color-section-title: rgba(200, 240, 255, 0.65);
+
+    --color-footer-text: rgba(255, 250, 253, 0.88);
+    --color-footer-hover: #54f3f7;
+}

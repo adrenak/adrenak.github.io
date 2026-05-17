@@ -52,7 +52,7 @@ In 2025 and 2026, I have gone to the theatre to see some truly campy movies: Seq
 
 This week I also played Babbdi and Moldrise, both of which feel very smart to me. I am excited about playing Heartworm soon, which looks somewhat avant-garde too.
 
-I, myself, don't have any elevated horror ideas. At least not right now. I sometimes think of the idea of a non violent, depressing fungal pandemic apocalypse inspired by [Bea Camacho's Efface](https://medium.com/counterarts/efface-bea-camacho-and-the-eternal-crocheting-9ced142fbeac) as a twist on traditional zombie horror and action. But, I don't think I'm there yet to take on something like that.
+I, myself, don't have any elevated horror ideas. At least not right now. I sometimes think of the idea of a non violent, depressing fungal pandemic apocalypse inspired by [Bea Camacho's Efface](https://medium.com/counterarts/efface-bea-camacho-and-the-eternal-crocheting-9ced142fbeac) as a twist on traditional zombie horror and action. But, I don't think I'm ready yet to take on something like that.
 
 Until then? Maybe I'll make a game about an investigative journalist who has somehow found herself in an abandoned water treatment plant where a killer lurks. Maybe once I start making it I'll change the setting to a farm because there aren't any good asset packs for me to cheaply make a game set in a water treatment plant. Maybe it'll be inspired from Heavy Rain's Taxidermist DLC that I really liked.
 

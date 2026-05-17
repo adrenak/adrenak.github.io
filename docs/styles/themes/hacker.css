@@ -1,0 +1,63 @@
+/* Hacker — amber phosphor on black (body vs links distinguished) */
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --font-weight-body: 400;
+    --font-weight-nav-active: 500;
+    --font-weight-heading: 600;
+    --font-weight-section-label: 750;
+    /* Typography */
+    --font-family-body: 'Share Tech Mono', 'JetBrains Mono', 'Courier New', Consolas, monospace;
+    --font-family-heading: var(--font-family-body);
+    --font-family-mono: var(--font-family-body);
+    --font-size-body: 0.92rem;
+    --font-size-h1: 1.75rem;
+    --font-size-h2: 1.3rem;
+    --font-size-h3: 1.25rem;
+    --font-size-sidebar-title: 1.25rem;
+    --font-size-nav: 0.9rem;
+    --font-size-nav-icon: 1.1rem;
+    --font-size-section-label: 0.7rem;
+    --font-size-theme-select: 0.85rem;
+    --font-size-footer: 0.75rem;
+    --font-size-code: 0.9em;
+    --line-height-body: 1.6;
+
+    --color-content-bg: #0a0906;
+    --color-text: #f0d090;
+
+    --color-accent: #ffd34d;
+    --color-accent-hover: #ffe97a;
+    --color-muted: #cfa85a;
+
+    --color-border: #6b5a28;
+    --color-code-bg: #12100a;
+    --color-code-comment: #94a3b8;
+    --color-code-punctuation: #cbd5e1;
+    --color-code-property: #f87171;
+    --color-code-string: #86efac;
+    --color-code-operator: #facc15;
+    --color-code-keyword: #7dd3fc;
+    --color-code-function: #e879f9;
+    --color-code-variable: #fde047;
+
+    --color-carousel-bg: #141206;
+
+    --color-carousel-arrow-bg: rgba(255, 255, 255, 0.26);
+    --color-carousel-arrow-bg-hover: rgba(255, 255, 255, 0.42);
+    --color-carousel-arrow-icon: #ffffff;
+    --color-carousel-arrow-shadow: rgba(0, 0, 0, 0.5);
+    --color-carousel-pagination-dot: rgba(255, 255, 255, 0.45);
+
+    --color-sidebar-bg: #050403;
+    --color-sidebar-active: #6b4e00;
+    --color-nav-active-text: #1a0f00;
+    --color-nav-idle: rgba(255, 220, 130, 0.9);
+    --color-nav-hover-bg: #1f180a;
+    --color-nav-hover-text: #fff8e0;
+    --color-section-title: rgba(255, 210, 120, 0.8);
+
+    --color-footer-text: rgba(255, 220, 150, 0.85);
+    --color-footer-hover: #fff0b0;
+}

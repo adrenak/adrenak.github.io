@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="{{META_DESCRIPTION}}" id="meta-description">
+    <meta name="keywords" content="{{META_KEYWORDS}}" id="meta-keywords">
+    <link rel="canonical" href="{{CANONICAL_URL}}" id="canonical-link">
+    {{SOCIAL_META}}
+    <title id="page-title">{{PAGE_TITLE}}</title>
+    {{STRUCTURED_DATA}}
+    {{LEGACY_REDIRECT}}
+    <link rel="icon" type="image/x-icon" href="{{ASSET_PREFIX}}favicon.ico" id="favicon-link">
+    <link rel="apple-touch-icon" href="{{ASSET_PREFIX}}apple-touch-icon.png" id="apple-touch-icon-link">
+    <link rel="stylesheet" href="{{ASSET_PREFIX}}styles/base.css">
+    <link rel="stylesheet" href="{{ASSET_PREFIX}}styles/theme-shell.css">
+    <link rel="stylesheet" href="{{ASSET_PREFIX}}styles/themes/{{THEME_STYLESHEET}}" id="theme-palette-stylesheet">
+    <link rel="stylesheet" href="{{ASSET_PREFIX}}styles/layout.css">
+    <link rel="stylesheet" href="{{ASSET_PREFIX}}styles/content.css">
+    <link rel="stylesheet" href="{{ASSET_PREFIX}}styles/accordion.css">
+    <link rel="stylesheet" href="{{ASSET_PREFIX}}styles/responsive.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        {{MOBILE_TOPBAR}}
+
+        <aside class="sidebar" id="sidebar">
+            <button type="button" class="sidebar-close" id="sidebar-close" aria-label="Close menu" hidden><span class="sidebar-close-icon" aria-hidden="true">&times;</span></button>
+            <div class="sidebar-body">
+                <div class="sidebar-header">
+                    {{SIDEBAR_HEADER}}
+                </div>
+                <nav class="sidebar-main-nav">
+                    {{MAIN_NAV}}
+                </nav>
+                <nav class="sidebar-nav">
+                    {{SIDEBAR_NAV}}
+                </nav>
+            </div>
+            {{THEME_SWITCHER}}
+            {{SIDEBAR_FOOTER}}
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <main class="main-content">
+            <div id="markdown-content"{{TAG_FILTER_ATTR}}>
+                {{POST_METADATA}}
+                {{MARKDOWN_CONTENT}}
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+        const SITE_CONFIG = {{SITE_CONFIG}};
+        const ASSET_PREFIX = {{ASSET_PREFIX_JSON}};
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const markdownContent = document.getElementById('markdown-content');
+
+            if (window.Prism) {
+                Prism.highlightAll();
+            }
+
+            if (typeof Splide !== 'undefined' && markdownContent) {
+                markdownContent.querySelectorAll('.splide.gorky-carousel').forEach(function (carouselRoot) {
+                    new Splide(carouselRoot, {
+                        type: 'loop',
+                        perPage: 1,
+                        gap: '1rem',
+                        pagination: true,
+                        arrows: true,
+                    }).mount();
+                });
+            }
+
+            if (SITE_CONFIG.favicon) {
+                const faviconLink = document.getElementById('favicon-link');
+                if (faviconLink) {
+                    const faviconPath = SITE_CONFIG.favicon.startsWith('http')
+                        ? SITE_CONFIG.favicon
+                        : ASSET_PREFIX + SITE_CONFIG.favicon.replace(/^\//, '');
+                    faviconLink.setAttribute('href', faviconPath);
+                }
+            }
+            if (SITE_CONFIG.appleTouchIcon) {
+                const appleIconLink = document.getElementById('apple-touch-icon-link');
+                if (appleIconLink) {
+                    const iconPath = SITE_CONFIG.appleTouchIcon.startsWith('http')
+                        ? SITE_CONFIG.appleTouchIcon
+                        : ASSET_PREFIX + SITE_CONFIG.appleTouchIcon.replace(/^\//, '');
+                    appleIconLink.setAttribute('href', iconPath);
+                }
+            }
+
+            (function initThemeSwitcher() {
+                var opts = SITE_CONFIG.themeOptions;
+                if (!Array.isArray(opts) || opts.length === 0) return;
+                var select = document.getElementById('gorky-theme-select');
+                var link = document.getElementById('theme-palette-stylesheet');
+                if (!select || !link) return;
+
+                function safeName(v) {
+                    v = String(v || '').trim();
+                    if (v.endsWith('.css')) v = v.slice(0, -4).trim();
+                    if (!v || v.length > 96 || !/^[a-zA-Z0-9_-]+$/.test(v)) return '';
+                    return v;
+                }
+
+                var allowed = {};
+                opts.forEach(function (o) {
+                    var s = safeName(o);
+                    if (s) allowed[s] = true;
+                });
+                var buildTheme = safeName(SITE_CONFIG.theme) || 'default';
+                allowed[buildTheme] = true;
+
+                function themeStorageKey() {
+                    var id = SITE_CONFIG.themeStorageId;
+                    if (typeof id === 'string') {
+                        id = id.trim();
+                        if (id && id.length <= 96 && /^[a-zA-Z0-9_-]+$/.test(id)) {
+                            return 'gorky-theme:' + id;
+                        }
+                    }
+                    var base = SITE_CONFIG.baseUrl;
+                    if (base && typeof base === 'string') {
+                        try {
+                            var u = new URL(base, window.location.href);
+                            var pathKey = u.pathname.replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'root';
+                            return 'gorky-theme:' + pathKey;
+                        } catch (err) {}
+                    }
+                    if (SITE_CONFIG.siteName) {
+                        var slug = String(SITE_CONFIG.siteName).trim().toLowerCase()
+                            .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+                        if (slug) return 'gorky-theme:' + slug;
+                    }
+                    var pagePath = window.location.pathname.replace(/\/index\.html$/i, '')
+                        .replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'root';
+                    return 'gorky-theme:' + pagePath;
+                }
+
+                var storageKey = themeStorageKey();
+
+                function applyTheme(name, persist) {
+                    var n = safeName(name);
+                    if (!n || !allowed[n]) return;
+                    link.setAttribute('href', ASSET_PREFIX + 'styles/themes/' + n + '.css');
+                    if (persist !== false) {
+                        try { localStorage.setItem(storageKey, n); } catch (err) {}
+                    }
+                    select.value = n;
+                }
+
+                var stored = '';
+                try {
+                    stored = localStorage.getItem(storageKey) || '';
+                    if (!stored) {
+                        var legacy = localStorage.getItem('gorky-theme') || '';
+                        if (legacy && allowed[legacy]) {
+                            stored = legacy;
+                            localStorage.setItem(storageKey, legacy);
+                        }
+                    }
+                } catch (err) {}
+                if (stored && allowed[stored]) {
+                    applyTheme(stored, false);
+                }
+
+                select.addEventListener('change', function () {
+                    applyTheme(select.value);
+                });
+            })();
+
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            const sidebarClose = document.getElementById('sidebar-close');
+
+            function openSidebar() {
+                if (!sidebar || !overlay) return;
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.body.classList.add('sidebar-open');
+                if (hamburgerMenu) {
+                    hamburgerMenu.setAttribute('aria-expanded', 'true');
+                }
+                if (sidebarClose) {
+                    sidebarClose.hidden = false;
+                }
+            }
+
+            function closeSidebar() {
+                if (!sidebar || !overlay) return;
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('sidebar-open');
+                if (hamburgerMenu) {
+                    hamburgerMenu.setAttribute('aria-expanded', 'false');
+                }
+                if (sidebarClose) {
+                    sidebarClose.hidden = true;
+                }
+            }
+
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', function () {
+                    if (sidebar && sidebar.classList.contains('active')) {
+                        closeSidebar();
+                    } else {
+                        openSidebar();
+                    }
+                });
+            }
+            if (sidebarClose) {
+                sidebarClose.addEventListener('click', closeSidebar);
+            }
+            if (overlay) {
+                overlay.addEventListener('click', closeSidebar);
+            }
+
+            document.querySelectorAll('.nav-link').forEach(function (link) {
+                link.addEventListener('click', closeSidebar);
+            });
+
+            if (SITE_CONFIG.goatCounterEnabled && typeof goatcounter !== 'undefined') {
+                goatcounter.count({
+                    path: location.pathname + location.search
+                });
+            }
+        });
+    </script>
+
+    <script>
+        if (SITE_CONFIG.goatCounterEnabled) {
+            const script = document.createElement('script');
+            script.async = true;
+            script.setAttribute('data-goatcounter', 'https://' + SITE_CONFIG.goatCounterCode + '.goatcounter.com/count');
+            if (SITE_CONFIG.allowLocal) script.setAttribute('data-goatcounter-settings', 'allow_local:true');
+            if (SITE_CONFIG.allowFrame) script.setAttribute('data-goatcounter-settings', 'allow_frame:true');
+            if (SITE_CONFIG.noOnload) script.setAttribute('data-goatcounter-settings', 'no_onload:true');
+            script.src = 'https://gc.zgo.at/count.js';
+            document.head.appendChild(script);
+        }
+    </script>
+</body>
+</html>

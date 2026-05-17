@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Each connected peer now has their own filter list. This fixes an Opus decoding bug." id="meta-description">
+    <meta name="keywords" content="univoice, unity, voice, voip, vivox, dissonance, open source" id="meta-keywords">
+    <link rel="canonical" href="https://adrenak.github.io/post/univoice-per-peer-output-filters/" id="canonical-link">
+    <meta property="og:title" content="UniVoice 4.6.0  Per peer output filters">
+    <meta property="og:description" content="Each connected peer now has their own filter list. This fixes an Opus decoding bug.">
+    <meta property="og:url" content="https://adrenak.github.io/post/univoice-per-peer-output-filters/">
+    <meta property="og:site_name" content="Vatsal Ambastha">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://adrenak.github.io/content/images/sf.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="UniVoice 4.6.0  Per peer output filters">
+    <meta name="twitter:description" content="Each connected peer now has their own filter list. This fixes an Opus decoding bug.">
+    <meta name="twitter:image" content="https://adrenak.github.io/content/images/sf.jpg">
+    <title id="page-title">UniVoice 4.6.0  Per peer output filters</title>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"UniVoice 4.6.0  Per peer output filters","description":"Each connected peer now has their own filter list. This fixes an Opus decoding bug.","url":"https://adrenak.github.io/post/univoice-per-peer-output-filters/","author":{"@type":"Person","name":"Vatsal Ambastha"},"image":"https://adrenak.github.io/content/images/sf.jpg","keywords":"univoice,opensource"}</script>
+    <script>
+(function () {
+    var search = window.location.search;
+    if (!search) return;
+
+    var params = new URLSearchParams(search);
+    var root = "../../";
+    var path = window.location.pathname;
+    var target = null;
+
+    function tagPathSegment(tag) {
+        tag = String(tag || '').trim();
+        if (!tag) return 'tag';
+        if (tag.length <= 96 && /^[a-zA-Z0-9_-]+$/.test(tag)) return tag;
+        var s = encodeURIComponent(tag).replace(/%/g, '');
+        return s ? s.slice(0, 96) : 'tag';
+    }
+
+    if (params.has('post')) {
+        target = root + 'post/' + encodeURIComponent(params.get('post')) + '/';
+    } else if (params.get('page') === 'posts') {
+        target = root + 'posts/';
+    } else if (params.get('page') === 'home') {
+        target = root || './';
+    } else if (params.has('page')) {
+        target = root + params.get('page') + '/';
+    } else if (params.has('tag')) {
+        var tag = params.get('tag');
+        if (tag && tag.toLowerCase() === 'all') {
+            target = root + 'posts/';
+        } else if (tag) {
+            target = root + 'posts/tag/' + tagPathSegment(tag) + '/';
+        }
+    }
+
+    if (target) {
+        window.location.replace(target);
+    }
+})();
+</script>
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico" id="favicon-link">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png" id="apple-touch-icon-link">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="../../styles/theme-shell.css">
+    <link rel="stylesheet" href="../../styles/themes/adrenak.css" id="theme-palette-stylesheet">
+    <link rel="stylesheet" href="../../styles/layout.css">
+    <link rel="stylesheet" href="../../styles/content.css">
+    <link rel="stylesheet" href="../../styles/accordion.css">
+    <link rel="stylesheet" href="../../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="mobile-topbar" id="mobile-topbar" aria-hidden="true">
+  <button type="button" class="mobile-menu-toggle" id="hamburger-menu" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <a class="mobile-topbar-brand" href="../../">
+    <img class="mobile-topbar-favicon" src="../../favicon.ico" alt="" width="22" height="22" />
+    <span class="mobile-topbar-title">Vatsal Ambastha</span>
+  </a>
+</header>
+
+
+        <aside class="sidebar" id="sidebar">
+            <button type="button" class="sidebar-close" id="sidebar-close" aria-label="Close menu" hidden><span class="sidebar-close-icon" aria-hidden="true">&times;</span></button>
+            <div class="sidebar-body">
+                <div class="sidebar-header">
+                    <h1>Vatsal Ambastha</h1>
+                </div>
+                <nav class="sidebar-main-nav">
+                    <a href="../../" class="nav-link">
+    <span class="nav-icon">🏠</span>
+    <span>Home</span>
+</a>
+<a href="../../posts/" class="nav-link">
+    <span class="nav-icon">✍️</span>
+    <span>Posts</span>
+</a>
+
+                </nav>
+                <nav class="sidebar-nav">
+                    <div class="sidebar-section">
+    <h3 class="section-title"></h3>
+    <ul class="section-list">
+        <li>
+            <a href="../../work/" class="nav-link">
+                <span>Work</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="sidebar-section">
+    <h3 class="section-title">🔗 Links</h3>
+    <ul class="section-list">
+        <li>
+            <a href="mailto:ambastha.vatsal@gmail.com" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <span>Email</span>
+                <span class="external-icon">↗</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.github.com/adrenak" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <span>Github</span>
+                <span class="external-icon">↗</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/vatsalambastha" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <span>LinkedIn</span>
+                <span class="external-icon">↗</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+                </nav>
+            </div>
+            <div class="sidebar-theme-switcher">
+  <label class="theme-switcher-label" for="gorky-theme-select">Theme</label>
+  <select id="gorky-theme-select" class="theme-select" aria-label="Color theme">
+    <option value="default">default</option>
+    <option value="adrenak" selected>adrenak</option>
+    <option value="candy">candy</option>
+    <option value="coralreef">coralreef</option>
+    <option value="cyberpunk">cyberpunk</option>
+    <option value="desert">desert</option>
+    <option value="dollhouse">dollhouse</option>
+    <option value="earthy">earthy</option>
+    <option value="finding-nemo">finding-nemo</option>
+    <option value="forest">forest</option>
+    <option value="frost">frost</option>
+    <option value="futurism">futurism</option>
+    <option value="hacker">hacker</option>
+    <option value="hellhole">hellhole</option>
+    <option value="magazine">magazine</option>
+    <option value="ocean">ocean</option>
+    <option value="pulpfiction">pulpfiction</option>
+    <option value="rustpunk">rustpunk</option>
+    <option value="simple-dark">simple-dark</option>
+    <option value="simple-light">simple-light</option>
+    <option value="thematrix">thematrix</option>
+    <option value="typewriter">typewriter</option>
+    <option value="underwater">underwater</option>
+    <option value="utopia">utopia</option>
+    <option value="vicecity">vicecity</option>
+  </select>
+</div>
+
+            <div class="sidebar-footer">
+    <a href="https://adrenak.github.io" class="footer-link" target="_blank" rel="noopener noreferrer">2025 © Vatsal Ambastha</a>
+    <a href="https://github.com/adrenak/gorky" class="footer-link" target="_blank" rel="noopener noreferrer">Get this website template</a>
+</div>
+
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <main class="main-content">
+            <div id="markdown-content">
+                <div class="post-metadata">
+  <h1 class="post-title">UniVoice 4.6.0  Per peer output filters</h1>
+  <div class="post-date">1 Aug 2025</div>
+  <div class="post-tags">Tagged: <a href="../../posts/tag/univoice/" class="tag-link">univoice</a>, <a href="../../posts/tag/opensource/" class="tag-link">opensource</a></div>
+</div>
+
+                <p>UniVoice 4.6.0 is out! The main change in this release is per-peer output filters (instead of global filters) which also fixes a bug. </p>
+<p>But before I get into it, there are a couple smaller changes that I&#39;d like to go over:</p>
+<h3>UniMic 3.3.0</h3>
+<p>UniVoice now uses UniMic 3.3.0. This was a major improvement that I posted about <a href="?post=unimic-metater-thanks">in this post</a> </p>
+<h3>ClientSession<T> constructor enhancements</h3>
+<p>You no longer need to implement an <code>IAudioOutputFactory</code> the client session object which can now be constructed using a factory method instead</p>
+<pre><code class="language-csharp">// This required you to create a StreamedAudioSourceOutput.Factory class that implements IAudioOutputFactory
+// even though it doesn&#39;t do much, it just implements Create() that returns a new object
+ClientSession = new ClientSession&lt;int&gt;(
+  client, 
+  input, 
+  new StreamedAudioSourceOutput.Factory()
+);
+
+// But you you can do this. No need to create the Factory class
+ClientSession = new ClientSession&lt;int&gt;(
+  client, 
+  input, () =&gt; new StreamedAudioSourceOutput()
+);
+</code></pre>
+<p>Probably only useful if you&#39;re making your own <code>IAudioOutput</code> implementations.</p>
+<p>Regardless of what you use, <code>ClientSession</code> understands if you&#39;re using a factory object or a method and handles it internally.</p>
+<p>This brings me to the main change in this release. </p>
+<h2>Per peer output filter</h2>
+<h3>Investigation</h3>
+<p>I started the post about <a href="?post=unimic-metater-thanks">UniMic 3.3.0</a> with the description of an issue.</p>
+<p>When two people are in voice chat, the audio is clear. But as soon as a third person joins, the audio degrades substantially for all users and the voice is crackly. </p>
+<p>I have been looking into that issue for over a month. In fact, the improvements that UniMic 3.3.0 introduced were initially me trying to fix this problem. </p>
+<p>Around the same time that post went up, Github user <a href="https://www.github.com/filipbarva?ref=vatsalambastha.com">@FilipBarva</a> opened an issue titled &quot;<a href="https://github.com/adrenak/univoice/issues/49?ref=vatsalambastha.com">Robotic voices with more than two clients</a>&quot; which sounded like the root cause was the same.</p>
+<p>Turns out the issue is that the Concentus objects, such as decoder, encoder and resampler cannot be shared for the audio of different peers. This is because they probably have some mutable data inside that&#39;s based on what they previously processed. </p>
+<p>A while ago I posted this <a href="https://gist.github.com/adrenak/f05b269e46dd3bdc93d3a7b162813d45?ref=vatsalambastha.com">sample concentus test script</a>. It basically does these things (in sequence)- starts the mic and captures the audio frames- resamples the audio to the desired frequency using Concentus, if required- encodes the audio - decodes the audio- plays it back.</p>
+<p>You can attach that script to a gameobject, assemble some components in the inspector that it needs and it&#39;ll work. You can do this with multiple gameobjects and they will work in parallel.</p>
+<p>I had a suspicion that using the same Concentus objects might lead to problems. So I did something pretty simple, I marked the Concentus objects static so that all instances of this script use the same objects.</p>
+<pre><code>static IOpusEncoder encoder;
+static IOpusDecoder decoder;
+static IResampler resampler;
+</code></pre>
+<p>And suddenly, the multiple gameobjects that were previously working perfectly in parallel were not sounding so good. The audio had crackles and pops.</p>
+<h3>Bug</h3>
+<p>Before this release, the <code>ClientSession</code> class had a single <code>List&lt;IAudioFilter&gt; OutputFilters</code>. You can see this in the 4.5.1 release <a href="https://github.com/adrenak/univoice/blob/acc27a96c1e35920f12196899c97d3a59a6e654b/Assets/Adrenak.UniVoice/Runtime/ClientSession.cs?ref=vatsalambastha.com#L45">here</a> and the usage <a href="https://github.com/adrenak/univoice/blob/acc27a96c1e35920f12196899c97d3a59a6e654b/Assets/Adrenak.UniVoice/Samples/Basic%20Setup%20Scripts/UniVoiceMirrorSetupSample.cs?ref=vatsalambastha.com#L188">here</a>.</p>
+<p>Basically to add an output filter, you create the filter object and add it to the list.</p>
+<p>But this is exactly what was wrong. Internally <code>ClientSession</code> iterated over the same output filters over the audio of every peer. This meant the filters were being shared for different audio streams. </p>
+<h3>Fix</h3>
+<p>See the <a href="https://github.com/adrenak/univoice/commit/a05c2f5734656984643f9523cd5442338946157c?ref=vatsalambastha.com">4.6.0 commit</a></p>
+<p>To fix this, instead of creating and add the filter objects to the <code>ClientSession</code>, you register a lambda that creates and returns the filter object.</p>
+<p>This lambda can then be executed for every peer, allowing the session to internally maintain a <code>Dictionary&lt;T, List&lt;IAudioFIlter&gt;&gt;</code> which is a map of every filter for every peer.</p>
+<p>The adding and removal of output filters is using using: <code>.AddOutputFilter</code> and <code>.RemoveOutputFilter</code>.</p>
+<p>The usage looks like this:</p>
+<p><code>ClientSession.AddOutputFilter&lt;ConcentusDecodeFilter&gt;(() =&gt; new ConcentusDecodeFilter());</code></p>
+<p><code>ClientSession.RemoveOutputFilter&lt;ConcentusDecodeFilter&gt;();</code></p>
+<p>You can also check if an output filter type has already been added using </p>
+<p><code>ClientSession.HasOutputFilter&lt;ConcentusDecodeFilter&gt;();</code></p>
+<p>The previous usage has been deprecated. Using <code>ClientSession.OutputFilters.Add(new ConcentusDecodeFilter());</code> will now lead to an error that says you should use the new methods. So this release does have some breaking changes.</p>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+        const SITE_CONFIG =             {
+                      "baseUrl": "https://adrenak.github.io",
+                      "siteName": "Vatsal Ambastha",
+                      "authorName": "Vatsal Ambastha",
+                      "defaultDescription": "Personal website and blog of Vatsal Ambastha",
+                      "defaultKeywords": "Unity, game development, virtual reality, ManageXR, open source, unity3d, AR, VR",
+                      "favicon": "favicon.ico",
+                      "appleTouchIcon": "apple-touch-icon.png",
+                      "avatar": "content/images/sf.jpg",
+                      "goatCounterEnabled": true,
+                      "goatCounterCode": "vatsalambastha",
+                      "allowLocal": false,
+                      "allowFrame": false,
+                      "noOnload": false,
+                      "theme": "adrenak",
+                      "postsPerPage": 10,
+                      "themeOptions": [
+                                "default",
+                                "adrenak",
+                                "candy",
+                                "coralreef",
+                                "cyberpunk",
+                                "desert",
+                                "dollhouse",
+                                "earthy",
+                                "finding-nemo",
+                                "forest",
+                                "frost",
+                                "futurism",
+                                "hacker",
+                                "hellhole",
+                                "magazine",
+                                "ocean",
+                                "pulpfiction",
+                                "rustpunk",
+                                "simple-dark",
+                                "simple-light",
+                                "thematrix",
+                                "typewriter",
+                                "underwater",
+                                "utopia",
+                                "vicecity"
+                      ],
+                      "sidebar": {
+                                "header": "Vatsal Ambastha",
+                                "homeDisplayName": "🏠 Home",
+                                "postsDisplayName": "✍️ Posts",
+                                "footer": [
+                                          {
+                                                    "text": "2025 © Vatsal Ambastha",
+                                                    "target": "https://adrenak.github.io",
+                                                    "openInNewTab": true
+                                          },
+                                          {
+                                                    "text": "Get this website template",
+                                                    "target": "https://github.com/adrenak/gorky",
+                                                    "openInNewTab": true
+                                          }
+                                ],
+                                "sections": {
+                                          "": {
+                                                    "Work": {
+                                                              "target": "?page=work",
+                                                              "openInNewTab": false
+                                                    }
+                                          },
+                                          "🔗 Links": {
+                                                    "Email": {
+                                                              "target": "mailto:ambastha.vatsal@gmail.com",
+                                                              "openInNewTab": true
+                                                    },
+                                                    "Github": {
+                                                              "target": "https://www.github.com/adrenak",
+                                                              "openInNewTab": true
+                                                    },
+                                                    "LinkedIn": {
+                                                              "target": "https://www.linkedin.com/in/vatsalambastha",
+                                                              "openInNewTab": true
+                                                    }
+                                          }
+                                }
+                      }
+            };
+        const ASSET_PREFIX = "../../";
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const markdownContent = document.getElementById('markdown-content');
+
+            if (window.Prism) {
+                Prism.highlightAll();
+            }
+
+            if (typeof Splide !== 'undefined' && markdownContent) {
+                markdownContent.querySelectorAll('.splide.gorky-carousel').forEach(function (carouselRoot) {
+                    new Splide(carouselRoot, {
+                        type: 'loop',
+                        perPage: 1,
+                        gap: '1rem',
+                        pagination: true,
+                        arrows: true,
+                    }).mount();
+                });
+            }
+
+            if (SITE_CONFIG.favicon) {
+                const faviconLink = document.getElementById('favicon-link');
+                if (faviconLink) {
+                    const faviconPath = SITE_CONFIG.favicon.startsWith('http')
+                        ? SITE_CONFIG.favicon
+                        : ASSET_PREFIX + SITE_CONFIG.favicon.replace(/^\//, '');
+                    faviconLink.setAttribute('href', faviconPath);
+                }
+            }
+            if (SITE_CONFIG.appleTouchIcon) {
+                const appleIconLink = document.getElementById('apple-touch-icon-link');
+                if (appleIconLink) {
+                    const iconPath = SITE_CONFIG.appleTouchIcon.startsWith('http')
+                        ? SITE_CONFIG.appleTouchIcon
+                        : ASSET_PREFIX + SITE_CONFIG.appleTouchIcon.replace(/^\//, '');
+                    appleIconLink.setAttribute('href', iconPath);
+                }
+            }
+
+            (function initThemeSwitcher() {
+                var opts = SITE_CONFIG.themeOptions;
+                if (!Array.isArray(opts) || opts.length === 0) return;
+                var select = document.getElementById('gorky-theme-select');
+                var link = document.getElementById('theme-palette-stylesheet');
+                if (!select || !link) return;
+
+                function safeName(v) {
+                    v = String(v || '').trim();
+                    if (v.endsWith('.css')) v = v.slice(0, -4).trim();
+                    if (!v || v.length > 96 || !/^[a-zA-Z0-9_-]+$/.test(v)) return '';
+                    return v;
+                }
+
+                var allowed = {};
+                opts.forEach(function (o) {
+                    var s = safeName(o);
+                    if (s) allowed[s] = true;
+                });
+                var buildTheme = safeName(SITE_CONFIG.theme) || 'default';
+                allowed[buildTheme] = true;
+
+                function themeStorageKey() {
+                    var id = SITE_CONFIG.themeStorageId;
+                    if (typeof id === 'string') {
+                        id = id.trim();
+                        if (id && id.length <= 96 && /^[a-zA-Z0-9_-]+$/.test(id)) {
+                            return 'gorky-theme:' + id;
+                        }
+                    }
+                    var base = SITE_CONFIG.baseUrl;
+                    if (base && typeof base === 'string') {
+                        try {
+                            var u = new URL(base, window.location.href);
+                            var pathKey = u.pathname.replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'root';
+                            return 'gorky-theme:' + pathKey;
+                        } catch (err) {}
+                    }
+                    if (SITE_CONFIG.siteName) {
+                        var slug = String(SITE_CONFIG.siteName).trim().toLowerCase()
+                            .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+                        if (slug) return 'gorky-theme:' + slug;
+                    }
+                    var pagePath = window.location.pathname.replace(/\/index\.html$/i, '')
+                        .replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'root';
+                    return 'gorky-theme:' + pagePath;
+                }
+
+                var storageKey = themeStorageKey();
+
+                function applyTheme(name, persist) {
+                    var n = safeName(name);
+                    if (!n || !allowed[n]) return;
+                    link.setAttribute('href', ASSET_PREFIX + 'styles/themes/' + n + '.css');
+                    if (persist !== false) {
+                        try { localStorage.setItem(storageKey, n); } catch (err) {}
+                    }
+                    select.value = n;
+                }
+
+                var stored = '';
+                try {
+                    stored = localStorage.getItem(storageKey) || '';
+                    if (!stored) {
+                        var legacy = localStorage.getItem('gorky-theme') || '';
+                        if (legacy && allowed[legacy]) {
+                            stored = legacy;
+                            localStorage.setItem(storageKey, legacy);
+                        }
+                    }
+                } catch (err) {}
+                if (stored && allowed[stored]) {
+                    applyTheme(stored, false);
+                }
+
+                select.addEventListener('change', function () {
+                    applyTheme(select.value);
+                });
+            })();
+
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            const sidebarClose = document.getElementById('sidebar-close');
+
+            function openSidebar() {
+                if (!sidebar || !overlay) return;
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.body.classList.add('sidebar-open');
+                if (hamburgerMenu) {
+                    hamburgerMenu.setAttribute('aria-expanded', 'true');
+                }
+                if (sidebarClose) {
+                    sidebarClose.hidden = false;
+                }
+            }
+
+            function closeSidebar() {
+                if (!sidebar || !overlay) return;
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('sidebar-open');
+                if (hamburgerMenu) {
+                    hamburgerMenu.setAttribute('aria-expanded', 'false');
+                }
+                if (sidebarClose) {
+                    sidebarClose.hidden = true;
+                }
+            }
+
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', function () {
+                    if (sidebar && sidebar.classList.contains('active')) {
+                        closeSidebar();
+                    } else {
+                        openSidebar();
+                    }
+                });
+            }
+            if (sidebarClose) {
+                sidebarClose.addEventListener('click', closeSidebar);
+            }
+            if (overlay) {
+                overlay.addEventListener('click', closeSidebar);
+            }
+
+            document.querySelectorAll('.nav-link').forEach(function (link) {
+                link.addEventListener('click', closeSidebar);
+            });
+
+            if (SITE_CONFIG.goatCounterEnabled && typeof goatcounter !== 'undefined') {
+                goatcounter.count({
+                    path: location.pathname + location.search
+                });
+            }
+        });
+    </script>
+
+    <script>
+        if (SITE_CONFIG.goatCounterEnabled) {
+            const script = document.createElement('script');
+            script.async = true;
+            script.setAttribute('data-goatcounter', 'https://' + SITE_CONFIG.goatCounterCode + '.goatcounter.com/count');
+            if (SITE_CONFIG.allowLocal) script.setAttribute('data-goatcounter-settings', 'allow_local:true');
+            if (SITE_CONFIG.allowFrame) script.setAttribute('data-goatcounter-settings', 'allow_frame:true');
+            if (SITE_CONFIG.noOnload) script.setAttribute('data-goatcounter-settings', 'no_onload:true');
+            script.src = 'https://gc.zgo.at/count.js';
+            document.head.appendChild(script);
+        }
+    </script>
+</body>
+</html>

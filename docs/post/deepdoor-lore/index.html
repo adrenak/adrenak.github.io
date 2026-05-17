@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="This was a pretty short game and left many things unexplained. There was more to it." id="meta-description">
+    <meta name="keywords" content="game development, unity, DEEPDOOR, itch.io, horror, silence of the lambs, being john malkovich" id="meta-keywords">
+    <link rel="canonical" href="https://adrenak.github.io/post/deepdoor-lore/" id="canonical-link">
+    <meta property="og:title" content="The missing lore of DEEPDOOR">
+    <meta property="og:description" content="This was a pretty short game and left many things unexplained. There was more to it.">
+    <meta property="og:url" content="https://adrenak.github.io/post/deepdoor-lore/">
+    <meta property="og:site_name" content="Vatsal Ambastha">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://adrenak.github.io/content/images/deepdoor.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The missing lore of DEEPDOOR">
+    <meta name="twitter:description" content="This was a pretty short game and left many things unexplained. There was more to it.">
+    <meta name="twitter:image" content="https://adrenak.github.io/content/images/deepdoor.jpg">
+    <title id="page-title">The missing lore of DEEPDOOR</title>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The missing lore of DEEPDOOR","description":"This was a pretty short game and left many things unexplained. There was more to it.","url":"https://adrenak.github.io/post/deepdoor-lore/","author":{"@type":"Person","name":"Vatsal Ambastha"},"image":"https://adrenak.github.io/content/images/deepdoor.jpg","keywords":"gamedev,film"}</script>
+    <script>
+(function () {
+    var search = window.location.search;
+    if (!search) return;
+
+    var params = new URLSearchParams(search);
+    var root = "../../";
+    var path = window.location.pathname;
+    var target = null;
+
+    function tagPathSegment(tag) {
+        tag = String(tag || '').trim();
+        if (!tag) return 'tag';
+        if (tag.length <= 96 && /^[a-zA-Z0-9_-]+$/.test(tag)) return tag;
+        var s = encodeURIComponent(tag).replace(/%/g, '');
+        return s ? s.slice(0, 96) : 'tag';
+    }
+
+    if (params.has('post')) {
+        target = root + 'post/' + encodeURIComponent(params.get('post')) + '/';
+    } else if (params.get('page') === 'posts') {
+        target = root + 'posts/';
+    } else if (params.get('page') === 'home') {
+        target = root || './';
+    } else if (params.has('page')) {
+        target = root + params.get('page') + '/';
+    } else if (params.has('tag')) {
+        var tag = params.get('tag');
+        if (tag && tag.toLowerCase() === 'all') {
+            target = root + 'posts/';
+        } else if (tag) {
+            target = root + 'posts/tag/' + tagPathSegment(tag) + '/';
+        }
+    }
+
+    if (target) {
+        window.location.replace(target);
+    }
+})();
+</script>
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico" id="favicon-link">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png" id="apple-touch-icon-link">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="../../styles/theme-shell.css">
+    <link rel="stylesheet" href="../../styles/themes/adrenak.css" id="theme-palette-stylesheet">
+    <link rel="stylesheet" href="../../styles/layout.css">
+    <link rel="stylesheet" href="../../styles/content.css">
+    <link rel="stylesheet" href="../../styles/accordion.css">
+    <link rel="stylesheet" href="../../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="mobile-topbar" id="mobile-topbar" aria-hidden="true">
+  <button type="button" class="mobile-menu-toggle" id="hamburger-menu" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <a class="mobile-topbar-brand" href="../../">
+    <img class="mobile-topbar-favicon" src="../../favicon.ico" alt="" width="22" height="22" />
+    <span class="mobile-topbar-title">Vatsal Ambastha</span>
+  </a>
+</header>
+
+
+        <aside class="sidebar" id="sidebar">
+            <button type="button" class="sidebar-close" id="sidebar-close" aria-label="Close menu" hidden><span class="sidebar-close-icon" aria-hidden="true">&times;</span></button>
+            <div class="sidebar-body">
+                <div class="sidebar-header">
+                    <h1>Vatsal Ambastha</h1>
+                </div>
+                <nav class="sidebar-main-nav">
+                    <a href="../../" class="nav-link">
+    <span class="nav-icon">🏠</span>
+    <span>Home</span>
+</a>
+<a href="../../posts/" class="nav-link">
+    <span class="nav-icon">✍️</span>
+    <span>Posts</span>
+</a>
+
+                </nav>
+                <nav class="sidebar-nav">
+                    <div class="sidebar-section">
+    <h3 class="section-title"></h3>
+    <ul class="section-list">
+        <li>
+            <a href="../../work/" class="nav-link">
+                <span>Work</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="sidebar-section">
+    <h3 class="section-title">🔗 Links</h3>
+    <ul class="section-list">
+        <li>
+            <a href="mailto:ambastha.vatsal@gmail.com" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <span>Email</span>
+                <span class="external-icon">↗</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.github.com/adrenak" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <span>Github</span>
+                <span class="external-icon">↗</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/vatsalambastha" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <span>LinkedIn</span>
+                <span class="external-icon">↗</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+                </nav>
+            </div>
+            <div class="sidebar-theme-switcher">
+  <label class="theme-switcher-label" for="gorky-theme-select">Theme</label>
+  <select id="gorky-theme-select" class="theme-select" aria-label="Color theme">
+    <option value="default">default</option>
+    <option value="adrenak" selected>adrenak</option>
+    <option value="candy">candy</option>
+    <option value="coralreef">coralreef</option>
+    <option value="cyberpunk">cyberpunk</option>
+    <option value="desert">desert</option>
+    <option value="dollhouse">dollhouse</option>
+    <option value="earthy">earthy</option>
+    <option value="finding-nemo">finding-nemo</option>
+    <option value="forest">forest</option>
+    <option value="frost">frost</option>
+    <option value="futurism">futurism</option>
+    <option value="hacker">hacker</option>
+    <option value="hellhole">hellhole</option>
+    <option value="magazine">magazine</option>
+    <option value="ocean">ocean</option>
+    <option value="pulpfiction">pulpfiction</option>
+    <option value="rustpunk">rustpunk</option>
+    <option value="simple-dark">simple-dark</option>
+    <option value="simple-light">simple-light</option>
+    <option value="thematrix">thematrix</option>
+    <option value="typewriter">typewriter</option>
+    <option value="underwater">underwater</option>
+    <option value="utopia">utopia</option>
+    <option value="vicecity">vicecity</option>
+  </select>
+</div>
+
+            <div class="sidebar-footer">
+    <a href="https://adrenak.github.io" class="footer-link" target="_blank" rel="noopener noreferrer">2025 © Vatsal Ambastha</a>
+    <a href="https://github.com/adrenak/gorky" class="footer-link" target="_blank" rel="noopener noreferrer">Get this website template</a>
+</div>
+
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <main class="main-content">
+            <div id="markdown-content">
+                <div class="post-metadata">
+  <h1 class="post-title">The missing lore of DEEPDOOR</h1>
+  <div class="post-date">29 Jul 2025</div>
+  <div class="post-tags">Tagged: <a href="../../posts/tag/gamedev/" class="tag-link">gamedev</a>, <a href="../../posts/tag/film/" class="tag-link">film</a></div>
+</div>
+
+                <p>One of the best things about writing a blog is that every now and then I feel like rambling or just typing something that&#39;s on my mind, and I can.</p>
+<p>Like <a href="?post=morning-thoughts">Morning thoughts of a night owl</a>, I just start writing and think very little until it&#39;s time to edit. While explaining it to my wife recently, I felt like writing about the lore of <a href="https://adrenak.itch.io/deepdoor?ref=vatsalambastha.com">DEEPDOOR</a>, a short game I released in 2021. </p>
+<h2>Development and Release</h2>
+<p>Originally meant as a submission for the Haunted PS1 gamejam, I started making DEEPDOOR a few days before the deadline and eventually missed it.</p>
+<p>While I did find myself out of the competition due to this, I was having way too much fun making the game. So I spent a couple more days working on it and tweeting updates. One of my posts was noticed by @horrorvisuals and their repost got over 100 likes and maybe 30 new followers. When the game released, in a matter of hours it was in top 50. Over the next few days it went to top 10 and stayed there for a week or so.</p>
+<p>Honestly, I was surprised the game got so popular. </p>
+<p>It&#39;s unfinished. Made in just around 20 hours. Whatever I did finish is somewhat unpolished. I doesn&#39;t have any real gameplay, you just observe some things and there&#39;s a chase scene. It also doesn&#39;t have a clear ending or a message. </p>
+<p>That said, I do think that the core concept (even though it&#39;s not clearly explained) was pretty cool. Of course, it wasn&#39;t conveyed properly in a short, unfinished game. But I think that a larger project around the idea I had would have potential.</p>
+<h2>Being John Malkovich</h2>
+<p>One of my favorite films is <a href="https://www.imdb.com/title/tt0120601/?ref=vatsalambastha.com">Being John Malkovich</a>. I&#39;ll also be spoiling this movie to a great extent in this blog. So feel free to watch it and read the rest later.</p>
+<p>The movie revolves around a depressed and unsuccessful puppeteer named Craig played by John Cusack who begins a sort of dead end job to make ends meet. The office and his co-workers are the first elements that hint at the supernatural and surreal elements of the film. Craig is married, but he gets infatuated by co-worker named Maxine and starts to pursue her.</p>
+<p>One day, Craig drops some sheets of paper behind a cabinet. He moves the furniture to find that there&#39;s a tiny door behind it. Curious, he opens the door and sees that inside is a muddy tunnel. He reluctantly crawls inside and gets sucked in. The film then moves to a POV shot of John Malkovich (the actor plays himself in this film) going about his day. Craig realizes that the tunnel leads to John Malkovich&#39;s mind. After around 15 minutes he&#39;s kicked out and emerges from a portal next to a roadway.</p>
+<p>Soon Craig and Maxine start monetizing the door. After office hours, they sell 15 minute slots to people who&#39;d queue up for a body swap ride that blends escapism and voyeurism in this compelling way. John Malkovich eventually starts to feel like his mind is being played with. He tracks down this underground business that Craig and Maxine are running and enters the door himself to land in a sort of parallel world where everyone looks like him. This traumatizes him.</p>
+<p>It&#39;s also shown that eventually Craig spends so much time inside the door that he no longer gets kicked out and can completely control John, using his acting stardom to launch his puppeteering career.</p>
+<h2>The concept</h2>
+<p>I&#39;ve watched enough serial killer investigation movies and TV shows to know that it&#39;s physical traces and trails that eventually lead to capture.</p>
+<p>Even when the killer is more of a torture sadist than a cold blooded killer (for example in movies like The Poughkeepsie Tapes where the guy kidnapped his victims and kept them captive for years), holding someone hostage eventually creates enough &quot;investigative entropy&quot; that it all comes down in the end.</p>
+<p>I&#39;ve often found this super annoying. &quot;How can he be so careless!&quot;. And when the killer is one who never gets caught, it&#39;s always someone very smart and full of themselves and brazen.</p>
+<p>There has to be a way, a story with a supernatural torture mechanism that allows a typical, impulsive killer to get away easily. Which is where JBM gave me an idea.</p>
+<p>Just like John Malkovich found out about a door that led to his mind, imagine that a serial killer/torturer finds out about his door. When people step into the mind of John, the mind is pretty welcoming. It&#39;s impressionable enough for the visitor to control him to some extent. That&#39;s because JM is a pretty normal person. But what about a person who is very dark, very sinister? You&#39;d imagine that their mind would be hostile. The fantasies of violence probably manifest themselves into visual form that a visitor would encounter. </p>
+<p>That&#39;s the core idea of DEEPDOOR. </p>
+<h2>My unfinished ideas</h2>
+<p>A deep door is just a name I gave to these small doors that lead to someone&#39;s mind.</p>
+<p>You play as someone looking into a person&#39;s disappearance. Maybe it&#39;s a friend or a loved one. Or someone you&#39;ve been hired to find. Due to the supernatural and possibly occult nature of what&#39;s happening, the police aren&#39;t exactly taking this seriously. Somehow you find out that a suspect has taken trips to some remote cabin in the woods. You find the door and crawl inside.</p>
+<p>Here&#39;s when the game I ended up making departs from the vision I had, largely because that project would have a much larger scope.</p>
+<p>What the killer does is, he kidnaps his victims and instead of locking them in a basement or something, he locks them inside the door.</p>
+<p>The victims are then inside his mind. The killer, who probably tries to fit in society doing a job, can then torture his victims though just his imagination while he goes about his day. I imagines a massive labyrinth where the victims are locked up in cages and conjured up monsters that he can awake and control to hurt the victims.</p>
+<p>You as the player enters the door to find yourself in this labyrinth. It&#39;s ugly and dark and rotting. There are areas that seem to serve no purpose, maybe they are meant for newer things in the future. It&#39;s a fortified labyrinth with monsters you need to steer clear of while being careful to not set something off. You&#39;re in someone else&#39;s mind without their knowledge.</p>
+<p>Horror games are secretly puzzle games. You eventually get to the chamber where the victims are held prisoners and tortured in turns by the monsters. You find the person you have been looking for (and more) and need to free them.</p>
+<p>Some more ideas I had were:</p>
+<h3>Seeing what the killer is seeing</h3>
+<p>In Being John Malkovich, you can see through John&#39;s eyes. There&#39;s an episode on Black Mirror called Arkangel which explores a similar ending. I envisioned a curtain on which a film projector shows the killers vision.</p>
+<p>When the killer is occupied with his job, let&#39;s say working as a fork-lift operator, that&#39;s when the labyrinth is less alert. You can get away with some things because the minds owner is not paying a lot of attention.</p>
+<h3>Opening locked doors and weaponizing what&#39;s inside</h3>
+<p>The labyrinth is huge, and there are doors that are locked. There are also secret doors. These are the doors of the mind that contain memories of the killer that are filled with shame or regret. If you manage to open one of these, you&#39;d be able to use what&#39;s inside against the monsters.</p>
+<p>I&#39;m not a big fan of creating am explanation of why someone became a serial killer. But I do think that the contents of these locked rooms can be represented in a way that won&#39;t look like you&#39;re sympathizing with a serial killer.</p>
+<h3>The killer enters his own down from time to time</h3>
+<p>This could be interesting. The killer entering would mean that he sees everyone looking like himself (like John Malkovich did). This might also provide you as the playing character to hide in plain sight as a victim instead of an intruder, because to him everyone has the same faces.</p>
+<p>The fact that he likes to enter his own door to torture victims that have the same face as him can be used to highlight his deeply messed up psyche. </p>
+<h2>Conclusion</h2>
+<p>So, that&#39;s the missing lore of DEEPDOOR. Basically, the thing I had in mind but could not work on. Maybe I&#39;ll make a full game some day. Or maybe I&#39;ll get an email from someone who has picked this idea up.</p>
+<p>Either way, hope you liked reading!</p>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+        const SITE_CONFIG =             {
+                      "baseUrl": "https://adrenak.github.io",
+                      "siteName": "Vatsal Ambastha",
+                      "authorName": "Vatsal Ambastha",
+                      "defaultDescription": "Personal website and blog of Vatsal Ambastha",
+                      "defaultKeywords": "Unity, game development, virtual reality, ManageXR, open source, unity3d, AR, VR",
+                      "favicon": "favicon.ico",
+                      "appleTouchIcon": "apple-touch-icon.png",
+                      "avatar": "content/images/sf.jpg",
+                      "goatCounterEnabled": true,
+                      "goatCounterCode": "vatsalambastha",
+                      "allowLocal": false,
+                      "allowFrame": false,
+                      "noOnload": false,
+                      "theme": "adrenak",
+                      "postsPerPage": 10,
+                      "themeOptions": [
+                                "default",
+                                "adrenak",
+                                "candy",
+                                "coralreef",
+                                "cyberpunk",
+                                "desert",
+                                "dollhouse",
+                                "earthy",
+                                "finding-nemo",
+                                "forest",
+                                "frost",
+                                "futurism",
+                                "hacker",
+                                "hellhole",
+                                "magazine",
+                                "ocean",
+                                "pulpfiction",
+                                "rustpunk",
+                                "simple-dark",
+                                "simple-light",
+                                "thematrix",
+                                "typewriter",
+                                "underwater",
+                                "utopia",
+                                "vicecity"
+                      ],
+                      "sidebar": {
+                                "header": "Vatsal Ambastha",
+                                "homeDisplayName": "🏠 Home",
+                                "postsDisplayName": "✍️ Posts",
+                                "footer": [
+                                          {
+                                                    "text": "2025 © Vatsal Ambastha",
+                                                    "target": "https://adrenak.github.io",
+                                                    "openInNewTab": true
+                                          },
+                                          {
+                                                    "text": "Get this website template",
+                                                    "target": "https://github.com/adrenak/gorky",
+                                                    "openInNewTab": true
+                                          }
+                                ],
+                                "sections": {
+                                          "": {
+                                                    "Work": {
+                                                              "target": "?page=work",
+                                                              "openInNewTab": false
+                                                    }
+                                          },
+                                          "🔗 Links": {
+                                                    "Email": {
+                                                              "target": "mailto:ambastha.vatsal@gmail.com",
+                                                              "openInNewTab": true
+                                                    },
+                                                    "Github": {
+                                                              "target": "https://www.github.com/adrenak",
+                                                              "openInNewTab": true
+                                                    },
+                                                    "LinkedIn": {
+                                                              "target": "https://www.linkedin.com/in/vatsalambastha",
+                                                              "openInNewTab": true
+                                                    }
+                                          }
+                                }
+                      }
+            };
+        const ASSET_PREFIX = "../../";
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const markdownContent = document.getElementById('markdown-content');
+
+            if (window.Prism) {
+                Prism.highlightAll();
+            }
+
+            if (typeof Splide !== 'undefined' && markdownContent) {
+                markdownContent.querySelectorAll('.splide.gorky-carousel').forEach(function (carouselRoot) {
+                    new Splide(carouselRoot, {
+                        type: 'loop',
+                        perPage: 1,
+                        gap: '1rem',
+                        pagination: true,
+                        arrows: true,
+                    }).mount();
+                });
+            }
+
+            if (SITE_CONFIG.favicon) {
+                const faviconLink = document.getElementById('favicon-link');
+                if (faviconLink) {
+                    const faviconPath = SITE_CONFIG.favicon.startsWith('http')
+                        ? SITE_CONFIG.favicon
+                        : ASSET_PREFIX + SITE_CONFIG.favicon.replace(/^\//, '');
+                    faviconLink.setAttribute('href', faviconPath);
+                }
+            }
+            if (SITE_CONFIG.appleTouchIcon) {
+                const appleIconLink = document.getElementById('apple-touch-icon-link');
+                if (appleIconLink) {
+                    const iconPath = SITE_CONFIG.appleTouchIcon.startsWith('http')
+                        ? SITE_CONFIG.appleTouchIcon
+                        : ASSET_PREFIX + SITE_CONFIG.appleTouchIcon.replace(/^\//, '');
+                    appleIconLink.setAttribute('href', iconPath);
+                }
+            }
+
+            (function initThemeSwitcher() {
+                var opts = SITE_CONFIG.themeOptions;
+                if (!Array.isArray(opts) || opts.length === 0) return;
+                var select = document.getElementById('gorky-theme-select');
+                var link = document.getElementById('theme-palette-stylesheet');
+                if (!select || !link) return;
+
+                function safeName(v) {
+                    v = String(v || '').trim();
+                    if (v.endsWith('.css')) v = v.slice(0, -4).trim();
+                    if (!v || v.length > 96 || !/^[a-zA-Z0-9_-]+$/.test(v)) return '';
+                    return v;
+                }
+
+                var allowed = {};
+                opts.forEach(function (o) {
+                    var s = safeName(o);
+                    if (s) allowed[s] = true;
+                });
+                var buildTheme = safeName(SITE_CONFIG.theme) || 'default';
+                allowed[buildTheme] = true;
+
+                function themeStorageKey() {
+                    var id = SITE_CONFIG.themeStorageId;
+                    if (typeof id === 'string') {
+                        id = id.trim();
+                        if (id && id.length <= 96 && /^[a-zA-Z0-9_-]+$/.test(id)) {
+                            return 'gorky-theme:' + id;
+                        }
+                    }
+                    var base = SITE_CONFIG.baseUrl;
+                    if (base && typeof base === 'string') {
+                        try {
+                            var u = new URL(base, window.location.href);
+                            var pathKey = u.pathname.replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'root';
+                            return 'gorky-theme:' + pathKey;
+                        } catch (err) {}
+                    }
+                    if (SITE_CONFIG.siteName) {
+                        var slug = String(SITE_CONFIG.siteName).trim().toLowerCase()
+                            .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+                        if (slug) return 'gorky-theme:' + slug;
+                    }
+                    var pagePath = window.location.pathname.replace(/\/index\.html$/i, '')
+                        .replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'root';
+                    return 'gorky-theme:' + pagePath;
+                }
+
+                var storageKey = themeStorageKey();
+
+                function applyTheme(name, persist) {
+                    var n = safeName(name);
+                    if (!n || !allowed[n]) return;
+                    link.setAttribute('href', ASSET_PREFIX + 'styles/themes/' + n + '.css');
+                    if (persist !== false) {
+                        try { localStorage.setItem(storageKey, n); } catch (err) {}
+                    }
+                    select.value = n;
+                }
+
+                var stored = '';
+                try {
+                    stored = localStorage.getItem(storageKey) || '';
+                    if (!stored) {
+                        var legacy = localStorage.getItem('gorky-theme') || '';
+                        if (legacy && allowed[legacy]) {
+                            stored = legacy;
+                            localStorage.setItem(storageKey, legacy);
+                        }
+                    }
+                } catch (err) {}
+                if (stored && allowed[stored]) {
+                    applyTheme(stored, false);
+                }
+
+                select.addEventListener('change', function () {
+                    applyTheme(select.value);
+                });
+            })();
+
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            const sidebarClose = document.getElementById('sidebar-close');
+
+            function openSidebar() {
+                if (!sidebar || !overlay) return;
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.body.classList.add('sidebar-open');
+                if (hamburgerMenu) {
+                    hamburgerMenu.setAttribute('aria-expanded', 'true');
+                }
+                if (sidebarClose) {
+                    sidebarClose.hidden = false;
+                }
+            }
+
+            function closeSidebar() {
+                if (!sidebar || !overlay) return;
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('sidebar-open');
+                if (hamburgerMenu) {
+                    hamburgerMenu.setAttribute('aria-expanded', 'false');
+                }
+                if (sidebarClose) {
+                    sidebarClose.hidden = true;
+                }
+            }
+
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', function () {
+                    if (sidebar && sidebar.classList.contains('active')) {
+                        closeSidebar();
+                    } else {
+                        openSidebar();
+                    }
+                });
+            }
+            if (sidebarClose) {
+                sidebarClose.addEventListener('click', closeSidebar);
+            }
+            if (overlay) {
+                overlay.addEventListener('click', closeSidebar);
+            }
+
+            document.querySelectorAll('.nav-link').forEach(function (link) {
+                link.addEventListener('click', closeSidebar);
+            });
+
+            if (SITE_CONFIG.goatCounterEnabled && typeof goatcounter !== 'undefined') {
+                goatcounter.count({
+                    path: location.pathname + location.search
+                });
+            }
+        });
+    </script>
+
+    <script>
+        if (SITE_CONFIG.goatCounterEnabled) {
+            const script = document.createElement('script');
+            script.async = true;
+            script.setAttribute('data-goatcounter', 'https://' + SITE_CONFIG.goatCounterCode + '.goatcounter.com/count');
+            if (SITE_CONFIG.allowLocal) script.setAttribute('data-goatcounter-settings', 'allow_local:true');
+            if (SITE_CONFIG.allowFrame) script.setAttribute('data-goatcounter-settings', 'allow_frame:true');
+            if (SITE_CONFIG.noOnload) script.setAttribute('data-goatcounter-settings', 'no_onload:true');
+            script.src = 'https://gc.zgo.at/count.js';
+            document.head.appendChild(script);
+        }
+    </script>
+</body>
+</html>

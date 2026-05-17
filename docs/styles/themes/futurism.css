@@ -1,0 +1,55 @@
+/* Futurism — art deco: cream, espresso rail, brushed gold accent */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --font-weight-body: 400;
+    --font-weight-nav-active: 500;
+    --font-weight-heading: 600;
+    --font-weight-section-label: 750;
+    /* Typography */
+    --font-family-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-heading: var(--font-family-body);
+    --font-family-mono: 'JetBrains Mono', 'Courier New', Consolas, monospace;
+    --font-size-body: 1.02rem;
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+    --font-size-sidebar-title: 1.25rem;
+    --font-size-nav: 0.9rem;
+    --font-size-nav-icon: 1.1rem;
+    --font-size-section-label: 0.7rem;
+    --font-size-theme-select: 0.85rem;
+    --font-size-footer: 0.75rem;
+    --font-size-code: 0.9em;
+    --line-height-body: 1.7;
+
+    --color-content-bg: #f7f0e4;
+    --color-text: #2a2318;
+
+    --color-accent: #b8860b;
+    --color-accent-hover: #8a6408;
+    --color-muted: #6b5f4f;
+
+    --color-border: #c4a574;
+    --color-code-bg: #efe6d8;
+    --color-carousel-bg: #ebe1d2;
+
+    --color-carousel-arrow-bg: rgba(255, 255, 255, 0.92);
+    --color-carousel-arrow-bg-hover: #ffffff;
+    --color-carousel-arrow-icon: rgba(20, 20, 20, 0.9);
+    --color-carousel-arrow-shadow: rgba(0, 0, 0, 0.2);
+    --color-carousel-pagination-dot: rgba(0, 0, 0, 0.35);
+
+    --color-sidebar-bg: #1c1812;
+    --color-sidebar-title: #f7f0e4;
+    --color-sidebar-active: #b8860b;
+    --color-nav-active-text: #1c1812;
+    --color-nav-idle: rgba(247, 240, 228, 0.7);
+    --color-nav-hover-bg: #332d24;
+    --color-nav-hover-text: #f7f0e4;
+    --color-section-title: rgba(247, 240, 228, 0.55);
+
+    --color-footer-text: rgba(28, 24, 18, 0.85);
+    --color-footer-hover: #fff8e8;
+}

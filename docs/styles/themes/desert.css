@@ -1,0 +1,55 @@
+/* Desert — sand, adobe, twilight sky */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700&family=Nunito+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --font-weight-body: 400;
+    --font-weight-nav-active: 500;
+    --font-weight-heading: 600;
+    --font-weight-section-label: 750;
+    /* Typography */
+    --font-family-body: 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-heading: 'Lora', Georgia, serif;
+    --font-family-mono: 'JetBrains Mono', 'Courier New', Consolas, monospace;
+    --font-size-body: 1rem;
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+    --font-size-sidebar-title: 1.25rem;
+    --font-size-nav: 0.9rem;
+    --font-size-nav-icon: 1.1rem;
+    --font-size-section-label: 0.7rem;
+    --font-size-theme-select: 0.85rem;
+    --font-size-footer: 0.75rem;
+    --font-size-code: 0.9em;
+    --line-height-body: 1.7;
+
+    --color-content-bg: #f4e8d8;
+    --color-text: #3d2914;
+
+    --color-accent: #c45c26;
+    --color-accent-hover: #8b3a0f;
+    --color-muted: #8b7355;
+
+    --color-border: #c4a574;
+    --color-code-bg: #ede0cf;
+
+    --color-carousel-bg: #ead8c0;
+
+    --color-carousel-arrow-bg: rgba(255, 255, 255, 0.92);
+    --color-carousel-arrow-bg-hover: #ffffff;
+    --color-carousel-arrow-icon: rgba(20, 20, 20, 0.9);
+    --color-carousel-arrow-shadow: rgba(0, 0, 0, 0.2);
+    --color-carousel-pagination-dot: rgba(0, 0, 0, 0.35);
+
+    --color-sidebar-bg: #dcc4a8;
+    --color-sidebar-active: #8b5a2b;
+    --color-nav-active-text: #fff8f0;
+    --color-nav-idle: rgba(61, 41, 20, 0.65);
+    --color-nav-hover-bg: #cbb896;
+    --color-nav-hover-text: #2a1a0a;
+    --color-section-title: rgba(61, 41, 20, 0.72);
+
+    --color-footer-text: rgba(255, 248, 240, 0.75);
+    --color-footer-hover: #fff8f0;
+}

@@ -1,0 +1,58 @@
+/* Pulp fiction — retro diner, cream & blood red */
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --font-weight-body: 400;
+    --font-weight-nav-active: 500;
+    --font-weight-heading: 600;
+    --font-weight-section-label: 750;
+    /* Typography */
+    --font-family-body: 'Libre Baskerville', Georgia, serif;
+    --font-family-heading: 'Abril Fatface', Georgia, 'Times New Roman', serif;
+    --font-family-mono: 'JetBrains Mono', 'Courier New', Consolas, monospace;
+    --font-size-body: 1rem;
+    --font-size-h1: 2.35rem;
+    --font-size-h2: 1.55rem;
+    --font-size-h3: 1.25rem;
+    --font-size-sidebar-title: 1.25rem;
+    --font-size-nav: 0.9rem;
+    --font-size-nav-icon: 1.1rem;
+    --font-size-section-label: 0.7rem;
+    --font-size-theme-select: 0.85rem;
+    --font-size-footer: 0.75rem;
+    --font-size-code: 0.9em;
+    --line-height-body: 1.75;
+
+    --color-content-bg: #f5f0e6;
+    --color-text: #1a0a0a;
+
+    /* Sidebar is dark while main column is light */
+    --color-sidebar-title: #fafaf9;
+
+    --color-accent: #b91c1c;
+    --color-accent-hover: #7f1d1d;
+    --color-muted: #78716c;
+
+    --color-border: #a8a29e;
+    --color-code-bg: #e7e5e4;
+
+    --color-carousel-bg: #e8e0d6;
+
+    --color-carousel-arrow-bg: rgba(255, 255, 255, 0.92);
+    --color-carousel-arrow-bg-hover: #ffffff;
+    --color-carousel-arrow-icon: rgba(20, 20, 20, 0.9);
+    --color-carousel-arrow-shadow: rgba(0, 0, 0, 0.2);
+    --color-carousel-pagination-dot: rgba(0, 0, 0, 0.35);
+
+    --color-sidebar-bg: #292524;
+    --color-sidebar-active: #b91c1c;
+    --color-nav-active-text: #ffffff;
+    --color-nav-idle: rgba(245, 240, 230, 0.58);
+    --color-nav-hover-bg: #44403c;
+    --color-nav-hover-text: #fafaf9;
+    --color-section-title: rgba(245, 240, 230, 0.55);
+
+    --color-footer-text: rgba(255, 255, 255, 0.7);
+    --color-footer-hover: #fecaca;
+}

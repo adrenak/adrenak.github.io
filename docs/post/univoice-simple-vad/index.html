@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Simple Voice Activity Detection to reduce bandwidth usage." id="meta-description">
+    <meta name="keywords" content="univoice, unity, voice, voip, vivox, dissonance, open source" id="meta-keywords">
+    <link rel="canonical" href="https://adrenak.github.io/post/univoice-simple-vad/" id="canonical-link">
+    <meta property="og:title" content="UniVoice 4.10.0 SimpleVadFilter">
+    <meta property="og:description" content="Simple Voice Activity Detection to reduce bandwidth usage.">
+    <meta property="og:url" content="https://adrenak.github.io/post/univoice-simple-vad/">
+    <meta property="og:site_name" content="Vatsal Ambastha">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://adrenak.github.io/content/images/sf.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="UniVoice 4.10.0 SimpleVadFilter">
+    <meta name="twitter:description" content="Simple Voice Activity Detection to reduce bandwidth usage.">
+    <meta name="twitter:image" content="https://adrenak.github.io/content/images/sf.jpg">
+    <title id="page-title">UniVoice 4.10.0 SimpleVadFilter</title>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"UniVoice 4.10.0 SimpleVadFilter","description":"Simple Voice Activity Detection to reduce bandwidth usage.","url":"https://adrenak.github.io/post/univoice-simple-vad/","author":{"@type":"Person","name":"Vatsal Ambastha"},"image":"https://adrenak.github.io/content/images/sf.jpg","keywords":"univoice,opensource"}</script>
+    <script>
+(function () {
+    var search = window.location.search;
+    if (!search) return;
+
+    var params = new URLSearchParams(search);
+    var root = "../../";
+    var path = window.location.pathname;
+    var target = null;
+
+    function tagPathSegment(tag) {
+        tag = String(tag || '').trim();
+        if (!tag) return 'tag';
+        if (tag.length <= 96 && /^[a-zA-Z0-9_-]+$/.test(tag)) return tag;
+        var s = encodeURIComponent(tag).replace(/%/g, '');
+        return s ? s.slice(0, 96) : 'tag';
+    }
+
+    if (params.has('post')) {
+        target = root + 'post/' + encodeURIComponent(params.get('post')) + '/';
+    } else if (params.get('page') === 'posts') {
+        target = root + 'posts/';
+    } else if (params.get('page') === 'home') {
+        target = root || './';
+    } else if (params.has('page')) {
+        target = root + params.get('page') + '/';
+    } else if (params.has('tag')) {
+        var tag = params.get('tag');
+        if (tag && tag.toLowerCase() === 'all') {
+            target = root + 'posts/';
+        } else if (tag) {
+            target = root + 'posts/tag/' + tagPathSegment(tag) + '/';
+        }
+    }
+
+    if (target) {
+        window.location.replace(target);
+    }
+})();
+</script>
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico" id="favicon-link">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png" id="apple-touch-icon-link">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="../../styles/theme-shell.css">
+    <link rel="stylesheet" href="../../styles/themes/adrenak.css" id="theme-palette-stylesheet">
+    <link rel="stylesheet" href="../../styles/layout.css">
+    <link rel="stylesheet" href="../../styles/content.css">
+    <link rel="stylesheet" href="../../styles/accordion.css">
+    <link rel="stylesheet" href="../../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="mobile-topbar" id="mobile-topbar" aria-hidden="true">
+  <button type="button" class="mobile-menu-toggle" id="hamburger-menu" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <a class="mobile-topbar-brand" href="../../">
+    <img class="mobile-topbar-favicon" src="../../favicon.ico" alt="" width="22" height="22" />
+    <span class="mobile-topbar-title">Vatsal Ambastha</span>
+  </a>
+</header>
+
+
+        <aside class="sidebar" id="sidebar">
+            <button type="button" class="sidebar-close" id="sidebar-close" aria-label="Close menu" hidden><span class="sidebar-close-icon" aria-hidden="true">&times;</span></button>
+            <div class="sidebar-body">
+                <div class="sidebar-header">
+                    <h1>Vatsal Ambastha</h1>
+                </div>
+                <nav class="sidebar-main-nav">
+                    <a href="../../" class="nav-link">
+    <span class="nav-icon">🏠</span>
+    <span>Home</span>
+</a>
+<a href="../../posts/" class="nav-link">
+    <span class="nav-icon">✍️</span>
+    <span>Posts</span>
+</a>
+
+                </nav>
+                <nav class="sidebar-nav">
+                    <div class="sidebar-section">
+    <h3 class="section-title"></h3>
+    <ul class="section-list">
+        <li>
+            <a href="../../work/" class="nav-link">
+                <span>Work</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="sidebar-section">
+    <h3 class="section-title">🔗 Links</h3>
+    <ul class="section-list">
+        <li>
+            <a href="mailto:ambastha.vatsal@gmail.com" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <span>Email</span>
+                <span class="external-icon">↗</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.github.com/adrenak" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <span>Github</span>
+                <span class="external-icon">↗</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/vatsalambastha" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <span>LinkedIn</span>
+                <span class="external-icon">↗</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+                </nav>
+            </div>
+            <div class="sidebar-theme-switcher">
+  <label class="theme-switcher-label" for="gorky-theme-select">Theme</label>
+  <select id="gorky-theme-select" class="theme-select" aria-label="Color theme">
+    <option value="default">default</option>
+    <option value="adrenak" selected>adrenak</option>
+    <option value="candy">candy</option>
+    <option value="coralreef">coralreef</option>
+    <option value="cyberpunk">cyberpunk</option>
+    <option value="desert">desert</option>
+    <option value="dollhouse">dollhouse</option>
+    <option value="earthy">earthy</option>
+    <option value="finding-nemo">finding-nemo</option>
+    <option value="forest">forest</option>
+    <option value="frost">frost</option>
+    <option value="futurism">futurism</option>
+    <option value="hacker">hacker</option>
+    <option value="hellhole">hellhole</option>
+    <option value="magazine">magazine</option>
+    <option value="ocean">ocean</option>
+    <option value="pulpfiction">pulpfiction</option>
+    <option value="rustpunk">rustpunk</option>
+    <option value="simple-dark">simple-dark</option>
+    <option value="simple-light">simple-light</option>
+    <option value="thematrix">thematrix</option>
+    <option value="typewriter">typewriter</option>
+    <option value="underwater">underwater</option>
+    <option value="utopia">utopia</option>
+    <option value="vicecity">vicecity</option>
+  </select>
+</div>
+
+            <div class="sidebar-footer">
+    <a href="https://adrenak.github.io" class="footer-link" target="_blank" rel="noopener noreferrer">2025 © Vatsal Ambastha</a>
+    <a href="https://github.com/adrenak/gorky" class="footer-link" target="_blank" rel="noopener noreferrer">Get this website template</a>
+</div>
+
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <main class="main-content">
+            <div id="markdown-content">
+                <div class="post-metadata">
+  <h1 class="post-title">UniVoice 4.10.0 SimpleVadFilter</h1>
+  <div class="post-date">23 Oct 2025</div>
+  <div class="post-tags">Tagged: <a href="../../posts/tag/univoice/" class="tag-link">univoice</a>, <a href="../../posts/tag/opensource/" class="tag-link">opensource</a></div>
+</div>
+
+                <p>UniVoice hasn&#39;t had any VAD (Voice Activity Detection) so far. So unless you&#39;re using Push to Talk (see <a href="?post=univoice-easy-push-to-talk">this article</a> on how to use it in UniVoice), your client is constantly transmitting silent audio over the network.</p>
+<p>This definitely adds a lot to bandwidth usage. Consider a scenario where two people talk for 1 minute. Assuming they don&#39;t talk over each other, together they will end up sending at least 1 minute of silence over the network.</p>
+<p>Make that 3 people, and you have 2 minutes of silence being sent over the network.</p>
+<p>I&#39;m not 100% sure but I think that Opus does compress silence more compared to audio with voice. However this is still a big waste of bandwidth.</p>
+<h2>SimpleVad</h2>
+<p>There are better VAD solutions out there, but they&#39;re C++ code that I need to build. For now I have a plain C# solution. I&#39;ve had a help from ChatGPT making this, but after a day of testing, tweaking and modifying the code I&#39;ve finally reached something I&#39;m happy with.</p>
+<p>An <code>IAudioFilter</code> implementation called <code>SimpleVadFilter</code> in <code>SimpleVad.cs</code> has been added in UniVoice 4.10.0</p>
+<p>The usage is really simple, you just add a filter to outgoing audio like this:</p>
+<p><code>ClientSession.InputFilters.Add(new SimpleVadFilter(new SimpleVad()));</code></p>
+<p>It&#39;s probably better to add this filter after RNNoiseFilter so VAD is processing audio with less background noise and more voice.</p>
+<p>You can create <code>new SimpleVad()</code> with no parameters, or pass a <code>SimpleVad.Configobject</code> in the constructor. See the <a href="https://adrenak.github.io/univoice/api/Adrenak.UniVoice.SimpleVad.Config.html?ref=vatsalambastha.com">API reference for SimpleVad.Config</a> for more info.</p>
+<h2>SimpleVadFilter</h2>
+<p>As I said, much of this code is written by ChatGPT, but it&#39;s pretty easy to understand. Here is an explainer for how the algorithm works (this too is AI generated)</p>
+<h3>Config</h3>
+<p>🎚️ <strong>Frame Length</strong>
+Defines how often we evaluate speech.
+20 ms is common for low-latency audio pipelines.</p>
+<p>⚡ <strong>Attack / Release</strong>
+Time-based smoothing that prevents jittery on/off behavior.</p>
+<ul>
+<li>AttackMs: how long sustained speech must last to trigger speaking.</li>
+<li>ReleaseMs: how long silence must persist before flipping off.</li>
+</ul>
+<p>🔊 <strong>SNR Thresholds</strong>
+Two thresholds create hysteresis:</p>
+<ul>
+<li>SnrEnterDb (e.g., 10 dB): harder to start speaking.</li>
+<li>SnrExitDb (e.g., 4 dB): easier to stay speaking once started.</li>
+</ul>
+<p>This asymmetry prevents flicker when the signal hovers near the boundary.</p>
+<p>🪟 <strong>Grace Periods</strong></p>
+<ul>
+<li>MaxGapMs allows brief quiet moments (pauses between words) while still treating it as speech.</li>
+<li>NoDropWindowMs ensures that once speech starts, it won’t instantly cut off.</li>
+</ul>
+<p>🔉 <strong>Noise Floor</strong>
+An exponentially moving average (EMA) tracks background noise:</p>
+<ul>
+<li>Updates faster when silent (to adapt quickly),</li>
+<li>Slower during speech (to avoid raising the floor).</li>
+</ul>
+<h3>Algorithm</h3>
+<p>The main processing happens in ProcessOneFrame()</p>
+<p>1️⃣ <strong>Compute RMS Energy</strong>
+Each frame’s RMS (root mean square) gives a measure of loudness:</p>
+<p><code>rms = sqrt(sum(s²) / N)</code></p>
+<p>It’s clamped to a minimum <code>EnergyFloor</code> to avoid log(0) issues.</p>
+<p>2️⃣ <strong>Compute SNR in dB</strong>
+We compare the frame’s energy to the running noise estimate:</p>
+<p><code>snrDb = 20 * log10(rms / noise)</code></p>
+<p>A high SNR means the signal is louder than background noise — likely speech.</p>
+<p>3️⃣ <strong>Apply Threshold and Hysteresis</strong>
+Depending on whether we’re currently speaking:</p>
+<pre><code class="language-csharp">threshold = IsSpeaking ? SnrExitDb : SnrEnterDb;
+bool rawSpeech = snrDb &gt;= threshold;
+</code></pre>
+<p>This gives us an initial speech/silence decision per frame.</p>
+<p>4️⃣ <strong>Update Noise Floor</strong>
+Noise floor adapts using an exponential moving average:</p>
+<pre><code class="language-csharp">alpha = rawSpeech ? MaxNoiseUpdateRate : NoiseUpdateRate;
+_noiseRms = (1 - alpha) * _noiseRms + alpha * rms;
+</code></pre>
+<p>That means noise updates quickly when we’re quiet, but very slowly when we’re talking — preventing voice from polluting the background estimate.</p>
+<p>5️⃣ <strong>Gap Handling</strong>
+If we’re in the “speaking” state but detect brief quiet periods:</p>
+<pre><code class="language-csharp">if (IsSpeaking) {
+    if (rawSpeech) _gapMs = 0;
+    else _gapMs += frameDurationMs;
+}
+</code></pre>
+<p>As long as <code>_gapMs</code> stays below <code>MaxGapMs</code>, we still treat it as continuous speech.</p>
+<p>6️⃣ <strong>Time-Based Decision Logic</strong>
+Attack, release, and no-drop timers smooth transitions:</p>
+<pre><code class="language-csharp">if (!IsSpeaking &amp;&amp; _speechMs &gt;= AttackMs)
+    newIsSpeaking = true;
+
+if (IsSpeaking &amp;&amp; _silenceMs &gt;= ReleaseMs &amp;&amp; _sinceOnsetMs &gt;= NoDropWindowMs)
+    newIsSpeaking = false;
+</code></pre>
+<p>This means:</p>
+<ul>
+<li>We only start speaking after continuous speech.</li>
+<li>We only stop speaking after sustained silence.</li>
+</ul>
+<h2>Some thoughts</h2>
+<p>There is still one small limitation to this.</p>
+<p>SimpleVad requires, say, 20ms of voice before it turns on. This means that in VAD mode when you start speaking, the first 20ms of your voice will not be transmitted.</p>
+<p>I need to work on a way to allow <code>IAudioFilter</code> to either return multiple <code>AudioFrame</code> objects or return the <code>AudioFrame</code> with a longer samples array.</p>
+<p>But still, I&#39;m pretty happy with the results. As always, I look forward to your feedback. <a href="https://discord.com/invite/Tnf9KG93MC?ref=vatsalambastha.com">Click here to join the Discord server</a></p>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+        const SITE_CONFIG =             {
+                      "baseUrl": "https://adrenak.github.io",
+                      "siteName": "Vatsal Ambastha",
+                      "authorName": "Vatsal Ambastha",
+                      "defaultDescription": "Personal website and blog of Vatsal Ambastha",
+                      "defaultKeywords": "Unity, game development, virtual reality, ManageXR, open source, unity3d, AR, VR",
+                      "favicon": "favicon.ico",
+                      "appleTouchIcon": "apple-touch-icon.png",
+                      "avatar": "content/images/sf.jpg",
+                      "goatCounterEnabled": true,
+                      "goatCounterCode": "vatsalambastha",
+                      "allowLocal": false,
+                      "allowFrame": false,
+                      "noOnload": false,
+                      "theme": "adrenak",
+                      "postsPerPage": 10,
+                      "themeOptions": [
+                                "default",
+                                "adrenak",
+                                "candy",
+                                "coralreef",
+                                "cyberpunk",
+                                "desert",
+                                "dollhouse",
+                                "earthy",
+                                "finding-nemo",
+                                "forest",
+                                "frost",
+                                "futurism",
+                                "hacker",
+                                "hellhole",
+                                "magazine",
+                                "ocean",
+                                "pulpfiction",
+                                "rustpunk",
+                                "simple-dark",
+                                "simple-light",
+                                "thematrix",
+                                "typewriter",
+                                "underwater",
+                                "utopia",
+                                "vicecity"
+                      ],
+                      "sidebar": {
+                                "header": "Vatsal Ambastha",
+                                "homeDisplayName": "🏠 Home",
+                                "postsDisplayName": "✍️ Posts",
+                                "footer": [
+                                          {
+                                                    "text": "2025 © Vatsal Ambastha",
+                                                    "target": "https://adrenak.github.io",
+                                                    "openInNewTab": true
+                                          },
+                                          {
+                                                    "text": "Get this website template",
+                                                    "target": "https://github.com/adrenak/gorky",
+                                                    "openInNewTab": true
+                                          }
+                                ],
+                                "sections": {
+                                          "": {
+                                                    "Work": {
+                                                              "target": "?page=work",
+                                                              "openInNewTab": false
+                                                    }
+                                          },
+                                          "🔗 Links": {
+                                                    "Email": {
+                                                              "target": "mailto:ambastha.vatsal@gmail.com",
+                                                              "openInNewTab": true
+                                                    },
+                                                    "Github": {
+                                                              "target": "https://www.github.com/adrenak",
+                                                              "openInNewTab": true
+                                                    },
+                                                    "LinkedIn": {
+                                                              "target": "https://www.linkedin.com/in/vatsalambastha",
+                                                              "openInNewTab": true
+                                                    }
+                                          }
+                                }
+                      }
+            };
+        const ASSET_PREFIX = "../../";
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const markdownContent = document.getElementById('markdown-content');
+
+            if (window.Prism) {
+                Prism.highlightAll();
+            }
+
+            if (typeof Splide !== 'undefined' && markdownContent) {
+                markdownContent.querySelectorAll('.splide.gorky-carousel').forEach(function (carouselRoot) {
+                    new Splide(carouselRoot, {
+                        type: 'loop',
+                        perPage: 1,
+                        gap: '1rem',
+                        pagination: true,
+                        arrows: true,
+                    }).mount();
+                });
+            }
+
+            if (SITE_CONFIG.favicon) {
+                const faviconLink = document.getElementById('favicon-link');
+                if (faviconLink) {
+                    const faviconPath = SITE_CONFIG.favicon.startsWith('http')
+                        ? SITE_CONFIG.favicon
+                        : ASSET_PREFIX + SITE_CONFIG.favicon.replace(/^\//, '');
+                    faviconLink.setAttribute('href', faviconPath);
+                }
+            }
+            if (SITE_CONFIG.appleTouchIcon) {
+                const appleIconLink = document.getElementById('apple-touch-icon-link');
+                if (appleIconLink) {
+                    const iconPath = SITE_CONFIG.appleTouchIcon.startsWith('http')
+                        ? SITE_CONFIG.appleTouchIcon
+                        : ASSET_PREFIX + SITE_CONFIG.appleTouchIcon.replace(/^\//, '');
+                    appleIconLink.setAttribute('href', iconPath);
+                }
+            }
+
+            (function initThemeSwitcher() {
+                var opts = SITE_CONFIG.themeOptions;
+                if (!Array.isArray(opts) || opts.length === 0) return;
+                var select = document.getElementById('gorky-theme-select');
+                var link = document.getElementById('theme-palette-stylesheet');
+                if (!select || !link) return;
+
+                function safeName(v) {
+                    v = String(v || '').trim();
+                    if (v.endsWith('.css')) v = v.slice(0, -4).trim();
+                    if (!v || v.length > 96 || !/^[a-zA-Z0-9_-]+$/.test(v)) return '';
+                    return v;
+                }
+
+                var allowed = {};
+                opts.forEach(function (o) {
+                    var s = safeName(o);
+                    if (s) allowed[s] = true;
+                });
+                var buildTheme = safeName(SITE_CONFIG.theme) || 'default';
+                allowed[buildTheme] = true;
+
+                function themeStorageKey() {
+                    var id = SITE_CONFIG.themeStorageId;
+                    if (typeof id === 'string') {
+                        id = id.trim();
+                        if (id && id.length <= 96 && /^[a-zA-Z0-9_-]+$/.test(id)) {
+                            return 'gorky-theme:' + id;
+                        }
+                    }
+                    var base = SITE_CONFIG.baseUrl;
+                    if (base && typeof base === 'string') {
+                        try {
+                            var u = new URL(base, window.location.href);
+                            var pathKey = u.pathname.replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'root';
+                            return 'gorky-theme:' + pathKey;
+                        } catch (err) {}
+                    }
+                    if (SITE_CONFIG.siteName) {
+                        var slug = String(SITE_CONFIG.siteName).trim().toLowerCase()
+                            .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+                        if (slug) return 'gorky-theme:' + slug;
+                    }
+                    var pagePath = window.location.pathname.replace(/\/index\.html$/i, '')
+                        .replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'root';
+                    return 'gorky-theme:' + pagePath;
+                }
+
+                var storageKey = themeStorageKey();
+
+                function applyTheme(name, persist) {
+                    var n = safeName(name);
+                    if (!n || !allowed[n]) return;
+                    link.setAttribute('href', ASSET_PREFIX + 'styles/themes/' + n + '.css');
+                    if (persist !== false) {
+                        try { localStorage.setItem(storageKey, n); } catch (err) {}
+                    }
+                    select.value = n;
+                }
+
+                var stored = '';
+                try {
+                    stored = localStorage.getItem(storageKey) || '';
+                    if (!stored) {
+                        var legacy = localStorage.getItem('gorky-theme') || '';
+                        if (legacy && allowed[legacy]) {
+                            stored = legacy;
+                            localStorage.setItem(storageKey, legacy);
+                        }
+                    }
+                } catch (err) {}
+                if (stored && allowed[stored]) {
+                    applyTheme(stored, false);
+                }
+
+                select.addEventListener('change', function () {
+                    applyTheme(select.value);
+                });
+            })();
+
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            const sidebarClose = document.getElementById('sidebar-close');
+
+            function openSidebar() {
+                if (!sidebar || !overlay) return;
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.body.classList.add('sidebar-open');
+                if (hamburgerMenu) {
+                    hamburgerMenu.setAttribute('aria-expanded', 'true');
+                }
+                if (sidebarClose) {
+                    sidebarClose.hidden = false;
+                }
+            }
+
+            function closeSidebar() {
+                if (!sidebar || !overlay) return;
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('sidebar-open');
+                if (hamburgerMenu) {
+                    hamburgerMenu.setAttribute('aria-expanded', 'false');
+                }
+                if (sidebarClose) {
+                    sidebarClose.hidden = true;
+                }
+            }
+
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', function () {
+                    if (sidebar && sidebar.classList.contains('active')) {
+                        closeSidebar();
+                    } else {
+                        openSidebar();
+                    }
+                });
+            }
+            if (sidebarClose) {
+                sidebarClose.addEventListener('click', closeSidebar);
+            }
+            if (overlay) {
+                overlay.addEventListener('click', closeSidebar);
+            }
+
+            document.querySelectorAll('.nav-link').forEach(function (link) {
+                link.addEventListener('click', closeSidebar);
+            });
+
+            if (SITE_CONFIG.goatCounterEnabled && typeof goatcounter !== 'undefined') {
+                goatcounter.count({
+                    path: location.pathname + location.search
+                });
+            }
+        });
+    </script>
+
+    <script>
+        if (SITE_CONFIG.goatCounterEnabled) {
+            const script = document.createElement('script');
+            script.async = true;
+            script.setAttribute('data-goatcounter', 'https://' + SITE_CONFIG.goatCounterCode + '.goatcounter.com/count');
+            if (SITE_CONFIG.allowLocal) script.setAttribute('data-goatcounter-settings', 'allow_local:true');
+            if (SITE_CONFIG.allowFrame) script.setAttribute('data-goatcounter-settings', 'allow_frame:true');
+            if (SITE_CONFIG.noOnload) script.setAttribute('data-goatcounter-settings', 'no_onload:true');
+            script.src = 'https://gc.zgo.at/count.js';
+            document.head.appendChild(script);
+        }
+    </script>
+</body>
+</html>

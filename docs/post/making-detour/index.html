@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="I made a game!" id="meta-description">
+    <meta name="keywords" content="gamedev, game development, unity, unity3d, itch.io, Detour horror game, Twin Peaks, Fargo" id="meta-keywords">
+    <link rel="canonical" href="https://adrenak.github.io/post/making-detour/" id="canonical-link">
+    <meta property="og:title" content="Making Detour, a short and wholesome supernatural horror game">
+    <meta property="og:description" content="I made a game!">
+    <meta property="og:url" content="https://adrenak.github.io/post/making-detour/">
+    <meta property="og:site_name" content="Vatsal Ambastha">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://adrenak.github.io/content/images/detour/1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Making Detour, a short and wholesome supernatural horror game">
+    <meta name="twitter:description" content="I made a game!">
+    <meta name="twitter:image" content="https://adrenak.github.io/content/images/detour/1.png">
+    <title id="page-title">Making Detour, a short and wholesome supernatural horror game</title>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Making Detour, a short and wholesome supernatural horror game","description":"I made a game!","url":"https://adrenak.github.io/post/making-detour/","author":{"@type":"Person","name":"Vatsal Ambastha"},"image":"https://adrenak.github.io/content/images/detour/1.png","keywords":"gamedev,film"}</script>
+    <script>
+(function () {
+    var search = window.location.search;
+    if (!search) return;
+
+    var params = new URLSearchParams(search);
+    var root = "../../";
+    var path = window.location.pathname;
+    var target = null;
+
+    function tagPathSegment(tag) {
+        tag = String(tag || '').trim();
+        if (!tag) return 'tag';
+        if (tag.length <= 96 && /^[a-zA-Z0-9_-]+$/.test(tag)) return tag;
+        var s = encodeURIComponent(tag).replace(/%/g, '');
+        return s ? s.slice(0, 96) : 'tag';
+    }
+
+    if (params.has('post')) {
+        target = root + 'post/' + encodeURIComponent(params.get('post')) + '/';
+    } else if (params.get('page') === 'posts') {
+        target = root + 'posts/';
+    } else if (params.get('page') === 'home') {
+        target = root || './';
+    } else if (params.has('page')) {
+        target = root + params.get('page') + '/';
+    } else if (params.has('tag')) {
+        var tag = params.get('tag');
+        if (tag && tag.toLowerCase() === 'all') {
+            target = root + 'posts/';
+        } else if (tag) {
+            target = root + 'posts/tag/' + tagPathSegment(tag) + '/';
+        }
+    }
+
+    if (target) {
+        window.location.replace(target);
+    }
+})();
+</script>
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico" id="favicon-link">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png" id="apple-touch-icon-link">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="../../styles/theme-shell.css">
+    <link rel="stylesheet" href="../../styles/themes/adrenak.css" id="theme-palette-stylesheet">
+    <link rel="stylesheet" href="../../styles/layout.css">
+    <link rel="stylesheet" href="../../styles/content.css">
+    <link rel="stylesheet" href="../../styles/accordion.css">
+    <link rel="stylesheet" href="../../styles/responsive.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="mobile-topbar" id="mobile-topbar" aria-hidden="true">
+  <button type="button" class="mobile-menu-toggle" id="hamburger-menu" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <a class="mobile-topbar-brand" href="../../">
+    <img class="mobile-topbar-favicon" src="../../favicon.ico" alt="" width="22" height="22" />
+    <span class="mobile-topbar-title">Vatsal Ambastha</span>
+  </a>
+</header>
+
+
+        <aside class="sidebar" id="sidebar">
+            <button type="button" class="sidebar-close" id="sidebar-close" aria-label="Close menu" hidden><span class="sidebar-close-icon" aria-hidden="true">&times;</span></button>
+            <div class="sidebar-body">
+                <div class="sidebar-header">
+                    <h1>Vatsal Ambastha</h1>
+                </div>
+                <nav class="sidebar-main-nav">
+                    <a href="../../" class="nav-link">
+    <span class="nav-icon">🏠</span>
+    <span>Home</span>
+</a>
+<a href="../../posts/" class="nav-link">
+    <span class="nav-icon">✍️</span>
+    <span>Posts</span>
+</a>
+
+                </nav>
+                <nav class="sidebar-nav">
+                    <div class="sidebar-section">
+    <h3 class="section-title"></h3>
+    <ul class="section-list">
+        <li>
+            <a href="../../work/" class="nav-link">
+                <span>Work</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="sidebar-section">
+    <h3 class="section-title">🔗 Links</h3>
+    <ul class="section-list">
+        <li>
+            <a href="mailto:ambastha.vatsal@gmail.com" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <span>Email</span>
+                <span class="external-icon">↗</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.github.com/adrenak" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <span>Github</span>
+                <span class="external-icon">↗</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/vatsalambastha" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <span>LinkedIn</span>
+                <span class="external-icon">↗</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+                </nav>
+            </div>
+            <div class="sidebar-theme-switcher">
+  <label class="theme-switcher-label" for="gorky-theme-select">Theme</label>
+  <select id="gorky-theme-select" class="theme-select" aria-label="Color theme">
+    <option value="default">default</option>
+    <option value="adrenak" selected>adrenak</option>
+    <option value="candy">candy</option>
+    <option value="coralreef">coralreef</option>
+    <option value="cyberpunk">cyberpunk</option>
+    <option value="desert">desert</option>
+    <option value="dollhouse">dollhouse</option>
+    <option value="earthy">earthy</option>
+    <option value="finding-nemo">finding-nemo</option>
+    <option value="forest">forest</option>
+    <option value="frost">frost</option>
+    <option value="futurism">futurism</option>
+    <option value="hacker">hacker</option>
+    <option value="hellhole">hellhole</option>
+    <option value="magazine">magazine</option>
+    <option value="ocean">ocean</option>
+    <option value="pulpfiction">pulpfiction</option>
+    <option value="rustpunk">rustpunk</option>
+    <option value="simple-dark">simple-dark</option>
+    <option value="simple-light">simple-light</option>
+    <option value="thematrix">thematrix</option>
+    <option value="typewriter">typewriter</option>
+    <option value="underwater">underwater</option>
+    <option value="utopia">utopia</option>
+    <option value="vicecity">vicecity</option>
+  </select>
+</div>
+
+            <div class="sidebar-footer">
+    <a href="https://adrenak.github.io" class="footer-link" target="_blank" rel="noopener noreferrer">2025 © Vatsal Ambastha</a>
+    <a href="https://github.com/adrenak/gorky" class="footer-link" target="_blank" rel="noopener noreferrer">Get this website template</a>
+</div>
+
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <main class="main-content">
+            <div id="markdown-content">
+                <div class="post-metadata">
+  <h1 class="post-title">Making Detour, a short and wholesome supernatural horror game</h1>
+  <div class="post-date">14 Oct 2025</div>
+  <div class="post-tags">Tagged: <a href="../../posts/tag/gamedev/" class="tag-link">gamedev</a>, <a href="../../posts/tag/film/" class="tag-link">film</a></div>
+</div>
+
+                <p>This post is about a new game I made called Detour! </p>
+<iframe frameborder="0" src="https://itch.io/embed/3950754?linkback=true" width="552" height="167"><a href="https://adrenak.itch.io/detour">Detour by adrenak</a></iframe>  
+
+<p><img src="../../content/images/detour/1.png" alt=""></p>
+<blockquote>
+<p>THIS POST ALSO HAS SPOILERS FOR THE TV SHOW FARGO SEASON 1 AND 2!  </p>
+</blockquote>
+<h2>Fargo Season 2</h2>
+<p>Sometime in 2020 I was watching the second season of Fargo, the amazing crime anthology series.</p>
+<p>Episode 9 has a <a href="https://www.youtube.com/watch?v=1RdEEPH5Rvk">gunfight scene (see 3:45)</a> during which a UFO appears out of nowhere, briefly distracting the character attacking Lou Solverson (played by Patrick Wilson) that allows Lou to shoot him.</p>
+<p><img src="../../content/images/detour/2.png" alt=""></p>
+<blockquote>
+<p>The scene with the UFO plot twist in Fargo S2E9</p>
+</blockquote>
+<p>But, this was so unexpected. Fargo is a pretty grounded crime TV show. The first season was about Martin Freeman playing a fumbling and cowardly man gently but fatally hitting his wife on her head with a hammer during a petty argument. He spends the rest of the season evading capture while being pushed to his limits through a series of desperate situations.</p>
+<p><img src="../../content/images/detour/3.png" alt=""></p>
+<blockquote>
+<p>Martin Freeman in Fargo Season 1</p>
+</blockquote>
+<p>UFO references are teased throughout season 2. <a href="https://www.reddit.com/r/FargoTV/comments/1c5lurq/a_complete_list_of_every_time_ufos_aliens_or/">This Reddit post</a> does a great job of listing them. But it wasn&#39;t until episode 9 that I pieced it together, the show writers had been foreshadowing a scene like this all along. This same episode has a <a href="https://www.youtube.com/watch?v=Ra5SFTeHhE0&ref=vatsalambastha.com">scene</a> (at 2:05) in a convenience store which has a sticker on the wall with &quot;We are not alone&quot; written on it along with a UFO.</p>
+<h2>Violence and elevator music</h2>
+<p>It was after watching episode 9 that I thought the combination of a convenience store in a remote location, a murder and UFO activity would be an interesting premise for a game.</p>
+<p>I was also thinking about the kind of music convenience store or marts play which is like Muzak.</p>
+<p>Movies often interrupt an action intense scene with this kind of music for comedic effect. Think: John Wick fighting off a dozen people, stepping into an elevator with the typical funky elevator music playing, getting out and proceeding the action in another intense scene.</p>
+<p><img src="../../content/images/detour/4.png" alt=""></p>
+<blockquote>
+<p>This <a href="https://www.youtube.com/watch?v=inb1NxdoKNc&t=51s&ref=vatsalambastha.com">scene from Blues Brothers</a> has action interrupted by ironic elevator music</p>
+</blockquote>
+<p>And there are scenes where music like this plays while an intense activity happens, usually violent and the scene being shot with a still camera. This often makes that scene more cold, heartless and brutal.</p>
+<p>I felt pretty drawn to the idea of something like this happening in a convenience store while music plays. That inspired <a href="https://www.youtube.com/watch?v=WYqxcc6veYQ&ref=vatsalambastha.com">Detour&#39;s opening</a>.</p>
+<h2>Initial idea</h2>
+<p>The screen starts black with supermarket music playing. You hear footsteps followed by some struggle and screams, and then a gun going off.</p>
+<p>Screen fades in. Player is in a convenience store with a shopping list and the owner/cashier is dead.</p>
+<p>You pick up the items that you need and get out.</p>
+<p>Outside, you see you&#39;re in a very remote location. There&#39;s hardly anything. Just a motel and a gas station next to the store. This small area of limited commerce only exists here to cater to the drivers passing by, probably looking to stop for the night or buy something and keep going.</p>
+<p>You are on foot. In the distance you see police sirens and flashes. They&#39;ll take some minutes to get to you. </p>
+<p><img src="../../content/images/detour/5.png" alt=""></p>
+<blockquote>
+<p>I also wanted the game to have a circular view like this. But I decided not to go ahead with it. I still think it can be a nice look for some other game.</p>
+</blockquote>
+<p>You start to walk around. There&#39;s no one at the gas station. All rooms in the motel are locked.</p>
+<p>There&#39;s only one direction you can go in. The one opposite to where the cops are coming from. It&#39;s a road that goes through the woods.</p>
+<p>As you walk towards the forest, a humming noise starts to grow loud. It&#39;s not the police sirens, it&#39;s something else. From behind the tall trees in front of you emerges a huge UFO with a beam of light shooting on the ground. It starts to move towards you. No matter where you run it keeps following you and finally catches you and the scene fades to black.</p>
+<p>It&#39;s clear that you, the player, have been abducted. Dialogs appear. </p>
+<p>&quot;Did you get everything?&quot;<br>&quot;Almost&quot;<br>&quot;Almost?&quot;<br>&quot;Yes, I forgot the cake&quot;<br>&quot;Are you serious? And what&#39;s all this blood?&quot;<br>&quot;That&#39;s the cashiers...&quot;<br>&quot;WHAT?? Are you f***ing kidding me?&quot;  </p>
+<p>Proceed to have a verbal argument. It is revealed that you, a male alien and you wife/gf are on a road (space?) trip to somewhere. You&#39;d gone to the store to pick up some snacks in the middle of the trip and she really wanted the cake. You shot the cashier by mistake as he tried to tackle you, because, of course he was scared of you.</p>
+<p>A pretty typical couple fight, probably something you&#39;d see Martin Freeman and his wife in Fargo season 1 engage in. You as the player go through this argument and at the end they reach just enough of a truce to stop fighting and go ahead with your travels in silence and resentment and the game ends.</p>
+<p>So, it was basically a little walking simulator where you are playing thinking you&#39;re a violent criminal and the ending reveals what&#39;s really happening.</p>
+<h2>Giving up and rethinking the idea</h2>
+<p>Now, I had this idea in 2021. I had recently made and release <a href="https://adrenak.itch.io/deepdoor?ref=vatsalambastha.com">DEEPDOOR</a> which somehow became somewhat popular. You can read more about DEEPDOOR <a href="?post=deepdoor-lore">here</a>.</p>
+<p>It was around that time that I started working at ManageXR and was busy and excited about new beginnings there. The Detour idea took a backseat. A &quot;some day&quot; project even though it wasn&#39;t a lot of work.</p>
+<p>Some time later I also met my wife and the idea of making a game about a bickering couple that&#39;s hostile towards each other didn&#39;t seem like the best idea during the early days of us knowing each other. </p>
+<p>This was until a few months later when I was telling her about the idea and I realized the alien couple could be supportive. Which is when I knew, I can make a <em>wholesome</em> game.</p>
+<p><img src="../../content/images/detour/6.png" alt=""></p>
+<blockquote>
+<p>I&#39;m not sure if the idea occurred to me while we were having tea. But here&#39;s some tea I made.</p>
+</blockquote>
+<p>How about changing the game to feature an alien couple talking about snacks, baking and gossip? Needless to say, these dialogs are inspired by how my wife and I talk.</p>
+<h2>Twin Peaks</h2>
+<p>Despite this new take on Detour, I wasn&#39;t really working on it. The time I had outside my job at ManageXR I largely spent on my open source project UniVoice.</p>
+<p>Then David Lynch passed away in January 2025, and for months I had been thinking of watching his iconic TV show, Twin Peaks. We started watching it in May 2025.</p>
+<p>We absolutely binged that show. For days all we could talk about was that show. We read about it online, the fan theories, the hidden meanings. We were even dreaming about it in our sleep. The town of Twin Peaks felt like a place I know.</p>
+<p><img src="../../content/images/detour/7.png" alt=""></p>
+<blockquote>
+<p>The mountains, trees and winding roads of Twin Peaks</p>
+</blockquote>
+<p>With this came a lot of David Lynch interviews and fan videos in my YouTube video recommendations. Every couple of years I go into a Lynch rabbit hole, listening to him talk about creativity and his process. But this time it was different. And I felt like working on my idea.</p>
+<p>So then I started.</p>
+<h2>Going with the flow</h2>
+<p>I started making the map using whatever free assets and open source I could find on the asset store. I did buy a paid terrain plugin called <a href="https://assetstore.unity.com/packages/tools/terrain/atlas-terrain-editor-207568?ref=vatsalambastha.com">Atlas</a> that I&#39;ve wanted to try for a while. Although, I&#39;m not very happy with it. <a href="https://assetstore.unity.com/packages/tools/terrain/microverse-core-collection-232976?ref=vatsalambastha.com">MicroVerse</a> seems like a much better solution if you&#39;re looking for an alternative.</p>
+<p><img src="../../content/images/detour/8.png" alt=""></p>
+<blockquote>
+<p>Some terrain design work at ManageXR helped me brush up my world building skills.</p>
+</blockquote>
+<p>It was around that time that I had been working on <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338214619523534848/?ref=vatsalambastha.com">ManageXR&#39;s official 3D environment</a> which also has a terrain and foliage, which greatly affected how the Detour map looked.</p>
+<p>The initial plan was to be pixel-y and PS1-ish. But I decided to go with somewhat high fidelity lighting and post processing. The models themselves were relatively low poly and I didn&#39;t use much specular materials. The idea was to achieve a mid 2000s graphics style.</p>
+<p>I did use billboard trees which were lightmapped with a very very very low lightmap resolution, so I could have hundreds of them. The final result ended up looking somewhat like Source Engine. Here&#39;s a nice X page for <a href="https://x.com/sourcepics?lang=en&ref=vatsalambastha.com">Source Engine Aesthetics btw</a></p>
+<p><img src="../../content/images/detour/9.png" alt=""></p>
+<blockquote>
+<p>The Source Engine look in purely accidental. I love it!</p>
+</blockquote>
+<p>With no game design document, the entire game was completely improvised.</p>
+<p>There&#39;s a pond with still water. I actually had no plans to add a pond, but when I was making the terrain using some heightmap stamps of Atlas, I ended up with a crater-like formation by mistake. At first I thought I&#39;ll fill it densely with trees and have a bonfire at the bottom to attract the user. But I think I couldn&#39;t find any free bonfire assets I was happy with and I instead made it into a pond.</p>
+<p><img src="../../content/images/detour/10.png" alt=""></p>
+<blockquote>
+<p>Fog, darkness and a wooden bridge on the verge of collapse.</p>
+</blockquote>
+<p>I thought I had finished the game, but I realized that the &quot;happy path&quot; of the gameplay is too linear and straightforward. But at the same time people did get confused about where they need to go. So I added a mobile home that you can enter to get some hints and also add to the backstory of what&#39;s happening in this small time.</p>
+<p>I added some references to Twin Peaks, specifically the main character Dale Cooper. This included his love for coffee, a tape recorder with an 11Labs voice that somewhat resembles Kyle MacLachlan&#39;s where he starts off talking about his investigation but then goes into minute detail about the kind of suit he wants. Classic Dale!</p>
+<p>After you have everything, you pass the lake and go up the hill you find a transformer. Interacting with it causes loud thunder and lightning. Streaks of electricity emerge from some lamp poles and reach toward the sky. And there&#39;s a loud rumble like an earthquake. </p>
+<p>A giant UFO emerges from behind the hills which moves towards you. It stops right above the center of the pond. When you walk to the spot right below the UFO, the screen goes black. </p>
+<p>Dialogs appear. Screen fades in. Music fades in. You see two aliens sitting in a UFO talking. The dialogs reveal that you&#39;re just a pretty decent alien who wanted to buy some snacks for your trip.</p>
+<h2>Lessons drawn</h2>
+<p>Lately a lot of people have made some good arguments about making small games. Games that don&#39;t take too long to make or play.</p>
+<p>What I love about these games is that I know I&#39;d not be maintaining it and that it won&#39;t get too complicated. When I feel something doesn&#39;t make sense, I can even turn an idea completely on its head and move on. It&#39;s like the game develops in front of you.</p>
+<p>From a developer/designer point of view, I had fun with the improvised nature of this project. The code was written with full knowledge that it&#39;ll be thrown away. Although between DEEPDOOR and Detour, there is some code I can polish and make it a part of my toolkit.</p>
+<p>Visually I think I managed to make it a LOT better looking that I thought I could. For a small itch.io game, I&#39;m pretty happy with how it looks!</p>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+        const SITE_CONFIG =             {
+                      "baseUrl": "https://adrenak.github.io",
+                      "siteName": "Vatsal Ambastha",
+                      "authorName": "Vatsal Ambastha",
+                      "defaultDescription": "Personal website and blog of Vatsal Ambastha",
+                      "defaultKeywords": "Unity, game development, virtual reality, ManageXR, open source, unity3d, AR, VR",
+                      "favicon": "favicon.ico",
+                      "appleTouchIcon": "apple-touch-icon.png",
+                      "avatar": "content/images/sf.jpg",
+                      "goatCounterEnabled": true,
+                      "goatCounterCode": "vatsalambastha",
+                      "allowLocal": false,
+                      "allowFrame": false,
+                      "noOnload": false,
+                      "theme": "adrenak",
+                      "postsPerPage": 10,
+                      "themeOptions": [
+                                "default",
+                                "adrenak",
+                                "candy",
+                                "coralreef",
+                                "cyberpunk",
+                                "desert",
+                                "dollhouse",
+                                "earthy",
+                                "finding-nemo",
+                                "forest",
+                                "frost",
+                                "futurism",
+                                "hacker",
+                                "hellhole",
+                                "magazine",
+                                "ocean",
+                                "pulpfiction",
+                                "rustpunk",
+                                "simple-dark",
+                                "simple-light",
+                                "thematrix",
+                                "typewriter",
+                                "underwater",
+                                "utopia",
+                                "vicecity"
+                      ],
+                      "sidebar": {
+                                "header": "Vatsal Ambastha",
+                                "homeDisplayName": "🏠 Home",
+                                "postsDisplayName": "✍️ Posts",
+                                "footer": [
+                                          {
+                                                    "text": "2025 © Vatsal Ambastha",
+                                                    "target": "https://adrenak.github.io",
+                                                    "openInNewTab": true
+                                          },
+                                          {
+                                                    "text": "Get this website template",
+                                                    "target": "https://github.com/adrenak/gorky",
+                                                    "openInNewTab": true
+                                          }
+                                ],
+                                "sections": {
+                                          "": {
+                                                    "Work": {
+                                                              "target": "?page=work",
+                                                              "openInNewTab": false
+                                                    }
+                                          },
+                                          "🔗 Links": {
+                                                    "Email": {
+                                                              "target": "mailto:ambastha.vatsal@gmail.com",
+                                                              "openInNewTab": true
+                                                    },
+                                                    "Github": {
+                                                              "target": "https://www.github.com/adrenak",
+                                                              "openInNewTab": true
+                                                    },
+                                                    "LinkedIn": {
+                                                              "target": "https://www.linkedin.com/in/vatsalambastha",
+                                                              "openInNewTab": true
+                                                    }
+                                          }
+                                }
+                      }
+            };
+        const ASSET_PREFIX = "../../";
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const markdownContent = document.getElementById('markdown-content');
+
+            if (window.Prism) {
+                Prism.highlightAll();
+            }
+
+            if (typeof Splide !== 'undefined' && markdownContent) {
+                markdownContent.querySelectorAll('.splide.gorky-carousel').forEach(function (carouselRoot) {
+                    new Splide(carouselRoot, {
+                        type: 'loop',
+                        perPage: 1,
+                        gap: '1rem',
+                        pagination: true,
+                        arrows: true,
+                    }).mount();
+                });
+            }
+
+            if (SITE_CONFIG.favicon) {
+                const faviconLink = document.getElementById('favicon-link');
+                if (faviconLink) {
+                    const faviconPath = SITE_CONFIG.favicon.startsWith('http')
+                        ? SITE_CONFIG.favicon
+                        : ASSET_PREFIX + SITE_CONFIG.favicon.replace(/^\//, '');
+                    faviconLink.setAttribute('href', faviconPath);
+                }
+            }
+            if (SITE_CONFIG.appleTouchIcon) {
+                const appleIconLink = document.getElementById('apple-touch-icon-link');
+                if (appleIconLink) {
+                    const iconPath = SITE_CONFIG.appleTouchIcon.startsWith('http')
+                        ? SITE_CONFIG.appleTouchIcon
+                        : ASSET_PREFIX + SITE_CONFIG.appleTouchIcon.replace(/^\//, '');
+                    appleIconLink.setAttribute('href', iconPath);
+                }
+            }
+
+            (function initThemeSwitcher() {
+                var opts = SITE_CONFIG.themeOptions;
+                if (!Array.isArray(opts) || opts.length === 0) return;
+                var select = document.getElementById('gorky-theme-select');
+                var link = document.getElementById('theme-palette-stylesheet');
+                if (!select || !link) return;
+
+                function safeName(v) {
+                    v = String(v || '').trim();
+                    if (v.endsWith('.css')) v = v.slice(0, -4).trim();
+                    if (!v || v.length > 96 || !/^[a-zA-Z0-9_-]+$/.test(v)) return '';
+                    return v;
+                }
+
+                var allowed = {};
+                opts.forEach(function (o) {
+                    var s = safeName(o);
+                    if (s) allowed[s] = true;
+                });
+                var buildTheme = safeName(SITE_CONFIG.theme) || 'default';
+                allowed[buildTheme] = true;
+
+                function themeStorageKey() {
+                    var id = SITE_CONFIG.themeStorageId;
+                    if (typeof id === 'string') {
+                        id = id.trim();
+                        if (id && id.length <= 96 && /^[a-zA-Z0-9_-]+$/.test(id)) {
+                            return 'gorky-theme:' + id;
+                        }
+                    }
+                    var base = SITE_CONFIG.baseUrl;
+                    if (base && typeof base === 'string') {
+                        try {
+                            var u = new URL(base, window.location.href);
+                            var pathKey = u.pathname.replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'root';
+                            return 'gorky-theme:' + pathKey;
+                        } catch (err) {}
+                    }
+                    if (SITE_CONFIG.siteName) {
+                        var slug = String(SITE_CONFIG.siteName).trim().toLowerCase()
+                            .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+                        if (slug) return 'gorky-theme:' + slug;
+                    }
+                    var pagePath = window.location.pathname.replace(/\/index\.html$/i, '')
+                        .replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'root';
+                    return 'gorky-theme:' + pagePath;
+                }
+
+                var storageKey = themeStorageKey();
+
+                function applyTheme(name, persist) {
+                    var n = safeName(name);
+                    if (!n || !allowed[n]) return;
+                    link.setAttribute('href', ASSET_PREFIX + 'styles/themes/' + n + '.css');
+                    if (persist !== false) {
+                        try { localStorage.setItem(storageKey, n); } catch (err) {}
+                    }
+                    select.value = n;
+                }
+
+                var stored = '';
+                try {
+                    stored = localStorage.getItem(storageKey) || '';
+                    if (!stored) {
+                        var legacy = localStorage.getItem('gorky-theme') || '';
+                        if (legacy && allowed[legacy]) {
+                            stored = legacy;
+                            localStorage.setItem(storageKey, legacy);
+                        }
+                    }
+                } catch (err) {}
+                if (stored && allowed[stored]) {
+                    applyTheme(stored, false);
+                }
+
+                select.addEventListener('change', function () {
+                    applyTheme(select.value);
+                });
+            })();
+
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            const sidebarClose = document.getElementById('sidebar-close');
+
+            function openSidebar() {
+                if (!sidebar || !overlay) return;
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.body.classList.add('sidebar-open');
+                if (hamburgerMenu) {
+                    hamburgerMenu.setAttribute('aria-expanded', 'true');
+                }
+                if (sidebarClose) {
+                    sidebarClose.hidden = false;
+                }
+            }
+
+            function closeSidebar() {
+                if (!sidebar || !overlay) return;
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('sidebar-open');
+                if (hamburgerMenu) {
+                    hamburgerMenu.setAttribute('aria-expanded', 'false');
+                }
+                if (sidebarClose) {
+                    sidebarClose.hidden = true;
+                }
+            }
+
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', function () {
+                    if (sidebar && sidebar.classList.contains('active')) {
+                        closeSidebar();
+                    } else {
+                        openSidebar();
+                    }
+                });
+            }
+            if (sidebarClose) {
+                sidebarClose.addEventListener('click', closeSidebar);
+            }
+            if (overlay) {
+                overlay.addEventListener('click', closeSidebar);
+            }
+
+            document.querySelectorAll('.nav-link').forEach(function (link) {
+                link.addEventListener('click', closeSidebar);
+            });
+
+            if (SITE_CONFIG.goatCounterEnabled && typeof goatcounter !== 'undefined') {
+                goatcounter.count({
+                    path: location.pathname + location.search
+                });
+            }
+        });
+    </script>
+
+    <script>
+        if (SITE_CONFIG.goatCounterEnabled) {
+            const script = document.createElement('script');
+            script.async = true;
+            script.setAttribute('data-goatcounter', 'https://' + SITE_CONFIG.goatCounterCode + '.goatcounter.com/count');
+            if (SITE_CONFIG.allowLocal) script.setAttribute('data-goatcounter-settings', 'allow_local:true');
+            if (SITE_CONFIG.allowFrame) script.setAttribute('data-goatcounter-settings', 'allow_frame:true');
+            if (SITE_CONFIG.noOnload) script.setAttribute('data-goatcounter-settings', 'no_onload:true');
+            script.src = 'https://gc.zgo.at/count.js';
+            document.head.appendChild(script);
+        }
+    </script>
+</body>
+</html>

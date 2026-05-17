@@ -1,108 +1,91 @@
+---
+title: Posts
+description: 'Thoughts on code, games, and whatever else I''m tinkering with.'
+---
+Here's a collection of random thoughts. Sometimes about games, sometimes about code. 
+
+Sometimes it's just general life stuff and thoughts.
+
 # Posts
 
 ## Tags
 
-[opensource (15)](?tag=opensource) • [univoice (14)](?tag=univoice) • [film (3)](?tag=film) • [gamedev (3)](?tag=gamedev) • [life (2)](?tag=life) • [travel (1)](?tag=travel) • [unimic (1)](?tag=unimic)
+[All (20)](./) • [opensource (15)](tag/opensource/) • [univoice (14)](tag/univoice/) • [film (3)](tag/film/) • [gamedev (3)](tag/gamedev/) • [life (2)](tag/life/) • [travel (1)](tag/travel/) • [unimic (1)](tag/unimic/)
 
 ---
 
-<div class="post-entry">
+<div class="post-entry" data-tags="gamedev,film" data-listing-index="0">
 <img src="content/images/dumb-games/thumb.jpg" alt="Small dumb games" class="post-thumbnail" />
 <div class="post-content">
-<h2><a href="?post=small-dumb-games">Small dumb games</a></h2>
+<h2><a href="../post/small-dumb-games/">Small dumb games</a></h2>
 <p>I want to play and make smaller, dumber games.</p>
 </div>
 </div>
 
-## [UniVoice 4.11.0. Client tags fixes and samples](?post=univoice-client-tags-2)
+<div class="post-entry" data-tags="opensource,univoice" data-listing-index="1">
+<div class="post-content">
+<h2><a href="../post/univoice-client-tags-2/">UniVoice 4.11.0. Client tags fixes and samples</a></h2>
+<p>I released something broken which I have now fixed. And created a sample to further make up for it.</p>
+</div>
+</div>
 
-I released something broken which I have now fixed. And created a sample to further make up for it.
+<div class="post-entry" data-tags="opensource" data-listing-index="2">
+<div class="post-content">
+<h2><a href="../post/github-workflows-for-upm/">Some Github workflows for UPM repositories</a></h2>
+<p>Making life a little easier.</p>
+</div>
+</div>
 
-## [Some Github workflows for UPM repositories](?post=github-workflows-for-upm)
-
-Making life a little easier.
-
-<div class="post-entry">
+<div class="post-entry" data-tags="life,travel" data-listing-index="3">
 <img src="content/images/oasis-australia.jpg" alt="Oasis reunion and a year with (almost) no social media" class="post-thumbnail" />
 <div class="post-content">
-<h2><a href="?post=oasis-in-australia">Oasis reunion and a year with (almost) no social media</a></h2>
+<h2><a href="../post/oasis-in-australia/">Oasis reunion and a year with (almost) no social media</a></h2>
 <p>The great wait is over.</p>
 </div>
 </div>
 
-## [UniVoice 4.10.0 SimpleVadFilter](?post=univoice-simple-vad)
+<div class="post-entry" data-tags="univoice,opensource" data-listing-index="4">
+<div class="post-content">
+<h2><a href="../post/univoice-simple-vad/">UniVoice 4.10.0 SimpleVadFilter</a></h2>
+<p>Simple Voice Activity Detection to reduce bandwidth usage.</p>
+</div>
+</div>
 
-Simple Voice Activity Detection to reduce bandwidth usage.
-
-<div class="post-entry">
+<div class="post-entry" data-tags="gamedev,film" data-listing-index="5">
 <img src="content/images/detour/1.png" alt="Making Detour, a short and wholesome supernatural horror game" class="post-thumbnail" />
 <div class="post-content">
-<h2><a href="?post=making-detour">Making Detour, a short and wholesome supernatural horror game</a></h2>
+<h2><a href="../post/making-detour/">Making Detour, a short and wholesome supernatural horror game</a></h2>
 <p>I made a game!</p>
 </div>
 </div>
 
-## [UniVoice 4.9.0  WavFileWriter and plans for recording features](?post=univoice-wavfilewriter)
-
-Write streaming audio to .wav files. More advanced features to come!
-
-## [UniVoice 4.8.0  FishNet support](?post=univoice-fishnet-support)
-
-UniVoice has early FishNet support, consider it in beta. Thanks to Frantisek Holubec for the contribution!
-
-## [UniVoice 4.7.0  Client Tags](?post=univoice-client-tags)
-
-Create chat groups within a chatroom easily. E.g. team voice chat in a 5v5 game
-
-## [UniVoice 4.6.0  Per peer output filters](?post=univoice-per-peer-output-filters)
-
-Each connected peer now has their own filter list. This fixes an Opus decoding bug.
-
-<div class="post-entry">
-<img src="content/images/deepdoor.jpg" alt="The missing lore of DEEPDOOR" class="post-thumbnail" />
+<div class="post-entry" data-tags="univoice,opensource" data-listing-index="6">
 <div class="post-content">
-<h2><a href="?post=deepdoor-lore">The missing lore of DEEPDOOR</a></h2>
-<p>This was a pretty short game and left many things unexplained. There was more to it.</p>
+<h2><a href="../post/univoice-wavfilewriter/">UniVoice 4.9.0  WavFileWriter and plans for recording features</a></h2>
+<p>Write streaming audio to .wav files. More advanced features to come!</p>
 </div>
 </div>
 
-## [UniMic 3.3.0  StreamedAudioSource improvements, thanks to Metater@github](?post=unimic-metater-thanks)
-
-Updates to UniMic that makes playback of real-time streaming audio much better.
-
-## [UniVoice recipe  Adding proximity audio](?post=univoice-recipe-adding-proximity-audio)
-
-People keep asking me about it, it's achievable and quite simple. Here's a guide!
-
-## [UniVoice 4.5.1  Mirror Host mode support](?post=mirror-host-mode-support)
-
-Because sometimes the server is also a client. Read this for co-op or relay server based games.
-
-## [Morning thoughts of a night owl](?post=morning-thoughts)
-
-After a decade of inconsistent sleeping habits I finally seem to have found something that works for me.
-
-<div class="post-entry">
-<img src="content/images/univoice-mirror-basic-tutorial.webp" alt="UniVoice 4.4.0  Drag and drop integration (with YouTube tutorial)" class="post-thumbnail" />
+<div class="post-entry" data-tags="univoice,opensource" data-listing-index="7">
 <div class="post-content">
-<h2><a href="?post=univoice-drag-and-drop-integration">UniVoice 4.4.0  Drag and drop integration (with YouTube tutorial)</a></h2>
-<p>Most UniVoice integration are pretty similar. So just use (or modify) this script.</p>
+<h2><a href="../post/univoice-fishnet-support/">UniVoice 4.8.0  FishNet support</a></h2>
+<p>UniVoice has early FishNet support, consider it in beta. Thanks to Frantisek Holubec for the contribution!</p>
 </div>
 </div>
 
-## [UniVoice 4.3.0  Easy Push To Talk](?post=univoice-easy-push-to-talk)
+<div class="post-entry" data-tags="univoice,opensource" data-listing-index="8">
+<div class="post-content">
+<h2><a href="../post/univoice-client-tags/">UniVoice 4.7.0  Client Tags</a></h2>
+<p>Create chat groups within a chatroom easily. E.g. team voice chat in a 5v5 game</p>
+</div>
+</div>
 
-Push to talk saves bandwidth and gives your users more control. These new features save you time when implementing it.
+<div class="post-entry" data-tags="univoice,opensource" data-listing-index="9">
+<div class="post-content">
+<h2><a href="../post/univoice-per-peer-output-filters/">UniVoice 4.6.0  Per peer output filters</a></h2>
+<p>Each connected peer now has their own filter list. This fixes an Opus decoding bug.</p>
+</div>
+</div>
 
-## [UniVoice 4.x.x upgrade guide](?post=univoice-4-upgrade-guide)
-
-A lot of things changed and broke between v3 and v4. Here's what you need to know.
-
-## [UniVoice 4.2.0  RNNoise noise cancellation](?post=univoice-rnnoise)
-
-Just because your mic captures every little thing doesn't mean the other person needs to hear it. Filter that noise!
-
-## [UniVoice is now (almost) a mono repo](?post=univoice-mono-repo)
-
-All those separate repos were really slowing everyone down. A few things still exist in separate repos.
+<nav class="posts-pagination" aria-label="Posts pages"><span class="posts-pagination-status">Page 1 of 2</span><a href="page/2/" class="posts-pagination-link">Next →</a></nav>
 

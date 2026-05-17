@@ -1,0 +1,54 @@
+/* Dollhouse — soft chalk pastels, gentle contrast */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --font-weight-body: 400;
+    --font-weight-nav-active: 500;
+    --font-weight-heading: 600;
+    --font-weight-section-label: 750;
+    /* Typography */
+    --font-family-body: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-heading: var(--font-family-body);
+    --font-family-mono: 'JetBrains Mono', 'Courier New', Consolas, monospace;
+    --font-size-body: 1.05rem;
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+    --font-size-sidebar-title: 1.25rem;
+    --font-size-nav: 0.9rem;
+    --font-size-nav-icon: 1.1rem;
+    --font-size-section-label: 0.7rem;
+    --font-size-theme-select: 0.85rem;
+    --font-size-footer: 0.75rem;
+    --font-size-code: 0.9em;
+    --line-height-body: 1.75;
+
+    --color-content-bg: #f8f6fa;
+    --color-text: #6a5d73;
+
+    --color-accent: #9b7fab;
+    --color-accent-hover: #7e6892;
+    --color-muted: #95899e;
+
+    --color-border: #e0d8e8;
+    --color-code-bg: #efebf4;
+    --color-carousel-bg: #e8e2f0;
+
+    --color-carousel-arrow-bg: rgba(255, 255, 255, 0.92);
+    --color-carousel-arrow-bg-hover: #ffffff;
+    --color-carousel-arrow-icon: rgba(20, 20, 20, 0.9);
+    --color-carousel-arrow-shadow: rgba(0, 0, 0, 0.2);
+    --color-carousel-pagination-dot: rgba(0, 0, 0, 0.35);
+
+    --color-sidebar-bg: #ebe3ef;
+    --color-sidebar-active: #c4b0d4;
+    --color-nav-active-text: #453a4d;
+    --color-nav-idle: rgba(90, 78, 100, 0.55);
+    --color-nav-hover-bg: #ddd2e4;
+    --color-nav-hover-text: #3d3445;
+    --color-section-title: rgba(100, 88, 112, 0.5);
+
+    --color-footer-text: rgba(255, 255, 255, 0.9);
+    --color-footer-hover: #f7f2fa;
+}

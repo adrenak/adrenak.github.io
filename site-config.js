@@ -7,6 +7,7 @@ module.exports = {
     defaultKeywords: 'Unity, game development, virtual reality, ManageXR, open source, unity3d, AR, VR',
     favicon: 'favicon.ico',
     appleTouchIcon: 'apple-touch-icon.png',
+    avatar: 'content/images/sf.jpg',
     
     // GoatCounter Analytics Configuration
     goatCounterEnabled: true,
@@ -14,6 +15,38 @@ module.exports = {
     allowLocal: false,
     allowFrame: false,
     noOnload: false,
+
+    theme: 'adrenak',
+
+    postsPerPage: 10,
+
+    themeOptions: [
+        'default',
+        'adrenak',
+        'candy',
+        'coralreef',
+        'cyberpunk',
+        'desert',
+        'dollhouse',
+        'earthy',
+        'finding-nemo',
+        'forest',
+        'frost',
+        'futurism',
+        'hacker',
+        'hellhole',
+        'magazine',
+        'ocean',
+        'pulpfiction',
+        'rustpunk',
+        'simple-dark',
+        'simple-light',
+        'thematrix',
+        'typewriter',
+        'underwater',
+        'utopia',
+        'vicecity',
+    ],
     
     // Sidebar Configuration
     sidebar: {
@@ -56,4 +89,3 @@ module.exports = {
         }
     }
 };
-

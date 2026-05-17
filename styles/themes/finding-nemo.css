@@ -1,0 +1,55 @@
+/* Finding Nemo–inspired — playful reef blue, warm orange pop, anemone purple */
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Fredoka:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --font-weight-body: 400;
+    --font-weight-nav-active: 500;
+    --font-weight-heading: 600;
+    --font-weight-section-label: 750;
+    /* Typography */
+    --font-family-body: 'Comfortaa', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-heading: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-mono: 'JetBrains Mono', 'Courier New', Consolas, monospace;
+    --font-size-body: 1.05rem;
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+    --font-size-sidebar-title: 1.25rem;
+    --font-size-nav: 0.9rem;
+    --font-size-nav-icon: 1.1rem;
+    --font-size-section-label: 0.7rem;
+    --font-size-theme-select: 0.85rem;
+    --font-size-footer: 0.75rem;
+    --font-size-code: 0.9em;
+    --line-height-body: 1.7;
+
+    --color-content-bg: #eff8ff;
+    --color-text: #1e3a5f;
+
+    --color-accent: #ea580c;
+    --color-accent-hover: #7c3aed;
+    --color-muted: #5b6b8c;
+
+    --color-border: #93c5fd;
+    --color-code-bg: #dbeafe;
+    --color-carousel-bg: #fef3c7;
+
+    --color-carousel-arrow-bg: rgba(255, 255, 255, 0.92);
+    --color-carousel-arrow-bg-hover: #ffffff;
+    --color-carousel-arrow-icon: rgba(20, 20, 20, 0.9);
+    --color-carousel-arrow-shadow: rgba(0, 0, 0, 0.2);
+    --color-carousel-pagination-dot: rgba(0, 0, 0, 0.35);
+
+    --color-sidebar-bg: #1d4ed8;
+    --color-sidebar-title: #ffffff;
+    --color-sidebar-active: #f59e0b;
+    --color-nav-active-text: #1e1b4b;
+    --color-nav-idle: rgba(255, 255, 255, 0.88);
+    --color-nav-hover-bg: #2563eb;
+    --color-nav-hover-text: #ffffff;
+    --color-section-title: rgba(219, 234, 254, 0.75);
+
+    --color-footer-text: rgba(30, 27, 75, 0.9);
+    --color-footer-hover: #fff7ed;
+}

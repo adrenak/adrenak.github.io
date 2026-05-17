@@ -1,0 +1,54 @@
+/* Candy — Candy Crush–style jewel tones (bright, saturated) */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --font-weight-body: 400;
+    --font-weight-nav-active: 500;
+    --font-weight-heading: 600;
+    --font-weight-section-label: 750;
+    /* Typography */
+    --font-family-body: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-heading: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-mono: 'JetBrains Mono', 'Courier New', Consolas, monospace;
+    --font-size-body: 1.05rem;
+    --font-size-h1: 2.15rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+    --font-size-sidebar-title: 1.25rem;
+    --font-size-nav: 0.9rem;
+    --font-size-nav-icon: 1.1rem;
+    --font-size-section-label: 0.7rem;
+    --font-size-theme-select: 0.85rem;
+    --font-size-footer: 0.75rem;
+    --font-size-code: 0.9em;
+    --line-height-body: 1.7;
+
+    --color-content-bg: #d9f4ff;
+    --color-text: #3a1f5c;
+
+    --color-accent: #ff1b8d;
+    --color-accent-hover: #ff6f00;
+    --color-muted: #6b4fb8;
+
+    --color-border: #18b0ff;
+    --color-code-bg: #fff6d9;
+    --color-carousel-bg: #ffd0ef;
+
+    --color-carousel-arrow-bg: rgba(255, 255, 255, 0.92);
+    --color-carousel-arrow-bg-hover: #ffffff;
+    --color-carousel-arrow-icon: rgba(20, 20, 20, 0.9);
+    --color-carousel-arrow-shadow: rgba(0, 0, 0, 0.2);
+    --color-carousel-pagination-dot: rgba(0, 0, 0, 0.35);
+
+    --color-sidebar-bg: #6d28d9;
+    --color-sidebar-active: #00c9a7;
+    --color-nav-active-text: #ffffff;
+    --color-nav-idle: rgba(255, 255, 255, 0.9);
+    --color-nav-hover-bg: #8b5cf6;
+    --color-nav-hover-text: #ffffff;
+    --color-section-title: rgba(255, 255, 255, 0.8);
+
+    --color-footer-text: rgba(255, 255, 255, 0.88);
+    --color-footer-hover: #fff59d;
+}
