@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="0;url=https://gist.githubusercontent.com/adrenak/198cad1a2ecef037f6545490d4f7c96c/raw/png2jpg-ffmpeg.sh">
+    <title>Redirect</title>
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="../../styles/theme-shell.css">
+    <link rel="stylesheet" href="../../styles/themes/adrenak.css" id="theme-palette-stylesheet">
+    <style>
+        body.redirect-page-body {
+            margin: 0;
+            min-height: 100vh;
+            overflow: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background-color: var(--color-content-bg, #fafafa);
+            color: var(--color-text, #333);
+            font-family: var(--font-family-body, system-ui, sans-serif);
+            font-size: var(--font-size-body, 1rem);
+            line-height: var(--line-height-body, 1.6);
+        }
+        .redirect-page {
+            width: min(48rem, 92vw);
+            max-width: 48rem;
+            text-align: center;
+        }
+        .redirect-page p + p {
+            margin-top: 1rem;
+        }
+        .redirect-fallback a {
+            display: inline-block;
+            margin-top: 0.35rem;
+        }
+        .redirect-page a {
+            color: var(--color-link, #06c);
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+        .redirect-page a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        const SITE_CONFIG = {"baseUrl":"https://adrenak.github.io","siteName":"Vatsal Ambastha","authorName":"Vatsal Ambastha","defaultDescription":"Personal website and blog of Vatsal Ambastha","defaultKeywords":"Unity, game development, virtual reality, ManageXR, open source, unity3d, AR, VR","favicon":"favicon.ico","appleTouchIcon":"apple-touch-icon.png","avatar":"content/images/sf.jpg","goatCounterEnabled":true,"goatCounterCode":"vatsalambastha","allowLocal":false,"allowFrame":false,"noOnload":false,"theme":"adrenak","postsPerPage":10,"themeOptions":["default","adrenak","candy","coralreef","cyberpunk","desert","dollhouse","earthy","finding-nemo","forest","frost","futurism","hacker","hellhole","magazine","ocean","pulpfiction","rustpunk","simple-dark","simple-light","thematrix","typewriter","underwater","utopia","vicecity"],"sidebar":{"header":"Vatsal Ambastha","homeDisplayName":"🏠 Home","postsDisplayName":"✍️ Posts","footer":[{"text":"2025 © Vatsal Ambastha","target":"https://adrenak.github.io","openInNewTab":true},{"text":"Get this website template","target":"https://github.com/adrenak/gorky","openInNewTab":true}],"sections":{"":{"Work":{"target":"?page=work","openInNewTab":false}},"🔗 Links":{"Email":{"target":"mailto:ambastha.vatsal@gmail.com","openInNewTab":true},"Github":{"target":"https://www.github.com/adrenak","openInNewTab":true},"LinkedIn":{"target":"https://www.linkedin.com/in/vatsalambastha","openInNewTab":true}}}}};
+        const ASSET_PREFIX = "../../";
+        document.addEventListener('DOMContentLoaded', function () {
+            (function initThemeFromStorage() {
+                var opts = SITE_CONFIG.themeOptions;
+                if (!Array.isArray(opts) || opts.length === 0) return;
+                var link = document.getElementById('theme-palette-stylesheet');
+                if (!link) return;
+
+                function safeName(v) {
+                    v = String(v || '').trim();
+                    if (v.endsWith('.css')) v = v.slice(0, -4).trim();
+                    if (!v || v.length > 96 || !/^[a-zA-Z0-9_-]+$/.test(v)) return '';
+                    return v;
+                }
+
+                var allowed = {};
+                opts.forEach(function (o) {
+                    var s = safeName(o);
+                    if (s) allowed[s] = true;
+                });
+                var buildTheme = safeName(SITE_CONFIG.theme) || 'default';
+                allowed[buildTheme] = true;
+
+                function themeStorageKey() {
+                    var id = SITE_CONFIG.themeStorageId;
+                    if (typeof id === 'string') {
+                        id = id.trim();
+                        if (id && id.length <= 96 && /^[a-zA-Z0-9_-]+$/.test(id)) {
+                            return 'gorky-theme:' + id;
+                        }
+                    }
+                    var base = SITE_CONFIG.baseUrl;
+                    if (base && typeof base === 'string') {
+                        try {
+                            var u = new URL(base, window.location.href);
+                            var pathKey = u.pathname.replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'root';
+                            return 'gorky-theme:' + pathKey;
+                        } catch (err) {}
+                    }
+                    if (SITE_CONFIG.siteName) {
+                        var slug = String(SITE_CONFIG.siteName).trim().toLowerCase()
+                            .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+                        if (slug) return 'gorky-theme:' + slug;
+                    }
+                    var pagePath = window.location.pathname.replace(/\/index\.html$/i, '')
+                        .replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'root';
+                    return 'gorky-theme:' + pagePath;
+                }
+
+                var storageKey = themeStorageKey();
+                var stored = '';
+                try {
+                    stored = localStorage.getItem(storageKey) || '';
+                    if (!stored) {
+                        var legacy = localStorage.getItem('gorky-theme') || '';
+                        if (legacy && allowed[legacy]) stored = legacy;
+                    }
+                } catch (err) {}
+                var name = stored && allowed[stored] ? stored : buildTheme;
+                if (name && allowed[name]) {
+                    link.setAttribute('href', ASSET_PREFIX + 'styles/themes/' + name + '.css');
+                }
+            })();
+        });
+    </script>
+    <script>
+function recordRedirect() {
+    if (typeof goatcounter !== 'undefined') {
+        goatcounter.count({ path: 'r-png2jpg-ffmpeg', event: true, title: 'r/png2jpg-ffmpeg (Vatsal Ambastha)' });
+    }
+}
+(function () {
+    var target = 'https://gist.githubusercontent.com/adrenak/198cad1a2ecef037f6545490d4f7c96c/raw/png2jpg-ffmpeg.sh';
+    function go() { location.replace(target); }
+    var script = document.createElement('script');
+    script.async = true;
+    script.setAttribute('data-goatcounter', 'https://vatsalambastha.goatcounter.com/count');
+    script.src = 'https://gc.zgo.at/count.js';
+    script.onload = function () { recordRedirect(); go(); };
+    script.onerror = go;
+    document.head.appendChild(script);
+    setTimeout(go, 400);
+})();
+</script>
+</head>
+<body class="redirect-page-body">
+    <main class="redirect-page">
+        <p class="redirect-message">Redirecting you to gist.githubusercontent.com/adrenak/198cad1a2ecef037f6545490d4f7c96c/raw/png2jpg-ffmpeg.sh…</p>
+        <p class="redirect-fallback">If you are not redirected automatically, click here:<br><a href="https://gist.githubusercontent.com/adrenak/198cad1a2ecef037f6545490d4f7c96c/raw/png2jpg-ffmpeg.sh" rel="noopener noreferrer">https://gist.githubusercontent.com/adrenak/198cad1a2ecef037f6545490d4f7c96c/raw/png2jpg-ffmpeg.sh</a></p>
+    </main>
+</body>
+</html>

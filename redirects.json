@@ -1,0 +1,19 @@
+{
+  "defaults": {
+    "delay": 0
+  },
+  "redirects": {
+    "/shockface-discord": {
+      "url": "https://discord.com/invite/9PruHaftWM",
+      "delay": 1000,
+      "message": "Taking you to the SHOCKFACE Discord server!"
+    },
+    "/univoice-discord": {
+      "url": "https://discord.com/invite/NGvkEVbdjQ",
+      "delay": 1000,
+      "message": "Taking you to the UniVoice Discord server!"
+    },
+    "png2jpg-ffmpeg": "https://gist.githubusercontent.com/adrenak/198cad1a2ecef037f6545490d4f7c96c/raw/png2jpg-ffmpeg.sh",
+    "twitter": "https://twitter.com/VatsalAmbastha"
+  }
+}
