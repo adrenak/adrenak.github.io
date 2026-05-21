@@ -1,0 +1,150 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+Q=4
+
+TEMP_DIR=""
+DOWNLOADED_FFMPEG=false
+
+cleanup() {
+  if [ "$DOWNLOADED_FFMPEG" = true ] && [ -n "$TEMP_DIR" ]; then
+    rm -rf "$TEMP_DIR"
+  fi
+}
+trap cleanup EXIT
+
+download_file() {
+  local url="$1"
+  local out="$2"
+
+  if command -v curl >/dev/null 2>&1; then
+    curl -L "$url" -o "$out"
+  elif command -v wget >/dev/null 2>&1; then
+    wget "$url" -O "$out"
+  else
+    echo "Error: Neither curl nor wget is available."
+    exit 1
+  fi
+}
+
+extract_archive() {
+  local archive="$1"
+  local dest="$2"
+
+  case "$archive" in
+    *.zip)
+      command -v unzip >/dev/null 2>&1 || { echo "Error: unzip is required."; exit 1; }
+      unzip -q "$archive" -d "$dest"
+      ;;
+    *.tar.xz)
+      tar -xJf "$archive" -C "$dest"
+      ;;
+    *)
+      echo "Error: Unsupported archive: $archive"
+      exit 1
+      ;;
+  esac
+}
+
+FFMPEG_BIN="ffmpeg"
+
+if ! command -v ffmpeg >/dev/null 2>&1; then
+  echo ""
+  echo "⚠️ ffmpeg not found. Temporarily downloading portable ffmpeg..."
+  echo ""
+
+  TEMP_DIR="$(mktemp -d)"
+  DOWNLOADED_FFMPEG=true
+
+  OS="$(uname -s)"
+  ARCH="$(uname -m)"
+
+  case "$OS" in
+    Darwin)
+      case "$ARCH" in
+        arm64)
+          FFMPEG_URL="https://ffmpeg.martin-riedl.de/redirect/latest/macos/arm64/release/ffmpeg.zip"
+          ;;
+        x86_64)
+          FFMPEG_URL="https://ffmpeg.martin-riedl.de/redirect/latest/macos/amd64/release/ffmpeg.zip"
+          ;;
+        *)
+          echo "Error: Unsupported macOS architecture: $ARCH"
+          exit 1
+          ;;
+      esac
+      ARCHIVE_FILE="$TEMP_DIR/ffmpeg.zip"
+      ;;
+
+    Linux)
+      case "$ARCH" in
+        x86_64|amd64)
+          FFMPEG_URL="https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz"
+          ;;
+        aarch64|arm64)
+          FFMPEG_URL="https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-arm64-static.tar.xz"
+          ;;
+        *)
+          echo "Error: Unsupported Linux architecture: $ARCH"
+          exit 1
+          ;;
+      esac
+      ARCHIVE_FILE="$TEMP_DIR/ffmpeg.tar.xz"
+      ;;
+
+    MINGW*|MSYS*|CYGWIN*)
+      FFMPEG_URL="https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip"
+      ARCHIVE_FILE="$TEMP_DIR/ffmpeg.zip"
+      ;;
+
+    *)
+      echo "Error: Unsupported OS: $OS"
+      exit 1
+      ;;
+  esac
+
+  download_file "$FFMPEG_URL" "$ARCHIVE_FILE"
+
+  echo "Extracting ffmpeg..."
+  extract_archive "$ARCHIVE_FILE" "$TEMP_DIR"
+
+  FFMPEG_BIN="$(find "$TEMP_DIR" -type f \( -name "ffmpeg" -o -name "ffmpeg.exe" \) | head -n 1)"
+
+  if [ ! -f "$FFMPEG_BIN" ]; then
+    echo "Error: Failed to locate ffmpeg executable."
+    exit 1
+  fi
+
+  chmod +x "$FFMPEG_BIN"
+
+  echo "Using temporary ffmpeg:"
+  echo "$FFMPEG_BIN"
+fi
+
+shopt -s nullglob nocaseglob
+
+FOUND=false
+
+for file in *.png; do
+  FOUND=true
+  filename="${file%.*}"
+  output="${filename}.jpg"
+
+  echo ""
+  echo "Converting:"
+  echo "  Input : $file"
+  echo "  Output: $output"
+
+  "$FFMPEG_BIN" -loglevel error -y -i "$file" \
+    -q:v "$Q" \
+    -pix_fmt yuvj420p \
+    "$output"
+done
+
+if [ "$FOUND" = false ]; then
+  echo "No PNG files found in current directory."
+  exit 0
+fi
+
+echo ""
+echo "Done."

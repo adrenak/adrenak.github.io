@@ -1,0 +1,122 @@
+param(
+    [string]$Quality = "high",
+
+    [Alias("h")]
+    [switch]$Help
+)
+
+function Exit-Script {
+    Write-Host ""
+    Read-Host "Press Enter to close"
+    exit
+}
+
+function Show-Help {
+    Write-Host ""
+    Write-Host "PNG to JPG Converter"
+    Write-Host ""
+    Write-Host "Usage:"
+    Write-Host "  .\png2jpg.ps1 -Quality high"
+    Write-Host "  .\png2jpg.ps1 -Quality low"
+    Write-Host "  .\png2jpg.ps1 -Help"
+    Write-Host "  .\png2jpg.ps1 -h"
+    Write-Host ""
+    Write-Host "Quality Levels:"
+    Write-Host "  low       Smallest files, visible compression"
+    Write-Host "  medium    Balanced quality and size"
+    Write-Host "  high      High quality (recommended)"
+    Write-Host "  veryhigh  Near-lossless quality"
+    Write-Host ""
+}
+
+if (
+    $Help -or
+    $Quality -eq "help" -or
+    $Quality -eq "-h" -or
+    $Quality -eq "--help" -or
+    $args -contains "-h" -or
+    $args -contains "--help"
+) {
+    Show-Help
+    Exit-Script
+}
+
+$qualityMap = @{
+    low      = 45
+    medium   = 65
+    high     = 82
+    veryhigh = 95
+}
+
+if (-not $qualityMap.ContainsKey($Quality)) {
+    Write-Host "Invalid quality: $Quality"
+    Show-Help
+    Exit-Script
+}
+
+$jpegQuality = [int64]$qualityMap[$Quality]
+
+try {
+    Add-Type -AssemblyName System.Drawing
+}
+catch {
+    Write-Host "Error: Failed to load System.Drawing."
+    Exit-Script
+}
+
+$encoder = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() |
+    Where-Object { $_.MimeType -eq "image/jpeg" }
+
+if (-not $encoder) {
+    Write-Host "Error: JPEG encoder not found."
+    Exit-Script
+}
+
+$params = New-Object System.Drawing.Imaging.EncoderParameters(1)
+$params.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter(
+    [System.Drawing.Imaging.Encoder]::Quality,
+    $jpegQuality
+)
+
+$files = Get-ChildItem -Path . -File |
+    Where-Object { $_.Extension -ieq ".png" }
+
+if ($files.Count -eq 0) {
+    Write-Host "No PNG files found in current directory."
+    Exit-Script
+}
+
+foreach ($file in $files) {
+    $inputPath = $file.FullName
+    $outputPath = [System.IO.Path]::ChangeExtension($inputPath, ".jpg")
+
+    Write-Host "Converting $($file.Name) -> $([System.IO.Path]::GetFileName($outputPath))"
+
+    $png = $null
+    $bitmap = $null
+    $graphics = $null
+
+    try {
+        $png = [System.Drawing.Image]::FromFile($inputPath)
+
+        $bitmap = New-Object System.Drawing.Bitmap($png.Width, $png.Height)
+        $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
+
+        $graphics.Clear([System.Drawing.Color]::White)
+        $graphics.DrawImage($png, 0, 0, $png.Width, $png.Height)
+
+        $bitmap.Save($outputPath, $encoder, $params)
+    }
+    catch {
+        Write-Host "Failed to convert: $($file.Name)"
+        Write-Host $_
+    }
+    finally {
+        if ($graphics) { $graphics.Dispose() }
+        if ($bitmap) { $bitmap.Dispose() }
+        if ($png) { $png.Dispose() }
+    }
+}
+
+Write-Host ""
+Write-Host "Done."

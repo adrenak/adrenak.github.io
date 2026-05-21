@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+echo ""
+echo "PNG to JPG Converter"
+echo ""
+echo "Usage:"
+echo "  ./png2jpg-ffmpeg-low.sh"
+echo "  ./png2jpg-ffmpeg-medium.sh"
+echo "  ./png2jpg-ffmpeg-high.sh"
+echo "  ./png2jpg-ffmpeg-veryhigh.sh"
+echo "  ./png2jpg-ffmpeg-help.sh"
+echo ""
+echo "Quality Levels:"
+echo "  low       Smallest file size, noticeable compression"
+echo "  medium    Balanced quality and size"
+echo "  high      High quality"
+echo "  veryhigh  Near-lossless quality, largest files"
+echo ""

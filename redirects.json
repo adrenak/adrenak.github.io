@@ -14,6 +14,19 @@
       "message": "Taking you to the UniVoice Discord server!"
     },
     "png2jpg-ffmpeg": "https://gist.githubusercontent.com/adrenak/198cad1a2ecef037f6545490d4f7c96c/raw/png2jpg-ffmpeg.sh",
+    "png2jpg-ffmpeg-help": "https://gist.githubusercontent.com/adrenak/d81f2d6bb55f1468fc6ca260ea691542/raw/png2jpg-ffmpeg-help.sh",
+    "png2jpg-ffmpeg-low": "https://gist.githubusercontent.com/adrenak/5de476fbe1e2e6118e14ff1260cca359/raw/png2jpg-ffmpeg-low.sh",
+    "png2jpg-ffmpeg-medium": "https://gist.githubusercontent.com/adrenak/1dd75075b1434565b3a71af79c872557/raw/png2jpg-ffmpeg-medium.sh",
+    "png2jpg-ffmpeg-high": "https://gist.githubusercontent.com/adrenak/c0a47dc48f89580bca65417915fd70d8/raw/png2jpg-ffmpeg-high.sh",
+    "png2jpg-ffmpeg-veryhigh": "https://gist.githubusercontent.com/adrenak/90effa8acfe4962ada12d8aefd92c39e/raw/png2jpg-ffmpeg-veryhigh.sh",
+
+    "png2jpg-dotnet": "https://gist.githubusercontent.com/adrenak/fb6060becf8994d8f78700c634abf76a/raw/png2jpg-dotnet.ps1",
+    "png2jpg-dotnet-help": "https://gist.githubusercontent.com/adrenak/a45ac0c95d8ccfa80bd41fcf6c316bdc/raw/png2jpg-dotnet-help.ps1",
+    "png2jpg-dotnet-low": "https://gist.githubusercontent.com/adrenak/46c051aec8f11f61b948937cb7b7ed9c/raw/png2jpg-dotnet-low.ps1",
+    "png2jpg-dotnet-medium": "https://gist.githubusercontent.com/adrenak/97ded87d7827098ccf343dec1d9485c4/raw/png2jpg-dotnet-medium.ps1",
+    "png2jpg-dotnet-high": "https://gist.githubusercontent.com/adrenak/4bf3e7816d975cc3f1c6d40a219c48a5/raw/png2jpg-dotnet-high.ps1",
+    "png2jpg-dotnet-veryhigh": "https://gist.githubusercontent.com/adrenak/9066250de4e6f35f4a0aa0a5952eabd7/raw/png2jpg-dotnet-veryhigh.ps1",
+
     "twitter": "https://twitter.com/VatsalAmbastha"
   }
 }

@@ -1,0 +1,24 @@
+function Exit-Script {
+    Write-Host ""
+    Read-Host "Press Enter to close"
+    exit
+}
+
+Write-Host ""
+Write-Host "PNG to JPG Converter"
+Write-Host ""
+Write-Host "Usage:"
+Write-Host "  .\png2jpg-dotnet-low.ps1"
+Write-Host "  .\png2jpg-dotnet-medium.ps1"
+Write-Host "  .\png2jpg-dotnet-high.ps1"
+Write-Host "  .\png2jpg-dotnet-veryhigh.ps1"
+Write-Host "  .\png2jpg-dotnet-help.ps1"
+Write-Host ""
+Write-Host "Quality Levels:"
+Write-Host "  low       Smallest files, visible compression"
+Write-Host "  medium    Balanced quality and size"
+Write-Host "  high      High quality (recommended)"
+Write-Host "  veryhigh  Near-lossless quality"
+Write-Host ""
+
+Exit-Script
