@@ -15,7 +15,7 @@ Sometimes it's just general life stuff and thoughts.
 ---
 
 <div class="post-entry" data-tags="gamedev" data-listing-index="0">
-<img src="content/images/shockface/chelsea.png" alt="Shockface and online footprint" class="post-thumbnail" />
+<img src="content/images/shockface/chelsea.jpg" alt="Shockface and online footprint" class="post-thumbnail" />
 <div class="post-content">
 <h2><a href="../post/shockface-and-online-footprint/">Shockface and online footprint</a></h2>
 <p>Working on a new game and trying to get eyes on it while contributing to the gamedev community</p>

@@ -4,7 +4,7 @@ title: Shockface and online footprint
 date: 2026-05-21
 tags: gamedev
 description: Working on a new game and trying to get eyes on it while contributing to the gamedev community
-thumbnail: content/images/shockface/chelsea.png
+thumbnail: content/images/shockface/chelsea.jpg
 published: yes
 ---
 
@@ -20,16 +20,16 @@ We're still working on getting ths Steam page live and in the meantime have a [D
   <div class="splide__track">
     <ul class="splide__list">
       <li class="splide__slide">
-        <img src="content/images/shockface/wip1/dis1.png" alt="SHOCKFACE WIP screenshots" loading="lazy" />
+        <img src="content/images/shockface/wip1/dis1.jpg" alt="SHOCKFACE WIP screenshots" loading="lazy" />
       </li>
       <li class="splide__slide">
-        <img src="content/images/shockface/wip1/dis2.png" alt="SHOCKFACE WIP screenshots" loading="lazy" />
+        <img src="content/images/shockface/wip1/dis2.jpg" alt="SHOCKFACE WIP screenshots" loading="lazy" />
       </li>
       <li class="splide__slide">
-        <img src="content/images/shockface/wip1/dis3.png" alt="SHOCKFACE WIP screenshots" loading="lazy" />
+        <img src="content/images/shockface/wip1/dis3.jpg" alt="SHOCKFACE WIP screenshots" loading="lazy" />
       </li>
       <li class="splide__slide">
-        <img src="content/images/shockface/wip1/dis4.png" alt="SHOCKFACE WIP screenshots" loading="lazy" />
+        <img src="content/images/shockface/wip1/dis4.jpg" alt="SHOCKFACE WIP screenshots" loading="lazy" />
       </li>
     </ul>
   </div>
@@ -50,16 +50,16 @@ The other approach I've been trying is releasing some assets (and some code) tha
   <div class="splide__track">
     <ul class="splide__list">
       <li class="splide__slide">
-        <img src="content/images/shockface/wip1/a1.png" alt="SHOCKFACE asset screenshots" loading="lazy" />
+        <img src="content/images/shockface/wip1/a1.jpg" alt="SHOCKFACE asset screenshots" loading="lazy" />
       </li>
       <li class="splide__slide">
-        <img src="content/images/shockface/wip1/a2.png" alt="SHOCKFACE asset screenshots" loading="lazy" />
+        <img src="content/images/shockface/wip1/a2.jpg" alt="SHOCKFACE asset screenshots" loading="lazy" />
       </li>
       <li class="splide__slide">
-        <img src="content/images/shockface/wip1/a3.png" alt="SHOCKFACE asset screenshots" loading="lazy" />
+        <img src="content/images/shockface/wip1/a3.jpg" alt="SHOCKFACE asset screenshots" loading="lazy" />
       </li>
       <li class="splide__slide">
-        <img src="content/images/shockface/wip1/a4.png" alt="SHOCKFACE asset screenshots" loading="lazy" />
+        <img src="content/images/shockface/wip1/a4.jpg" alt="SHOCKFACE asset screenshots" loading="lazy" />
       </li>
     </ul>
   </div>
