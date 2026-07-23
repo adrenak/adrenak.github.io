@@ -5,7 +5,7 @@ Hi, I'm Vatsal👋
 I make games, apps, art, tools, and more with the Unity engine. 
 
 ### What I do
-If you're here from Twitter or Reddit, you might know I'm developing [SHOCKFACE](https://discord.gg/d42YJAVH2x), a 90s slasher/thriller/horror game.
+If you're here from Twitter or Reddit, you might know I'm developing [SHOCKFACE](https://s.team/a/4705980), a campy 90s thriller game. Check out the [trailer on youtube](https://www.youtube.com/watch?v=BeckPJlqWjc).
 
 Presently I am employed at [ManageXR](https://www.managexr.com) where I develop our Unity VR application and SDKs. You can see my professional and education background on [LinkedIn](https://www.linkedin.com/in/vatsalambastha/).
   
