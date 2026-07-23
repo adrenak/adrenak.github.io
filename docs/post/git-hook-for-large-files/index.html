@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Thoughts on code, games, and whatever else I&#039;m tinkering with." id="meta-description">
+    <meta name="description" content="You commited a 200mb file 10 commits ago. Now you can&#039;t push to remote." id="meta-description">
     <meta name="keywords" content="Unity, game development, virtual reality, ManageXR, open source, unity3d, AR, VR" id="meta-keywords">
-    <link rel="canonical" href="https://adrenak.github.io/posts/tag/life/" id="canonical-link">
-    <meta property="og:title" content="Posts tagged “life”">
-    <meta property="og:description" content="Thoughts on code, games, and whatever else I&#039;m tinkering with.">
-    <meta property="og:url" content="https://adrenak.github.io/posts/tag/life/">
+    <link rel="canonical" href="https://adrenak.github.io/post/git-hook-for-large-files/" id="canonical-link">
+    <meta property="og:title" content="Git hook to catch large files">
+    <meta property="og:description" content="You commited a 200mb file 10 commits ago. Now you can&#039;t push to remote.">
+    <meta property="og:url" content="https://adrenak.github.io/post/git-hook-for-large-files/">
     <meta property="og:site_name" content="Vatsal Ambastha">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://adrenak.github.io/content/images/sf.jpg">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Posts tagged “life”">
-    <meta name="twitter:description" content="Thoughts on code, games, and whatever else I&#039;m tinkering with.">
-    <meta name="twitter:image" content="https://adrenak.github.io/content/images/sf.jpg">
-    <title id="page-title">Posts tagged “life”</title>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Posts tagged “life”","description":"Thoughts on code, games, and whatever else I'm tinkering with.","url":"https://adrenak.github.io/posts/tag/life/","image":"https://adrenak.github.io/content/images/sf.jpg"}</script>
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://adrenak.github.io/content/images/_/large-file-git-hook.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Git hook to catch large files">
+    <meta name="twitter:description" content="You commited a 200mb file 10 commits ago. Now you can&#039;t push to remote.">
+    <meta name="twitter:image" content="https://adrenak.github.io/content/images/_/large-file-git-hook.jpg">
+    <title id="page-title">Git hook to catch large files</title>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Git hook to catch large files","description":"You commited a 200mb file 10 commits ago. Now you can't push to remote.","url":"https://adrenak.github.io/post/git-hook-for-large-files/","author":{"@type":"Person","name":"Vatsal Ambastha"},"image":"https://adrenak.github.io/content/images/_/large-file-git-hook.jpg","keywords":"git"}</script>
     <script>
 (function () {
     var search = window.location.search;
     if (!search) return;
 
     var params = new URLSearchParams(search);
-    var root = "../../../";
+    var root = "../../";
     var path = window.location.pathname;
     var target = null;
 
@@ -58,15 +58,15 @@
     }
 })();
 </script>
-    <link rel="icon" type="image/x-icon" href="../../../favicon.ico" id="favicon-link">
-    <link rel="apple-touch-icon" href="../../../apple-touch-icon.png" id="apple-touch-icon-link">
-    <link rel="stylesheet" href="../../../styles/base.css">
-    <link rel="stylesheet" href="../../../styles/theme-shell.css">
-    <link rel="stylesheet" href="../../../styles/themes/adrenak.css" id="theme-palette-stylesheet">
-    <link rel="stylesheet" href="../../../styles/layout.css">
-    <link rel="stylesheet" href="../../../styles/content.css">
-    <link rel="stylesheet" href="../../../styles/accordion.css">
-    <link rel="stylesheet" href="../../../styles/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico" id="favicon-link">
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png" id="apple-touch-icon-link">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="../../styles/theme-shell.css">
+    <link rel="stylesheet" href="../../styles/themes/adrenak.css" id="theme-palette-stylesheet">
+    <link rel="stylesheet" href="../../styles/layout.css">
+    <link rel="stylesheet" href="../../styles/content.css">
+    <link rel="stylesheet" href="../../styles/accordion.css">
+    <link rel="stylesheet" href="../../styles/responsive.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
@@ -80,8 +80,8 @@
     <span></span>
     <span></span>
   </button>
-  <a class="mobile-topbar-brand" href="../../../">
-    <img class="mobile-topbar-favicon" src="../../../favicon.ico" alt="" width="22" height="22" />
+  <a class="mobile-topbar-brand" href="../../">
+    <img class="mobile-topbar-favicon" src="../../favicon.ico" alt="" width="22" height="22" />
     <span class="mobile-topbar-title">Vatsal Ambastha</span>
   </a>
 </header>
@@ -94,11 +94,11 @@
                     <h1>Vatsal Ambastha</h1>
                 </div>
                 <nav class="sidebar-main-nav">
-                    <a href="../../../" class="nav-link">
+                    <a href="../../" class="nav-link">
     <span class="nav-icon">🏠</span>
     <span>Home</span>
 </a>
-<a href="../../../posts/" class="nav-link active">
+<a href="../../posts/" class="nav-link">
     <span class="nav-icon">✍️</span>
     <span>Posts</span>
 </a>
@@ -109,7 +109,7 @@
     <h3 class="section-title"></h3>
     <ul class="section-list">
         <li>
-            <a href="../../../work/" class="nav-link">
+            <a href="../../work/" class="nav-link">
                 <span>Work</span>
             </a>
         </li>
@@ -183,26 +183,158 @@
 
         <main class="main-content">
             <div id="markdown-content">
-                
-                <h1>Posts tagged “life”</h1>
-<h2>Tags</h2>
-<p><a href="../../">All (22)</a> • <a href="../opensource/">opensource (15)</a> • <a href="../univoice/">univoice (14)</a> • <a href="../gamedev/">gamedev (4)</a> • <a href="../film/">film (3)</a> • <a href="./">life (2)</a> • <a href="../git/">git (1)</a> • <a href="../travel/">travel (1)</a> • <a href="../unimic/">unimic (1)</a></p>
-<hr>
-<div class="post-entry" data-tags="life,travel" data-listing-index="0">
-<img src="../../../content/images/oasis-australia.jpg" alt="Oasis reunion and a year with (almost) no social media" class="post-thumbnail" />
-<div class="post-content">
-<h2><a href="../../../post/oasis-in-australia/">Oasis reunion and a year with (almost) no social media</a></h2>
-<p>The great wait is over.</p>
-</div>
+                <div class="post-metadata">
+  <h1 class="post-title">Git hook to catch large files</h1>
+  <div class="post-date">24 Jul 2027</div>
+  <div class="post-tags">Tagged: <a href="../../posts/tag/git/" class="tag-link">git</a></div>
 </div>
 
-<div class="post-entry" data-tags="life" data-listing-index="1">
-<div class="post-content">
-<h2><a href="../../../post/morning-thoughts/">Morning thoughts of a night owl</a></h2>
-<p>After a decade of inconsistent sleeping habits I finally seem to have found something that works for me.</p>
-</div>
-</div>
+                <p>Unity projects often contain large videos, audio files, textures, archives, and generated data.</p>
+<p>The problem usually appears when you finally push:</p>
+<pre><code class="language-text">remote: error: File Assets/Videos/Trailer.mp4 is 143.27 MB
+remote: error: this exceeds GitHub&#39;s file size limit
+</code></pre>
+<p>If that file was committed several commits ago, deleting it in the latest commit will not help. It is still present in Git history.</p>
+<p>The easiest fix is to block oversized files before the commit is created.</p>
+<p>This pre-commit hook will:</p>
+<ul>
+<li>Warn for files larger than 50 MiB</li>
+<li>Block files larger than 100 MiB</li>
+<li>Check the actual staged file size</li>
+<li>Ignore file extensions completely</li>
+</ul>
+<h2>1. Create the hook</h2>
+<p>From the root of your repository, create:</p>
+<pre><code class="language-text">.githooks/pre-commit
+</code></pre>
+<p>The filename must be exactly <code>pre-commit</code>, with no extension.</p>
+<p>Paste this into it:</p>
+<pre><code class="language-bash">#!/usr/bin/env bash
 
+WARN_LIMIT_MIB=50
+BLOCK_LIMIT_MIB=100
+
+WARN_LIMIT_BYTES=$((WARN_LIMIT_MIB * 1024 * 1024))
+BLOCK_LIMIT_BYTES=$((BLOCK_LIMIT_MIB * 1024 * 1024))
+
+blocked=0
+warned=0
+
+format_size() {
+    awk -v bytes=&quot;$1&quot; &#39;BEGIN {
+        printf &quot;%.2f MiB&quot;, bytes / 1024 / 1024
+    }&#39;
+}
+
+while IFS= read -r -d &#39;&#39; file; do
+    object_type=$(git cat-file -t &quot;:$file&quot; 2&gt;/dev/null) || continue
+    [ &quot;$object_type&quot; = &quot;blob&quot; ] || continue
+
+    size=$(git cat-file -s &quot;:$file&quot; 2&gt;/dev/null) || continue
+    formatted_size=$(format_size &quot;$size&quot;)
+
+    if (( size &gt; BLOCK_LIMIT_BYTES )); then
+        printf &#39;\nERROR: File exceeds %d MiB:\n&#39; \
+            &quot;$BLOCK_LIMIT_MIB&quot; &gt;&amp;2
+        printf &#39;  %s (%s)\n&#39; &quot;$file&quot; &quot;$formatted_size&quot; &gt;&amp;2
+        blocked=1
+
+    elif (( size &gt; WARN_LIMIT_BYTES )); then
+        printf &#39;\nWARNING: Large file being committed:\n&#39; &gt;&amp;2
+        printf &#39;  %s (%s)\n&#39; &quot;$file&quot; &quot;$formatted_size&quot; &gt;&amp;2
+        warned=1
+    fi
+done &lt; &lt;(
+    git diff \
+        --cached \
+        --name-only \
+        --diff-filter=ACMRT \
+        -z
+)
+
+if (( blocked )); then
+    printf &#39;\nCommit cancelled.\n&#39; &gt;&amp;2
+    printf &#39;Remove the file from staging with:\n\n&#39; &gt;&amp;2
+    printf &#39;  git restore --staged -- &quot;path/to/file&quot;\n\n&#39; &gt;&amp;2
+    exit 1
+fi
+
+if (( warned )); then
+    printf &#39;\nCommit allowed, but one or more files are unusually large.\n&#39; &gt;&amp;2
+fi
+
+exit 0
+</code></pre>
+<h2>2. Enable the hook</h2>
+<p>Run this from the repository root:</p>
+<pre><code class="language-bash">git config core.hooksPath .githooks
+</code></pre>
+<p>Check that it worked:</p>
+<pre><code class="language-bash">git config --get core.hooksPath
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">.githooks
+</code></pre>
+<h2>3. Make it work across Windows, macOS, and Linux</h2>
+<p>Add this to <code>.gitattributes</code>:</p>
+<pre><code class="language-gitattributes">.githooks/* text eol=lf
+</code></pre>
+<p>This forces LF line endings and avoids errors such as:</p>
+<pre><code class="language-text">/usr/bin/env: &#39;bash\r&#39;: No such file or directory
+</code></pre>
+<p>On macOS and Linux, run:</p>
+<pre><code class="language-bash">chmod +x .githooks/pre-commit
+</code></pre>
+<p>On Windows:</p>
+<ul>
+<li>Install Git for Windows</li>
+<li>Make sure the file is named <code>pre-commit</code>, not <code>pre-commit.txt</code></li>
+<li>Make sure the file uses LF line endings</li>
+<li>If needed, run this from Git Bash:</li>
+</ul>
+<pre><code class="language-bash">chmod +x .githooks/pre-commit
+</code></pre>
+<h2>4. Test it</h2>
+<h3>Windows PowerShell</h3>
+<p>Create a 60 MiB file:</p>
+<pre><code class="language-powershell">$file = [System.IO.File]::Create(&quot;test-60mb.bin&quot;)
+$file.SetLength(60MB)
+$file.Close()
+</code></pre>
+<p>Create a 110 MiB file:</p>
+<pre><code class="language-powershell">$file = [System.IO.File]::Create(&quot;test-110mb.bin&quot;)
+$file.SetLength(110MB)
+$file.Close()
+</code></pre>
+<h3>macOS or Linux</h3>
+<p>Create a 60 MiB file:</p>
+<pre><code class="language-bash">dd if=/dev/zero of=test-60mb.bin bs=1M count=60
+</code></pre>
+<p>Create a 110 MiB file:</p>
+<pre><code class="language-bash">dd if=/dev/zero of=test-110mb.bin bs=1M count=110
+</code></pre>
+<p>Now try committing them:</p>
+<pre><code class="language-bash">git add test-60mb.bin
+git commit -m &quot;Test warning&quot;
+</code></pre>
+<p>The commit should succeed with a warning.</p>
+<p>Then try:</p>
+<pre><code class="language-bash">git add test-110mb.bin
+git commit -m &quot;Test blocking&quot;
+</code></pre>
+<p>The commit should be cancelled.</p>
+<p>Remove the blocked file from staging with:</p>
+<pre><code class="language-bash">git restore --staged -- test-110mb.bin
+</code></pre>
+<h2>Done</h2>
+<p>From now on:</p>
+<ul>
+<li>Files larger than 50 MiB produce a warning</li>
+<li>Files larger than 100 MiB block the commit</li>
+<li>The check uses the staged file, not the working copy</li>
+<li>File extensions do not matter</li>
+</ul>
+<p>That means oversized Unity assets are caught immediately instead of several commits later when you finally push.</p>
 
             </div>
         </main>
@@ -293,7 +425,7 @@
                                 }
                       }
             };
-        const ASSET_PREFIX = "../../../";
+        const ASSET_PREFIX = "../../";
 
         document.addEventListener('DOMContentLoaded', function () {
             const markdownContent = document.getElementById('markdown-content');
